@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://7ml1scr12l3i"]
+
+[ext_resource type="PackedScene" uid="uid://c5kl6uqsoai22" path="res://Assets/Modelos/door_double_left.glb" id="1_sdn37"]
+[ext_resource type="Script" uid="uid://ca6n8nlhpwl36" path="res://Scripts/puerta.gd" id="2_gbso6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vvs65"]
+size = Vector3(1, 12, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sdn37"]
+size = Vector3(3, 13, 5)
+
+[node name="door_double_left" unique_id=1425219399 instance=ExtResource("1_sdn37")]
+script = ExtResource("2_gbso6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Object_8_001" parent_id_path=PackedInt32Array(1750009045) index="0" unique_id=1903147503]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Object_8_001/StaticBody3D" index="0" unique_id=1176648689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2.5)
+shape = SubResource("BoxShape3D_vvs65")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=350437694]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1980632174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -1)
+shape = SubResource("BoxShape3D_sdn37")
+debug_color = Color(0.45437258, 0.5953334, 0, 0.41960785)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

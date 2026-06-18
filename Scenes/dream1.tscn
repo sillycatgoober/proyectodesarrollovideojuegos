@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://p3xr5hgoqwa5"]
+
+[ext_resource type="PackedScene" uid="uid://c5kl6uqsoai22" path="res://Assets/Modelos/door_double_left.glb" id="1_tekqj"]
+[ext_resource type="PackedScene" uid="uid://c68tuxrpwct7f" path="res://Assets/Modelos/dream1-YA.glb" id="2_625v2"]
+[ext_resource type="PackedScene" uid="uid://1p3txg1w5uja" path="res://Assets/Modelos/door_single.glb" id="3_5tq3y"]
+[ext_resource type="PackedScene" uid="uid://bdgkwm8uubi1g" path="res://Assets/Modelos/door_double_right.glb" id="4_5tq3y"]
+[ext_resource type="PackedScene" uid="uid://b1cuxurlb8vgk" path="res://Scenes/Player.tscn" id="5_5tq3y"]
+[ext_resource type="PackedScene" uid="uid://7ml1scr12l3i" path="res://Scenes/Puerta.tscn" id="6_mu2gy"]
+
+[node name="Node3D" type="Node3D" unique_id=1275853103]
+
+[node name="Player" parent="." unique_id=890671124 instance=ExtResource("5_5tq3y")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 59.702995, 0.91598606, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=576658453]
+transform = Transform3D(0.9999607, -0.007517587, 0.004701226, 0.0075368476, 0.9999632, -0.0040945094, -0.0046702856, 0.0041297656, 0.99998057, -6.634527, 14.965134, 0)
+
+[node name="entrada_right" parent="." unique_id=213224467 instance=ExtResource("4_5tq3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.2, 0, 2.667)
+
+[node name="entrada_left2" parent="." unique_id=915300077 instance=ExtResource("1_tekqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.64861, 0, -1.7791352)
+
+[node name="entrada_right2" parent="." unique_id=340678356 instance=ExtResource("4_5tq3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.616505, 0, 2.667)
+
+[node name="puerta_A1" parent="." unique_id=710030505 instance=ExtResource("3_5tq3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.198166, 0, -10.481783)
+
+[node name="puerta_A2" parent="." unique_id=1157224870 instance=ExtResource("3_5tq3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.48027, 0, -10.481783)
+
+[node name="puerta_A3" parent="." unique_id=921388877 instance=ExtResource("3_5tq3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.1559, 0, -10.481783)
+
+[node name="dream1-YA" parent="." unique_id=1535122211 instance=ExtResource("2_625v2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07006836, -9.536743e-07, 0.023651123)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1803020760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.97687, -0.4, -30.627197)
+use_collision = true
+size = Vector3(214.75061, 1, 86.29639)
+
+[node name="door_double_left" parent="." unique_id=1425219399 instance=ExtResource("6_mu2gy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.971855, 2.1422796, 0)
+
+[editable path="entrada_right"]
+[editable path="entrada_left2"]
+[editable path="entrada_right2"]
+[editable path="puerta_A1"]
+[editable path="puerta_A2"]
+[editable path="puerta_A3"]
