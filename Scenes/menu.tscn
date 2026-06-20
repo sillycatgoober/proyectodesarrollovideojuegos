@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2omn8jke7kik"]
 
 [ext_resource type="Texture2D" uid="uid://4h77pfbef1ui" path="res://Assets/Imagenes/menu_fondo.png" id="1_1rerr"]
-[ext_resource type="Script" uid="uid://e3o3cnbbtctk" path="res://Scenes/menu.gd" id="1_xhh6f"]
+[ext_resource type="Script" uid="uid://e3o3cnbbtctk" path="res://Scripts/menu.gd" id="1_xhh6f"]
 
 [node name="Menu" type="Control" unique_id=802699079]
 layout_mode = 3
@@ -18,6 +18,24 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_1rerr")
 
+[node name="ContinueButton" type="Button" parent="." unique_id=1428534755]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 466.0
+offset_top = 395.0
+offset_right = 684.0
+offset_bottom = 438.0
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="." unique_id=1016629000]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 466.0
+offset_top = 446.0
+offset_right = 684.0
+offset_bottom = 489.0
+text = "New Game"
+
 [node name="ExitButton" type="Button" parent="." unique_id=583161307]
 auto_translate_mode = 1
 layout_mode = 0
@@ -27,14 +45,5 @@ offset_right = 684.0
 offset_bottom = 540.0
 text = "Exit"
 
-[node name="PlayButton" type="Button" parent="." unique_id=1428534755]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 466.0
-offset_top = 437.0
-offset_right = 684.0
-offset_bottom = 480.0
-text = "Play"
-
+[connection signal="pressed" from="ContinueButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

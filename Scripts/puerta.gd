@@ -1,26 +1,36 @@
-extends Node3D
+extends Interactuable
 
-var jugador_cerca: bool = false
-var puerta_abierta: bool = false
+var abierta: bool = false
+@export var bloqueada: bool = false
+@export var modelo_puerta: PackedScene
+@export var angulo_apertura := 90.0
+@onready var model = $Model
 
-@onready var modelo_puerta = $Object_8_001
 
-func _process(_delta):
-	if jugador_cerca and Input.is_action_just_pressed("interact"):
-		if not puerta_abierta:
-			abrir_puerta()
-		else:
-			cerrar_puerta()
+func _ready() -> void:
+	if modelo_puerta:
+		var instancia = modelo_puerta.instantiate()
+		model.add_child(instancia)
+
+func interact():
+	if bloqueada:
+		print("La puerta está bloqueada")
+		return
+	if not abierta:
+		abrir_puerta()
+	else:
+		cerrar_puerta()
 
 func abrir_puerta():
-	puerta_abierta = true
-	var tween = create_tween()
-	tween.tween_property(modelo_puerta, "rotation:y", deg_to_rad(90), 0.8)
+	abierta = true
+	create_tween().tween_property(self, "rotation:y", deg_to_rad(angulo_apertura), 0.8)
 
 func cerrar_puerta():
-	puerta_abierta = false
-	var tween = create_tween()
-	tween.tween_property(modelo_puerta, "rotation:y", deg_to_rad(0), 0.8)
+	abierta = false
+	create_tween().tween_property(self, "rotation:y", deg_to_rad(0), 0.8)
+
+func desbloquear():
+	bloqueada = false
 
 func _on_area_3d_body_entered(body):
 	if body.name == "Player":
