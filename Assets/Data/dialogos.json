@@ -1,0 +1,58 @@
+{
+  "talia": {
+    "inicio": {
+      "texto": "Buenas noches.",
+      "opciones": [
+        { "texto": "Buenas noches. ¿Es usted Talia?", "siguiente": "confirmacion" }
+      ]
+    },
+    "confirmacion": {
+      "texto": "Así es.",
+      "opciones": [
+        { "texto": "Bien, ¿podría decirme qué es el problema que está teniendo con sus sueños?", "siguiente": "descripcion_sueno" }
+      ]
+    },
+    "descripcion_sueno": {
+      "texto": "Pues bien, recientemente he tenido un sueño recurrente, aunque los detalles exactos siempre cambian, siempre se trata de una casa que está llena de agua. A veces el sueño es muy corto, donde empieza ya completamente llena de agua, otras veces apenas se está llenando el suelo.",
+      "opciones": [
+        { "texto": "La casa inundada, ¿es su hogar?", "siguiente": "resp_casa" },
+        { "texto": "El agua, ¿de dónde viene?", "siguiente": "resp_agua" },
+        { "texto": "En el sueño, ¿cómo diría que actúa usted?", "siguiente": "resp_actitud" }
+      ]
+    },
+    "resp_casa": {
+      "texto": "Pues, la mayoría de veces, pero en varios sueños no es exactamente como mi casa, pueden faltar cuartos, haber de más, o estar posicionados diferente.",
+      "opciones": [
+        { "texto": "Gracias por la información. Pasaremos entonces a la inmersión.", "siguiente": "inmersion" }
+      ]
+    },
+    "resp_agua": {
+      "texto": "Mmm… no recuerdo de dónde venía exactamente, pero sé que nunca entraba por la puerta.",
+      "opciones": [
+        { "texto": "Gracias por la información. Pasaremos entonces a la inmersión.", "siguiente": "inmersion" }
+      ]
+    },
+    "resp_actitud": {
+      "texto": "Pues, extrañamente diría que estaba calmada. Un poco raro para la situación.",
+      "opciones": [
+        { "texto": "Gracias por la información. Pasaremos entonces a la inmersión.", "siguiente": "inmersion" }
+      ]
+    },
+    "inmersion": {
+      "texto": "Pasaremos entonces a la inmersión. Para esto le colocaré un dispositivo para comenzar, ¿me permite?",
+      "opciones": [
+        { "texto": "Sí, claro.", "siguiente": "dispositivo" }
+      ]
+    },
+    "dispositivo": {
+      "texto": "Ya está, en unos momentos comenzará a sentir sueño, usted tranquila, se despertará una vez termine la inmersión.",
+      "opciones": [
+        { "texto": "Sí, gracias.", "siguiente": "fin" }
+      ]
+    },
+    "fin": {
+      "texto": "...",
+      "opciones": []
+    }
+  }
+}
