@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://3q88r807if35"]
+
+[ext_resource type="PackedScene" uid="uid://cx2loow2jadei" path="res://Assets/Modelos/Dream3/ticket.glb" id="1_41og6"]
+[ext_resource type="Script" uid="uid://ctpst0i6mj6hk" path="res://Scripts/ticket.gd" id="1_iydsi"]
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="2_iydsi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iydsi"]
+size = Vector3(1, 1, 0.7282715)
+
+[node name="Ticket" type="Node3D" unique_id=1930629515 groups=["interactuable"]]
+script = ExtResource("1_iydsi")
+
+[node name="ticket" parent="." unique_id=368293223 instance=ExtResource("1_41og6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Nombre" type="Label3D" parent="ticket" unique_id=1557100246]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.0045278966, 0.019445866, 0.0009930134)
+pixel_size = 0.002
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "hola"
+font = ExtResource("2_iydsi")
+font_size = 9
+autowrap_mode = 3
+width = 100.0
+
+[node name="Desc" type="Label3D" parent="ticket" unique_id=872072203]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.004071152, -0.034768946, 0.0041356087)
+pixel_size = 0.002
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "hola"
+font = ExtResource("2_iydsi")
+font_size = 9
+autowrap_mode = 3
+width = 100.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1218967248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2212022)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=624438873]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=353478689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.23352051)
+shape = SubResource("BoxShape3D_iydsi")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

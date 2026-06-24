@@ -11,6 +11,7 @@ func puede_interactuar(player):
 func volteando(player):
 	var to_obj = (global_position - player.global_position).normalized()
 	var forward = -player.camara.global_transform.basis.z
+	print(forward.dot(to_obj) > 0.6)
 	return forward.dot(to_obj) > 0.6
 
 func interact():

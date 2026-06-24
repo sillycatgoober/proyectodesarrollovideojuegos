@@ -5,6 +5,7 @@ const RUN_SPEED = 18.0
 
 @export var mouse_sensibilidad: float = 0.003
 @onready var camara: Camera3D = $Camera3D
+@onready var raycast:RayCast3D = $Camera3D/RayCast3D
 @onready var ui = UI
 
 var puede_moverse:bool = true
@@ -28,11 +29,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta):
-	var obj = get_current_interactable()
-	if obj:
-		ui.mostrar_interact()
-		if Input.is_action_just_pressed("interact"):
-			obj.interact()
+	if raycast.is_colliding():
+		var obj = raycast.get_collider().get_parent()
+		if obj.is_in_group("interactuable"):
+			ui.mostrar_interact()
+			if Input.is_action_just_pressed("interact"):
+				obj.interact()
+		else:
+			ui.esconder_interact()
 	else:
 		ui.esconder_interact()
 
