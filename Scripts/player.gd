@@ -5,6 +5,7 @@ const RUN_SPEED = 18.0
 
 @export var mouse_sensibilidad: float = 0.003
 @onready var camara: Camera3D = $Camera3D
+@onready var raycast:RayCast3D = $Camera3D/RayCast3D
 @onready var ui = UI
 
 @onready var journal = $InterfazUI/Journal 
@@ -31,15 +32,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		camara.rotation.x = clamp(camara.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _process(delta):
-
-	if not puede_moverse:
-		return
-			
-	var obj = get_current_interactable()
-	if obj:
-		ui.mostrar_interact()
-		if Input.is_action_just_pressed("interact"):
-			obj.interact()
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider == null:
+			return
+		var obj = collider.get_parent()
+		
+		if obj.is_in_group("interactuable") and obj.puede_interactuar:
+			ui.mostrar_interact()
+			if Input.is_action_just_pressed("interact"):
+				obj.interact()
+			if obj.is_in_group("recogible"):
+				#ui.mostrar_interact()
+				if Input.is_action_just_pressed("grab"):
+					obj.grab()
+		else:
+			ui.esconder_interact()
 	else:
 		ui.esconder_interact()
 
