@@ -29,6 +29,12 @@ func _input(event: InputEvent) -> void:
 	if not en_interaccion:
 		return
 
+	
+	if event.is_action_pressed("interact") or event.is_action_pressed("ui_cancel"):
+		interact() 
+		get_viewport().set_input_as_handled() 
+		return
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			cambiar_hora(1)

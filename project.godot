@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://drogo4jnpmfpk"
 
 GameManager="*uid://w2f616bb684w"
 UI="*uid://cn2jrikhypijr"
+DialogManager="*uid://bghsqkcqdg1i1"
 
 [global]
 

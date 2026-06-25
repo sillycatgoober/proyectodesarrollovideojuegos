@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dyav26mlct4jj" path="res://Assets/Modelos/Dream1/door_left.glb" id="8_1v6x3"]
 [ext_resource type="PackedScene" uid="uid://upxbmaos7nep" path="res://Scenes/reloj.tscn" id="9_5xd1q"]
 [ext_resource type="AudioStream" uid="uid://bcdfmd4vmm61m" path="res://Assets/Audio/Musica/Acrophobia.mp3" id="11_6464o"]
+[ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/journal.tscn" id="12_jxk0o"]
+[ext_resource type="Script" uid="uid://dwrbaqgtv042d" path="res://Scripts/manager_relojes.gd" id="13_hbm3g"]
 
 [sub_resource type="Environment" id="Environment_5xd1q"]
 background_mode = 1
@@ -247,6 +249,16 @@ text = "Volver al menu"
 stream = ExtResource("11_6464o")
 autoplay = true
 bus = &"Music"
+
+[node name="Journal" parent="." unique_id=1763035242 instance=ExtResource("12_jxk0o")]
+
+[node name="Node" type="Node" parent="." unique_id=1565887648 node_paths=PackedStringArray("reloj_1", "reloj_2", "reloj_3", "puerta_biblioteca_1", "puerta_biblioteca_2")]
+script = ExtResource("13_hbm3g")
+reloj_1 = NodePath("../RelojA1")
+reloj_2 = NodePath("../RelojA2")
+reloj_3 = NodePath("../RelojA3")
+puerta_biblioteca_1 = NodePath("../B-Door1")
+puerta_biblioteca_2 = NodePath("../B-Door2")
 
 [connection signal="value_changed" from="CanvasLayer/PanelOpciones/VBoxContainer/SliderMaster" to="." method="_on_slider_master_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/PanelOpciones/VBoxContainer/SliderFX" to="." method="_on_slider_fx_value_changed"]

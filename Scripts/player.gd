@@ -7,13 +7,19 @@ const RUN_SPEED = 18.0
 @onready var camara: Camera3D = $Camera3D
 @onready var ui = UI
 
-var puede_moverse:bool = true
+@onready var journal = $InterfazUI/Journal 
+
+var tiene_carta: bool = false
+var puede_moverse: bool = true
 var target_interactuable = null
 
 func _ready() -> void:
 	add_to_group("Player")
 	puede_moverse = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if journal:
+		journal.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not puede_moverse:
@@ -25,6 +31,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		camara.rotation.x = clamp(camara.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _process(delta):
+
+	if not puede_moverse:
+		return
+			
 	var obj = get_current_interactable()
 	if obj:
 		ui.mostrar_interact()
@@ -47,8 +57,10 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -60,3 +72,17 @@ func _physics_process(delta: float) -> void:
 
 func set_camara_activa(active: bool):
 	$Camera3D.current = active
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("folder"):
+		if journal.visible:
+			journal.hide()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			puede_moverse = true
+		else:
+			journal.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			puede_moverse = false
+			ui.esconder_interact()
+		
+		get_viewport().set_input_as_handled()

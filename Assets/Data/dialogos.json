@@ -1,58 +1,475 @@
 {
+  "rodriguez": {
+	"inicio": {
+	  "texto": "Inspector: Buenas noches, tome asiento. ¿Es usted el señor Rodríguez?",
+	  "opciones": [
+		{
+		  "texto": "Ernesto: Buenas noches, así es, Ernesto Rodríguez.",
+		  "siguiente": "describir_sueno"
+		}
+	  ]
+	},
+	"describir_sueno": {
+	  "texto": "Ernesto: Estoy en mi escuela. La que trabajé por treinta años. Suena la campana, pero... nadie sale de los salones. Camino por los pasillos y todo está quieto.",
+	  "opciones": [
+		{
+		  "texto": "Proceder con las preguntas de la libreta.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"hub_preguntas": {
+	  "texto": "Inspector: [Selecciona una línea de investigación en tu libreta]",
+	  "opciones": [
+		{
+		  "texto": "¿Reconoce algún detalle específico del lugar? ¿Algo que llame su atención?",
+		  "siguiente": "pregunta_detalles"
+		},
+		{
+		  "texto": "¿Alguna idea de por qué ha tenido estos sueños recientemente?",
+		  "siguiente": "pregunta_razon"
+		},
+		{
+		  "texto": "¿Recuerda el nombre del alumno?",
+		  "siguiente": "pregunta_nombre"
+		},
+		{
+		  "texto": "¿Recuerda cuándo ocurrió el incidente?",
+		  "siguiente": "pregunta_cuando"
+		},
+		{
+		  "texto": "[Terminar entrevista] Proceder con la inmersión.",
+		  "siguiente": "preparar_inmersion"
+		}
+	  ]
+	},
+	"pregunta_detalles": {
+	  "texto": "Ernesto: Los relojes. Hay varios en los salones, siempre los había, pero en el sueño todos marcan horas distintas. Ninguno coincide.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_razon": {
+	  "texto": "Ernesto: Podría ser porque me acabo de jubilar. También pensé que podría ser por la muerte de un alumno hace muchos años. Un colapso, fue muy repentino. Nunca tuve pesadillas por eso, si es lo que piensa.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_nombre": {
+	  "texto": "Ernesto: Miguel. Miguel Serrano. Buen chico, aunque un poco despistado, siempre estaba volteando hacia afuera por la ventana.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_cuando": {
+	  "texto": "Ernesto: No recuerdo el día, pero recuerdo que acababa de sonar la campana del receso, debían ser las once de la mañana.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"preparar_inmersion": {
+	  "texto": "Inspector: No sacaré conclusiones todavía, señor. Procederemos con la inmersión. ¿Me permite colocarle el dispositivo?",
+	  "opciones": [
+		{
+		  "texto": "Ernesto: Sí, adelante.",
+		  "siguiente": "dispositivo_puesto"
+		}
+	  ]
+	},
+	"dispositivo_puesto": {
+	  "texto": "Ernesto: De acuerdo. ¿Y si... no quiero ver lo que hay ahí?",
+	  "opciones": [
+		{
+		  "texto": "Inspector: No se preocupe, durante la inmersión usted no soñará, o vaya, no verá el sueño, ya que lo veré yo.",
+		  "siguiente": "fin"
+		}
+	  ]
+	}
+  },
   "talia": {
-    "inicio": {
-      "texto": "Buenas noches.",
-      "opciones": [
-        { "texto": "Buenas noches. ¿Es usted Talia?", "siguiente": "confirmacion" }
-      ]
-    },
-    "confirmacion": {
-      "texto": "Así es.",
-      "opciones": [
-        { "texto": "Bien, ¿podría decirme qué es el problema que está teniendo con sus sueños?", "siguiente": "descripcion_sueno" }
-      ]
-    },
-    "descripcion_sueno": {
-      "texto": "Pues bien, recientemente he tenido un sueño recurrente, aunque los detalles exactos siempre cambian, siempre se trata de una casa que está llena de agua. A veces el sueño es muy corto, donde empieza ya completamente llena de agua, otras veces apenas se está llenando el suelo.",
-      "opciones": [
-        { "texto": "La casa inundada, ¿es su hogar?", "siguiente": "resp_casa" },
-        { "texto": "El agua, ¿de dónde viene?", "siguiente": "resp_agua" },
-        { "texto": "En el sueño, ¿cómo diría que actúa usted?", "siguiente": "resp_actitud" }
-      ]
-    },
-    "resp_casa": {
-      "texto": "Pues, la mayoría de veces, pero en varios sueños no es exactamente como mi casa, pueden faltar cuartos, haber de más, o estar posicionados diferente.",
-      "opciones": [
-        { "texto": "Gracias por la información. Pasaremos entonces a la inmersión.", "siguiente": "inmersion" }
-      ]
-    },
-    "resp_agua": {
-      "texto": "Mmm… no recuerdo de dónde venía exactamente, pero sé que nunca entraba por la puerta.",
-      "opciones": [
-        { "texto": "Gracias por la información. Pasaremos entonces a la inmersión.", "siguiente": "inmersion" }
-      ]
-    },
-    "resp_actitud": {
-      "texto": "Pues, extrañamente diría que estaba calmada. Un poco raro para la situación.",
-      "opciones": [
-        { "texto": "Gracias por la información. Pasaremos entonces a la inmersión.", "siguiente": "inmersion" }
-      ]
-    },
-    "inmersion": {
-      "texto": "Pasaremos entonces a la inmersión. Para esto le colocaré un dispositivo para comenzar, ¿me permite?",
-      "opciones": [
-        { "texto": "Sí, claro.", "siguiente": "dispositivo" }
-      ]
-    },
-    "dispositivo": {
-      "texto": "Ya está, en unos momentos comenzará a sentir sueño, usted tranquila, se despertará una vez termine la inmersión.",
-      "opciones": [
-        { "texto": "Sí, gracias.", "siguiente": "fin" }
-      ]
-    },
-    "fin": {
-      "texto": "...",
-      "opciones": []
-    }
+	"inicio": {
+	  "texto": "Inspector: Buenas noches. ¿Es usted Talia?",
+	  "opciones": [
+		{
+		  "texto": "Talia: Así es.",
+		  "siguiente": "describir_sueno"
+		}
+	  ]
+	},
+	"describir_sueno": {
+	  "texto": "Talia: Recientemente he tenido un sueño recurrente, aunque los detalles exactos siempre cambian, siempre se trata de una casa que está llena de agua. A veces el sueño es muy corto, donde empieza ya completamente llena de agua, otras veces apenas se está llenando el suelo.",
+	  "opciones": [
+		{
+		  "texto": "Proceder con las preguntas de la libreta.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"hub_preguntas": {
+	  "texto": "Inspector: [Selecciona una pregunta para Talia]",
+	  "opciones": [
+		{
+		  "texto": "La casa inundada, ¿es su hogar?",
+		  "siguiente": "pregunta_hogar"
+		},
+		{
+		  "texto": "El agua, ¿de dónde viene?",
+		  "siguiente": "pregunta_agua"
+		},
+		{
+		  "texto": "En el sueño, ¿Cómo diría que actúa usted?",
+		  "siguiente": "pregunta_actitud"
+		},
+		{
+		  "texto": "[Terminar entrevista] Iniciar el dispositivo de inmersión.",
+		  "siguiente": "preparar_inmersion"
+		}
+	  ]
+	},
+	"pregunta_hogar": {
+	  "texto": "Talia: Pues, la mayoría de veces, pero en varios sueños no es exactamente como mi casa, pueden faltar cuartos, haber de más, o estar posicionados diferente.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_agua": {
+	  "texto": "Talia: Mmm... no recuerdo de dónde venía exactamente, pero sé que nunca entraba por la puerta.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_actitud": {
+	  "texto": "Talia: Pues, extrañamente diría que estaba calmada. Un poco raro para la situación.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"preparar_inmersion": {
+	  "texto": "Inspector: Gracias por la información. Pasaremos entonces a la inmersión. Para esto le colocaré un dispositivo para comenzar, ¿me permite?",
+	  "opciones": [
+		{
+		  "texto": "Talia: Sí, claro.",
+		  "siguiente": "dispositivo_puesto"
+		}
+	  ]
+	},
+	"dispositivo_puesto": {
+	  "texto": "Inspector: Ya está, en unos momentos comenzará a sentir sueño, usted tranquila, se despertará una vez termine la inmersión.",
+	  "opciones": [
+		{
+		  "texto": "Talia: Sí, gracias.",
+		  "siguiente": "fin"
+		}
+	  ]
+	}
+  },
+  "castro": {
+	"inicio": {
+	  "texto": "Inspector: Buenas noches. ¿Es usted el señor Castro?",
+	  "opciones": [
+		{
+		  "texto": "Castro: Así es.",
+		  "siguiente": "describir_sueno"
+		}
+	  ]
+	},
+	"describir_sueno": {
+	  "texto": "Castro: Es mi ruta. La que manejo desde hace doce años. Sueño con ella casi cada noche, pero... no estoy solo. Siempre hay alguien sentado atrás. Ni siquiera sé si es una persona, es una figura completamente negra. Pero nunca está en el mismo lugar. Cada nuevo sueño se cambia. Y yo recuerdo bien a mis pasajeros.",
+	  "opciones": [
+		{
+		  "texto": "Proceder con las preguntas de la libreta.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"hub_preguntas": {
+	  "texto": "Inspector: [Selecciona una pregunta para el conductor]",
+	  "opciones": [
+		{
+		  "texto": "¿Ha subido algún pasajero inusual en su ruta real?",
+		  "siguiente": "pregunta_inusual"
+		},
+		{
+		  "texto": "¿Escucha algo en el sueño?",
+		  "siguiente": "pregunta_escucha"
+		},
+		{
+		  "texto": "¿Siente miedo en el sueño?",
+		  "siguiente": "pregunta_miedo"
+		},
+		{
+		  "texto": "[Terminar entrevista] Preparar el equipo de inmersión.",
+		  "siguiente": "preparar_inmersion"
+		}
+	  ]
+	},
+	"pregunta_inusual": {
+	  "texto": "Castro: Hace unos meses subió un hombre al final del turno. No dijo nada en todo el trayecto. Se bajó en la última parada y... dejó olvidado su boleto. Nunca lo reclamó.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_escucha": {
+	  "texto": "Castro: A veces. Como alguien diciéndome algo, pero no entiendo qué.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_miedo": {
+	  "texto": "Castro: No. Pero siento como... que debo hacer algo y no sé qué.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"preparar_inmersion": {
+	  "texto": "Inspector: Entiendo. Esto es suficiente por ahora. ¿Me permite colocarle el dispositivo?",
+	  "opciones": [
+		{
+		  "texto": "Castro: Sí. Oiga, ¿Qué va a hacer usted ahí?",
+		  "siguiente": "dispositivo_puesto"
+		}
+	  ]
+	},
+	"dispositivo_puesto": {
+	  "texto": "Inspector: Veré.",
+	  "opciones": [
+		{
+		  "texto": "[Iniciar Inmersión]",
+		  "siguiente": "fin"
+		}
+	  ]
+	}
+  },
+  "marcos": {
+	"inicio": {
+	  "texto": "Inspector: Buenas noches. ¿Es usted Marcos Vargas?",
+	  "opciones": [
+		{
+		  "texto": "Marcos: Buenas noches, sí, soy yo.",
+		  "siguiente": "describir_sueno"
+		}
+	  ]
+	},
+	"describir_sueno": {
+	  "texto": "Marcos: Recientemente he estado teniendo varios sueños donde estoy en mi oficina, trabajando. Pero cuando quiero irme... no encuentro la salida. Pero no es como si la oficina fuera infinita o algo así, simplemente que cuando quiero llegar a la salida me regresa para atrás.",
+	  "opciones": [
+		{
+		  "texto": "Proceder con las preguntas de la libreta.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"hub_preguntas": {
+	  "texto": "Inspector: [Analizar síntomas de burnout del empleado]",
+	  "opciones": [
+		{
+		  "texto": "¿Está solo en ese sueño?",
+		  "siguiente": "pregunta_solo"
+		},
+		{
+		  "texto": "¿La oficina es igual a la que trabaja actualmente?",
+		  "siguiente": "pregunta_igual"
+		},
+		{
+		  "texto": "¿Recuerda algo fuera de lo normal en el sueño?",
+		  "siguiente": "pregunta_anomalia"
+		},
+		{
+		  "texto": "¿Qué estaba haciendo en el sueño exactamente?",
+		  "siguiente": "pregunta_accion"
+		},
+		{
+		  "texto": "¿Cuánto tiempo lleva teniendo este sueño?",
+		  "siguiente": "pregunta_tiempo"
+		},
+		{
+		  "texto": "[Terminar entrevista] Proceder con la inmersión del dispositivo.",
+		  "siguiente": "preparar_inmersion"
+		}
+	  ]
+	},
+	"pregunta_solo": {
+	  "texto": "Marcos: De hecho, sí, siempre estoy solo. Eso es lo raro, porque en el trabajo nunca estás solo.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_igual": {
+	  "texto": "Marcos: Pues, no exactamente igual, imagino que porque es un sueño está acomodado de diferente manera.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_anomalia": {
+	  "texto": "Marcos: Había una foto de mi hija en mi escritorio. En la oficina real no tengo fotos. Nunca me pareció buena idea mezclar esas cosas.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_accion": {
+	  "texto": "Marcos: Revisando expedientes. Siempre los mismos expedientes, aunque ya los hubiera terminado.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"pregunta_tiempo": {
+	  "texto": "Marcos: Unos cuatro meses. Desde que nos asignaron el proyecto nuevo. Mire, yo no soy de los que se quejan, pero últimamente el trabajo no para. Llego a casa y mis hijos ya están dormidos.",
+	  "opciones": [
+		{
+		  "texto": "Regresar a las preguntas.",
+		  "siguiente": "hub_preguntas"
+		}
+	  ]
+	},
+	"preparar_inmersion": {
+	  "texto": "Inspector: Lo entiendo. Eso es suficiente por ahora. ¿Me permite colocarle el dispositivo?",
+	  "opciones": [
+		{
+		  "texto": "Marcos: Sí.",
+		  "siguiente": "dispositivo_puesto"
+		}
+	  ]
+	},
+	"dispositivo_puesto": {
+	  "texto": "Inspector: En unos segundos comenzará a dormirse, se despertará cuando acabe la inmersión.",
+	  "opciones": [
+		{
+		  "texto": "[Iniciar Inmersión]",
+		  "siguiente": "fin"
+		}
+	  ]
+	}
+  },
+  "nino": {
+	"inicio": {
+	  "texto": "Niño: Soñé con una puerta, no tenía cerradura.",
+	  "opciones": [
+		{
+		  "texto": "¿Pudiste ver algún otro elemento antes de llegar ahí?",
+		  "siguiente": "pistas_mezcladas"
+		}
+	  ]
+	},
+	"pistas_mezcladas": {
+	  "texto": "Niño: Todo estaba mezclado y roto... Un reloj de la escuela detenido exactamente a las 11:17... El agua de una gran inundación que nunca entraba por la puerta principal... Un pasajero oscuro que aparecía cuando miraba fijamente al espejo retrovisor... Y en medio de una oficina sin fin, una única fotografía de mi hija en un escritorio vacío...",
+	  "opciones": [
+		{
+		  "texto": "Indagar sobre los símbolos para resolver la inmersión final.",
+		  "siguiente": "hub_pistas"
+		}
+	  ]
+	},
+	"hub_pistas": {
+	  "texto": "Inspector: [Examina los fragmentos de los 4 casos anteriores]",
+	  "opciones": [
+		{
+		  "texto": "Analizar la pista del Reloj Detenido.",
+		  "siguiente": "pista_reloj"
+		},
+		{
+		  "texto": "Analizar la pista de la Casa Inundada.",
+		  "siguiente": "pista_casa"
+		},
+		{
+		  "texto": "Analizar la pista del Pasajero del Autobús.",
+		  "siguiente": "pista_pasajero"
+		},
+		{
+		  "texto": "Analizar la pista de la Oficina Infinita.",
+		  "siguiente": "pista_oficina"
+		},
+		{
+		  "texto": "[Avanzar] Preguntar sobre cómo cruzar la puerta.",
+		  "siguiente": "pregunta_llave"
+		}
+	  ]
+	},
+	"pista_reloj": {
+	  "texto": "Niño: El reloj detenido marca las '11:17'. Indica la hora objetivo, pero aún debes reconstruir los relojes en tu mente para abrir la biblioteca.",
+	  "opciones": [
+		{
+		  "texto": "Revisar otra pista.",
+		  "siguiente": "hub_pistas"
+		}
+	  ]
+	},
+	"pista_casa": {
+	  "texto": "Niño: El agua nunca entraba por la puerta. Eso significa que la fuente no es la entrada principal; debes descubrir el sótano y las válvulas correctas.",
+	  "opciones": [
+		{
+		  "texto": "Revisar otra pista.",
+		  "siguiente": "hub_pistas"
+		}
+	  ]
+	},
+	"pista_pasajero": {
+	  "texto": "Niño: Siempre aparecía cuando miraba al espejo retrovisor. Te sugiere la regla de observación; el patrón de asientos depende de mirar hacia adelante o atrás.",
+	  "opciones": [
+		{
+		  "texto": "Revisar otra pista.",
+		  "siguiente": "hub_pistas"
+		}
+	  ]
+	},
+	"pista_oficina": {
+	  "texto": "Niño: Solo recuerdo una fotografía de mi hija. Te da el objeto ancla entre las oficinas cambiantes, pero no te dice exactamente dónde está.",
+	  "opciones": [
+		{
+		  "texto": "Revisar otra pista.",
+		  "siguiente": "hub_pistas"
+		}
+	  ]
+	},
+	"pregunta_llave": {
+	  "texto": "Inspector: ¿Cómo lograste avanzar hacia la puerta?\n\nNiño: Encontré la llave negra. Pero la puerta no tenía cerradura visible... debes reinterpretar los símbolos recurrentes. Al levantar la llave, toda la inmersión se apagó.",
+	  "opciones": [
+		{
+		  "texto": "[Iniciar Inmersión Final]",
+		  "siguiente": "fin"
+		}
+	  ]
+	}
   }
 }

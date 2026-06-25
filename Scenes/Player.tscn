@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1cuxurlb8vgk"]
 
 [ext_resource type="Script" uid="uid://ddcvhn3gayiw6" path="res://Scripts/player.gd" id="1_rpqav"]
+[ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/journal.tscn" id="2_kyqiw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 radius = 0.4
@@ -15,3 +16,7 @@ shape = SubResource("CapsuleShape3D_0rwas")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1147069933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2378976, -0.060249746)
+
+[node name="InterfazUI" type="CanvasLayer" parent="." unique_id=145753592]
+
+[node name="Journal" parent="InterfazUI" unique_id=1763035242 instance=ExtResource("2_kyqiw")]

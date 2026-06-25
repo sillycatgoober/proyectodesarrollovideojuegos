@@ -5,6 +5,8 @@ extends Node3D
 var pausado: bool = false
 
 func _ready() -> void:
+	#UI.folder.get_node("Journal").set_info_caso(
+	#"Cliente: Ernesto Rodríguez\nTipo sospechado: Trauma\n\nNotas:\n- Relojes en horas distintas\n- Alumno fallecido: Miguel Serrano\n- Hora del incidente: 11am")
 	panel_pausa.visible = false
 
 func _input(event: InputEvent) -> void:
