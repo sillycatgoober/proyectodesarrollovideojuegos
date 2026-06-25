@@ -10,14 +10,20 @@ size = Vector3(0.9797363, 0.7326565, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab4ky"]
 size = Vector3(0.44781494, 0.6369629, 1)
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_qdnjb"]
-loop = false
-stream_count = 2
-stream_0 = ExtResource("2_5ate3")
-stream_1 = ExtResource("3_skb2f")
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_5ate3"]
+clip_count = 2
+clip_0/name = &"DoorLocked"
+clip_0/stream = ExtResource("3_skb2f")
+clip_0/auto_advance = 0
+clip_1/name = &"DoorOpen"
+clip_1/stream = ExtResource("2_5ate3")
+clip_1/auto_advance = 0
+initial_clip = 1
 
 [node name="Door" type="Node3D" unique_id=992662886 groups=["interactuable"]]
 script = ExtResource("1_w6aom")
+sonido_abrir = ExtResource("2_5ate3")
+sonido_bloqueada = ExtResource("3_skb2f")
 
 [node name="Model" type="Node3D" parent="." unique_id=1161799508]
 
@@ -37,7 +43,7 @@ transform = Transform3D(3.48684, 0, 0, 0, 4.7725205, 0, 0, 0, 0.13577384, -1.332
 shape = SubResource("BoxShape3D_ab4ky")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1186105591]
-stream = SubResource("AudioStreamPlaylist_qdnjb")
+stream = SubResource("AudioStreamInteractive_5ate3")
 bus = &"SFX"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

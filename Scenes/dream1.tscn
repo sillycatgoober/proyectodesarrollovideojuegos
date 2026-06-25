@@ -183,10 +183,10 @@ angulo_apertura = -90.0
 
 [node name="Carta" parent="." unique_id=974568057 instance=ExtResource("11_cwbhr")]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, -19.37807, 0.04177296, 6.2868023)
-modelo_export = ExtResource("12_e7w7n")
 item_id = "carta"
 nombre = "Carta"
 descripcion = "La encontré en la biblioteca ¿Será una carta que escribió el cliente?"
+modelo_export = ExtResource("12_e7w7n")
 
 [node name="Periodico" parent="." unique_id=1254705197 instance=ExtResource("11_jxk0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.455908, 0.046593636, 6.3095903)

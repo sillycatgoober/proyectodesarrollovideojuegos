@@ -37,6 +37,8 @@ offset_left = 402.0
 offset_top = 119.0
 offset_right = -411.0
 offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="PanelContainer" unique_id=1622883977]
 visible = false
@@ -58,6 +60,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -234.0
 offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CheckBox" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=2075052481]
 layout_mode = 2
@@ -122,6 +126,8 @@ offset_left = 213.0
 offset_top = 128.0
 offset_right = -836.0
 offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Button2" type="Button" parent="." unique_id=1499206944]
 layout_mode = 1
@@ -132,6 +138,8 @@ offset_left = 811.0
 offset_top = 112.0
 offset_right = -248.0
 offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=425371238]
 layout_mode = 1
@@ -142,6 +150,8 @@ offset_left = 406.0
 offset_top = 61.0
 offset_right = -416.0
 offset_bottom = -553.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="HBoxContainer" unique_id=477512550]
 layout_mode = 2

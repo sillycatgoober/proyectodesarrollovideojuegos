@@ -5,11 +5,13 @@ class_name Interactuable
 @export var puede_interactuar:=true
 @export var focus_offset := Vector3(0, 1.5, -0.5)
 @onready var camara:Camera3D
-@onready var audio = $AudioStreamPlayer
+@onready var audio:AudioStreamPlayer
 var jugador_cerca := false
 var en_interaccion := false
 
 func _ready() -> void:
+	if $AudioStreamPlayer!=null:
+		audio = $AudioStreamPlayer
 	if usa_focus:
 		camara = $Camera3D
 

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dq5fl3ipdhx5m"]
+
+[ext_resource type="Script" uid="uid://okswwjgqwa60" path="res://Scripts/entidad.gd" id="1_24d82"]
+[ext_resource type="PackedScene" uid="uid://b5dq1wgv7r1ai" path="res://Assets/Modelos/Dream3/entidad.glb" id="2_7ibid"]
+
+[node name="Entidad" type="Node3D" unique_id=899637062]
+script = ExtResource("1_24d82")
+
+[node name="entidad" parent="." unique_id=14170306 instance=ExtResource("2_7ibid")]
