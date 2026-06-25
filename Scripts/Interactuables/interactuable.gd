@@ -27,6 +27,9 @@ func interact():
 		player.puede_moverse = true
 		player.set_camara_activa(true)
 
+func desbloquear():
+	puede_interactuar = true
+
 func get_player():
 	return get_tree().get_first_node_in_group("Player")
 

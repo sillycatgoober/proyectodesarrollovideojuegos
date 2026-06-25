@@ -1,11 +1,12 @@
 extends Node
 
+signal item_added(item_id)
 var items = []
 
 func add_item(id):
 	if not id in items:
 		items.append(id)
-		print("added")
+		item_added.emit(id)
 
 func remove_item(id):
 	if not id in items:

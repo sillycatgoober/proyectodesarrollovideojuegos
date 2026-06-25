@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m87f8cfsse3k" path="res://Scripts/Interactuables/pupitre.gd" id="1_y15um"]
 [ext_resource type="PackedScene" uid="uid://c0qw8c37f3pf2" path="res://Assets/Modelos/Dream1/pupitre.glb" id="2_5ot0h"]
+[ext_resource type="PackedScene" uid="uid://3fm44h2jw3y5" path="res://Assets/Modelos/Dream1/carta.glb" id="3_5ot0h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ot0h"]
 size = Vector3(2.265, 1.66, 2.035)
@@ -25,5 +26,8 @@ debug_color = Color(0.2933888, 0.6296744, 0, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pupitre/Desk/StaticBody3D" unique_id=677639898]
 shape = SubResource("ConcavePolygonShape3D_p465r")
+
+[node name="carta" parent="." unique_id=2092691571 instance=ExtResource("3_5ot0h")]
+transform = Transform3D(0.9849378, -0.17290904, -7.558094e-09, 0, -4.371139e-08, 1, -0.17290904, -0.9849378, -4.3053e-08, 0.9450775, 1.1604666, -0.21334508)
 
 [editable path="pupitre"]

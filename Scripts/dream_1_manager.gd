@@ -1,11 +1,46 @@
 extends Node3D
+@export var puerta_bib1: Node
+@export var puerta_bib2: Node
+@export var puerta_sal1: Node
+@export var puerta_sal2: Node
+@export var pupitre: Node
 
+var relojes_correctos := {0: false, 1: false, 2: false}
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for reloj in get_tree().get_nodes_in_group("reloj"):
+		reloj.reloj_confirmado.connect(_on_reloj_confirmado.bind(reloj.id_reloj))
+	InventoryManager.item_added.connect(_on_carta_agregada)
+	pupitre.carta_colocada.connect(_on_carta_colocada)
+
+func _on_reloj_confirmado(id: int) -> void:
+	relojes_correctos[id] = true
+	print("Reloj ", id, " correcto")
+	verificar_todos()
+
+func verificar_todos() -> void:
+	if relojes_correctos.values().all(func(v): return v):
+		abrir_biblioteca()
+
+func abrir_biblioteca() -> void:
+	puerta_bib1.desbloquear()
+	puerta_bib2.desbloquear()
+
+func _on_carta_colocada():
+	print("Sueño completado")
+
+	puerta_sal1.desbloquear()
+	puerta_sal2.desbloquear()
+	puerta_sal1.abrir_puerta()
+	puerta_sal2.abrir_puerta()
+
+	GameManager.dreams[1].done = true
+
+func _on_carta_agregada(item_id):
+	if item_id == "carta":
+		pupitre.desbloquear()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		#TransitionManager.play_transition("res://Scenes/Interview/interview.tscn")

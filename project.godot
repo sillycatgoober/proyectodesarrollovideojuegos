@@ -19,12 +19,14 @@ config/icon="res://icon.svg"
 GameManager="*uid://w2f616bb684w"
 UI="*uid://cn2jrikhypijr"
 InventoryManager="*uid://c6q0sdnlywg2u"
+TransitionManager="*uid://cgvb0meq07n1v"
 
 [global_group]
 
 Player=""
 interactuable=""
 recogible=""
+reloj=""
 
 [input]
 

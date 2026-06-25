@@ -7,6 +7,7 @@ var hora := 1
 signal reloj_confirmado
 
 func _ready() -> void:
+	add_to_group("reloj")
 	camara = $Camera3D
 	hora = 12
 	actualizar_manecillas()

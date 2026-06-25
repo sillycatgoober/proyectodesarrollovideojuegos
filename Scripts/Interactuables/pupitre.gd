@@ -1,7 +1,12 @@
 extends Interactuable
+@onready var carta:Node3D = $carta
+signal carta_colocada
+
+func _ready() -> void:
+	carta.visible = false
 
 func interact():
-	if not InventoryManager.has_item(0):
-		print("No tienes la carta")
-		return
-	print("correcto")
+	InventoryManager.remove_item("carta")
+	puede_interactuar = false
+	carta.visible = true
+	carta_colocada.emit()
