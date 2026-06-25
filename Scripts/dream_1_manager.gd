@@ -43,4 +43,5 @@ func _on_carta_agregada(item_id):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
+		print("salio")
 		#TransitionManager.play_transition("res://Scenes/Interview/interview.tscn")
