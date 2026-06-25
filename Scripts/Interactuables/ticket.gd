@@ -1,6 +1,7 @@
 extends Interactuable
 @export var nombre:String
 @export var desc:String
+@export var asiento:String
 @onready var nombreLabel:Label3D = $ticket/Nombre
 @onready var descLabel:Label3D = $ticket/Desc
 

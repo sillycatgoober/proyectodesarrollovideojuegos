@@ -12,5 +12,8 @@ script = ExtResource("1_xoxf7")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=351992915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.44434536)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=281631782]
+bus = &"SFX"
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

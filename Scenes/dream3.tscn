@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdpo0rvplujbi"]
 
 [ext_resource type="PackedScene" uid="uid://bxyhq3cvetvpg" path="res://Assets/Modelos/Dream3/bus.glb" id="1_0fbjr"]
+[ext_resource type="Script" uid="uid://dvrysisugcvpf" path="res://Scripts/dream_3_manager.gd" id="1_m12vh"]
 [ext_resource type="PackedScene" uid="uid://b1cuxurlb8vgk" path="res://Scenes/Player.tscn" id="2_m12vh"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_25hfq"]
@@ -15,6 +16,7 @@ background_color = Color(0.8032087, 0.5858633, 0.3754971, 1)
 ambient_light_color = Color(0.9411337, 0.8570697, 0.768572, 1)
 
 [node name="Dream3" type="Node3D" unique_id=1938837323]
+script = ExtResource("1_m12vh")
 
 [node name="bus" parent="." unique_id=1132403105 instance=ExtResource("1_0fbjr")]
 

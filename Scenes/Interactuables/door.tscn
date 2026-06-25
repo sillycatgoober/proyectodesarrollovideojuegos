@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://bdau04fyogg5"]
 
 [ext_resource type="Script" uid="uid://ca6n8nlhpwl36" path="res://Scripts/Interactuables/puerta.gd" id="1_w6aom"]
+[ext_resource type="AudioStream" uid="uid://dueqngtct1r8e" path="res://Assets/Audio/SFX/door_open.wav" id="2_5ate3"]
+[ext_resource type="AudioStream" uid="uid://w5g2jwhdf6e1" path="res://Assets/Audio/SFX/door_locked.wav" id="3_skb2f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fahql"]
 size = Vector3(0.9797363, 0.7326565, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab4ky"]
 size = Vector3(0.44781494, 0.6369629, 1)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_qdnjb"]
+loop = false
+stream_count = 2
+stream_0 = ExtResource("2_5ate3")
+stream_1 = ExtResource("3_skb2f")
 
 [node name="Door" type="Node3D" unique_id=992662886 groups=["interactuable"]]
 script = ExtResource("1_w6aom")
@@ -27,6 +35,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1191363, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1348003228]
 transform = Transform3D(3.48684, 0, 0, 0, 4.7725205, 0, 0, 0, 0.13577384, -1.3325713, 1.5348468, 0)
 shape = SubResource("BoxShape3D_ab4ky")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1186105591]
+stream = SubResource("AudioStreamPlaylist_qdnjb")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
