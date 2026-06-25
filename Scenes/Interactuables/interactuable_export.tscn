@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d2j2xi1ejgst2"]
+
+[ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_vojxn"]
+[ext_resource type="Script" uid="uid://8717ol13rp0e" path="res://Scripts/Interactuables/interactuable_export.gd" id="2_4guvb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4guvb"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="InteractuableExport" unique_id=1499427550 instance=ExtResource("1_vojxn")]
+script = ExtResource("2_4guvb")
+modelo_export = null
+
+[node name="Modelo" type="Node3D" parent="." index="0" unique_id=1337060923]
+
+[node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
+shape = SubResource("BoxShape3D_4guvb")

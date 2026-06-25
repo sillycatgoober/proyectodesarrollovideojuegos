@@ -1,29 +1,28 @@
-[gd_scene format=3 uid="uid://upxbmaos7nep"]
+[gd_scene format=3 uid="uid://c6u1qinflbo7l"]
 
-[ext_resource type="Script" uid="uid://c07d7utxiqmyk" path="res://Scripts/reloj.gd" id="1_x44wr"]
-[ext_resource type="PackedScene" uid="uid://dl06lajjrbfib" path="res://Assets/Modelos/Dream1/clock.glb" id="2_x44wr"]
+[ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_hix13"]
+[ext_resource type="Script" uid="uid://c07d7utxiqmyk" path="res://Scripts/Interactuables/reloj.gd" id="2_p3113"]
+[ext_resource type="PackedScene" uid="uid://dl06lajjrbfib" path="res://Assets/Modelos/Dream1/clock.glb" id="3_5e1qn"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x44wr"]
-size = Vector3(1.57, 1.782, 0.895)
+[sub_resource type="BoxShape3D" id="BoxShape3D_hix13"]
+size = Vector3(1.2218457, 0.8987924, 0.41149414)
 
-[node name="Reloj" type="Node3D" unique_id=438843493 groups=["interactuable"]]
-script = ExtResource("1_x44wr")
+[node name="Reloj" unique_id=1499427550 instance=ExtResource("1_hix13")]
+script = ExtResource("2_p3113")
+hora_correcta = 11
+id_reloj = 0
 
-[node name="Area3D" type="Area3D" parent="." unique_id=325289778]
-transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0.0015211105, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=95166386]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034899977, 0.3976772, 0.37123877)
-shape = SubResource("BoxShape3D_x44wr")
-debug_color = Color(0.2901961, 0.6313726, 0, 0.69803923)
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=230133969]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0065075755, 0.7601525)
-
-[node name="clock" parent="." unique_id=1294330643 instance=ExtResource("2_x44wr")]
+[node name="Area3D" parent="." index="0" unique_id=686839475]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[node name="CollisionShape3D" parent="Area3D" index="0" unique_id=330709589]
+transform = Transform3D(0.7561792, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0.12909669)
+shape = SubResource("BoxShape3D_hix13")
+
+[node name="Camera3D" parent="." index="1" unique_id=351992915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7774949)
+
+[node name="clock" parent="." index="2" unique_id=1294330643 instance=ExtResource("3_5e1qn")]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 
 [editable path="clock"]

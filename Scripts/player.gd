@@ -30,11 +30,19 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta):
 	if raycast.is_colliding():
-		var obj = raycast.get_collider().get_parent()
-		if obj.is_in_group("interactuable"):
+		var collider = raycast.get_collider()
+		if collider == null:
+			return
+		var obj = collider.get_parent()
+		
+		if obj.is_in_group("interactuable") and obj.puede_interactuar:
 			ui.mostrar_interact()
 			if Input.is_action_just_pressed("interact"):
 				obj.interact()
+			if obj.is_in_group("recogible"):
+				#ui.mostrar_interact()
+				if Input.is_action_just_pressed("grab"):
+					obj.grab()
 		else:
 			ui.esconder_interact()
 	else:

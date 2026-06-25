@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://2bw8dv1ibd8k"]
+
+[ext_resource type="PackedScene" uid="uid://d2j2xi1ejgst2" path="res://Scenes/Interactuables/interactuable_export.tscn" id="1_ujx7w"]
+[ext_resource type="Script" uid="uid://do4626ietxswg" path="res://Scripts/Interactuables/interactuable_recogible.gd" id="2_ugthj"]
+
+[node name="InteractuableRecogible" unique_id=1499427550 groups=["recogible"] instance=ExtResource("1_ujx7w")]
+script = ExtResource("2_ugthj")
+item_id = ""
+nombre = ""
+descripcion = ""
+imagen = null

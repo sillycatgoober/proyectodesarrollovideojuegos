@@ -3,8 +3,6 @@ extends Interactuable
 @export var desc:String
 @onready var nombreLabel:Label3D = $ticket/Nombre
 @onready var descLabel:Label3D = $ticket/Desc
-@onready var camara:Camera3D = $Camera3D
-var en_interaccion := false
 
 func _ready() -> void:
 	nombreLabel.text = nombre

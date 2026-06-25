@@ -3,12 +3,11 @@ extends Interactuable
 @export var hora_correcta := 11
 @export var id_reloj := 0
 @onready var manecilla:MeshInstance3D = $clock/Clock/Obj_Hand_004/Hora
-@onready var camara:Camera3D = $Camera3D
-var en_interaccion := false
 var hora := 1
 signal reloj_confirmado
 
 func _ready() -> void:
+	camara = $Camera3D
 	hora = 12
 	actualizar_manecillas()
 
