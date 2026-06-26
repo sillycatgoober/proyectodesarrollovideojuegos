@@ -73,37 +73,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.930332, 0, 6.225119)
 
 [node name="dream1" parent="." unique_id=1884304802 instance=ExtResource("2_625v2")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream1/biblioteca/Collada visual scene group/Bookcases/Bookcases_001/defaultMaterial_005" parent_id_path=PackedInt32Array(1884304802, 797172042) index="0" unique_id=957183415]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream1/biblioteca/Collada visual scene group/Bookcases/Bookcases_001/defaultMaterial_005" parent_id_path=PackedInt32Array(1884304802, 1930279951) index="0" unique_id=957183415]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream1/biblioteca/Collada visual scene group/Bookcases/Bookcases_001/defaultMaterial_005/StaticBody3D" unique_id=185235986]
 shape = SubResource("ConcavePolygonShape3D_625v2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream1/biblioteca/Collada visual scene group/Tables/Curve_Library_Desk/defaultMaterial_007" parent_id_path=PackedInt32Array(1884304802, 1860914396) index="0" unique_id=690157221]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream1/biblioteca/Collada visual scene group/Tables/Curve_Library_Desk/defaultMaterial_007" parent_id_path=PackedInt32Array(1884304802, 2131593474) index="0" unique_id=690157221]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream1/biblioteca/Collada visual scene group/Tables/Curve_Library_Desk/defaultMaterial_007/StaticBody3D" unique_id=391509826]
 shape = SubResource("ConcavePolygonShape3D_6klot")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream1/biblioteca/Collada visual scene group/Tables/Library_Desk/defaultMaterial_006" parent_id_path=PackedInt32Array(1884304802, 1901599087) index="0" unique_id=2115363633]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream1/biblioteca/Collada visual scene group/Tables/Library_Desk/defaultMaterial_006" parent_id_path=PackedInt32Array(1884304802, 882428000) index="0" unique_id=2115363633]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream1/biblioteca/Collada visual scene group/Tables/Library_Desk/defaultMaterial_006/StaticBody3D" unique_id=1706330282]
 shape = SubResource("ConcavePolygonShape3D_tekqj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream1/Estructura" parent_id_path=PackedInt32Array(1884304802, 1363597112) index="0" unique_id=1506488372]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream1/Estructura" parent_id_path=PackedInt32Array(1884304802, 420209053) index="0" unique_id=1506488372]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream1/Estructura/StaticBody3D" unique_id=1755121038]
 shape = SubResource("ConcavePolygonShape3D_5tq3y")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream1/A3/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles/A3Muebles" parent_id_path=PackedInt32Array(1884304802, 1653387357) index="0" unique_id=459003402]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream1/A3/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles/A3Muebles" parent_id_path=PackedInt32Array(1884304802, 1681328260) index="0" unique_id=459003402]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream1/A3/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles/A3Muebles/StaticBody3D" unique_id=1661065079]
 shape = SubResource("ConcavePolygonShape3D_mu2gy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream1/A1/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles_002/A1Muebles" parent_id_path=PackedInt32Array(1884304802, 931151374) index="0" unique_id=1854281049]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream1/A1/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles_002/A1Muebles" parent_id_path=PackedInt32Array(1884304802, 1620447074) index="0" unique_id=1854281049]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream1/A1/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles_002/A1Muebles/StaticBody3D" unique_id=348293309]
 shape = SubResource("ConcavePolygonShape3D_jqf25")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream1/A2/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles_005/A2Muebles" parent_id_path=PackedInt32Array(1884304802, 747433031) index="0" unique_id=1130706879]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream1/A2/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles_005/A2Muebles" parent_id_path=PackedInt32Array(1884304802, 1092046974) index="0" unique_id=1130706879]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream1/A2/LowPoly Stylized Classroom_obj_cleaner_materialmerger_gles_005/A2Muebles/StaticBody3D" unique_id=2112603483]
 shape = SubResource("ConcavePolygonShape3D_1v6x3")
@@ -115,7 +115,7 @@ puede_interactuar = false
 [node name="pupitresA1" parent="." unique_id=1918391162 instance=ExtResource("4_jqf25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.263891, -0.557, -2.5217965)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA1/A1Pupitres" parent_id_path=PackedInt32Array(1918391162, 1025816602) index="0" unique_id=693216998]
+[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA1/A1Pupitres" parent_id_path=PackedInt32Array(1918391162, 1484429110) index="0" unique_id=693216998]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pupitresA1/A1Pupitres/StaticBody3D" unique_id=1642620255]
 shape = SubResource("ConcavePolygonShape3D_vjkm7")
@@ -123,7 +123,7 @@ shape = SubResource("ConcavePolygonShape3D_vjkm7")
 [node name="pupitresA2" parent="." unique_id=1100338903 instance=ExtResource("5_1v6x3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3495092, -0.557, -2.522)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA2/A2Pupitres" parent_id_path=PackedInt32Array(1100338903, 75030404) index="0" unique_id=1177690530]
+[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA2/A2Pupitres" parent_id_path=PackedInt32Array(1100338903, 1012976547) index="0" unique_id=1177690530]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pupitresA2/A2Pupitres/StaticBody3D" unique_id=662580687]
 shape = SubResource("ConcavePolygonShape3D_6464o")
@@ -131,7 +131,7 @@ shape = SubResource("ConcavePolygonShape3D_6464o")
 [node name="pupitresA3" parent="." unique_id=1661542959 instance=ExtResource("5_1v6x3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.492192, -0.557, -2.522)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA3/A2Pupitres" parent_id_path=PackedInt32Array(1661542959, 75030404) index="0" unique_id=2008191074]
+[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA3/A2Pupitres" parent_id_path=PackedInt32Array(1661542959, 1012976547) index="0" unique_id=2008191074]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pupitresA3/A2Pupitres/StaticBody3D" unique_id=662187870]
 shape = SubResource("ConcavePolygonShape3D_jxk0o")
@@ -183,10 +183,10 @@ angulo_apertura = -90.0
 
 [node name="Carta" parent="." unique_id=974568057 instance=ExtResource("11_cwbhr")]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, -19.37807, 0.04177296, 6.2868023)
-modelo_export = ExtResource("12_e7w7n")
 item_id = "carta"
 nombre = "Carta"
 descripcion = "La encontré en la biblioteca ¿Será una carta que escribió el cliente?"
+modelo_export = ExtResource("12_e7w7n")
 
 [node name="Periodico" parent="." unique_id=1254705197 instance=ExtResource("11_jxk0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.455908, 0.046593636, 6.3095903)

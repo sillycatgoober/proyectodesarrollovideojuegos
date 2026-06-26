@@ -13,6 +13,7 @@ const RUN_SPEED = 18.0
 var tiene_carta: bool = false
 var puede_moverse: bool = true
 var target_interactuable = null
+var tiene_encendedor: bool = false
 
 func _ready() -> void:
 	add_to_group("Player")

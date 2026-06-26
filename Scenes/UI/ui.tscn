@@ -23,3 +23,9 @@ offset_bottom = 40.0
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TextoMensaje" type="Label" parent="." unique_id=2082195256]
+offset_left = 654.0
+offset_top = 241.0
+offset_right = 991.0
+offset_bottom = 334.0

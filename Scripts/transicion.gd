@@ -1,7 +1,9 @@
-extends Control
+extends Node
 
-func _ready():
-	$AnimationPlayer.play("dream_exit")
-	await $AnimationPlayer.animation_finished
+var next_scene : String = ""
 
-	get_tree().change_scene_to_file(TransitionManager.next_scene)
+func play_transition(scene_path : String):
+	next_scene = scene_path
+	
+	# Le pasamos la ruta que pidió el Manager (office.tscn) de forma segura
+	get_tree().call_deferred("change_scene_to_file", scene_path)

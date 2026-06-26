@@ -24,6 +24,7 @@ GameManager="*uid://w2f616bb684w"
 UI="*uid://cn2jrikhypijr"
 DialogManager="*uid://bghsqkcqdg1i1"
 InventoryManager="*uid://c6q0sdnlywg2u"
+TransitionManager="*uid://cgvb0meq07n1v"
 
 [global]
 
