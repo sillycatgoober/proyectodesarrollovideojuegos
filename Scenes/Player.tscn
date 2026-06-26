@@ -8,8 +8,8 @@ radius = 0.3
 height = 2.5673828
 
 [node name="Player" type="CharacterBody3D" unique_id=890671124]
+floor_snap_length = 0.3
 script = ExtResource("1_rpqav")
-mouse_sensibilidad = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=312091614 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.279288, 0)
@@ -27,3 +27,12 @@ debug_shape_custom_color = Color(0.22440284, 0.64420694, 0.99999994, 1)
 [node name="InterfazUI" type="CanvasLayer" parent="." unique_id=145753592]
 
 [node name="Journal" parent="InterfazUI" unique_id=1763035242 instance=ExtResource("2_kyqiw")]
+
+[node name="StairsUp" type="RayCast3D" parent="." unique_id=195694214]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57438236, -0.63469756)
+target_position = Vector3(0, -0.6, 0)
+
+[node name="StairsDown" type="RayCast3D" parent="." unique_id=1790520787]
+unique_name_in_owner = true
+target_position = Vector3(0, -0.75, 0)

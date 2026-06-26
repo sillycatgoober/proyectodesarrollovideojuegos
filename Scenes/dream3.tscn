@@ -37,7 +37,6 @@ environment = SubResource("Environment_8do3t")
 
 [node name="Player" parent="." unique_id=890671124 instance=ExtResource("2_m12vh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2999454, 0.19719815, 0.5044389)
-mouse_sensibilidad = 0.003
 
 [node name="AsientosManager" type="Node3D" parent="." unique_id=1801291836]
 script = ExtResource("4_25hfq")
