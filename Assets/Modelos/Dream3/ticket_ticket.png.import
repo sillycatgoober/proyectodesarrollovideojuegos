@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtufk8reh37q6"
+uid="uid://csbfgrpcvj76j"
 path.s3tc="res://.godot/imported/ticket_ticket.png-40920df81ae364bfe43af8c0381e32e1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "903be079e54454a1ee363d4d8cdd5905"
+"md5": "b32f02810b03871cfc29b41410966476"
 }
 
 [deps]

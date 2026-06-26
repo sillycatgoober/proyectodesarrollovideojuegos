@@ -19,6 +19,7 @@ var _last_frame_was_on_floor = -INF
 var tiene_carta: bool = false
 var puede_moverse: bool = true
 var target_interactuable = null
+var tiene_encendedor: bool = false
 
 
 func _ready() -> void:

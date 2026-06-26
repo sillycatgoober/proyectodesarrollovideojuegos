@@ -4,4 +4,6 @@ var next_scene : String = ""
 
 func play_transition(scene_path : String):
 	next_scene = scene_path
-	get_tree().change_scene_to_file("res://Scenes/UI/animacion_transicion.tscn")
+	
+	# Le pasamos la ruta que pidió el Manager (office.tscn) de forma segura
+	get_tree().call_deferred("change_scene_to_file", scene_path)
