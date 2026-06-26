@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const RUN_SPEED = 18.0
+const STEP_HEIGHT = 0.9
 
 @export var mouse_sensibilidad: float = 0.003
 @onready var camara: Camera3D = $Camera3D
@@ -39,17 +40,18 @@ func _process(delta):
 		var obj = collider.get_parent()
 		
 		if obj.is_in_group("interactuable") and obj.puede_interactuar:
-			ui.mostrar_interact()
-			if Input.is_action_just_pressed("interact"):
+			ui.mostrar_acciones(obj)
+			if Input.is_action_just_pressed("interact") and not obj.en_interaccion:
 				obj.interact()
 			if obj.is_in_group("recogible"):
-				#ui.mostrar_interact()
 				if Input.is_action_just_pressed("grab"):
 					obj.grab()
+			if Input.is_action_just_pressed("back") and obj.en_interaccion:
+				obj.interact()
 		else:
-			ui.esconder_interact()
+			ui.esconder_acciones()
 	else:
-		ui.esconder_interact()
+		ui.esconder_acciones()
 
 func get_current_interactable():
 	for obj in get_tree().get_nodes_in_group("interactuable"):
@@ -77,6 +79,30 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	if is_on_floor() and direction:
+		_step_up(direction)
+
+func _step_up(direction: Vector3) -> void:
+	var space_state = get_world_3d().direct_space_state
+	
+	var from = global_position + Vector3(0, 0.1, 0)
+	var to = from + direction * 0.3
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+	var hit = space_state.intersect_ray(query)
+	
+	if not hit:
+		return
+	
+	var from_top = global_position + Vector3(0, STEP_HEIGHT, 0) + direction * 0.3
+	var to_top = from_top + Vector3(0, -STEP_HEIGHT, 0)
+	var query_top = PhysicsRayQueryParameters3D.create(from_top, to_top)
+	query_top.exclude = [self]
+	var hit_top = space_state.intersect_ray(query_top)
+	
+	if hit_top:
+		global_position.y = hit_top.position.y + 0.05
 
 func set_camara_activa(active: bool):
 	$Camera3D.current = active
@@ -91,6 +117,6 @@ func _input(event: InputEvent) -> void:
 			journal.show()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			puede_moverse = false
-			ui.esconder_interact()
+			ui.esconder_acciones()
 		
 		get_viewport().set_input_as_handled()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1cuxurlb8vgk"]
 
 [ext_resource type="Script" uid="uid://ddcvhn3gayiw6" path="res://Scripts/player.gd" id="1_rpqav"]
-[ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/journal.tscn" id="2_kyqiw"]
+[ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/UI/journal.tscn" id="2_kyqiw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 radius = 0.3
@@ -9,6 +9,7 @@ height = 2.5673828
 
 [node name="Player" type="CharacterBody3D" unique_id=890671124]
 script = ExtResource("1_rpqav")
+mouse_sensibilidad = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=312091614 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.279288, 0)
@@ -17,13 +18,12 @@ shape = SubResource("CapsuleShape3D_0rwas")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1147069933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2378976, -0.060249746)
 
-[node name="InterfazUI" type="CanvasLayer" parent="." unique_id=145753592]
-
-[node name="Journal" parent="InterfazUI" unique_id=1763035242 instance=ExtResource("2_kyqiw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.238, 0)
-
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=591786245]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 target_position = Vector3(0, -1.2, 0)
 collide_with_areas = true
 debug_shape_custom_color = Color(0.22440284, 0.64420694, 0.99999994, 1)
+
+[node name="InterfazUI" type="CanvasLayer" parent="." unique_id=145753592]
+
+[node name="Journal" parent="InterfazUI" unique_id=1763035242 instance=ExtResource("2_kyqiw")]

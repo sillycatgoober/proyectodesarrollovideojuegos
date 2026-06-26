@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://efv1g1mxd5sp"]
+
+[ext_resource type="Texture2D" uid="uid://bx6oejfdn0k7k" path="res://Assets/Imagenes/Press-E2.png" id="1_lrxyk"]
+
+[node name="IconosUI" type="Control" unique_id=923592526]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="E" type="TextureRect" parent="." unique_id=216405059]
+layout_mode = 0
+offset_right = 230.0
+offset_bottom = 230.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_lrxyk")
+
+[node name="F" type="TextureRect" parent="." unique_id=1117806100]
+layout_mode = 1
+offset_right = 230.0
+offset_bottom = 230.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_lrxyk")
+
+[node name="ESC" type="TextureRect" parent="." unique_id=1723473336]
+layout_mode = 0
+offset_right = 230.0
+offset_bottom = 230.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_lrxyk")
+
+[node name="SCROLL" type="TextureRect" parent="." unique_id=1986154449]
+layout_mode = 0
+offset_right = 230.0
+offset_bottom = 230.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_lrxyk")

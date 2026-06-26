@@ -39,6 +39,10 @@ func cerrar_puerta():
 func desbloquear():
 	bloqueada = false
 
+func desbloquear_salida():
+	bloqueada = false
+	abrir_puerta()
+
 func _on_area_3d_body_entered(body):
 	if body.name == "Player":
 		jugador_cerca = true

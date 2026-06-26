@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxyhq3cvetvpg"
-path="res://.godot/imported/bus.glb-e4c41ad4e63aafb2e86802d461d696da.scn"
+uid="uid://wlkkdykhqm70"
+path="res://.godot/imported/dream3.glb-9490dcce182b53ad792bb7036aa4034e.scn"
 
 [deps]
 
-source_file="res://Assets/Modelos/Dream3/bus.glb"
-dest_files=["res://.godot/imported/bus.glb-e4c41ad4e63aafb2e86802d461d696da.scn"]
+source_file="res://Assets/Modelos/Dream3/dream3.glb"
+dest_files=["res://.godot/imported/dream3.glb-9490dcce182b53ad792bb7036aa4034e.scn"]
 
 [params]
 

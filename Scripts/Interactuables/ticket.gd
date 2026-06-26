@@ -5,28 +5,35 @@ extends Interactuable
 @onready var nombreLabel:Label3D = $ticket/Nombre
 @onready var descLabel:Label3D = $ticket/Desc
 
+var manager = null
+
 func _ready() -> void:
+	if $AudioStreamPlayer!=null:
+		audio = $AudioStreamPlayer
+	if usa_focus:
+		camara = $Camera3D
+
+func inicializar(nombre:String, desc:String):
 	nombreLabel.text = nombre
 	descLabel.text = desc
 
-func interact():
-	en_interaccion = !en_interaccion
-	var player = get_player()
-	if player == null:
+func grab():
+	if manager == null:
 		return
-	if en_interaccion:
-		player.puede_moverse = false
-		camara.current = true
+	if manager.ticket_en_mano == null:
+		# no lleva nada, recoge este
+		manager.recoger_ticket(asiento)
+	elif manager.ticket_en_mano == asiento:
+		# lleva este mismo, lo devuelve
+		manager.ticket_en_mano = null
+		visible = true
 	else:
-		player.puede_moverse = true
-		player.set_camara_activa(true)
+		# lleva otro, intercambia
+		manager.colocar_ticket(asiento)
 
 func _input(event: InputEvent) -> void:
 	if not en_interaccion:
 		return
-
-func _process(delta: float) -> void:
-	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":

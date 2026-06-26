@@ -29,17 +29,14 @@ func abrir_biblioteca() -> void:
 func _on_carta_colocada():
 	print("Sueño completado")
 
-	puerta_sal1.desbloquear()
-	puerta_sal2.desbloquear()
-	puerta_sal1.abrir_puerta()
-	puerta_sal2.abrir_puerta()
+	puerta_sal1.desbloquear_salida()
+	puerta_sal2.desbloquear_salida()
 
 	GameManager.dreams[1].done = true
 
 func _on_carta_agregada(item_id):
 	if item_id == "carta":
 		pupitre.desbloquear()
-
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":

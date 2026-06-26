@@ -1,14 +1,15 @@
 extends Control
 
-@onready var panel_intro: Panel = $PanelContainer/Panel
+@onready var panel_caso: Panel = $PanelContainer/Panel
 @onready var panel_phasmo: Panel = $PanelContainer/Panel2
 @onready var panel_resultado: Panel = $PanelContainer/Panel3
 
 @onready var vbox: VBoxContainer = $PanelContainer/Panel2/VBoxContainer
 
-@onready var label_titulo1: Label = $HBoxContainer/Label
-@onready var label_titulo2: Label = $HBoxContainer/Label2
-@onready var label_titulo3: Label = $HBoxContainer/Label3
+@onready var label_titulo1: Label = $HBoxContainer/Bot1/Label
+@onready var label_titulo2: Label = $HBoxContainer/Bot2/Label
+@onready var label_titulo3: Label = $HBoxContainer/Bot3/Label
+@onready var label_titulo4: Label = $HBoxContainer/Bot4/Label
 
 @onready var label_intro: Label = $PanelContainer/Panel/Label
 @onready var label_resultado: Label = $PanelContainer/Panel3/Label
@@ -45,7 +46,7 @@ const SUEÑOS = {
 	"Sueño Compartido": ["Figura reconocible", "Memoria incompleta", "Elemento recurrente", "Distorsión espacial", "Alteración temporal", "Presencia no identificada", "Mensaje implícito", "Inconsistencia física"]
 }
 
-const TITULOS = ["Caso", "Evidencias", "Diagnóstico"]
+const TITULOS = ["Caso", "Evidencias", "Diagnóstico","Sueños"]
 
 var evidencias_marcadas: Array = []
 var pagActual: int = 0
@@ -62,12 +63,12 @@ func _ready() -> void:
 func ir_a_pagina(pag: int) -> void:
 	pagActual = pag
 	
-	panel_intro.visible = (pag == 0)
+	panel_caso.visible = (pag == 0)
 	panel_phasmo.visible = (pag == 1)
 	panel_resultado.visible = (pag == 2)
 	
 	# Resaltar título activo
-	var titulos = [label_titulo1, label_titulo2, label_titulo3]
+	var titulos = [label_titulo1,label_titulo2,label_titulo3,label_titulo4]
 	for i in titulos.size():
 		titulos[i].text = TITULOS[i]
 		if i == pag:
@@ -145,3 +146,20 @@ func reset() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("folder"): 
 		self.hide()
+
+
+func _on_bot_1_pressed() -> void:
+	pagActual = 0
+	ir_a_pagina(pagActual)
+
+func _on_bot_2_pressed() -> void:
+	pagActual = 1
+	ir_a_pagina(pagActual)
+
+func _on_bot_3_pressed() -> void:
+	pagActual = 2
+	ir_a_pagina(pagActual)
+
+func _on_bot_4_pressed() -> void:
+	pagActual = 3
+	ir_a_pagina(pagActual)

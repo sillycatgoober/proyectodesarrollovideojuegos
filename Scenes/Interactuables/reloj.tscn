@@ -11,6 +11,7 @@ size = Vector3(1.2218457, 0.8987924, 0.41149414)
 script = ExtResource("2_p3113")
 hora_correcta = 11
 id_reloj = 0
+tiene_scroll = true
 
 [node name="Area3D" parent="." index="0" unique_id=686839475]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
