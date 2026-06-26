@@ -4,10 +4,13 @@ var abierta: bool = false
 @export var bloqueada: bool = false
 @export var modelo_puerta: PackedScene
 @export var angulo_apertura := 90.0
+@export var sonido_abrir : AudioStream
+@export var sonido_bloqueada : AudioStream
 @onready var model = $Model
 
 
 func _ready() -> void:
+	audio = $AudioStreamPlayer
 	if modelo_puerta:
 		var instancia = modelo_puerta.instantiate()
 		model.add_child(instancia)
@@ -15,11 +18,15 @@ func _ready() -> void:
 func interact():
 	if bloqueada:
 		print("La puerta está bloqueada")
+		audio.stream = sonido_bloqueada
+		audio.play()
 		return
+	audio.stream = sonido_abrir
 	if not abierta:
 		abrir_puerta()
 	else:
 		cerrar_puerta()
+	audio.play()
 
 func abrir_puerta():
 	abierta = true
