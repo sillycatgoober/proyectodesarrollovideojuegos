@@ -40,12 +40,12 @@ environment = SubResource("Environment_8w0sr")
 [node name="Dream4" parent="." unique_id=576305508 instance=ExtResource("1_g0gb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.39, 0, -8.555)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Dream4/RootNode/0Estructura/Estructura" parent_id_path=PackedInt32Array(576305508, 1096393370) index="0" unique_id=745404790]
+[node name="StaticBody3D" type="StaticBody3D" parent="Dream4/RootNode/0Estructura/Estructura" parent_id_path=PackedInt32Array(576305508, 2129352108) index="0" unique_id=745404790]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dream4/RootNode/0Estructura/Estructura/StaticBody3D" unique_id=1327259739]
 shape = SubResource("ConcavePolygonShape3D_yskow")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Dream4/RootNode/0Muebles/MuebleMesh" parent_id_path=PackedInt32Array(576305508, 1720814943) index="0" unique_id=1750966602]
+[node name="StaticBody3D" type="StaticBody3D" parent="Dream4/RootNode/0Muebles/MuebleMesh" parent_id_path=PackedInt32Array(576305508, 730692710) index="0" unique_id=1750966602]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dream4/RootNode/0Muebles/MuebleMesh/StaticBody3D" unique_id=1829562725]
 shape = SubResource("ConcavePolygonShape3D_qwpk7")
@@ -103,7 +103,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 0, 0)
 shape = SubResource("BoxShape3D_cycra")
 
 [node name="Door" parent="." unique_id=1430350741 instance=ExtResource("2_su0o1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6314344, 0, -2.5817623)
+transform = Transform3D(0.011867916, 0, 0.99992955, 0, 1, 0, -0.99992955, 0, 0.011867916, 1.5195999, -0.21116488, -2.4391277)
+modelo_puerta = ExtResource("3_r5wux")
+
+[node name="Door3" parent="." unique_id=360829537 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.830295, -0.43797272, 6.6855564)
+bloqueada = true
+modelo_puerta = ExtResource("3_r5wux")
+
+[node name="Door2" parent="." unique_id=992662886 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.977665, -0.21898636, 6.6792765)
+bloqueada = true
+modelo_puerta = ExtResource("3_r5wux")
+
+[node name="Door4" parent="." unique_id=378998561 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8477974, -0.23207895, -7.1464663)
+modelo_puerta = ExtResource("3_r5wux")
+
+[node name="Door5" parent="." unique_id=183109520 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5462935, -0.12328517, -7.1167207)
+modelo_puerta = ExtResource("3_r5wux")
+
+[node name="Door6" parent="." unique_id=2103644375 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6480913, -0.22272883, -7.140539)
+modelo_puerta = ExtResource("3_r5wux")
+
+[node name="Door7" parent="." unique_id=1989721910 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.199492, -0.20171592, -7.12664)
+modelo_puerta = ExtResource("3_r5wux")
+
+[node name="Door8" parent="." unique_id=1949422272 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -0.22377421, -7.146057)
 modelo_puerta = ExtResource("3_r5wux")
 
 [connection signal="body_entered" from="Salida" to="Node" method="_on_salida_body_entered"]
