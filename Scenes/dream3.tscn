@@ -43,39 +43,43 @@ script = ExtResource("4_25hfq")
 ticket_escena = ExtResource("5_ux36g")
 
 [node name="Door1" parent="." unique_id=992662886 instance=ExtResource("5_evpbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7046907, 0.24203861, 1.3219776)
+transform = Transform3D(1.165, 0, 0, 0, 1.165, 0, 0, 0, 1.165, -3.7046907, -0.044557333, 1.3219776)
 bloqueada = true
 modelo_puerta = ExtResource("6_ux36g")
 angulo_apertura = -90.0
 
 [node name="Door2" parent="." unique_id=210767178 instance=ExtResource("5_evpbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.563605, 0.23250318, 1.3443961)
+transform = Transform3D(1.165, 0, 0, 0, 1.165, 0, 0, 0, 1.165, 4.563605, -0.054092765, 1.3443961)
 bloqueada = true
 modelo_puerta = ExtResource("7_fench")
 angulo_apertura = -90.0
 
 [node name="Door3" parent="." unique_id=1646901613 instance=ExtResource("5_evpbx")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3272505, 0.233, 1.344)
+transform = Transform3D(1.165, 0, 0, 0, -1.165, 1.0184753e-07, 0, -1.0184753e-07, -1.165, 6.3272505, -0.053595945, 1.344)
 bloqueada = true
 modelo_puerta = ExtResource("7_fench")
 
 [node name="dream3" parent="." unique_id=1977996027 instance=ExtResource("8_evpbx")]
+transform = Transform3D(1.165, 0, 0, 0, 1.165, 0, 0, 0, 1.165, 0, -0.28659594, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream3/Bus/Exterior" parent_id_path=PackedInt32Array(1977996027, 192613478) index="0" unique_id=930510022]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream3/Bus/Exterior" parent_id_path=PackedInt32Array(1977996027, 2012523171) index="0" unique_id=930510022]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream3/Bus/Exterior/StaticBody3D" unique_id=1391807022]
 shape = SubResource("ConcavePolygonShape3D_evpbx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream3/Bus/interior/Interior" parent_id_path=PackedInt32Array(1977996027, 133206015) index="0" unique_id=1340602303]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream3/Bus/interior/Interior" parent_id_path=PackedInt32Array(1977996027, 960245817) index="0" unique_id=1340602303]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream3/Bus/interior/Interior/StaticBody3D" unique_id=222404507]
 shape = SubResource("ConcavePolygonShape3D_ux36g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream3/Bus/interior/Seats" parent_id_path=PackedInt32Array(1977996027, 1077081587) index="0" unique_id=737189192]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream3/Bus/interior/Seats" parent_id_path=PackedInt32Array(1977996027, 134678555) index="0" unique_id=737189192]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream3/Bus/interior/Seats/StaticBody3D" unique_id=1014855407]
 shape = SubResource("ConcavePolygonShape3D_fench")
 
 [node name="Entidad" parent="." unique_id=899637062 instance=ExtResource("9_ux36g")]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=607441119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.186801, 0.6330849, -0.31350082)
 
 [editable path="dream3"]

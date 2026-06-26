@@ -3,7 +3,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const RUN_SPEED = 18.0
 
-const STEP_HEIGHT = 0.9
+const STEP_HEIGHT = 0.75
 var _snapped_to_stairs_last_frame:=false
 var _last_frame_was_on_floor = -INF
 
@@ -63,20 +63,17 @@ func _snap_up_to_stairs_check(delta) -> bool:
 	if not is_on_floor() and not _snapped_to_stairs_last_frame:
 		return false
 	var expected_move_motion = self.velocity * Vector3(1,0,1) * delta
-	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0, STEP_HEIGHT *2,0))
 	var down_check_result = PhysicsTestMotionResult3D.new()
-	print("1")
-	print(stairs_up.get_collider())
+	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0, STEP_HEIGHT, 0))
+	var hit = _run_body_test_motion(step_pos_with_clearance, Vector3(0, -STEP_HEIGHT * 2, 0),down_check_result)
+
 	if (_run_body_test_motion(step_pos_with_clearance,Vector3(0,-STEP_HEIGHT*2,0),down_check_result)) and (down_check_result.get_collider().is_class("StaticBody3D")):
-		print("2")
 		var step_height = ((step_pos_with_clearance.origin+down_check_result.get_travel()) - self.global_position).y
 		if step_height > STEP_HEIGHT or step_height <= 0.01 or (down_check_result.get_collision_point()-self.global_position).y > STEP_HEIGHT:
 			return false
-		print("3")
 		stairs_up.global_position = down_check_result.get_collision_point() + Vector3(0,STEP_HEIGHT,0) + expected_move_motion.normalized()*0.1
 		stairs_up.force_raycast_update()
 		if stairs_up.is_colliding() and not is_surface_too_steep(stairs_up.get_collision_normal()):
-			print("4")
 			self.global_position = step_pos_with_clearance.origin + down_check_result.get_travel()
 			apply_floor_snap()
 			_snapped_to_stairs_last_frame = true
