@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.504161, 0.19719815, -3.831
 [node name="Dream4" parent="." unique_id=1675481991 instance=ExtResource("1_g0gb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.390417, 0, -8.554634)
 
-[node name="Estructura" parent="Dream4/RootNode/0Estructura" parent_id_path=PackedInt32Array(1675481991, 781492419) index="0" unique_id=2129352108]
+[node name="Estructura" parent="Dream4/RootNode/0Estructura" parent_id_path=PackedInt32Array(1675481991, 1022009877) index="0" unique_id=127822248]
 transform = Transform3D(0.99999964, 0, 1.0913936e-11, 0, 1, 0, 0, 0, 1.0000001, 229.0625, -9.204941, -2.566162)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Dream4/RootNode/0Estructura/Estructura" index="0" unique_id=516453454]
@@ -50,12 +50,12 @@ transform = Transform3D(0.99999964, 0, 1.0913936e-11, 0, 1, 0, 0, 0, 1.0000001, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dream4/RootNode/0Estructura/Estructura/StaticBody3D" unique_id=2099631400]
 shape = SubResource("ConcavePolygonShape3D_1k881")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Dream4/RootNode/0Muebles/MuebleMesh" parent_id_path=PackedInt32Array(1675481991, 730692710) index="0" unique_id=1795240031]
+[node name="StaticBody3D" type="StaticBody3D" parent="Dream4/RootNode/0Muebles/MuebleMesh" parent_id_path=PackedInt32Array(1675481991, 193086055) index="0" unique_id=1795240031]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dream4/RootNode/0Muebles/MuebleMesh/StaticBody3D" unique_id=584362100]
 shape = SubResource("ConcavePolygonShape3D_pcfqf")
 
-[node name="Archivo_trabajo" parent="Dream4/RootNode/Cube_903" parent_id_path=PackedInt32Array(1675481991, 2010955056) index="1" unique_id=548040335 instance=ExtResource("5_su0o1")]
+[node name="Archivo_trabajo" parent="Dream4/RootNode/Cube_903" parent_id_path=PackedInt32Array(1675481991, 1614721844) index="1" unique_id=548040335 instance=ExtResource("5_su0o1")]
 transform = Transform3D(5136.243, 0, 0, 0, 598.95325, 0, 0, 0, 375.37738, -41211.883, -625.58234, -1605.8765)
 item_id = "trabajo"
 nombre = "Archivo de trabajo"
@@ -107,10 +107,9 @@ usa_focus = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8479996, 8.703918, -31.216572)
 modelo_export = ExtResource("10_xpwcb")
 
-[node name="caja_fuerte" parent="." unique_id=1965788474 node_paths=PackedStringArray("manager") groups=["interactuable"] instance=ExtResource("10_xpwcb")]
+[node name="caja_fuerte" parent="." unique_id=1965788474 groups=["interactuable"] instance=ExtResource("10_xpwcb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.206289, -0.009078383, 7.4771247)
 script = ExtResource("11_yskow")
-manager = NodePath("")
 usa_focus = true
 
 [node name="Area3D" type="Area3D" parent="caja_fuerte" unique_id=191245108]
@@ -133,6 +132,10 @@ script = ExtResource("12_qwpk7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salida" unique_id=335532186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 0, 0)
 shape = SubResource("BoxShape3D_cycra")
+
+[node name="Door" parent="." unique_id=1430350741 instance=ExtResource("2_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6314344, 0, -2.5817623)
+modelo_puerta = ExtResource("3_r5wux")
 
 [connection signal="body_entered" from="Salida" to="Node" method="_on_salida_body_entered"]
 
