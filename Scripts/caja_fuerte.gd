@@ -1,11 +1,27 @@
 extends Interactuable
 
 @export var manager: Node
-@export var combinacion_correcta: Array[int] = [14, 7, 3, 9]
+@export var combinacion_correcta: Array[int] = [1, 4, 7, 3]
+@onready var caja_botones: CanvasLayer = $CajaBotones
+@onready var combinacion_label: Label = $CajaBotones/CombinacionLabel
 
-var combinacion_ingresada: Array[int] = [0, 0, 0, 0]
+var combinacion_ingresada: String = ""
 var abierta := false
-var digito_actual := 0
+
+func _ready() -> void:
+	if usa_focus:
+		camara = $Camera3D
+	caja_botones.hide()
+	$CajaBotones/Button0.pressed.connect(presionar_boton.bind(0))
+	$CajaBotones/Button1.pressed.connect(presionar_boton.bind(1))
+	$CajaBotones/Button2.pressed.connect(presionar_boton.bind(2))
+	$CajaBotones/Button3.pressed.connect(presionar_boton.bind(3))
+	$CajaBotones/Button4.pressed.connect(presionar_boton.bind(4))
+	$CajaBotones/Button5.pressed.connect(presionar_boton.bind(5))
+	$CajaBotones/Button6.pressed.connect(presionar_boton.bind(6))
+	$CajaBotones/Button7.pressed.connect(presionar_boton.bind(7))
+	$CajaBotones/Button8.pressed.connect(presionar_boton.bind(8))
+	$CajaBotones/Button9.pressed.connect(presionar_boton.bind(9))
 
 func interact() -> void:
 	if abierta or not puede_interactuar:
@@ -21,61 +37,49 @@ func interact() -> void:
 		player.puede_moverse = false
 		if usa_focus:
 			camara.current = true
-		UI.mostrar_texto("Ingresa la combinación.\nUsa rueda del mouse para cambiar el número.\nE para confirmar dígito.")
-	else:
-		player.puede_moverse = true
-		player.set_camara_activa(true)
-		UI.ocultar_texto()
+			caja_botones.show()
+			combinacion_label.text = ""
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			player.puede_moverse = true
+			player.set_camara_activa(true)
+			caja_botones.hide()
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
-func _input(event: InputEvent) -> void:
-	if not en_interaccion:
+func presionar_boton(numero: int) -> void:
+	if abierta or not en_interaccion:
 		return
-	
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			combinacion_ingresada[digito_actual] = (combinacion_ingresada[digito_actual] + 1) % 32
-			UI.mostrar_texto("Dígito %d: %d\nE para confirmar" % [digito_actual + 1, combinacion_ingresada[digito_actual]])
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			combinacion_ingresada[digito_actual] = (combinacion_ingresada[digito_actual] - 1 + 32) % 32
-			UI.mostrar_texto("Dígito %d: %d\nE para confirmar" % [digito_actual + 1, combinacion_ingresada[digito_actual]])
-	
-	if event.is_action_pressed("interact"):
-		confirmar_digito()
-		get_viewport().set_input_as_handled()
-
-func confirmar_digito() -> void:
-	digito_actual += 1
-	
-	if digito_actual < combinacion_correcta.size():
-		UI.mostrar_texto("Dígito %d: 0\nUsa rueda para cambiar" % [digito_actual + 1])
-	else:
+	if combinacion_ingresada.length() >= 4:
+		return
+	combinacion_ingresada += str(numero)
+	combinacion_label.text = combinacion_ingresada
+	if combinacion_ingresada.length() == 4:
 		verificar_combinacion()
 
 func verificar_combinacion() -> void:
-	if combinacion_ingresada == combinacion_correcta:
+	var ingresada = []
+	for c in combinacion_ingresada:
+		ingresada.append(int(c))
+	
+	if ingresada == combinacion_correcta:
 		abrir()
 	else:
-		UI.mostrar_texto("Combinación incorrecta.")
-		combinacion_ingresada = [0, 0, 0, 0]
-		digito_actual = 0
-		await get_tree().create_timer(1.5).timeout
-		UI.mostrar_texto("Dígito 1: 0\nUsa rueda para cambiar")
+		combinacion_label.text = "X"
+		combinacion_ingresada = ""
+		await get_tree().create_timer(1.0).timeout
+		combinacion_label.text = ""
 
 func abrir() -> void:
 	abierta = true
 	var player = get_player()
-	
 	if player:
 		player.puede_moverse = true
 		player.set_camara_activa(true)
-		player.tiene_encendedor = true 
-		
+		player.tiene_encendedor = true
 	en_interaccion = false
-
-	UI.mostrar_texto("¡Caja abierta!\nHas encontrado el encendedor.")
-
+	combinacion_label.text = "OK"
+	caja_botones.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if manager:
 		manager.on_caja_abierta()
-		
-	await get_tree().create_timer(2.5).timeout
-	UI.ocultar_texto()

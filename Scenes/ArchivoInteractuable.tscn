@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dxo44ctx70bb5"]
+
+[ext_resource type="Script" uid="uid://dbavk6i4ux2on" path="res://Scripts/archivo_interactuable.gd" id="1_k25cp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aw5vm"]
+
+[node name="ArchivoInteractuable" type="Node3D" unique_id=1195888593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0047379136, 0)
+script = ExtResource("1_k25cp")
+
+[node name="AreaInteraccion" type="Area3D" parent="." unique_id=644301826]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaInteraccion" unique_id=1919810506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5045309, 0)
+shape = SubResource("BoxShape3D_aw5vm")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1350924584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49734348, 1.1760279)
+
+[node name="Model" type="Node3D" parent="." unique_id=1162446297]
+
+[node name="labelInfo" type="Label" parent="." unique_id=672327947]
+offset_right = 40.0
+offset_bottom = 23.0

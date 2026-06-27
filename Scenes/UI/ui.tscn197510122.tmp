@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cn2jrikhypijr"]
+
+[ext_resource type="Script" uid="uid://bd1kylsbsgkvm" path="res://Scripts/Singletons/ui.gd" id="1_jxero"]
+[ext_resource type="Texture2D" uid="uid://b1dgl6awc3to" path="res://Assets/Imagenes/Icon-Scroll.png" id="3_1c2ca"]
+[ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/UI/journal.tscn" id="3_c7mb3"]
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="3_duuxe"]
+[ext_resource type="Texture2D" uid="uid://cskpo5k4tep3y" path="res://Assets/Imagenes/Icon-ESC.png" id="4_duuxe"]
+[ext_resource type="Texture2D" uid="uid://wv3kxe24d6s8" path="res://Assets/Imagenes/Icon-F.png" id="5_jfwrg"]
+[ext_resource type="Texture2D" uid="uid://2ilk7lrx2g1" path="res://Assets/Imagenes/Icon-E.png" id="6_mbl0m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7mb3"]
+
+[node name="ui" type="CanvasLayer" unique_id=1468610970]
+script = ExtResource("1_jxero")
+
+[node name="Journal" parent="." unique_id=1763035242 instance=ExtResource("3_c7mb3")]
+visible = false
+
+[node name="PanelOpciones" type="Panel" parent="." unique_id=1276125394]
+visible = false
+offset_left = 66.0
+offset_top = 51.0
+offset_right = 353.0
+offset_bottom = 570.0
+tooltip_text = "												"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelOpciones" unique_id=2018042838]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 60.0
+offset_right = 266.0
+offset_bottom = 455.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelOpciones/VBoxContainer" unique_id=1357829315]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_duuxe")
+theme_override_font_sizes/normal_font_size = 21
+text = "Opciones
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=1609651221]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_duuxe")
+text = "Volumen principal"
+horizontal_alignment = 1
+
+[node name="SliderMaster" type="HSlider" parent="PanelOpciones/VBoxContainer" unique_id=1394537325]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Label2" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=1000778443]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_duuxe")
+text = "
+Efectos de sonido"
+horizontal_alignment = 1
+
+[node name="SliderFX" type="HSlider" parent="PanelOpciones/VBoxContainer" unique_id=1963362930]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Label3" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=860542504]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_duuxe")
+text = "
+Musica"
+horizontal_alignment = 1
+
+[node name="SliderMusica" type="HSlider" parent="PanelOpciones/VBoxContainer" unique_id=845021945]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Label4" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=1530237991]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_duuxe")
+text = "
+
+
+"
+
+[node name="cerrar_opciones_button" type="Button" parent="PanelOpciones/VBoxContainer" unique_id=1448090543]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_duuxe")
+text = "Cerrar opciones"
+
+[node name="Iconos" type="PanelContainer" parent="." unique_id=637673832]
+layout_direction = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 60.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c7mb3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Iconos" unique_id=47526746]
+layout_mode = 2
+
+[node name="IconScroll" type="TextureRect" parent="Iconos/VBoxContainer" unique_id=1812447292]
+layout_mode = 2
+texture = ExtResource("3_1c2ca")
+
+[node name="IconESC" type="TextureRect" parent="Iconos/VBoxContainer" unique_id=410519745]
+layout_mode = 2
+texture = ExtResource("4_duuxe")
+
+[node name="IconF" type="TextureRect" parent="Iconos/VBoxContainer" unique_id=756099515]
+layout_mode = 2
+texture = ExtResource("5_jfwrg")
+
+[node name="IconE" type="TextureRect" parent="Iconos/VBoxContainer" unique_id=1944227626]
+layout_mode = 2
+texture = ExtResource("6_mbl0m")
+
+[node name="texto_mensaje" type="Label" parent="." unique_id=870109574]
+offset_left = 675.0
+offset_top = 267.0
+offset_right = 849.0
+offset_bottom = 384.0

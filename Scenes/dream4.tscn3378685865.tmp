@@ -6,14 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bu2vc6pukpfib" path="res://Assets/Modelos/Dream4/puerta_verde.glb" id="3_r5wux"]
 [ext_resource type="PackedScene" uid="uid://d2j2xi1ejgst2" path="res://Scenes/Interactuables/interactuable_export.tscn" id="3_ygkdg"]
 [ext_resource type="PackedScene" uid="uid://dg8wtuo01dc23" path="res://Assets/Modelos/Dream4/hojas.glb" id="4_rocu4"]
-[ext_resource type="PackedScene" uid="uid://bkul0lubn0jjh" path="res://Assets/Modelos/Dream4/archivo.glb" id="7_okdhd"]
-[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="9_e372g"]
+[ext_resource type="PackedScene" uid="uid://2bw8dv1ibd8k" path="res://Scenes/Interactuables/interactuable_recogible.tscn" id="5_su0o1"]
+[ext_resource type="Script" uid="uid://ciloemv64p2i6" path="res://Scripts/archivo_quemable.gd" id="10_cycra"]
 [ext_resource type="PackedScene" uid="uid://b1f8m821oauxc" path="res://Assets/Modelos/Dream4/caja_fuerte.glb" id="10_xpwcb"]
 [ext_resource type="Script" uid="uid://dun68wmlhmvpb" path="res://Scripts/caja_fuerte.gd" id="11_yskow"]
-[ext_resource type="Script" uid="uid://0px62lns66bh" path="res://Scripts/puerta_elevador.gd" id="12_cycra"]
 [ext_resource type="Script" uid="uid://dj7jqxik7rtma" path="res://Scripts/dream4_manager.gd" id="12_qwpk7"]
-[ext_resource type="PackedScene" uid="uid://c3dwwlueygu18" path="res://Assets/Modelos/Dream4/puerta_elevador.glb" id="13_cycra"]
-[ext_resource type="PackedScene" uid="uid://dxo44ctx70bb5" path="res://Scenes/ArchivoInteractuable.tscn" id="13_e372g"]
 
 [sub_resource type="Environment" id="Environment_8w0sr"]
 background_mode = 1
@@ -71,12 +68,19 @@ modelo_export = ExtResource("4_rocu4")
 [node name="Archivo5" parent="." unique_id=860336380 instance=ExtResource("3_ygkdg")]
 modelo_export = ExtResource("4_rocu4")
 
+[node name="Archivo_familia" parent="." unique_id=1771128276 node_paths=PackedStringArray("manager") instance=ExtResource("5_su0o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.537293, 1.3039606, 4.3557963)
+script = ExtResource("10_cycra")
+manager = NodePath("../Node")
+tipo_archivo = "familia"
+usa_focus = true
+
 [node name="InteractuableExport" parent="." unique_id=1499427550 instance=ExtResource("3_ygkdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8479996, 8.703918, -31.216572)
 modelo_export = ExtResource("10_xpwcb")
 
 [node name="caja_fuerte" parent="." unique_id=1965788474 groups=["interactuable"] instance=ExtResource("10_xpwcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7931185, 0.9457493, 11.278384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.206289, -0.009078383, 7.4771247)
 script = ExtResource("11_yskow")
 usa_focus = true
 
@@ -95,88 +99,85 @@ fov = 90.2304
 [node name="CajaBotones" type="CanvasLayer" parent="caja_fuerte" unique_id=1975282653]
 
 [node name="Button1" type="Button" parent="caja_fuerte/CajaBotones" unique_id=783474541]
-offset_left = 426.0
-offset_top = 226.0
-offset_right = 474.0
-offset_bottom = 256.0
+offset_left = 341.0
+offset_top = 215.0
+offset_right = 389.0
+offset_bottom = 245.0
 
 [node name="Button3" type="Button" parent="caja_fuerte/CajaBotones" unique_id=842661754]
-offset_left = 539.0
-offset_top = 226.0
-offset_right = 586.0
-offset_bottom = 256.0
+offset_left = 528.0
+offset_top = 214.0
+offset_right = 575.0
+offset_bottom = 244.0
 
 [node name="Button0" type="Button" parent="caja_fuerte/CajaBotones" unique_id=553364329]
-offset_left = 481.0
-offset_top = 339.0
-offset_right = 529.0
-offset_bottom = 369.0
+offset_left = 428.0
+offset_top = 323.0
+offset_right = 476.0
+offset_bottom = 353.0
 
 [node name="Button2" type="Button" parent="caja_fuerte/CajaBotones" unique_id=1088364367]
-offset_left = 483.0
-offset_top = 226.0
-offset_right = 531.0
-offset_bottom = 256.0
+offset_left = 425.0
+offset_top = 217.0
+offset_right = 473.0
+offset_bottom = 247.0
 
 [node name="Button4" type="Button" parent="caja_fuerte/CajaBotones" unique_id=58311710]
-offset_left = 424.0
-offset_top = 282.0
-offset_right = 472.0
-offset_bottom = 312.0
+offset_left = 341.0
+offset_top = 269.0
+offset_right = 389.0
+offset_bottom = 299.0
 
 [node name="Button5" type="Button" parent="caja_fuerte/CajaBotones" unique_id=1867512075]
-offset_left = 482.0
-offset_top = 282.0
-offset_right = 530.0
-offset_bottom = 312.0
+offset_left = 427.0
+offset_top = 270.0
+offset_right = 475.0
+offset_bottom = 300.0
 
 [node name="Button6" type="Button" parent="caja_fuerte/CajaBotones" unique_id=410290003]
-offset_left = 539.0
-offset_top = 282.0
-offset_right = 587.0
-offset_bottom = 312.0
+offset_left = 527.0
+offset_top = 270.0
+offset_right = 575.0
+offset_bottom = 301.0
 
 [node name="Button7" type="Button" parent="caja_fuerte/CajaBotones" unique_id=2053416125]
-offset_left = 423.0
-offset_top = 339.0
-offset_right = 471.0
-offset_bottom = 369.0
+offset_left = 340.0
+offset_top = 322.0
+offset_right = 388.0
+offset_bottom = 352.0
 
 [node name="Button8" type="Button" parent="caja_fuerte/CajaBotones" unique_id=681292658]
-offset_left = 484.0
-offset_top = 396.0
-offset_right = 532.0
-offset_bottom = 426.0
+offset_left = 428.0
+offset_top = 373.0
+offset_right = 476.0
+offset_bottom = 403.0
 
 [node name="Button9" type="Button" parent="caja_fuerte/CajaBotones" unique_id=1175490262]
-offset_left = 538.0
-offset_top = 339.0
-offset_right = 587.0
-offset_bottom = 370.0
+offset_left = 528.0
+offset_top = 324.0
+offset_right = 577.0
+offset_bottom = 355.0
 
-[node name="CombinacionLabel" type="Label" parent="caja_fuerte/CajaBotones" unique_id=606155031]
-offset_left = 714.0
-offset_top = 298.0
-offset_right = 796.0
-offset_bottom = 342.0
-theme_override_fonts/font = ExtResource("9_e372g")
-theme_override_font_sizes/font_size = 36
+[node name="conbinacionlabel" type="Label" parent="caja_fuerte/CajaBotones" unique_id=606155031]
+offset_right = 40.0
+offset_bottom = 23.0
 
-[node name="Node" type="Node3D" parent="." unique_id=867156417 node_paths=PackedStringArray("puerta_cuarto_a", "puerta_cuarto_b", "puerta_elevador", "puerta_door2", "puerta_door3", "puerta_elevador2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.559301, 0, 0)
+[node name="Node" type="Node3D" parent="." unique_id=867156417 node_paths=PackedStringArray("puerta_cuarto_a", "puerta_cuarto_b", "puerta_door2", "puerta_door3")]
 script = ExtResource("12_qwpk7")
 puerta_cuarto_a = NodePath("../Door3")
 puerta_cuarto_b = NodePath("../Door2")
-puerta_elevador = NodePath("../Door9")
 puerta_door2 = NodePath("../Door2")
 puerta_door3 = NodePath("../Door3")
-puerta_elevador2 = NodePath("../Door10")
 
 [node name="Salida" type="Area3D" parent="." unique_id=1611490087]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salida" unique_id=335532186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 0, 0)
 shape = SubResource("BoxShape3D_cycra")
+
+[node name="Door" parent="." unique_id=1430350741 instance=ExtResource("2_su0o1")]
+transform = Transform3D(0.011867916, 0, 0.99992955, 0, 1, 0, -0.99992955, 0, 0.011867916, 1.5195999, -0.21116488, -2.4391277)
+modelo_puerta = ExtResource("3_r5wux")
 
 [node name="Door3" parent="." unique_id=360829537 instance=ExtResource("2_su0o1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.830295, -0.43797272, 6.6855564)
@@ -214,42 +215,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 4.6372967)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cubiculo" unique_id=920337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0427942, 0.5125122, -0.33642578)
 shape = SubResource("BoxShape3D_yskow")
-
-[node name="Door9" parent="." unique_id=927057279 instance=ExtResource("2_su0o1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.809889, -0.28575993, 0.79848486)
-script = ExtResource("12_cycra")
-modelo_puerta = ExtResource("13_cycra")
-direccion = 1.0
-distancia = 1.5
-bloqueada = true
-
-[node name="Door10" parent="." unique_id=617957146 instance=ExtResource("2_su0o1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.786995, -0.26355523, -1.3243371)
-script = ExtResource("12_cycra")
-modelo_puerta = ExtResource("13_cycra")
-direccion = -1.0
-distancia = 1.5
-bloqueada = true
-
-[node name="Door" parent="." unique_id=1395064416 instance=ExtResource("2_su0o1")]
-transform = Transform3D(-0.010524242, 0, 0.9999446, 0, 1, 0, -0.9999446, 0, -0.010524242, 1.530082, -0.19340727, -2.3778)
-modelo_puerta = ExtResource("3_r5wux")
-
-[node name="ArchivoInteractuable" parent="." unique_id=1195888593 node_paths=PackedStringArray("manager", "label_info") groups=["interactuable"] instance=ExtResource("13_e372g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0047379136, 2.0782652)
-manager = NodePath("../Node")
-tipo_archivo = "familia"
-modelo_archivo = ExtResource("7_okdhd")
-label_info = NodePath("../Label")
-
-[node name="Label" type="Label" parent="." unique_id=1995277111]
-offset_left = 441.0
-offset_top = 275.0
-offset_right = 570.0
-offset_bottom = 319.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("9_e372g")
-theme_override_font_sizes/font_size = 36
 
 [connection signal="body_entered" from="Salida" to="Node" method="_on_salida_body_entered"]
 

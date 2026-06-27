@@ -37,13 +37,13 @@ func _input(event):
 		abrir_pause()
 
 # --- NUEVAS FUNCIONES PARA LA CAJA FUERTE ---
-func mostrar_texto(texto_nuevo: String) -> void:
-	if texto_mensaje != null:
-		texto_mensaje.text = texto_nuevo
-		texto_mensaje.show()
-	else:
-		print("TEXTO INTERFAZ: ", texto_nuevo)
+#func mostrar_texto(texto_nuevo: String) -> void:
+	#if texto_mensaje != null:
+	#	texto_mensaje.text = texto_nuevo
+	#	texto_mensaje.show()
+	#else:
+	#	print("TEXTO INTERFAZ: ", texto_nuevo)
 
-func ocultar_texto() -> void:
-	if texto_mensaje != null:
-		texto_mensaje.hide()
+#func ocultar_texto() -> void:
+#	if texto_mensaje != null:
+	#	texto_mensaje.hide()
