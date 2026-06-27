@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kcknuvvfmcg7"
-path.s3tc="res://.godot/imported/caja_fuerte_Image_31.png-6d3fd2168db819076b5f995c2b4bd548.s3tc.ctex"
+uid="uid://byy2hjpa8tiuu"
+path.s3tc="res://.godot/imported/archivo_folder.png-e43390545cd17fedda6e8f2d20e8df7f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3da08d072b6ee92de9a08c3c80f55299"
+"md5": "1a505b5ef18e72d1dfe8d0902a5b1d98"
 }
 
 [deps]
 
-source_file="res://Assets/Modelos/Dream4/Texturas/caja_fuerte_Image_31.png"
-dest_files=["res://.godot/imported/caja_fuerte_Image_31.png-6d3fd2168db819076b5f995c2b4bd548.s3tc.ctex"]
+source_file="res://Assets/Modelos/Dream4/archivo_folder.png"
+dest_files=["res://.godot/imported/archivo_folder.png-e43390545cd17fedda6e8f2d20e8df7f.s3tc.ctex"]
 
 [params]
 

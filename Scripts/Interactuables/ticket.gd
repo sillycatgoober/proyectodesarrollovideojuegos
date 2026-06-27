@@ -8,6 +8,7 @@ extends Interactuable
 var manager = null
 
 func _ready() -> void:
+	add_to_group("ticket")
 	if $AudioStreamPlayer!=null:
 		audio = $AudioStreamPlayer
 	if usa_focus:
@@ -20,16 +21,12 @@ func inicializar(nombre:String, desc:String):
 func grab():
 	if manager == null:
 		return
+	set_player_cam()
+	var asiento_actual = manager.buscar_asiento_de_ticket(asiento)
 	if manager.ticket_en_mano == null:
-		# no lleva nada, recoge este
-		manager.recoger_ticket(asiento)
-	elif manager.ticket_en_mano == asiento:
-		# lleva este mismo, lo devuelve
-		manager.ticket_en_mano = null
-		visible = true
+		manager.recoger_ticket(asiento_actual)
 	else:
-		# lleva otro, intercambia
-		manager.colocar_ticket(asiento)
+		manager.colocar_ticket(asiento_actual)
 
 func _input(event: InputEvent) -> void:
 	if not en_interaccion:

@@ -1,30 +1,47 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 4.5
 const RUN_SPEED = 18.0
 
-const STEP_HEIGHT = 0.75
+#movimiento ligero
+const BOB_FREQ := 1.7
+const BOB_AMP := 0.1
+var bob_time := 0.0
+var camara_pos_original := Vector3.ZERO
+
+#escaleras
+const STEP_HEIGHT = 0.4
 var _snapped_to_stairs_last_frame:=false
 var _last_frame_was_on_floor = -INF
 
 @export var mouse_sensibilidad: float = 0.003
-@onready var camara: Camera3D = $Camera3D
-@onready var raycast:RayCast3D = $Camera3D/RayCast3D
+@onready var camara: Camera3D = $CameraPivot/Camera3D
+@onready var camara_pivot = $CameraPivot
+@onready var raycast:RayCast3D = $CameraPivot/Camera3D/RayCast3D
 @onready var ui = UI
 @onready var stairs_up:RayCast3D = $StairsUp
 @onready var stairs_down:RayCast3D = $StairsDown
 
-@onready var journal = $InterfazUI/Journal 
+@onready var journal = $InterfazUI/Journal
+@onready var ticket = $CameraPivot/Camera3D/TicketHolder
+
+#pasos sonido
+@export var sonidos_pasos : Array[AudioStream]
+@onready var pasos = $AudioPlayer
+var tiempo_paso := 0.0
+const INTERVALO_PASO := 0.55
 
 var tiene_carta: bool = false
 var puede_moverse: bool = true
 var target_interactuable = null
 var tiene_encendedor: bool = false
-
+var ticket_en_mano_nodo = null
+var rotacion_original_ticket = {}
 
 func _ready() -> void:
 	add_to_group("Player")
 	puede_moverse = true
+	camara_pos_original = camara_pivot.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if journal:
@@ -60,6 +77,54 @@ func _process(delta):
 	else:
 		ui.esconder_acciones()
 
+func _physics_process(delta: float) -> void:
+	if is_on_floor():
+		_last_frame_was_on_floor = Engine.get_physics_frames()
+	
+	if not puede_moverse:
+		velocity = Vector3.ZERO
+		move_and_slide()
+		return
+	
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	if not _snap_up_to_stairs_check(delta):
+		move_and_slide()
+		_snap_down_to_stairs_check()
+	
+	#movimiento ligero
+	var velocidad_horizontal = Vector2(velocity.x, velocity.z).length()
+	if is_on_floor() and velocidad_horizontal > 0.1:
+		tiempo_paso += delta
+		if tiempo_paso >= INTERVALO_PASO:
+			tiempo_paso = 0.0
+			pasos.stream = sonidos_pasos.pick_random()
+			pasos.play()
+	else:
+		tiempo_paso = 0.0
+	var progreso = tiempo_paso / INTERVALO_PASO
+	var offset = Vector3.ZERO
+	if is_on_floor() and velocidad_horizontal > 0.1:
+		offset.y = sin(progreso * BOB_FREQ * PI) * BOB_AMP
+		offset.x = cos(progreso * BOB_FREQ * PI) * (BOB_AMP * 0.4)
+
+	camara_pivot.position = camara_pivot.position.lerp(camara_pos_original + offset,delta * 8)
+	var objetivo = -input_dir.x * deg_to_rad(2)
+	camara.rotation.z = lerp(camara.rotation.z,objetivo,delta * 8)
+	camara.fov = lerp(camara.fov,75 + velocidad_horizontal * 0.2,delta * 5)
+
+#----ESCALERAS----#
 func _snap_up_to_stairs_check(delta) -> bool:
 	if not is_on_floor() and not _snapped_to_stairs_last_frame:
 		return false
@@ -94,38 +159,6 @@ func _snap_down_to_stairs_check():
 			did_snap = true
 	_snapped_to_stairs_last_frame = did_snap
 
-func get_current_interactable():
-	for obj in get_tree().get_nodes_in_group("interactuable"):
-		if obj.jugador_cerca and obj.volteando(self):
-			return obj
-	return null
-
-func _physics_process(delta: float) -> void:
-	if is_on_floor():
-		_last_frame_was_on_floor = Engine.get_physics_frames()
-	
-	if not puede_moverse:
-		velocity = Vector3.ZERO
-		move_and_slide()
-		return
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
-	if not _snap_up_to_stairs_check(delta):
-		move_and_slide()
-		_snap_down_to_stairs_check()
-
 func is_surface_too_steep(normal:Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 
@@ -137,8 +170,10 @@ func _run_body_test_motion(from: Transform3D,motion:Vector3,result=null) -> bool
 	params.motion = motion
 	return PhysicsServer3D.body_test_motion(self.get_rid(), params, result)
 
+#----FIN ESCALERAS----#
+
 func set_camara_activa(active: bool):
-	$Camera3D.current = active
+	camara.current = active
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("folder"):
@@ -153,3 +188,21 @@ func _input(event: InputEvent) -> void:
 			ui.esconder_acciones()
 		
 		get_viewport().set_input_as_handled()
+
+func mostrar_ticket_en_mano(ticket_nodo: Node3D) -> void:
+	ticket_en_mano_nodo = ticket_nodo
+	rotacion_original_ticket[ticket_nodo] = ticket_nodo.global_rotation
+	ticket_nodo.get_parent().remove_child(ticket_nodo)
+	ticket.add_child(ticket_nodo)
+	ticket_nodo.position = Vector3.ZERO
+	ticket_nodo.rotation = Vector3.ZERO
+	ticket_nodo.visible = true
+
+func soltar_ticket_en_mano() -> void:
+	if ticket_en_mano_nodo == null:
+		return
+	ticket.remove_child(ticket_en_mano_nodo)
+	get_tree().current_scene.add_child(ticket_en_mano_nodo)
+	ticket_en_mano_nodo.global_rotation = Vector3(-1.570796, 0.0, 0.0)
+	ticket_en_mano_nodo = null
+	

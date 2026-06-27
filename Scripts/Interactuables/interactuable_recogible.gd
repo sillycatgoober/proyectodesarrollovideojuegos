@@ -7,4 +7,5 @@ extends InteractuableExport
 func grab():
 	print("grabbed")
 	InventoryManager.add_item(item_id)
+	set_player_cam()
 	queue_free()

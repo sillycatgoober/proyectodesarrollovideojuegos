@@ -61,3 +61,7 @@ offset_left = 39.0
 offset_top = 372.0
 offset_right = 549.0
 offset_bottom = 424.0
+
+[node name="Label" type="Label" parent="." unique_id=195373779]
+offset_right = 40.0
+offset_bottom = 23.0

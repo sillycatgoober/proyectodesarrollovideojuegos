@@ -8,6 +8,7 @@ extends Control
 
 func _ready() -> void:
 	_cargar_configuracion()
+	$ContinuarButton.visible = GameManager.hay_partida_guardada()
 
 func _guardar_configuracion() -> void:
 	var config = ConfigFile.new()
@@ -23,18 +24,20 @@ func _cargar_configuracion() -> void:
 		slider_fx.value = config.get_value("audio", "sfx", 1.0)
 		slider_musica.value = config.get_value("audio", "musica", 1.0)
 
-func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/office.tscn")
-
-func _on_exit_button_pressed() -> void:
-	get_tree().quit()
-
-func juego_nuevo() -> void:
+func _on_new_game_button_pressed() -> void:
 	GameManager.reset_dreams()
-
+	GameManager.guardar()
+	get_tree().change_scene_to_file("res://Scenes/office.tscn")
+	
+func _on_continue_button_pressed() -> void:
+	GameManager.cargar()
+	get_tree().change_scene_to_file("res://Scenes/office.tscn")
 
 func _on_options_pressed() -> void:
 	panel_opciones.visible = true
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
 
 func _on_cerrar_opciones_button_pressed() -> void:
 	_guardar_configuracion()

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b1cuxurlb8vgk" path="res://Scenes/Player.tscn" id="2_m12vh"]
 [ext_resource type="Script" uid="uid://b4odlsautgcoa" path="res://Scripts/asientosManager.gd" id="4_25hfq"]
 [ext_resource type="PackedScene" uid="uid://bdau04fyogg5" path="res://Scenes/Interactuables/door.tscn" id="5_evpbx"]
-[ext_resource type="PackedScene" uid="uid://b56w6hi4udoyd" path="res://Scenes/Interactuables/asiento_vacio.tscn" id="5_fench"]
 [ext_resource type="PackedScene" uid="uid://3q88r807if35" path="res://Scenes/Interactuables/ticket.tscn" id="5_ux36g"]
 [ext_resource type="PackedScene" uid="uid://bohku3r4nnhdy" path="res://Assets/Modelos/Dream3/door1.glb" id="6_ux36g"]
 [ext_resource type="PackedScene" uid="uid://b7el6kvs1ecn0" path="res://Assets/Modelos/Dream3/door2.glb" id="7_fench"]
@@ -38,11 +37,11 @@ environment = SubResource("Environment_8do3t")
 
 [node name="Player" parent="." unique_id=890671124 instance=ExtResource("2_m12vh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2999454, 0.19719815, 0.5044389)
+mouse_sensibilidad = null
 
 [node name="AsientosManager" type="Node3D" parent="." unique_id=1801291836]
 script = ExtResource("4_25hfq")
 ticket_escena = ExtResource("5_ux36g")
-asiento_vacio_escena = ExtResource("5_fench")
 
 [node name="Door1" parent="." unique_id=992662886 instance=ExtResource("5_evpbx")]
 transform = Transform3D(1.165, 0, 0, 0, 1.165, 0, 0, 0, 1.165, -3.7046907, -0.044557333, 1.3219776)

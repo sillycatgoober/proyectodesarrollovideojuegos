@@ -37,6 +37,14 @@ offset_right = 684.0
 offset_bottom = 448.0
 text = "New Game"
 
+[node name="Options" type="Button" parent="." unique_id=386579148]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 455.0
+offset_right = 684.0
+offset_bottom = 498.0
+text = "Options"
+
 [node name="ExitButton" type="Button" parent="." unique_id=583161307]
 auto_translate_mode = 1
 layout_mode = 0
@@ -45,14 +53,6 @@ offset_top = 505.0
 offset_right = 684.0
 offset_bottom = 548.0
 text = "Exit"
-
-[node name="Options" type="Button" parent="." unique_id=386579148]
-layout_mode = 0
-offset_left = 466.0
-offset_top = 455.0
-offset_right = 684.0
-offset_bottom = 498.0
-text = "Options"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1305470580]
 stream = ExtResource("3_cayip")
@@ -129,9 +129,10 @@ text = "
 layout_mode = 2
 text = "Cerrar opciones"
 
-[connection signal="pressed" from="ContinueButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="value_changed" from="PanelOpciones/VBoxContainer/SliderMaster" to="." method="_on_slider_master_value_changed"]
 [connection signal="value_changed" from="PanelOpciones/VBoxContainer/SliderFX" to="." method="_on_slider_fx_value_changed"]
 [connection signal="value_changed" from="PanelOpciones/VBoxContainer/SliderMusica" to="." method="_on_slider_musica_value_changed"]

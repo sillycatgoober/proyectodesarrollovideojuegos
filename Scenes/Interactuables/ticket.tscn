@@ -6,9 +6,9 @@
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="2_iydsi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iocv6"]
-size = Vector3(0.425, 0.43, 0.555)
+size = Vector3(0.425, 0.5, 0.725)
 
-[node name="Ticket" unique_id=1499427550 groups=["recogible"] instance=ExtResource("1_u2moc")]
+[node name="Ticket" unique_id=1499427550 groups=["recogible", "ticket"] instance=ExtResource("1_u2moc")]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0)
 script = ExtResource("1_iydsi")
 nombre = ""
@@ -20,7 +20,7 @@ usa_focus = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Nombre" type="Label3D" parent="ticket" index="1" unique_id=726528331]
-transform = Transform3D(-4.3711374e-08, 3.5527137e-15, 0.99999976, 5.9290907e-22, 0.99999976, -3.5527137e-15, -1, 2.1175824e-22, -4.3711378e-08, 0.004, 0.015136067, -1.5042475e-17)
+transform = Transform3D(-4.371137e-08, 3.5527137e-15, 0.9999997, 8.611315e-22, 0.9999997, -3.5527137e-15, -1, 2.1175824e-22, -4.3711374e-08, 0.004, 0.026206609, -3.61948e-17)
 pixel_size = 0.0004
 modulate = Color(0, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
@@ -30,7 +30,7 @@ autowrap_mode = 3
 width = 600.0
 
 [node name="Desc" type="Label3D" parent="ticket" index="2" unique_id=1162325176]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 2.1175826e-22, 0.99999994, 0, -1, 0, -4.3711385e-08, 0.004, -0.016540065, -1.0030501e-17)
+transform = Transform3D(-4.371138e-08, 3.5527137e-15, 0.9999999, 2.6822245e-22, 0.9999999, -3.5527137e-15, -1, 0, -4.3711385e-08, 0.0039999997, -0.022846108, 2.0183637e-18)
 pixel_size = 0.0004
 modulate = Color(0, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
@@ -40,7 +40,7 @@ autowrap_mode = 3
 width = 600.0
 
 [node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
-transform = Transform3D(1, 0, 0, 0, 0.9999998, -3.5527137e-15, 0, 3.5527137e-15, 0.9999998, 0, -1.1131876e-08, 0.25466764)
+transform = Transform3D(1, 0, 0, 0, 0.99999946, -7.1054274e-15, 0, 7.1054274e-15, 0.99999946, 0, -0.0436493, 0.35667223)
 shape = SubResource("BoxShape3D_iocv6")
 
 [node name="Camera3D" parent="." index="2" unique_id=351992915]

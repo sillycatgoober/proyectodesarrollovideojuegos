@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2dtrcwd5f7iv"
-path="res://.godot/imported/papel3.png-35e0ad9cfe8f74b822ce2d3a5d5fe58b.ctex"
+uid="uid://0l8s7d6q4dfk"
+path="res://.godot/imported/archivo_familia.png-cf3a745682a807cb5b20d90f49a6262c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Modelos/Dream4/Texturas/papel3.png"
-dest_files=["res://.godot/imported/papel3.png-35e0ad9cfe8f74b822ce2d3a5d5fe58b.ctex"]
+source_file="res://Assets/Modelos/Dream4/archivo_familia.png"
+dest_files=["res://.godot/imported/archivo_familia.png-cf3a745682a807cb5b20d90f49a6262c.ctex"]
 
 [params]
 

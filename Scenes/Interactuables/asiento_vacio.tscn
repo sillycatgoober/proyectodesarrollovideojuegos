@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b56w6hi4udoyd"]
+
+[ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_s68x3"]
+[ext_resource type="Script" uid="uid://kwxsju85k01n" path="res://Scripts/Interactuables/asiento_vacio.gd" id="2_nn1h2"]
+[ext_resource type="PackedScene" uid="uid://3fm44h2jw3y5" path="res://Assets/Modelos/Dream1/carta.glb" id="2_pd16r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pd16r"]
+
+[node name="AsientoVacio" unique_id=1499427550 instance=ExtResource("1_s68x3")]
+script = ExtResource("2_nn1h2")
+
+[node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4377848, 0)
+shape = SubResource("BoxShape3D_pd16r")
+
+[node name="carta" parent="." index="3" unique_id=2092691571 instance=ExtResource("2_pd16r")]

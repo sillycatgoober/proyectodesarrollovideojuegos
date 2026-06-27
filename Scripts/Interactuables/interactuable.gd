@@ -2,13 +2,15 @@ extends Node3D
 class_name Interactuable
 
 @export var usa_focus := false
-@export var puede_interactuar:=true
+@export var puede_interactuar :=true
 @export var focus_offset := Vector3(0, 1.5, -0.5)
 @export var tiene_scroll := false
-@onready var camara:Camera3D
-@onready var audio:AudioStreamPlayer
+@export var texto_scroll := ""
+@onready var camara: Camera3D
+@onready var audio: AudioStreamPlayer
 var jugador_cerca := false
 var en_interaccion := false
+var texto_e := ""
 
 func _ready() -> void:
 	if $AudioStreamPlayer!=null:
@@ -36,3 +38,8 @@ func desbloquear():
 
 func get_player():
 	return get_tree().get_first_node_in_group("Player")
+
+func set_player_cam():
+	en_interaccion = false
+	get_player().puede_moverse = true
+	get_player().set_camara_activa(true)

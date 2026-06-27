@@ -141,28 +141,63 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 601.0
+offset_left = 603.3
 offset_top = 104.0
-offset_right = -259.0
+offset_right = -256.7
 offset_bottom = -104.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.02094395
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8e0x1")
 
 [node name="Panel" type="Panel" parent="PanelContainer" unique_id=1622883977]
-visible = false
+clip_contents = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cdp70")
 
-[node name="Label" type="Label" parent="PanelContainer/Panel" unique_id=1043468438]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/Panel" unique_id=1173873117]
 layout_mode = 0
-offset_right = 339.0
-offset_bottom = 437.0
+offset_right = 288.0
+offset_bottom = 92.0
+
+[node name="Caso" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1341886218]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_6akw1")
-text = "sdsadasdasdaSD111111111111111111"
+theme_override_font_sizes/font_size = 20
+text = "3333333333333"
+autowrap_mode = 3
+
+[node name="Nombre" type="Label" parent="PanelContainer/Panel/VBox" unique_id=192878862]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Edad" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1755168903]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Ocupacion" type="Label" parent="PanelContainer/Panel/VBox" unique_id=921050715]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Motivo" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1048058253]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
 
 [node name="Panel2" type="Panel" parent="PanelContainer" unique_id=910118345]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2370w")
 
@@ -260,15 +295,54 @@ theme = ExtResource("5_8e0x1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "3333333333333333333333333333"
 
+[node name="Panel4" type="Panel" parent="PanelContainer" unique_id=1331959165]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/Panel4" unique_id=870276093]
+layout_mode = 0
+offset_right = 292.7434
+offset_bottom = 92.0
+
+[node name="Nombre" type="Label" parent="PanelContainer/Panel4/VBox" unique_id=1142132284]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "33333333"
+autowrap_mode = 3
+
+[node name="Desc" type="Label" parent="PanelContainer/Panel4/VBox" unique_id=2128093761]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Evidencias" type="Label" parent="PanelContainer/Panel4/VBox" unique_id=1585770001]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Solucion" type="Label" parent="PanelContainer/Panel4/VBox" unique_id=1568260989]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
 [node name="Button" type="Button" parent="." unique_id=507069622]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 387.0
-offset_top = 113.0
-offset_right = -662.0
-offset_bottom = -117.0
+offset_left = 828.0
+offset_top = 538.0
+offset_right = -249.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -277,10 +351,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 985.0
-offset_top = 97.0
-offset_right = -74.0
-offset_bottom = -102.0
+offset_left = 574.0
+offset_top = 530.0
+offset_right = -506.0
+offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
 

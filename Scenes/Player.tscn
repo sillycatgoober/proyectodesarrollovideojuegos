@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://b1cuxurlb8vgk"]
 
 [ext_resource type="Script" uid="uid://ddcvhn3gayiw6" path="res://Scripts/player.gd" id="1_rpqav"]
+[ext_resource type="AudioStream" uid="uid://btw3eaf1whw3" path="res://Assets/Audio/SFX/Footstep_1.wav" id="2_52ee3"]
 [ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/UI/journal.tscn" id="2_kyqiw"]
+[ext_resource type="AudioStream" uid="uid://bvu6q0lj0l7my" path="res://Assets/Audio/SFX/Footstep_2.wav" id="3_bhhdu"]
+[ext_resource type="AudioStream" uid="uid://bmkmmxtqe8led" path="res://Assets/Audio/SFX/Footstep_3.wav" id="4_megsn"]
+[ext_resource type="AudioStream" uid="uid://d23es038ns3yi" path="res://Assets/Audio/SFX/Footstep_4.wav" id="5_yoq75"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 radius = 0.3
@@ -10,19 +14,26 @@ height = 2.5673828
 [node name="Player" type="CharacterBody3D" unique_id=890671124]
 floor_snap_length = 0.3
 script = ExtResource("1_rpqav")
+sonidos_pasos = Array[AudioStream]([ExtResource("2_52ee3"), ExtResource("3_bhhdu"), ExtResource("4_megsn"), ExtResource("5_yoq75")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=312091614 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.279288, 0)
 shape = SubResource("CapsuleShape3D_0rwas")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1147069933]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2378976, -0.060249746)
+[node name="CameraPivot" type="Node3D" parent="." unique_id=452795539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.238, -0.06)
 
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=591786245]
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1147069933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00010228157, -0.0002497472)
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/Camera3D" unique_id=591786245]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 target_position = Vector3(0, -1.2, 0)
 collide_with_areas = true
 debug_shape_custom_color = Color(0.22440284, 0.64420694, 0.99999994, 1)
+
+[node name="TicketHolder" type="Node3D" parent="CameraPivot/Camera3D" unique_id=72179531]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.43219447, -0.25289536, -0.4339983)
 
 [node name="InterfazUI" type="CanvasLayer" parent="." unique_id=145753592]
 
@@ -36,3 +47,5 @@ target_position = Vector3(0, -0.915, 0)
 [node name="StairsDown" type="RayCast3D" parent="." unique_id=1790520787]
 unique_name_in_owner = true
 target_position = Vector3(0, -0.75, 0)
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=2094187548]

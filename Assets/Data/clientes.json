@@ -1,0 +1,34 @@
+{
+    "cliente1": {
+		"caso":"203",
+        "nombre": "Ernesto Rodríguez",
+        "edad": "66",
+        "ocupacion": "Profesor jubilado",
+        "motivo": "Sueños recurrentes en su antigua escuela.",
+		"sueño": "Trauma"
+    },
+    "cliente2": {
+        "caso":"204",
+		"nombre": "Talia Hernández",
+        "edad": "24",
+        "ocupacion": "Escritora Junior",
+        "motivo": "Casa inundada recurrente.",
+		"sueño": "Sueño Precognitivo"
+    },
+    "cliente3": {
+        "caso":"205",
+		"nombre": "Daniel Castro",
+        "edad": "45",
+        "ocupacion": "Conductor de autobús",
+        "motivo": "Figura desconocida en su ruta.",
+		"sueño": "Sueño de Intrusión"
+    },
+    "cliente4": {
+        "caso":"206",
+		"nombre": "Marcos Vargas",
+        "edad": "40",
+        "ocupacion": "Empleado gubernamental",
+        "motivo": "No encuentra la salida de su oficina.",
+		"sueño": "Sueño Sintomático"
+    }
+}
