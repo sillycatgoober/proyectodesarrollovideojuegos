@@ -1,11 +1,9 @@
 extends Interactuable
 
-@export var material_textura: Material
+@export var foto: Texture2D
+@onready var mesh_imagen: MeshInstance3D = $Pivot/foto/Foto
 @export_multiline var texto_pista: String
-
 @onready var pivot: Node3D = $Pivot
-# Apuntamos directamente a tu nodo FotoModelo tal cual lo tienes en la imagen
-@onready var foto_modelo: Node3D = $Pivot/FotoModelo 
 
 var esta_girado: bool = false
 const ANGULO_GIRO: float = 180.0 
@@ -16,23 +14,18 @@ func _ready() -> void:
 	if usa_focus:
 		camara = $Camera3D
 	
-	# Como ya tienes FotoModelo en la escena, solo le aplicamos tu material (.tres)
-	if material_textura and foto_modelo:
-		aplicar_material_a_malla(foto_modelo)
+	texto_f = "Voltear"
+	
+	if foto:
+		var material := mesh_imagen.get_active_material(0).duplicate()
+		material.albedo_texture = foto
+		mesh_imagen.set_surface_override_material(0, material)
 		
-	# Buscamos el Label3D para la pista (por si aún no lo has agregado)
 	var label_3d = $Pivot.get_node_or_null("Label3D")
 	if label_3d:
 		label_3d.text = texto_pista
 		
 	set_process_unhandled_input(false)
-
-func aplicar_material_a_malla(nodo: Node) -> void:
-	if nodo is MeshInstance3D:
-		nodo.material_override = material_textura
-	
-	for hijo in nodo.get_children():
-		aplicar_material_a_malla(hijo)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if en_interaccion:

@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fdsr7jkyx1dt"
-path.s3tc="res://.godot/imported/valvula_lavadora2.png-05573af5d705ddd7f32dd52260087882.s3tc.ctex"
+uid="uid://blkphh3rlnegj"
+path.s3tc="res://.godot/imported/Foto1.png-835525a07b3b10abc23a0345da1558e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "747cc6806229fc1554f306c856b7ccbd"
-}
 
 [deps]
 
-source_file="res://Assets/Modelos/Dream2/Texturas/valvula_lavadora2.png"
-dest_files=["res://.godot/imported/valvula_lavadora2.png-05573af5d705ddd7f32dd52260087882.s3tc.ctex"]
+source_file="res://Assets/Modelos/Dream2/Foto1.png"
+dest_files=["res://.godot/imported/Foto1.png-835525a07b3b10abc23a0345da1558e5.s3tc.ctex"]
 
 [params]
 

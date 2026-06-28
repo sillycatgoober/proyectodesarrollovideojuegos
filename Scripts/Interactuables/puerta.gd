@@ -6,11 +6,17 @@ var abierta: bool = false
 @export var angulo_apertura := 90.0
 @export var sonido_abrir : AudioStream
 @export var sonido_bloqueada : AudioStream
+@export var is_elevador:=false
+@export var direccion: float = 1.0
+@export var distancia: float = 1.5
 @onready var model = $Model
-
+var posicion_original: Vector3
+var rotacion_inicial: float
 
 func _ready() -> void:
 	audio = $AudioStreamPlayer
+	posicion_original = position
+	rotacion_inicial = rotation_degrees.y
 	if modelo_puerta:
 		var instancia = modelo_puerta.instantiate()
 		model.add_child(instancia)
@@ -23,18 +29,37 @@ func interact():
 		return
 	audio.stream = sonido_abrir
 	if not abierta:
-		abrir_puerta()
+		if not is_elevador:
+			abrir_puerta()
+		else:
+			abrir_puerta_elevador()
 	else:
-		cerrar_puerta()
+		if not is_elevador:
+			cerrar_puerta()
+		else:
+			cerrar_puerta_elevador()
 	audio.play()
 
 func abrir_puerta():
 	abierta = true
-	create_tween().tween_property(self, "rotation:y", deg_to_rad(angulo_apertura), 0.8)
+	var tween = create_tween()
+	tween.tween_property(self, "rotation_degrees:y", rotacion_inicial + angulo_apertura, 0.8)
+
+func abrir_puerta_elevador():
+	if abierta:
+		return
+	abierta = true
+	create_tween().tween_property(self, "position:z", posicion_original.z + (distancia * direccion), 0.8)
 
 func cerrar_puerta():
 	abierta = false
-	create_tween().tween_property(self, "rotation:y", deg_to_rad(0), 0.8)
+	create_tween().tween_property(self, "rotation_degrees:y", rotacion_inicial, 0.8)
+
+func cerrar_puerta_elevador():
+	if not abierta:
+		return
+	abierta = false
+	create_tween().tween_property(self, "position:z", posicion_original.z, 0.8)
 
 func desbloquear():
 	bloqueada = false

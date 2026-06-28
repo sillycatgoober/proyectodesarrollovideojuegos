@@ -34,6 +34,8 @@ func mostrar_acciones(obj) -> void:
 			$Iconos/VBoxContainer/F/Label.text = "Recoger"
 	if not obj.texto_e.is_empty():
 		$Iconos/VBoxContainer/E/Label.text = obj.texto_e
+	if not obj.texto_f.is_empty():
+		$Iconos/VBoxContainer/F/Label.text = obj.texto_f
 	if icono_scroll.visible:
 		$Iconos/VBoxContainer/Scroll/Label.text = obj.texto_scroll
 

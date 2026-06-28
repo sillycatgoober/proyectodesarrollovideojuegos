@@ -205,7 +205,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.681807, -0.5639847, 6.2095
 shape = SubResource("BoxShape3D_cwbhr")
 debug_color = Color(1.8289685e-06, 0.64411926, 0.29310408, 0.41960785)
 
-[node name="OjosAnim" parent="." unique_id=1261486275 instance=ExtResource("15_i4l7g")]
+[node name="AnimOjos" parent="." unique_id=1261486275 instance=ExtResource("15_i4l7g")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1079688955]
 stream = ExtResource("15_e7w7n")

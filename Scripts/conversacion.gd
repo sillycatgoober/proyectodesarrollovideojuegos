@@ -8,7 +8,7 @@ extends CanvasLayer
 @onready var contenedor_opciones = $ChoiceContainer
 @onready var nombre_label = $Label
 @onready var anim_ojos = $AnimOjos
-@onready var sprite_personaje: TextureRect = $Ratio/Client
+@onready var sprite_personaje: Sprite2D = $Ratio/Client
 
 var sprites = {
 	"jefa": preload("res://Assets/Imagenes/Sprites/c1.png"),

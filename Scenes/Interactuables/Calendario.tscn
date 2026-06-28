@@ -5,6 +5,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cxu6"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1yym"]
+
 [node name="Calendario" type="Node3D" unique_id=1465258269 groups=["interactuable"]]
 script = ExtResource("1_6cxu6")
 usa_focus = true
@@ -30,6 +32,7 @@ offset_left = 429.0
 offset_top = 471.0
 offset_right = 521.0
 offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j1yym")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

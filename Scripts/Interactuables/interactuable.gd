@@ -11,6 +11,7 @@ class_name Interactuable
 var jugador_cerca := false
 var en_interaccion := false
 var texto_e := ""
+var texto_f := ""
 
 func _ready() -> void:
 	if $AudioStreamPlayer!=null:

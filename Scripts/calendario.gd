@@ -1,17 +1,13 @@
 extends Interactuable
-
-# Ahora pedimos el manager en lugar de la puerta
 @export var manager: Node3D 
 
 var puzzle_resuelto: bool = false
 var mouse_liberado: bool = false
 
 func _ready() -> void:
-	print("calendario listo")
 	if $AudioStreamPlayer != null:
 		audio = $AudioStreamPlayer
-	if usa_focus:
-		camara = $Camera3D
+	camara = $Camera3D
 	
 	set_process_unhandled_input(false)
 
@@ -30,17 +26,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func resolver_puzzle() -> void:
 	puzzle_resuelto = true
-	en_interaccion = false
 	print("dia 31 presionado correctamente con click")
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	mouse_liberado = false
-	print("mouse oculto tras resolver")
 	
 	if audio:
 		audio.play() 
 		
-	# Aqui nos comunicamos con el manager
 	if manager:
 		if manager.has_method("calendario_resuelto"):
 			print("avisando al manager que se resolvio el calendario")
@@ -49,18 +42,6 @@ func resolver_puzzle() -> void:
 			print("error el manager esta asignado pero no tiene la funcion calendario_resuelto")
 	else:
 		print("falta asignar el manager en el inspector del calendario")
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		print("jugador entro al area del calendario")
-		jugador_cerca = true
-		set_process_unhandled_input(true)
-
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
-		print("jugador salio del area del calendario")
-		jugador_cerca = false
-		set_process_unhandled_input(false)
 
 func _on_boton_31_pressed() -> void:
 	if en_interaccion and not puzzle_resuelto:

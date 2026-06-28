@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wf7dspg8xwph"
-path.s3tc="res://.godot/imported/dream2_pared_ladrillo.png-16d2cc89016675e8571e770e192e2075.s3tc.ctex"
+uid="uid://brk2i3fkomby1"
+path.s3tc="res://.godot/imported/Foto4.png-ee26482e9042be107eb68341a436737b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "b70cfc2c13f5dad89cad6bc226075662"
-}
 
 [deps]
 
-source_file="res://Assets/Modelos/Dream2/Texturas/dream2_pared_ladrillo.png"
-dest_files=["res://.godot/imported/dream2_pared_ladrillo.png-16d2cc89016675e8571e770e192e2075.s3tc.ctex"]
+source_file="res://Assets/Modelos/Dream2/Foto4.png"
+dest_files=["res://.godot/imported/Foto4.png-ee26482e9042be107eb68341a436737b.s3tc.ctex"]
 
 [params]
 

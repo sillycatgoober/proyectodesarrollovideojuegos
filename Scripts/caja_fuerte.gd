@@ -27,24 +27,21 @@ func interact() -> void:
 	if abierta or not puede_interactuar:
 		return
 	
+	en_interaccion = !en_interaccion
 	var player = get_player()
 	if player == null:
 		return
-	
-	en_interaccion = !en_interaccion
-	
 	if en_interaccion:
 		player.puede_moverse = false
-		if usa_focus:
-			camara.current = true
-			caja_botones.show()
-			combinacion_label.text = ""
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			player.puede_moverse = true
-			player.set_camara_activa(true)
-			caja_botones.hide()
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		camara.current = true
+		caja_botones.show()
+		combinacion_label.text = ""
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		player.puede_moverse = true
+		player.set_camara_activa(true)
+		caja_botones.hide()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
 func presionar_boton(numero: int) -> void:
@@ -64,6 +61,7 @@ func verificar_combinacion() -> void:
 	
 	if ingresada == combinacion_correcta:
 		abrir()
+		puede_interactuar = false
 	else:
 		combinacion_label.text = "X"
 		combinacion_ingresada = ""

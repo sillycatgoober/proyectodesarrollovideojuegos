@@ -23,17 +23,7 @@ func bajar_nivel_agua():
 	if nivel_agua:
 		nivel_agua.queue_free()
 	
-	abrir_puerta_sotano()
+	puerta_sotano.desbloquear()
 	
 func calendario_resuelto() -> void:
-	print("el manager detecto que el calendario fue resuelto")
-	desbloquear_puerta_salida()
-
-func abrir_puerta_sotano() -> void:
-	if puerta_sotano and puerta_sotano.has_method("desbloquear_puerta"):
-		puerta_sotano.desbloquear_puerta()
-
-func desbloquear_puerta_salida() -> void:
-	if puerta_salida and puerta_salida.has_method("desbloquear_puerta"):
-		print("manager desbloqueando la puerta de salida")
-		puerta_salida.desbloquear_puerta()
+	puerta_salida.desbloquear()
