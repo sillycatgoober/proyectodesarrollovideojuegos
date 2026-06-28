@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cqgqbd73dimqx"]
+
+[ext_resource type="Script" uid="uid://d1yf7lei0yw4" path="res://Scripts/calendario.gd" id="1_6cxu6"]
+[ext_resource type="PackedScene" uid="uid://bx55gsqjhllhw" path="res://Assets/Modelos/Dream2/calendario.glb" id="1_35w5l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cxu6"]
+
+[node name="Calendario" type="Node3D" unique_id=1465258269 groups=["interactuable"]]
+script = ExtResource("1_6cxu6")
+usa_focus = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=786565775]
+
+[node name="calendario" parent="MeshInstance3D" unique_id=419684013 instance=ExtResource("1_35w5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5142278, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=265043055]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1214917045]
+shape = SubResource("BoxShape3D_6cxu6")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1875403506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050872326, 0, 0.5793381)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1013553372]
+bus = &"SFX"
+
+[node name="Boton31" type="Button" parent="." unique_id=1112810591]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="pressed" from="Boton31" to="." method="_on_boton_31_pressed"]

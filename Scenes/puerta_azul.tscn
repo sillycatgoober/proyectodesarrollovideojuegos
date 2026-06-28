@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bb5e8hn6gojl5"]
+
+[ext_resource type="Script" uid="uid://cdkqxivyavhjq" path="res://Scripts/puerta_2.gd" id="1_31nib"]
+[ext_resource type="PackedScene" uid="uid://cme5b4sbixw0b" path="res://Assets/Modelos/Dream2/puerta_azul.glb" id="2_kptdl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_31nib"]
+size = Vector3(0.6575928, 3.4121704, 2.0668945)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kptdl"]
+size = Vector3(0.0647583, 3.4383545, 1.4143677)
+
+[node name="PuertaAzul" type="Area3D" unique_id=1806077827]
+script = ExtResource("1_31nib")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=961976403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09442139, 1.2060852, -0.60383195)
+shape = SubResource("BoxShape3D_31nib")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=497406587]
+
+[node name="Pivot" type="Node3D" parent="." unique_id=833824510]
+
+[node name="Model" parent="Pivot" unique_id=1119585502 instance=ExtResource("2_kptdl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pivot" unique_id=1182198657]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/StaticBody3D" unique_id=24155909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007293701, 1.2191772, -0.69436646)
+shape = SubResource("BoxShape3D_kptdl")
+debug_color = Color(0.6951997, 0.3804923, 0.8125117, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

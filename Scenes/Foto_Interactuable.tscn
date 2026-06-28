@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dyxfk4r7tydw4"]
+
+[ext_resource type="Script" uid="uid://dr103r4li7df0" path="res://Scripts/foto_interactuable.gd" id="1_yfxis"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yfxis"]
+
+[node name="FotoInteractuable" type="Area3D" unique_id=728124414 groups=["interactuable"]]
+script = ExtResource("1_yfxis")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1826182557 groups=["interactuable"]]
+shape = SubResource("BoxShape3D_yfxis")
+
+[node name="Model" type="Node3D" parent="." unique_id=800670551]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
