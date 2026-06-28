@@ -48,7 +48,7 @@ func _on_slider_master_value_changed(value: float) -> void:
 
 func _on_slider_fx_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
-	GameManager.guardar_config()	
+	GameManager.guardar_config()
 
 func _on_slider_musica_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))

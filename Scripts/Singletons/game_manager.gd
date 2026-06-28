@@ -99,3 +99,12 @@ func cargar_config() -> void:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), config.get_value("audio", "sfx", 0.0))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), config.get_value("audio", "musica", 0.0))
 #---- FIN CONFIGURACION AUDIO ----#
+
+
+func fade_out_musica(duracion: float = 1.5) -> void:
+	var tween = create_tween()
+	tween.tween_method(
+		func(v): AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(v)),
+		db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))),
+		0.0,duracion)
+	await tween.finished

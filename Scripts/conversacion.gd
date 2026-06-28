@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@export var boton_escena: PackedScene
 @onready var burbuja_cliente = $chat
 @onready var texto_cliente = $chat/Margin/VBox/RichTextLabel
 @onready var nombre = $chat/Margin/VBox/Label
@@ -8,19 +9,17 @@ extends CanvasLayer
 @onready var contenedor_opciones = $ChoiceContainer
 @onready var nombre_label = $Label
 @onready var anim_ojos = $AnimOjos
-@onready var sprite_personaje: Sprite2D = $Ratio/Client
+@onready var sprite_personaje: TextureRect = $Ratio/Control/Client
 
 var sprites = {
-	"jefa": preload("res://Assets/Imagenes/Sprites/c1.png"),
-	"cliente1": preload("res://Assets/Imagenes/Sprites/c1.png"),
-	"cliente2": preload("res://Assets/Imagenes/Sprites/c1.png"),
-	"cliente3": preload("res://Assets/Imagenes/Sprites/c1.png"),
-	"cliente4": preload("res://Assets/Imagenes/Sprites/c1.png"),
+	"jefa": preload("res://Assets/Imagenes/Sprites/Jefe.png"),
+	"cliente1": preload("res://Assets/Imagenes/Sprites/C1.png"),
+	"cliente2": preload("res://Assets/Imagenes/Sprites/C2.png"),
+	"cliente3": preload("res://Assets/Imagenes/Sprites/C3.png"),
+	"cliente4": preload("res://Assets/Imagenes/Sprites/C4.png"),
 }
 
 func _ready() -> void:
-	print("mouse mode: ", Input.get_mouse_mode())
-	print("fase: ", GameManager.fase_actual)
 	anim_ojos.visible = false
 	DialogManager.dialogo_actualizado.connect(_on_dialogo_actualizado)
 	DialogManager.dialogo_terminado.connect(_on_dialogo_terminado)
@@ -49,7 +48,6 @@ func _input(event: InputEvent) -> void:
 		if texto_jugador.escribiendo:
 			texto_jugador.completar_texto()
 			return
-		# si no hay opciones, avanza
 		if contenedor_opciones.get_child_count() == 0:
 			DialogManager.avanzar()
 
@@ -74,9 +72,10 @@ func _on_dialogo_actualizado(quien: String, texto: String, opciones: Array) -> v
 		hijo.queue_free()
 	
 	for i in opciones.size():
-		var boton = Button.new()
+		var boton = boton_escena.instantiate()
 		boton.text = opciones[i]["texto"]
-		boton.pressed.connect(func(): DialogManager.elegir_opcion(i))
+		var idx = i
+		boton.pressed.connect(func(): DialogManager.elegir_opcion(idx))
 		contenedor_opciones.add_child(boton)
 
 func _on_dialogo_terminado() -> void:
@@ -89,6 +88,7 @@ func _on_dialogo_terminado() -> void:
 		GameManager.Fase.ENTREVISTA:
 			GameManager.fase_actual = GameManager.Fase.SUENO
 			GameManager.guardar()
+			await GameManager.fade_out_musica()
 			anim_ojos.visible = true
 			anim_ojos.play("close")
 			await anim_ojos.animation_finished
@@ -154,3 +154,6 @@ func desvanecer() -> void:
 	await tween.finished
 	sprite_personaje.visible = false
 #---- FIN CAMBIAR SPRITE ----#
+
+func usa_cursor_libre() -> bool:
+	return true

@@ -39,7 +39,6 @@ offset_bottom = 648.0
 texture = ExtResource("2_rb4ur")
 
 [node name="Bots" type="Control" parent="." unique_id=1192203825]
-visible = false
 anchors_preset = 0
 offset_left = 632.31335
 offset_top = 177.94931
@@ -59,7 +58,7 @@ text = "CARGAR CASO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="TextureButton" parent="Bots" unique_id=308026781]
+[node name="ContinueButton" type="TextureButton" parent="Bots" unique_id=308026781 groups=["stamp_bot"]]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0
@@ -86,7 +85,7 @@ text = "CASO NUEVO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NewGameButton" type="TextureButton" parent="Bots" unique_id=976673670]
+[node name="NewGameButton" type="TextureButton" parent="Bots" unique_id=976673670 groups=["stamp_bot"]]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0
@@ -113,7 +112,7 @@ text = "OPCIONES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Options" type="TextureButton" parent="Bots" unique_id=2100972668]
+[node name="Options" type="TextureButton" parent="Bots" unique_id=2100972668 groups=["stamp_bot"]]
 texture_filter = 1
 layout_mode = 0
 offset_left = 35.01483
@@ -139,7 +138,7 @@ text = "CERRAR EXPEDIENTE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitButton" type="TextureButton" parent="Bots" unique_id=532219208]
+[node name="ExitButton" type="TextureButton" parent="Bots" unique_id=532219208 groups=["stamp_bot"]]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0
@@ -174,7 +173,7 @@ text = "SLOT #1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot1" type="TextureButton" parent="Slots" unique_id=143207701]
+[node name="Slot1" type="TextureButton" parent="Slots" unique_id=143207701 groups=["stamp_bot"]]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0
@@ -241,7 +240,7 @@ text = "SLOT #2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot2" type="TextureButton" parent="Slots" unique_id=1801407471]
+[node name="Slot2" type="TextureButton" parent="Slots" unique_id=1801407471 groups=["stamp_bot"]]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0
@@ -268,7 +267,7 @@ text = "SLOT #3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot3" type="TextureButton" parent="Slots" unique_id=285061235]
+[node name="Slot3" type="TextureButton" parent="Slots" unique_id=285061235 groups=["stamp_bot"]]
 texture_filter = 1
 layout_mode = 0
 offset_left = 20.861511
@@ -294,7 +293,7 @@ text = "SLOT #4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot4" type="TextureButton" parent="Slots" unique_id=604142520]
+[node name="Slot4" type="TextureButton" parent="Slots" unique_id=604142520 groups=["stamp_bot"]]
 texture_filter = 1
 layout_mode = 0
 offset_left = 28.556274
@@ -320,7 +319,7 @@ text = "REGRESAR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="TextureButton" parent="Slots" unique_id=64051978]
+[node name="BackButton" type="TextureButton" parent="Slots" unique_id=64051978 groups=["stamp_bot"]]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0
@@ -424,7 +423,7 @@ text = "CERRAR OPCIONES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="TextureButton" parent="Opciones" unique_id=1306501685]
+[node name="CloseButton" type="TextureButton" parent="Opciones" unique_id=1306501685 groups=["stamp_bot"]]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0

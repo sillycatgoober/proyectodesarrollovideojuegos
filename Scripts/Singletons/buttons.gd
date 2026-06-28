@@ -18,10 +18,10 @@ func _on_scene_changed(scene: Node) -> void:
 	_conectar_botones_existentes()
 
 func _conectar_botones_existentes() -> void:
-	await get_tree().process_frame  # espera un frame para que cargue
+	await get_tree().process_frame
 	for boton in get_tree().get_nodes_in_group(""):
 		pass
-	for boton in get_tree().root.find_children("*", "BaseButton", true, false):
+	for boton in get_tree().get_nodes_in_group("stamp_bot"):
 		if not boton.mouse_entered.is_connected(_on_hover):
 			boton.mouse_entered.connect(_on_hover)
 		if not boton.pressed.is_connected(_on_press):

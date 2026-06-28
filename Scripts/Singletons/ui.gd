@@ -3,10 +3,12 @@ extends CanvasLayer
 @onready var icon_panel = $Iconos
 @onready var pause_menu = $Pause
 @onready var folder = $Journal
+@onready var leave_menu = $Warning
 @onready var icono_e = $Iconos/VBoxContainer/E
 @onready var icono_f = $Iconos/VBoxContainer/F
 @onready var icono_esc = $Iconos/VBoxContainer/ESC
 @onready var icono_scroll = $Iconos/VBoxContainer/Scroll
+@onready var blur_pausa: ColorRect = $ColorRect
 
 func _ready() -> void:
 	icono_e.visible = false
@@ -44,7 +46,15 @@ func esconder_acciones() -> void:
 
 func toggle_pausa():
 	pause_menu.visible = !pause_menu.visible
-	print(pause_menu.visible)
+	blur_pausa.visible = pause_menu.visible
+	var bus_idx = AudioServer.get_bus_index("Music")
+	if pause_menu.visible:
+		var efecto = AudioEffectLowPassFilter.new()
+		efecto.cutoff_hz = 500.0
+		AudioServer.add_bus_effect(bus_idx, efecto)
+	else:
+		AudioServer.remove_bus_effect(bus_idx, 0)
+	
 	actualizar_estado_ui()
 
 func toggle_folder():
@@ -61,7 +71,11 @@ func actualizar_estado_ui():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		esconder_acciones()
 	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		var escena = get_tree().current_scene
+		if escena.has_method("usa_cursor_libre") and escena.usa_cursor_libre():
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
@@ -87,3 +101,16 @@ func _on_slider_fx_value_changed(value: float) -> void:
 
 func _on_slider_musica_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+
+#BOTONES
+func _on_menu_button_pressed() -> void:
+	leave_menu.visible = true
+	pause_menu.visible = false
+
+func _on_abandon_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/UI/menu.tscn")
+
+func _on_stay_button_pressed() -> void:
+	leave_menu.visible = false
+	pause_menu.visible = true
+#FIN BOTONES

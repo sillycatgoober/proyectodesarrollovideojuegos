@@ -203,17 +203,22 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_2370w")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel2" unique_id=2112346822]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.21400002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -167.0
-offset_bottom = 1.0
+offset_left = 0.49819946
+offset_top = -1.3193741
+offset_right = -104.013794
+offset_bottom = -0.31936646
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CheckBox" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=2075052481]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18307984, 0.07909682, 0.1891267, 1)
 theme_override_fonts/font = ExtResource("3_6akw1")
 text = "EVIDENCIA 1"
 
@@ -221,66 +226,97 @@ text = "EVIDENCIA 1"
 layout_mode = 2
 theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18431373, 0.078431375, 0.1882353, 1)
 text = "EVIDENCIA 2"
 
-[node name="CheckBox3" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=663923318]
+[node name="CheckBox3" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=175049741]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "EVIDENCIA 3"
-
-[node name="CheckBox4" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=397578160]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "EVIDENCIA 4"
-
-[node name="CheckBox5" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=378635147]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "EVIDENCIA 5"
-
-[node name="CheckBox6" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1808432025]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="CheckBox7" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=359161988]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="CheckBox8" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=868052317]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="CheckBox9" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=437031788]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="CheckBox10" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=767574641]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="CheckBox11" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1201539231]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="CheckBox12" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=41848192]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="CheckBox13" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1743265268]
-layout_mode = 2
-theme = SubResource("Theme_y6fbt")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18307984, 0.07909682, 0.1891267, 1)
 theme_override_fonts/font = ExtResource("3_6akw1")
+text = "EVIDENCIA 1"
+
+[node name="CheckBox4" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1062837041]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18431373, 0.078431375, 0.1882353, 1)
+text = "EVIDENCIA 2"
+
+[node name="CheckBox5" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=248024308]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18307984, 0.07909682, 0.1891267, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "EVIDENCIA 1"
+
+[node name="CheckBox6" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=83385262]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18431373, 0.078431375, 0.1882353, 1)
+text = "EVIDENCIA 2"
+
+[node name="CheckBox7" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=726459260]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18431373, 0.078431375, 0.1882353, 1)
+text = "EVIDENCIA 2"
+
+[node name="CheckBox8" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1905772524]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18307984, 0.07909682, 0.1891267, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "EVIDENCIA 1"
+
+[node name="CheckBox9" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=677935957]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18431373, 0.078431375, 0.1882353, 1)
+text = "EVIDENCIA 2"
+
+[node name="CheckBox10" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=609020071]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18307984, 0.07909682, 0.1891267, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "EVIDENCIA 1"
+
+[node name="CheckBox11" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=420265018]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18431373, 0.078431375, 0.1882353, 1)
+text = "EVIDENCIA 2"
+
+[node name="CheckBox12" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1041103692]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18431373, 0.078431375, 0.1882353, 1)
+text = "EVIDENCIA 2"
+
+[node name="CheckBox13" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=360878613]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.18307984, 0.07909682, 0.1891267, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "EVIDENCIA 1"
 
 [node name="Panel3" type="Panel" parent="PanelContainer" unique_id=542653299]
 visible = false

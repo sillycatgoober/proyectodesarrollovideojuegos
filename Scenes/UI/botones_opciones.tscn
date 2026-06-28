@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://wljmvndlu5a0"]
+
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="1_phwmn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtvgg"]
+bg_color = Color(0.9882353, 0.93333334, 0.99215686, 0.8509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq0pi"]
+bg_color = Color(0.9882353, 0.93333334, 0.99215686, 0.8509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwkvm"]
+bg_color = Color(0.9882353, 0.93333334, 0.99215686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Button" type="Button" unique_id=779047922]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -955.0
+offset_bottom = -551.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.50980395, 0.19607843, 0.44705883, 1)
+theme_override_fonts/font = ExtResource("1_phwmn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtvgg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hq0pi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwkvm")
+text = "hola"

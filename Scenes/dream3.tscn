@@ -96,7 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.059558, 1.9262657, -0.602
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=943752281]
 stream = ExtResource("11_y566u")
-autoplay = true
 bus = &"Music"
 
 [node name="AnimOjos" parent="." unique_id=1261486275 instance=ExtResource("11_7s3h0")]

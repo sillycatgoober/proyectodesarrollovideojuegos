@@ -5,7 +5,6 @@ extends Node3D
 @export var puerta_sal2: Node
 @export var pupitre: Node
 @onready var anim_ojos = $AnimOjos
-
 var relojes_correctos := {0: false, 1: false, 2: false}
 
 func _ready() -> void:
