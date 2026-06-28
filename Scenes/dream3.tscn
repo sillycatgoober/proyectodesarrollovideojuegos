@@ -84,4 +84,7 @@ shape = SubResource("ConcavePolygonShape3D_fench")
 [node name="Node3D" type="Node3D" parent="." unique_id=607441119]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.059558, 1.9262657, -0.6023333)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=943752281]
+autoplay = true
+
 [editable path="dream3"]

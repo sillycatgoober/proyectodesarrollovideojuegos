@@ -1,8 +1,26 @@
 [gd_scene format=3 uid="uid://c2omn8jke7kik"]
 
-[ext_resource type="Texture2D" uid="uid://4h77pfbef1ui" path="res://Assets/Imagenes/menu_fondo.png" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://e3o3cnbbtctk" path="res://Scripts/menu.gd" id="1_xhh6f"]
-[ext_resource type="AudioStream" uid="uid://cwof0w0js2mn7" path="res://Assets/Audio/Musica/Poems-In-The-Fog.mp3" id="3_cayip"]
+[ext_resource type="Texture2D" uid="uid://dqds1illabc26" path="res://Assets/Imagenes/Menu-Fondo.png" id="2_rb4ur"]
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="3_4twqa"]
+[ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="3_t1b1y"]
+[ext_resource type="Texture2D" uid="uid://owk8dxvcuf1h" path="res://Assets/Imagenes/Stamp.png" id="5_ttkkf"]
+[ext_resource type="Texture2D" uid="uid://c2dp40sgm5aih" path="res://Assets/Imagenes/Stamp-Hover.png" id="6_dxfgg"]
+[ext_resource type="StyleBox" uid="uid://dgwnpn3ofx6op" path="res://slider.tres" id="7_4twqa"]
+[ext_resource type="Texture2D" uid="uid://djywgfxwitw6w" path="res://Assets/Imagenes/Remove.png" id="7_fied4"]
+[ext_resource type="Texture2D" uid="uid://b7kbby4ki4i82" path="res://Assets/Imagenes/Remove-H1.png" id="8_s5hva"]
+[ext_resource type="Texture2D" uid="uid://c3hqpkvt6gp7m" path="res://Assets/Imagenes/Remove-H2.png" id="9_c0ox7"]
+[ext_resource type="Texture2D" uid="uid://cjbir26nps78d" path="res://Assets/Imagenes/Remove-H3.png" id="10_ukh7q"]
+[ext_resource type="AudioStream" uid="uid://bonortt1ghsi7" path="res://Assets/Audio/Musica/Spaces-In-between.mp3" id="12_fied4"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ybvh4"]
+frames = 3
+frame_0/texture = ExtResource("8_s5hva")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("9_c0ox7")
+frame_1/duration = 0.3
+frame_2/texture = ExtResource("10_ukh7q")
+frame_2/duration = 0.3
 
 [node name="Menu" type="Control" unique_id=802699079]
 layout_mode = 3
@@ -14,126 +32,433 @@ grow_vertical = 2
 script = ExtResource("1_xhh6f")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=5038720]
+texture_filter = 1
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_1rerr")
+texture = ExtResource("2_rb4ur")
 
-[node name="ContinueButton" type="Button" parent="." unique_id=1428534755]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 466.0
-offset_top = 355.0
-offset_right = 684.0
-offset_bottom = 398.0
-text = "Continue"
-
-[node name="NewGameButton" type="Button" parent="." unique_id=1016629000]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 466.0
-offset_top = 405.0
-offset_right = 684.0
-offset_bottom = 448.0
-text = "New Game"
-
-[node name="Options" type="Button" parent="." unique_id=386579148]
-layout_mode = 0
-offset_left = 466.0
-offset_top = 455.0
-offset_right = 684.0
-offset_bottom = 498.0
-text = "Options"
-
-[node name="ExitButton" type="Button" parent="." unique_id=583161307]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 466.0
-offset_top = 505.0
-offset_right = 684.0
-offset_bottom = 548.0
-text = "Exit"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1305470580]
-stream = ExtResource("3_cayip")
-autoplay = true
-bus = &"Music"
-parameters/looping = false
-
-[node name="PanelOpciones" type="Panel" parent="." unique_id=1584253129]
+[node name="Bots" type="Control" parent="." unique_id=1192203825]
 visible = false
-layout_mode = 0
-offset_left = 66.0
-offset_top = 51.0
-offset_right = 353.0
-offset_bottom = 570.0
-tooltip_text = "												"
+anchors_preset = 0
+offset_left = 632.31335
+offset_top = 177.94931
+offset_right = 922.9022
+offset_bottom = 611.845
+rotation = 0.040142573
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelOpciones" unique_id=1145655314]
+[node name="LabelCont" type="Label" parent="Bots" unique_id=2141597869]
+layout_mode = 0
+offset_left = 37.34961
+offset_top = 65.60463
+offset_right = 255.34961
+offset_bottom = 125.60463
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "CARGAR CASO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="TextureButton" parent="Bots" unique_id=308026781]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 37.86725
+offset_top = 53.574165
+offset_right = 255.86725
+offset_bottom = 114.574165
+rotation = 0.08726646
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="LabelNew" type="Label" parent="Bots" unique_id=73473032]
+layout_mode = 0
+offset_left = 37.16107
+offset_top = 135.66864
+offset_right = 255.16107
+offset_bottom = 195.66864
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "CASO NUEVO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGameButton" type="TextureButton" parent="Bots" unique_id=976673670]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 43.07617
+offset_top = 133.42943
+offset_right = 261.07617
+offset_bottom = 194.42943
+rotation = 0.034906585
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="LabelOption" type="Label" parent="Bots" unique_id=1372546270]
+layout_mode = 0
+offset_left = 37.09326
+offset_top = 208.7302
+offset_right = 255.09326
+offset_bottom = 268.7302
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "OPCIONES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="TextureButton" parent="Bots" unique_id=2100972668]
+texture_filter = 1
+layout_mode = 0
+offset_left = 35.01483
+offset_top = 206.81212
+offset_right = 253.01483
+offset_bottom = 267.81207
+rotation = -0.008726646
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="LabelExit" type="Label" parent="Bots" unique_id=1803517574]
+layout_mode = 0
+offset_left = 35.55304
+offset_top = 319.88156
+offset_right = 253.55304
+offset_bottom = 379.88156
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "CERRAR EXPEDIENTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="Bots" unique_id=532219208]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 39.42914
+offset_top = 316.72348
+offset_right = 257.42914
+offset_bottom = 377.72348
+rotation = 0.02617994
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="Slots" type="Control" parent="." unique_id=1692757803]
+anchors_preset = 0
+offset_left = 632.31335
+offset_top = 177.94931
+offset_right = 922.9022
+offset_bottom = 611.845
+rotation = 0.040142573
+
+[node name="LSlot1" type="Label" parent="Slots" unique_id=285894189]
+layout_mode = 0
+offset_left = 23.196228
+offset_top = 37.149704
+offset_right = 241.19623
+offset_bottom = 97.149704
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "SLOT #1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot1" type="TextureButton" parent="Slots" unique_id=143207701]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 23.713867
+offset_top = 25.119247
+offset_right = 241.71387
+offset_bottom = 86.11925
+rotation = 0.08726646
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="r1" type="TextureButton" parent="Slots" unique_id=440883079]
+texture_filter = 1
+layout_mode = 0
+offset_left = 246.14105
+offset_top = 56.217896
+offset_right = 286.14105
+offset_bottom = 97.217896
+texture_normal = ExtResource("7_fied4")
+texture_hover = SubResource("AnimatedTexture_ybvh4")
+
+[node name="r2" type="TextureButton" parent="Slots" unique_id=511467833]
+texture_filter = 1
+layout_mode = 0
+offset_left = 246.7111
+offset_top = 120.2466
+offset_right = 286.71112
+offset_bottom = 161.2466
+texture_normal = ExtResource("7_fied4")
+texture_hover = SubResource("AnimatedTexture_ybvh4")
+
+[node name="r3" type="TextureButton" parent="Slots" unique_id=316742005]
+texture_filter = 1
+layout_mode = 0
+offset_left = 246.36221
+offset_top = 186.31381
+offset_right = 286.3622
+offset_bottom = 227.31381
+texture_normal = ExtResource("7_fied4")
+texture_hover = SubResource("AnimatedTexture_ybvh4")
+
+[node name="r4" type="TextureButton" parent="Slots" unique_id=746504478]
+texture_filter = 1
+layout_mode = 0
+offset_left = 247.21318
+offset_top = 257.3369
+offset_right = 287.2132
+offset_bottom = 298.3369
+texture_normal = ExtResource("7_fied4")
+texture_hover = SubResource("AnimatedTexture_ybvh4")
+
+[node name="LSlot2" type="Label" parent="Slots" unique_id=1293492827]
+layout_mode = 0
+offset_left = 23.00769
+offset_top = 107.213715
+offset_right = 241.00769
+offset_bottom = 167.21371
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "SLOT #2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="TextureButton" parent="Slots" unique_id=1801407471]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 28.92279
+offset_top = 104.9745
+offset_right = 246.92279
+offset_bottom = 165.9745
+rotation = 0.034906585
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="LSlot3" type="Label" parent="Slots" unique_id=1186382573]
+layout_mode = 0
+offset_left = 22.93982
+offset_top = 180.27528
+offset_right = 240.93982
+offset_bottom = 240.27528
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "SLOT #3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="TextureButton" parent="Slots" unique_id=285061235]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.861511
+offset_top = 178.3572
+offset_right = 238.86151
+offset_bottom = 239.35715
+rotation = -0.008726646
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="LSlot4" type="Label" parent="Slots" unique_id=812695923]
+layout_mode = 0
+offset_left = 23.439697
+offset_top = 250.36238
+offset_right = 241.4397
+offset_bottom = 310.3624
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "SLOT #4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot4" type="TextureButton" parent="Slots" unique_id=604142520]
+texture_filter = 1
+layout_mode = 0
+offset_left = 28.556274
+offset_top = 253.15927
+offset_right = 246.55627
+offset_bottom = 314.15924
+rotation = -0.034906585
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="LabelBack" type="Label" parent="Slots" unique_id=36915881]
+layout_mode = 0
+offset_left = 36.395752
+offset_top = 340.86465
+offset_right = 254.39575
+offset_bottom = 400.86465
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "REGRESAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="Slots" unique_id=64051978]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.27185
+offset_top = 337.7066
+offset_right = 258.27185
+offset_bottom = 398.7066
+rotation = 0.02617994
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="Opciones" type="Control" parent="." unique_id=217867809]
+visible = false
+anchors_preset = 0
+offset_left = 632.31335
+offset_top = 177.94931
+offset_right = 922.9022
+offset_bottom = 611.845
+rotation = 0.040142573
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Opciones" unique_id=281611393]
 layout_mode = 0
 offset_left = 17.0
+offset_top = 16.143463
 offset_right = 266.0
-offset_bottom = 458.0
+offset_bottom = 431.14346
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelOpciones/VBoxContainer" unique_id=1460444768]
+[node name="RichTextLabel" type="RichTextLabel" parent="Opciones/VBoxContainer" unique_id=1302637231]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 21
+theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_4twqa")
+theme_override_font_sizes/normal_font_size = 26
 text = "Opciones
 "
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=1701237143]
+[node name="Label" type="Label" parent="Opciones/VBoxContainer" unique_id=652347503]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
 text = "Volumen principal"
 horizontal_alignment = 1
 
-[node name="SliderMaster" type="HSlider" parent="PanelOpciones/VBoxContainer" unique_id=1104097228]
+[node name="SliderMaster" type="HSlider" parent="Opciones/VBoxContainer" unique_id=1927883998]
 layout_mode = 2
+theme_override_styles/slider = ExtResource("7_4twqa")
 max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="Label2" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=1158364362]
+[node name="Label2" type="Label" parent="Opciones/VBoxContainer" unique_id=261759461]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.22352941, 0.08627451, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
 text = "
 Efectos de sonido"
 horizontal_alignment = 1
 
-[node name="SliderFX" type="HSlider" parent="PanelOpciones/VBoxContainer" unique_id=2079173752]
+[node name="SliderFX" type="HSlider" parent="Opciones/VBoxContainer" unique_id=397401821]
 layout_mode = 2
+theme_override_styles/slider = ExtResource("7_4twqa")
 max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="Label3" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=736014623]
+[node name="Label3" type="Label" parent="Opciones/VBoxContainer" unique_id=268071104]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.2901961, 0.1254902, 0.24705882, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
 text = "
-Musica"
+Música"
 horizontal_alignment = 1
 
-[node name="SliderMusica" type="HSlider" parent="PanelOpciones/VBoxContainer" unique_id=1258206394]
+[node name="SliderMusica" type="HSlider" parent="Opciones/VBoxContainer" unique_id=1538715263]
 layout_mode = 2
+theme_override_styles/slider = ExtResource("7_4twqa")
 max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="Label4" type="Label" parent="PanelOpciones/VBoxContainer" unique_id=1510168026]
+[node name="Label4" type="Label" parent="Opciones/VBoxContainer" unique_id=1482506843]
 layout_mode = 2
 text = "
 
 
 "
 
-[node name="cerrar_opciones_button" type="Button" parent="PanelOpciones/VBoxContainer" unique_id=796945283]
-layout_mode = 2
-text = "Cerrar opciones"
+[node name="LabelClose" type="Label" parent="Opciones" unique_id=736618079]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 371.1434
+offset_right = 266.0
+offset_bottom = 391.1434
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_4twqa")
+text = "CERRAR OPCIONES"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="value_changed" from="PanelOpciones/VBoxContainer/SliderMaster" to="." method="_on_slider_master_value_changed"]
-[connection signal="value_changed" from="PanelOpciones/VBoxContainer/SliderFX" to="." method="_on_slider_fx_value_changed"]
-[connection signal="value_changed" from="PanelOpciones/VBoxContainer/SliderMusica" to="." method="_on_slider_musica_value_changed"]
-[connection signal="pressed" from="PanelOpciones/VBoxContainer/cerrar_opciones_button" to="." method="_on_cerrar_opciones_button_pressed"]
+[node name="CloseButton" type="TextureButton" parent="Opciones" unique_id=1306501685]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 30.222107
+offset_top = 350.57703
+offset_right = 248.2221
+offset_bottom = 411.57703
+size_flags_vertical = 3
+theme = ExtResource("3_t1b1y")
+texture_normal = ExtResource("5_ttkkf")
+texture_pressed = ExtResource("6_dxfgg")
+texture_hover = ExtResource("6_dxfgg")
+stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1305470580]
+stream = ExtResource("12_fied4")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="Bots/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Bots/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Bots/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Bots/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Slots/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="Slots/r1" to="." method="_on_r_1_pressed"]
+[connection signal="pressed" from="Slots/r2" to="." method="_on_r_2_pressed"]
+[connection signal="pressed" from="Slots/r3" to="." method="_on_r_3_pressed"]
+[connection signal="pressed" from="Slots/r4" to="." method="_on_r_4_pressed"]
+[connection signal="pressed" from="Slots/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Slots/Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="Slots/Slot4" to="." method="_on_slot_4_pressed"]
+[connection signal="pressed" from="Slots/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="Opciones/VBoxContainer/SliderMaster" to="." method="_on_slider_master_value_changed"]
+[connection signal="value_changed" from="Opciones/VBoxContainer/SliderFX" to="." method="_on_slider_fx_value_changed"]
+[connection signal="value_changed" from="Opciones/VBoxContainer/SliderMusica" to="." method="_on_slider_musica_value_changed"]
+[connection signal="pressed" from="Opciones/CloseButton" to="." method="_on_close_button_pressed"]

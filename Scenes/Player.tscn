@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ddcvhn3gayiw6" path="res://Scripts/player.gd" id="1_rpqav"]
 [ext_resource type="AudioStream" uid="uid://btw3eaf1whw3" path="res://Assets/Audio/SFX/Footstep_1.wav" id="2_52ee3"]
-[ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/UI/journal.tscn" id="2_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://bvu6q0lj0l7my" path="res://Assets/Audio/SFX/Footstep_2.wav" id="3_bhhdu"]
 [ext_resource type="AudioStream" uid="uid://bmkmmxtqe8led" path="res://Assets/Audio/SFX/Footstep_3.wav" id="4_megsn"]
 [ext_resource type="AudioStream" uid="uid://d23es038ns3yi" path="res://Assets/Audio/SFX/Footstep_4.wav" id="5_yoq75"]
@@ -34,10 +33,6 @@ debug_shape_custom_color = Color(0.22440284, 0.64420694, 0.99999994, 1)
 
 [node name="TicketHolder" type="Node3D" parent="CameraPivot/Camera3D" unique_id=72179531]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.43219447, -0.25289536, -0.4339983)
-
-[node name="InterfazUI" type="CanvasLayer" parent="." unique_id=145753592]
-
-[node name="Journal" parent="InterfazUI" unique_id=1763035242 instance=ExtResource("2_kyqiw")]
 
 [node name="StairsUp" type="RayCast3D" parent="." unique_id=195694214]
 unique_name_in_owner = true

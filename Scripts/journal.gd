@@ -226,18 +226,11 @@ func reset() -> void:
 		cb.button_pressed = false
 	ir_a_pagina(0)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("folder"): 
-		self.hide()
-
 func _on_bot_1_pressed() -> void:
 	ir_a_tab(0)
-
 func _on_bot_2_pressed() -> void:
 	ir_a_tab(1)
-
 func _on_bot_3_pressed() -> void:
 	ir_a_tab(2)
-
 func _on_bot_4_pressed() -> void:
 	ir_a_tab(3)

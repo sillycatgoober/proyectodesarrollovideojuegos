@@ -1,10 +1,58 @@
 {
 	"intro": {
 		"inicio": {
-			"texto": "Inspector: Primer día en la oficina...",
-			"opciones": [{"texto": "Continuar", "siguiente": "fin"}]
+			"lineas": [
+				"Inspector: Así que esta es mi nueva oficina",
+				"Inspector: Pensé que tendría un espacio más privado, bueno supongo que servirá.",
+				"Inspector: Mejor me instalo antes de que llegue alguien."
+			],
+			"siguiente": "llega_jefa"
+		},
+		"llega_jefa": {
+			"lineas": [
+				"Jefe: Hola, veo que ya te instalaste.",
+				"Jefe: Bienvenido al departamento.",
+				"Inspector: Gracias. ¿Usted es...?",
+				"Jefe: Amaya, tu nueva supervisora. Tenemos mucho de qué hablar antes de que llegue tu primer cliente."
+			],
+			"siguiente": "instrucciones"
+		},
+        "instrucciones": {
+            "lineas": [
+                "Jefe: Primero que nada, cuando el cliente llegue tendrás ya un folder con su información personal.",
+                "Jefe: Deberá hacer una interrogación sobre el sueño, limitando el número de preguntas.",
+                "Inspector: ¿Por qué debería limitarla?",
+				"Jefe: La inmersión toma horas, y los clientes quieren terminar rápido.",
+				"Inspector: Ah, ya veo.",
+				"Jefe: Bueno, después de eso colocarás los dispositivos y entrarás al sueño.",
+				"Jefe: Tu trabajo es diagnosticar y tratar el sueño. Para eso tendrás que explorar el sueño para descubrir evidencias.",
+				"Jefe: Podrás marcar las evidencias en tu folder, así como revisar la información del cliente, diagnóstico y un manual de sueños.",
+				"Jefe: Ahora, la salida - al ser un intruso en el sueño deberás de encontrar una manera de salir, manipulando el sueño o dándole tratamiento.",
+				"Jefe: Cuando salgas, reporta tus resultados al cliente y será todo. Se te evaluará de acuerdo al progreso del cliente.",
+				"Jefe: ¿Preguntas?."
+			],
+        	"siguiente": "hub_preguntas"
+		},
+		"hub_preguntas": {
+			"opciones": [
+				{"texto": "Inspector: ¿Me lo repite?", "siguiente": "repetir"},
+				{"texto": "Inspector: Entendido.", "siguiente": "cierre"}
+			]
+		},
+		"repetir": {
+			"lineas": [
+				"Jefe: Preguntas, explora el sueño, sales, diagnosticas, se te evalúa."
+			],
+			"siguiente": "hub_preguntas"
+		},
+		"cierre": {
+			"lineas": [
+				"Jefe: Perfecto, ya viene tu primer cliente.",
+				"Jefe: Ah cierto, ten el folder, usa TAB para abrirlo en cualquier momento."
+			],
+			"siguiente": "fin"
 		}
-	},
+    },
 	"cliente1": {
 		"inicio":{
 			"lineas":[
@@ -47,6 +95,28 @@
 				"Inspector: Listo. En unos momentos comenzará a sentir sueño. Se despertará cuando termine.",
 				"Cliente: De acuerdo. Gracias.",
 				"Inspector: No hay problema, usted tranquilo."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"cliente1_reaccion_correcto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: Pero nunca tuve pesadillas por eso, y fue hace mucho.",
+				"Inspector: Muchas veces los traumas son reprimidos. Di un pequeño tratamiento para su sueño, pero le recomiendo ir con un especialista.",
+				"Cliente: Gracias, inspector."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"cliente1_reaccion_incorrecto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: ¿En serio? No pensaría que fuera eso",
+				"Inspector: Es mi diagnóstico con base en lo observado.",
+				"Cliente: Bueno, usted es el experto."
 			],
 			"siguiente": "fin"
 		}
@@ -96,6 +166,28 @@
 				"Inspector: Ya está, en unos momentos comenzará a sentir sueño, usted tranquila, se despertará una vez termine la inmersión.",
 				"Cliente: De acuerdo. Gracias.",
 				"Inspector: No hay problema."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"cliente2_reaccion_correcto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: ¡Oh no! Eso explica muchas cosas.",
+				"Inspector: Le recomiendo estar atenta a los detalles en los próximos días, y tomar sus precauciones.",
+				"Cliente: Lo haré. Muchas gracias."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"cliente2_reaccion_incorrecto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: ¿Está seguro? Se sentía diferente a eso.",
+				"Inspector: Es lo que los datos indican.",
+				"Cliente: De acuerdo."
 			],
 			"siguiente": "fin"
 		}
@@ -151,6 +243,28 @@
 			"siguiente": "fin"
 		}
 	},
+	"cliente3_reaccion_correcto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: Entonces no estaba loco. Siempre supe que había algo ahí.",
+				"Inspector: No se preocupe señor, he expulsado la entidad, no debería tener más problemas.",
+				"Cliente: Muchas gracias, inspector."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"cliente3_reaccion_incorrecto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: Mmm. No sé si eso es lo que sentí.",
+				"Inspector: Es la conclusión más probable con la evidencia disponible.",
+				"Cliente: Entiendo."
+			],
+			"siguiente": "fin"
+		}
+	},
 	"cliente4": {
 		"inicio":{
 			"lineas":[
@@ -199,6 +313,37 @@
 				"Inspector: Lo entiendo. Eso es suficiente por ahora. ¿Me permite colocarle el dispositivo?",
 				"Cliente: Sí.",
 				"Inspector: En unos segundos comenzará a dormirse, se despertará cuando acabe la inmersión."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"cliente4_reaccion_correcto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: Puede ser que últimamente he estado muy al límite.",
+				"Inspector: Le recomiendo tomarse un descanso y convivir con su familia. El trabajo puede esperar.",
+				"Cliente: Lo... lo tomaré en cuenta, gracias inspector."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"cliente4_reaccion_incorrecto": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Su sueño corresponde a un [diagnostico].",
+				"Cliente: No sé si eso describe bien lo que viví.",
+				"Inspector: Es mi evaluación con base en lo observado.",
+				"Cliente: Bueno, gracias inspector."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"salida_inmersion": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Hemos terminado la inmersión.",
+				"Cliente: ¿Y bien? ¿Qué encontró?"
 			],
 			"siguiente": "fin"
 		}

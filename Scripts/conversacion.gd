@@ -1,9 +1,12 @@
 extends CanvasLayer
 
-@onready var label_texto = $chat/RichTextLabel
-@onready var contenedor_opciones = $HBoxContainer
+@onready var burbuja_cliente = $chat
+@onready var texto_cliente = $chat/Margin/VBox/RichTextLabel
+@onready var nombre = $chat/Margin/VBox/Label
+@onready var burbuja_jugador = $inspectorChat
+@onready var texto_jugador = $inspectorChat/Margin/RichTextLabel
+@onready var contenedor_opciones = $ChoiceContainer
 @onready var nombre_label = $Label
-@export var personaje_id: String = "cliente1"
 
 func _ready() -> void:
 	DialogManager.dialogo_actualizado.connect(_on_dialogo_actualizado)
@@ -12,23 +15,40 @@ func _ready() -> void:
 		GameManager.Fase.INTRO:
 			DialogManager.iniciar_dialogo("intro")
 		GameManager.Fase.ENTREVISTA:
+			GameManager.actualizar_cliente()
 			DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
 		GameManager.Fase.DIAGNOSTICO:
-			DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual) + "_diagnostico")
+			GameManager.actualizar_cliente()
+			GameManager.sub_fase = "intro"
+			DialogManager.iniciar_dialogo("salida_inmersion")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_just_pressed("interact"):
+	if event.is_action_pressed("interact"):
+		if texto_cliente.tween_actual and texto_cliente.tween_actual.is_running():
+			texto_cliente.completar_texto()
+			return
+		if texto_jugador.tween_actual and texto_jugador.tween_actual.is_running():
+			texto_jugador.completar_texto()
+			return
+		# si no hay opciones, avanza
 		if contenedor_opciones.get_child_count() == 0:
 			DialogManager.avanzar()
 
 func _on_dialogo_actualizado(quien: String, texto: String, opciones: Array) -> void:
-	label_texto.mostrar_texto(texto, 2.0)
-		
-	if nombre_label:
-		match quien:
-			"inspector": nombre_label.text = "Inspector"
-			"cliente": nombre_label.text = GameManager.nombre_cliente_actual
-			_: nombre_label.text = quien
+	burbuja_cliente.visible = false
+	burbuja_jugador.visible = false
+	match quien:
+		"Cliente":
+			burbuja_cliente.visible = true
+			texto_cliente.mostrar_texto(texto)
+			nombre.text = GameManager.nombre_cliente_actual
+		"Jefe":
+			burbuja_cliente.visible = true
+			texto_cliente.mostrar_texto(texto)
+			nombre.text = "Jefa"
+		"Inspector":
+			burbuja_jugador.visible = true
+			texto_jugador.mostrar_texto(texto)
 	
 	for hijo in contenedor_opciones.get_children():
 		hijo.queue_free()
@@ -43,12 +63,36 @@ func _on_dialogo_terminado() -> void:
 	match GameManager.fase_actual:
 		GameManager.Fase.INTRO:
 			GameManager.fase_actual = GameManager.Fase.ENTREVISTA
+			GameManager.actualizar_cliente()
 			DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
+		
 		GameManager.Fase.ENTREVISTA:
-			GameManager.fase_actual = GameManager.Fase.SUENO
+			GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
 			GameManager.guardar()
 			get_tree().change_scene_to_file("res://Scenes/dream" + str(GameManager.dream_actual) + ".tscn")
+		
 		GameManager.Fase.DIAGNOSTICO:
-			GameManager.dream_actual += 1
-			GameManager.fase_actual = GameManager.Fase.ENTREVISTA
-			GameManager.guardar()
+			if GameManager.sub_fase == "intro":
+				GameManager.sub_fase = "seleccion"
+				mostrar_pantalla_diagnostico()
+			elif GameManager.sub_fase == "reaccion":
+				GameManager.dream_actual += 1
+				GameManager.fase_actual = GameManager.Fase.ENTREVISTA
+				GameManager.actualizar_cliente()
+				GameManager.guardar()
+				if GameManager.dream_actual > 4:
+					get_tree().change_scene_to_file("res://Scenes/fin.tscn")
+				else:
+					DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
+
+func mostrar_pantalla_diagnostico() -> void:
+	pass  # aquí abres la UI de selección de diagnóstico
+
+func diagnostico_elegido(tipo: String) -> void:
+	GameManager.diagnostico_final = tipo
+	GameManager.sub_fase = "reaccion"
+	var correcto = GameManager.diagnostico_correcto_actual()
+	var es_correcto = tipo == correcto
+	GameManager.dreams[GameManager.dream_actual].diagnostico_correcto = es_correcto
+	var sufijo = "correcto" if es_correcto else "incorrecto"
+	DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual) + "_reaccion_" + sufijo)

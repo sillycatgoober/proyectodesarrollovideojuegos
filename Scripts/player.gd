@@ -22,7 +22,6 @@ var _last_frame_was_on_floor = -INF
 @onready var stairs_up:RayCast3D = $StairsUp
 @onready var stairs_down:RayCast3D = $StairsDown
 
-@onready var journal = $InterfazUI/Journal
 @onready var ticket = $CameraPivot/Camera3D/TicketHolder
 
 #pasos sonido
@@ -43,9 +42,6 @@ func _ready() -> void:
 	puede_moverse = true
 	camara_pos_original = camara_pivot.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	if journal:
-		journal.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not puede_moverse:
@@ -174,20 +170,6 @@ func _run_body_test_motion(from: Transform3D,motion:Vector3,result=null) -> bool
 
 func set_camara_activa(active: bool):
 	camara.current = active
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("folder"):
-		if journal.visible:
-			journal.hide()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			puede_moverse = true
-		else:
-			journal.show()
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			puede_moverse = false
-			ui.esconder_acciones()
-		
-		get_viewport().set_input_as_handled()
 
 func mostrar_ticket_en_mano(ticket_nodo: Node3D) -> void:
 	ticket_en_mano_nodo = ticket_nodo

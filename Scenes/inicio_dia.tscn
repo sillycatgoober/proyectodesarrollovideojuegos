@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dhdps8w6iuaa8"]
+
+[ext_resource type="Script" uid="uid://db87fxelolkvw" path="res://Scripts/inicio_dia.gd" id="1_hub5b"]
+
+[node name="InicioDia" type="CanvasLayer" unique_id=1509585707]
+script = ExtResource("1_hub5b")
+
+[node name="Ratio" type="Control" parent="." unique_id=878151238]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="ColorRect" parent="Ratio" unique_id=696913432]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="LabelDia" type="Label" parent="Ratio" unique_id=1724212353]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LabelResumen" type="Label" parent="Ratio" unique_id=1905507819]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

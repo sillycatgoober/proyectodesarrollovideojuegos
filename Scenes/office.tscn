@@ -7,22 +7,44 @@
 [ext_resource type="Texture2D" uid="uid://hvc4fkh0lxpy" path="res://Assets/Imagenes/clutter.png" id="4_2jlrf"]
 [ext_resource type="Script" uid="uid://b0g1m5kyjyn2v" path="res://Scripts/texto.gd" id="5_2jlrf"]
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="5_7xo7e"]
+[ext_resource type="AudioStream" uid="uid://k2srdx35k47g" path="res://Assets/Audio/Musica/A-Home-For-Flowers-Tulip.mp3" id="8_o84nh"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_7xo7e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqlnk"]
+bg_color = Color(0.9882353, 0.93333334, 0.99215686, 0.8509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o84nh"]
+bg_color = Color(0.9882353, 0.93333334, 0.99215686, 0.8509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Canvas" type="CanvasLayer" unique_id=1413315574]
 script = ExtResource("1_eqlnk")
 
-[node name="AspectRatioContainer" type="MarginContainer" parent="." unique_id=819989971]
+[node name="AspectRatioContainer" type="Control" parent="." unique_id=773094832]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 648.0
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=1349854465]
-layout_mode = 2
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
 texture = ExtResource("1_llmbb")
 
 [node name="TextureRect2" type="TextureRect" parent="AspectRatioContainer" unique_id=153010039]
-layout_mode = 2
+texture_filter = 1
+layout_mode = 0
+offset_top = 541.0
+offset_right = 577.39624
+offset_bottom = 594.5
+scale = Vector2(2, 2)
 texture = ExtResource("2_vggx3")
 
 [node name="Client" type="Sprite2D" parent="AspectRatioContainer" unique_id=1657222817]
@@ -31,37 +53,87 @@ scale = Vector2(1.8061224, 1.8061225)
 texture = ExtResource("3_cumm5")
 
 [node name="TextureRect3" type="TextureRect" parent="AspectRatioContainer" unique_id=922668204]
-layout_mode = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 122.0
+offset_top = 405.0
+offset_right = 590.0
+offset_bottom = 506.0
+scale = Vector2(2, 2)
 texture = ExtResource("4_2jlrf")
 stretch_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer" unique_id=1549119408]
-position = Vector2(587, 594)
-texture = ExtResource("4_2jlrf")
-
-[node name="chat" type="TextureRect" parent="." unique_id=209074423]
-offset_left = 37.0
+[node name="chat" type="PanelContainer" parent="." unique_id=729291503]
+offset_left = 110.0
 offset_top = 175.0
-offset_right = 547.0
-offset_bottom = 346.0
-texture = SubResource("CanvasTexture_7xo7e")
+offset_right = 529.0
+offset_bottom = 239.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqlnk")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="chat" unique_id=1093076325]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 495.0
-offset_bottom = 159.0
+[node name="Margin" type="MarginContainer" parent="chat" unique_id=1722496169]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBox" type="VBoxContainer" parent="chat/Margin" unique_id=238204674]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="chat/Margin/VBox" unique_id=1639065462]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15616646, 0.06220364, 0.16507632, 1)
+theme_override_fonts/font = ExtResource("5_7xo7e")
+theme_override_font_sizes/font_size = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="chat/Margin/VBox" unique_id=1093076325]
+layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.50980395, 0.19607843, 0.44705883, 1)
 theme_override_fonts/normal_font = ExtResource("5_7xo7e")
+fit_content = true
 script = ExtResource("5_2jlrf")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1803606417]
-offset_left = 39.0
-offset_top = 372.0
-offset_right = 549.0
-offset_bottom = 424.0
+[node name="inspectorChat" type="PanelContainer" parent="." unique_id=1137312941]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -203.0
+offset_top = -69.0
+offset_right = 203.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o84nh")
+
+[node name="Margin" type="MarginContainer" parent="inspectorChat" unique_id=1845055919]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="inspectorChat/Margin" unique_id=861420753]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.5079956, 0.195303, 0.44881654, 1)
+theme_override_fonts/normal_font = ExtResource("5_7xo7e")
+fit_content = true
+script = ExtResource("5_2jlrf")
+
+[node name="ChoiceContainer" type="HBoxContainer" parent="." unique_id=1213209641]
+offset_left = 307.0
+offset_top = 593.0
+offset_right = 817.0
+offset_bottom = 645.0
 
 [node name="Label" type="Label" parent="." unique_id=195373779]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1901377778]
+stream = ExtResource("8_o84nh")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

@@ -1,12 +1,15 @@
 extends CanvasLayer
 
 @onready var icon_panel = $Iconos
-@onready var pause_menu = $PanelOpciones
+@onready var pause_menu = $Pause
 @onready var folder = $Journal
 @onready var icono_e = $Iconos/VBoxContainer/E
 @onready var icono_f = $Iconos/VBoxContainer/F
 @onready var icono_esc = $Iconos/VBoxContainer/ESC
 @onready var icono_scroll = $Iconos/VBoxContainer/Scroll
+
+func _ready() -> void:
+	pass
 
 func mostrar_acciones(obj) -> void:
 	icono_e.visible = obj.is_in_group("interactuable") and not obj.en_interaccion
@@ -33,32 +36,38 @@ func mostrar_acciones(obj) -> void:
 func esconder_acciones() -> void:
 	icon_panel.visible = false
 
-func abrir_folder():
-	folder.show()
+func toggle_pausa():
+	pause_menu.visible = !pause_menu.visible
+	actualizar_estado_ui()
 
-func cerrar_folder():
-	folder.hide()
+func toggle_folder():
+	folder.visible = !folder.visible
+	actualizar_estado_ui()
 
-func abrir_pause():
-	pause_menu.show()
-	get_tree().paused = true
+func esta_bloqueando_juego() -> bool:
+	return pause_menu.visible or folder.visible
 
-func cerrar_pause():
-	pause_menu.hide()
-	get_tree().paused = false
+func actualizar_estado_ui():
+	var bloqueando = pause_menu.visible or folder.visible
+	if bloqueando:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		esconder_acciones()
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.puede_moverse = !bloqueando
 
 func _input(event):
+	#if icono_esc.visible:
+		#print("visible")
+	#if event.is_action_pressed("pausa"):
+		#print(event.is_action_pressed("pausa"))
 	if event.is_action_pressed("pausa") and not icono_esc.visible:
-		abrir_pause()
+		toggle_pausa()
+	if event.is_action_pressed("folder"):
+		toggle_folder()
 
-# --- NUEVAS FUNCIONES PARA LA CAJA FUERTE ---
-#func mostrar_texto(texto_nuevo: String) -> void:
-	#if texto_mensaje != null:
-		#texto_mensaje.text = texto_nuevo
-		#texto_mensaje.show()
-	#else:
-		#print("TEXTO INTERFAZ: ", texto_nuevo)
-#
-#func ocultar_texto() -> void:
-	#if texto_mensaje != null:
-		#texto_mensaje.hide()
+func _on_close_button_pressed() -> void:
+	toggle_pausa()

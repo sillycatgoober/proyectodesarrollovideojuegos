@@ -8,6 +8,8 @@ var npc_actual: String = ""
 var nodo_actual: String = ""
 var lineas_actuales: Array = []
 var linea_index: int = 0
+var diagnostico_final: String = ""
+var sub_fase: String = ""
 
 func _ready() -> void:
 	_cargar_dialogos()
@@ -60,12 +62,16 @@ func _mostrar_nodo_actual() -> void:
 		lineas_actuales = nodo["lineas"]
 		linea_index = 0
 		_emitir_linea(lineas_actuales[0])
+	elif "opciones" in nodo and not "texto" in nodo:
+		lineas_actuales = []
+		emit_signal("dialogo_actualizado", "", "", nodo["opciones"])
 	elif "texto" in nodo:
 		lineas_actuales = []
 		var partes = _separar_quien(nodo["texto"])
 		emit_signal("dialogo_actualizado", partes[0], partes[1], nodo.get("opciones", []))
 
 func _emitir_linea(linea: String) -> void:
+	linea = linea.replace("[diagnostico]", GameManager.diagnostico_final)
 	var partes = _separar_quien(linea)
 	emit_signal("dialogo_actualizado", partes[0], partes[1], [])
 
