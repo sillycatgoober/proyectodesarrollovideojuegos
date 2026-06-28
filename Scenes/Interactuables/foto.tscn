@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ymy6gpe82ji1"]
+
+[ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_54iy7"]
+[ext_resource type="Script" uid="uid://bc3orfsfjcjjv" path="res://Scripts/foto.gd" id="2_54iy7"]
+[ext_resource type="PackedScene" uid="uid://cejb6tua2wyed" path="res://Scenes/FotoModelo.tscn" id="3_qkfvy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iocv6"]
+size = Vector3(0.7041504, 0.64277834, 0.555)
+
+[node name="Foto" unique_id=1499427550 groups=["recogible"] instance=ExtResource("1_54iy7")]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0)
+script = ExtResource("2_54iy7")
+material_textura = null
+texto_pista = ""
+
+[node name="Pivot" type="Node3D" parent="." index="0" unique_id=1748031112]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="FotoModelo" parent="Pivot" index="0" unique_id=1919586564 instance=ExtResource("3_qkfvy")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-09, -1, 0, 0.1, -4.371139e-08, 0, 0, 0)
+
+[node name="Label3D" type="Label3D" parent="Pivot" index="1" unique_id=694780627]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.01)
+
+[node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
+transform = Transform3D(1, 0, 0, 0, 0.9999929, -1.1368684e-13, 0, 1.1368684e-13, 0.9999929, -0.061499, -0.0072241747, 0.2546674)
+shape = SubResource("BoxShape3D_iocv6")
+
+[node name="Camera3D" parent="." index="2" unique_id=351992915]
+transform = Transform3D(-0.013351326, 0.9999109, 4.3707495e-08, -0.9999109, -0.013351326, -4.4294993e-08, -4.3707495e-08, -4.4294993e-08, 1, 0, -2.1173872e-09, 0.26222607)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cejb6tua2wyed"]
+
+[ext_resource type="PackedScene" uid="uid://cvo4yjsuc60k6" path="res://Assets/Modelos/Dream2/foto.glb" id="1_5kkgo"]
+
+[node name="FotoModelo" type="Node3D" unique_id=1919586564]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=790519830]
+
+[node name="foto" parent="MeshInstance3D" unique_id=1859757995 instance=ExtResource("1_5kkgo")]
+transform = Transform3D(-0.023437662, 0.9997253, 0, -0.9997253, -0.023437662, 0, 0, 0, 1, 0, 0, 0)
