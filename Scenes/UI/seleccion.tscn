@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://vuh362pronfy"]
+
+[ext_resource type="Script" uid="uid://47hslos6ltyt" path="res://Scripts/seleccion.gd" id="1_2ogxi"]
+[ext_resource type="Texture2D" uid="uid://besajd3pvfeg8" path="res://Assets/Imagenes/tab.png" id="2_7mok0"]
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="3_rmk38"]
+[ext_resource type="Texture2D" uid="uid://khy27je4pt3k" path="res://Assets/Imagenes/folder.png" id="4_t1if0"]
+[ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="5_4cafx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e0x1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdp70"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2370w"]
+
+[sub_resource type="Theme" id="Theme_y6fbt"]
+default_font = ExtResource("3_rmk38")
+default_font_size = 16
+
+[node name="Seleccion" type="Control" unique_id=1763035242]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ogxi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=425371238]
+layout_mode = 0
+offset_left = 981.961
+offset_top = 65.0
+offset_right = 1248.9609
+offset_bottom = 105.0
+rotation = 1.5707964
+
+[node name="Bot1" type="TextureButton" parent="HBoxContainer" unique_id=1238294708]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_7mok0")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/Bot1" unique_id=704311878]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.957901
+offset_top = 8.936852
+offset_right = 128.40002
+offset_bottom = 47.612022
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_rmk38")
+text = "Caso"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bot2" type="TextureButton" parent="HBoxContainer" unique_id=1948700232]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_7mok0")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/Bot2" unique_id=966336448]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.957901
+offset_top = 8.936852
+offset_right = 128.40002
+offset_bottom = 47.612022
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_rmk38")
+text = "Evidencias"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bot3" type="TextureButton" parent="HBoxContainer" unique_id=1652348623]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_7mok0")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/Bot3" unique_id=104716358]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.957901
+offset_top = 8.936852
+offset_right = 128.40002
+offset_bottom = 47.612022
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_rmk38")
+text = "Diagnóstico"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bot4" type="TextureButton" parent="HBoxContainer" unique_id=1726355032]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_7mok0")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/Bot4" unique_id=1644152236]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.957901
+offset_top = 8.936852
+offset_right = 128.40002
+offset_bottom = 47.612022
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_rmk38")
+text = "Sueños"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=23291246]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = 37.000004
+offset_right = 3048.9995
+offset_bottom = 2208.9995
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_t1if0")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1378048543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 603.3
+offset_top = 104.0
+offset_right = -256.7
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.02094395
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8e0x1")
+
+[node name="Panel" type="Panel" parent="PanelContainer" unique_id=1622883977]
+visible = false
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cdp70")
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/Panel" unique_id=1173873117]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 92.0
+
+[node name="Caso" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1341886218]
+layout_mode = 2
+theme = ExtResource("5_4cafx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "3333333333333"
+autowrap_mode = 3
+
+[node name="Nombre" type="Label" parent="PanelContainer/Panel/VBox" unique_id=192878862]
+layout_mode = 2
+theme = ExtResource("5_4cafx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Edad" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1755168903]
+layout_mode = 2
+theme = ExtResource("5_4cafx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Ocupacion" type="Label" parent="PanelContainer/Panel/VBox" unique_id=921050715]
+layout_mode = 2
+theme = ExtResource("5_4cafx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Motivo" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1048058253]
+layout_mode = 2
+theme = ExtResource("5_4cafx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Panel2" type="Panel" parent="PanelContainer" unique_id=910118345]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2370w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel2" unique_id=2112346822]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.246437
+offset_right = -167.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=2075052481]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
+
+[node name="CheckBox2" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1565616906]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CheckBox3" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=663923318]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CheckBox4" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=397578160]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CheckBox5" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=378635147]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CheckBox6" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1808432025]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CheckBox7" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=359161988]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CheckBox8" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=868052317]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CheckBox9" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=437031788]
+layout_mode = 2
+theme = SubResource("Theme_y6fbt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="confirmar" type="Button" parent="." unique_id=507069622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 828.0
+offset_top = 538.0
+offset_right = -249.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="HBoxContainer/Bot1" to="." method="_on_bot_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bot2" to="." method="_on_bot_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bot3" to="." method="_on_bot_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bot4" to="." method="_on_bot_4_pressed"]

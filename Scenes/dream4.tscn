@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dxo44ctx70bb5" path="res://Scenes/Interactuables/ArchivoInteractuable.tscn" id="13_e372g"]
 [ext_resource type="AudioStream" uid="uid://gaok08mxeb8" path="res://Assets/Audio/SFX/door_elevator.wav" id="15_bvm07"]
 [ext_resource type="AudioStream" uid="uid://8w7h6f4w5ejk" path="res://Assets/Audio/SFX/locked_bus.wav" id="16_e4vfs"]
+[ext_resource type="AudioStream" uid="uid://bw5g7weikbytj" path="res://Assets/Audio/Musica/Trees.mp3" id="18_qk6n0"]
 
 [sub_resource type="Environment" id="Environment_8w0sr"]
 background_mode = 1
@@ -41,7 +42,7 @@ size = Vector3(1.2226563, 2.0250244, 1.6728516)
 [node name="Dream4" type="Node3D" unique_id=1284086496]
 
 [node name="Player" parent="." unique_id=890671124 instance=ExtResource("2_1k881")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.149502, 0.19719815, 11.576432)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1502104, 0.19719815, -1.0741491)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=314136064]
 environment = SubResource("Environment_8w0sr")
@@ -269,15 +270,23 @@ is_elevador = true
 direccion = -1.0
 distancia = 0.8
 
-[node name="ArchivoInteractuable2" parent="." unique_id=2014852283 node_paths=PackedStringArray("label_info") instance=ExtResource("13_e372g")]
+[node name="ArchivoInteractuable2" parent="." unique_id=2014852283 node_paths=PackedStringArray("manager", "label_info") groups=["interactuable"] instance=ExtResource("13_e372g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0788193, 0.6993399, -0.029476881)
+manager = NodePath("../Node")
 modelo_archivo = ExtResource("7_okdhd")
 label_info = NodePath("../Label")
+usa_focus = true
 
 [node name="ArchivoInteractuable3" parent="." unique_id=1609816760 node_paths=PackedStringArray("label_info") instance=ExtResource("13_e372g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2028556, 0.7134378, -0.78138906)
 tipo_archivo = "familia"
 label_info = NodePath("../Label")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1336128190]
+stream = ExtResource("18_qk6n0")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
 
 [connection signal="body_entered" from="Salida" to="Node" method="_on_salida_body_entered"]
 

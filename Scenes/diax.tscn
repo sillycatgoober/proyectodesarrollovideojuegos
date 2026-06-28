@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://8uvlw0g3os5p"]
+
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="1_uu2kq"]
+
+[node name="Diax" type="Node2D" unique_id=385778211]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=150859061]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=210524074]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1247356138]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer" unique_id=1843918717]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uu2kq")
+theme_override_font_sizes/font_size = 64
+text = "DIA "
+
+[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer" unique_id=2129475381]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uu2kq")
+theme_override_font_sizes/font_size = 64
+text = "x"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1093142593]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1826595104]
+layout_mode = 2
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1427513700]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_uu2kq")
+theme_override_font_sizes/font_size = 40
+text = "CONTINUAR"
