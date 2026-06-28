@@ -2,10 +2,13 @@ extends Node3D
 class_name Interactuable
 
 @export var usa_focus := false
-@export var puede_interactuar :=true
+@export var puede_interactuar := true
 @export var focus_offset := Vector3(0, 1.5, -0.5)
 @export var tiene_scroll := false
 @export var texto_scroll := ""
+@export var encendedor: Node3D
+@export var desplazamiento_x: float = 1.5
+
 @onready var camara: Camera3D
 @onready var audio: AudioStreamPlayer
 var jugador_cerca := false
@@ -14,7 +17,7 @@ var texto_e := ""
 var texto_f := ""
 
 func _ready() -> void:
-	if $AudioStreamPlayer!=null:
+	if $AudioStreamPlayer != null:
 		audio = $AudioStreamPlayer
 	if usa_focus:
 		camara = $Camera3D
@@ -27,7 +30,6 @@ func interact():
 		return
 	if not usa_focus:
 		return
-	
 	if en_interaccion:
 		player.puede_moverse = false
 		camara.current = true
@@ -45,3 +47,8 @@ func set_player_cam():
 	en_interaccion = false
 	get_player().puede_moverse = true
 	get_player().set_camara_activa(true)
+
+func abrir_caja() -> void:
+	if encendedor:
+		encendedor.global_position.x += desplazamiento_x
+		print("el encendedor ha salido de la caja fuerte")
