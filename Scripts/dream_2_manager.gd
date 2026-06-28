@@ -27,3 +27,7 @@ func bajar_nivel_agua():
 	
 func calendario_resuelto() -> void:
 	puerta_salida.desbloquear()
+
+
+func _on_salida_body_entered(body: Node3D) -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/animacion_transicion.tscn")
