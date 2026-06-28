@@ -26,6 +26,7 @@ var _last_frame_was_on_floor = -INF
 
 #pasos sonido
 @export var sonidos_pasos : Array[AudioStream]
+@export var sonidos_pasos_agua : Array[AudioStream]
 @onready var pasos = $AudioPlayer
 var tiempo_paso := 0.0
 const INTERVALO_PASO := 0.55

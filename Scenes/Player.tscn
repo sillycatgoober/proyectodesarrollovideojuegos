@@ -5,6 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://bvu6q0lj0l7my" path="res://Assets/Audio/SFX/Footstep_2.wav" id="3_bhhdu"]
 [ext_resource type="AudioStream" uid="uid://bmkmmxtqe8led" path="res://Assets/Audio/SFX/Footstep_3.wav" id="4_megsn"]
 [ext_resource type="AudioStream" uid="uid://d23es038ns3yi" path="res://Assets/Audio/SFX/Footstep_4.wav" id="5_yoq75"]
+[ext_resource type="AudioStream" uid="uid://bslk36ypkm2xc" path="res://Assets/Audio/SFX/Wet Footstep_1.wav" id="6_bhhdu"]
+[ext_resource type="AudioStream" uid="uid://bjeawrvfdtxh2" path="res://Assets/Audio/SFX/Wet Footstep_2.wav" id="7_megsn"]
+[ext_resource type="AudioStream" uid="uid://dmqau6huewitx" path="res://Assets/Audio/SFX/Wet Footstep_3.wav" id="8_yoq75"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 radius = 0.3
@@ -14,6 +17,7 @@ height = 2.5673828
 floor_snap_length = 0.3
 script = ExtResource("1_rpqav")
 sonidos_pasos = Array[AudioStream]([ExtResource("2_52ee3"), ExtResource("3_bhhdu"), ExtResource("4_megsn"), ExtResource("5_yoq75")])
+sonidos_pasos_agua = Array[AudioStream]([ExtResource("6_bhhdu"), ExtResource("7_megsn"), ExtResource("8_yoq75")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=312091614 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.279288, 0)
@@ -44,3 +48,4 @@ unique_name_in_owner = true
 target_position = Vector3(0, -0.75, 0)
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=2094187548]
+bus = &"SFX"

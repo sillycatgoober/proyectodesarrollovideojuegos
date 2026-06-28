@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://sdex0j14d7fj"
-path="res://.godot/imported/paper-dragstop0.wav-b6ce4056cf95befb096b0a1eb990e5b2.sample"
+path="res://.godot/imported/hover.wav-a8972c85b42f771084e7710dca939eae.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/SFX/paper-dragstop0.wav"
-dest_files=["res://.godot/imported/paper-dragstop0.wav-b6ce4056cf95befb096b0a1eb990e5b2.sample"]
+source_file="res://Assets/Audio/SFX/hover.wav"
+dest_files=["res://.godot/imported/hover.wav-a8972c85b42f771084e7710dca939eae.sample"]
 
 [params]
 

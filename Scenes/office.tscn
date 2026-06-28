@@ -3,11 +3,17 @@
 [ext_resource type="Script" uid="uid://g4i7hthfs7q7" path="res://Scripts/conversacion.gd" id="1_eqlnk"]
 [ext_resource type="Texture2D" uid="uid://bdiodsav235ch" path="res://Assets/Imagenes/office_fondo.png" id="1_llmbb"]
 [ext_resource type="Texture2D" uid="uid://r0frvuok3ewk" path="res://Assets/Imagenes/desk.png" id="2_vggx3"]
-[ext_resource type="Texture2D" uid="uid://bx540qmabbro1" path="res://Assets/Imagenes/c1.png" id="3_cumm5"]
+[ext_resource type="Texture2D" uid="uid://bx540qmabbro1" path="res://Assets/Imagenes/Sprites/c1.png" id="3_cumm5"]
 [ext_resource type="Texture2D" uid="uid://hvc4fkh0lxpy" path="res://Assets/Imagenes/clutter.png" id="4_2jlrf"]
+[ext_resource type="Shader" uid="uid://bfu3ka5vjdst3" path="res://Shaders/client_desvanecer.gdshader" id="4_4luf0"]
 [ext_resource type="Script" uid="uid://b0g1m5kyjyn2v" path="res://Scripts/texto.gd" id="5_2jlrf"]
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="5_7xo7e"]
 [ext_resource type="AudioStream" uid="uid://k2srdx35k47g" path="res://Assets/Audio/Musica/A-Home-For-Flowers-Tulip.mp3" id="8_o84nh"]
+[ext_resource type="PackedScene" uid="uid://b5jjd81klgq21" path="res://Scenes/UI/animacion_transicion.tscn" id="9_2vylc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q644x"]
+shader = ExtResource("4_4luf0")
+shader_parameter/progress = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqlnk"]
 bg_color = Color(0.9882353, 0.93333334, 0.99215686, 0.8509804)
@@ -26,19 +32,19 @@ corner_radius_bottom_left = 10
 [node name="Canvas" type="CanvasLayer" unique_id=1413315574]
 script = ExtResource("1_eqlnk")
 
-[node name="AspectRatioContainer" type="Control" parent="." unique_id=773094832]
+[node name="Ratio" type="Control" parent="." unique_id=773094832]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 648.0
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=1349854465]
+[node name="TextureRect" type="TextureRect" parent="Ratio" unique_id=1349854465]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 648.0
 texture = ExtResource("1_llmbb")
 
-[node name="TextureRect2" type="TextureRect" parent="AspectRatioContainer" unique_id=153010039]
+[node name="TextureRect2" type="TextureRect" parent="Ratio" unique_id=153010039]
 texture_filter = 1
 layout_mode = 0
 offset_top = 541.0
@@ -47,12 +53,13 @@ offset_bottom = 594.5
 scale = Vector2(2, 2)
 texture = ExtResource("2_vggx3")
 
-[node name="Client" type="Sprite2D" parent="AspectRatioContainer" unique_id=1657222817]
+[node name="Client" type="Sprite2D" parent="Ratio" unique_id=1657222817]
+material = SubResource("ShaderMaterial_q644x")
 position = Vector2(779, 339)
 scale = Vector2(1.8061224, 1.8061225)
 texture = ExtResource("3_cumm5")
 
-[node name="TextureRect3" type="TextureRect" parent="AspectRatioContainer" unique_id=922668204]
+[node name="TextureRect3" type="TextureRect" parent="Ratio" unique_id=922668204]
 texture_filter = 1
 layout_mode = 0
 offset_left = 122.0
@@ -137,3 +144,5 @@ stream = ExtResource("8_o84nh")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="AnimOjos" parent="." unique_id=1261486275 instance=ExtResource("9_2vylc")]

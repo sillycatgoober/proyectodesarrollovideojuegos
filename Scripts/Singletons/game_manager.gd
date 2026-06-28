@@ -17,6 +17,7 @@ var dreams = {
 }
 
 func _ready() -> void:
+	cargar_config()
 	_cargar_clientes()
 
 func reset_dreams():
@@ -82,3 +83,19 @@ func eliminar_partida(slot: int) -> void:
 		DirAccess.remove_absolute(path)
 
 #---- FIN GUARDADO ----#
+
+#---- CONFIGURACION AUDIO ----#
+func guardar_config() -> void:
+	var config = ConfigFile.new()
+	config.set_value("audio", "master", AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	config.set_value("audio", "sfx", AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	config.set_value("audio", "musica", AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	config.save("user://settings.cfg")
+
+func cargar_config() -> void:
+	var config = ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), config.get_value("audio", "master", 0.0))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), config.get_value("audio", "sfx", 0.0))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), config.get_value("audio", "musica", 0.0))
+#---- FIN CONFIGURACION AUDIO ----#

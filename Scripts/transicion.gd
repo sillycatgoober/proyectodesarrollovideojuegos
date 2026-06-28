@@ -1,9 +1,9 @@
 extends Node
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+signal animation_finished
 
-var next_scene : String = ""
+func play(nombre: String) -> void:
+	anim_player.play(nombre)
 
-func play_transition(scene_path : String):
-	next_scene = scene_path
-	
-	# Le pasamos la ruta que pidió el Manager (office.tscn) de forma segura
-	get_tree().call_deferred("change_scene_to_file", scene_path)
+func _ready() -> void:
+	anim_player.animation_finished.connect(func(anim): animation_finished.emit())

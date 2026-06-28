@@ -4,6 +4,7 @@ extends Node3D
 @export var puerta_sal1: Node
 @export var puerta_sal2: Node
 @export var pupitre: Node
+@onready var anim_ojos = $AnimOjos
 
 var relojes_correctos := {0: false, 1: false, 2: false}
 
@@ -12,6 +13,10 @@ func _ready() -> void:
 		reloj.reloj_confirmado.connect(_on_reloj_confirmado.bind(reloj.id_reloj))
 	InventoryManager.item_added.connect(_on_carta_agregada)
 	pupitre.carta_colocada.connect(_on_carta_colocada)
+	anim_ojos.visible = true
+	anim_ojos.play("open")
+	await anim_ojos.animation_finished
+	anim_ojos.visible = false
 
 func _on_reloj_confirmado(id: int) -> void:
 	relojes_correctos[id] = true

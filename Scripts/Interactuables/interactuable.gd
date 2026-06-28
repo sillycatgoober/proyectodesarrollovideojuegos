@@ -17,6 +17,7 @@ func _ready() -> void:
 		audio = $AudioStreamPlayer
 	if usa_focus:
 		camara = $Camera3D
+	en_interaccion = false
 
 func interact():
 	en_interaccion = !en_interaccion

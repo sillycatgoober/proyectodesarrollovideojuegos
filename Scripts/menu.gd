@@ -25,27 +25,15 @@ extends Control
 var modo_slots:=""
 
 func _ready() -> void:
-	_cargar_configuracion()
+	slider_master.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	slider_fx.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	slider_musica.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	cont_bot.visible = GameManager.hay_partida_guardada()
 	cont_label.visible = GameManager.hay_partida_guardada()
 	botones.visible = true
 	panel_opciones.visible = false
 	slots.visible = false
 	UI.visible = false
-
-func _guardar_configuracion() -> void:
-	var config = ConfigFile.new()
-	config.set_value("audio", "master", slider_master.value)
-	config.set_value("audio", "sfx", slider_fx.value)
-	config.set_value("audio", "musica", slider_musica.value)
-	config.save("user://settings.cfg")
-
-func _cargar_configuracion() -> void:
-	var config = ConfigFile.new()
-	if config.load("user://settings.cfg") == OK:
-		slider_master.value = config.get_value("audio", "master", 1.0)
-		slider_fx.value = config.get_value("audio", "sfx", 1.0)
-		slider_musica.value = config.get_value("audio", "musica", 1.0)
 
 func _on_options_pressed() -> void:
 	panel_opciones.visible = true
@@ -56,15 +44,17 @@ func _on_exit_button_pressed() -> void:
 
 func _on_slider_master_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+	GameManager.guardar_config()
 
 func _on_slider_fx_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))	
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+	GameManager.guardar_config()	
 
 func _on_slider_musica_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+	GameManager.guardar_config()
 
 func _on_close_button_pressed() -> void:
-	_guardar_configuracion()
 	panel_opciones.visible = false
 	botones.visible = true
 
@@ -110,6 +100,7 @@ func _actualizar_slot(boton: TextureButton, label: Label, slot: int) -> void:
 		del_boton.visible = false
 
 func _on_slot_pressed(slot: int) -> void:
+	UI.visible = true
 	if modo_slots == "nuevo":
 		GameManager.reset_dreams()
 		GameManager.fase_actual = GameManager.Fase.INTRO 
@@ -121,6 +112,7 @@ func _on_slot_pressed(slot: int) -> void:
 		GameManager.cargar(slot)
 		GameManager.slot_actual = slot
 	slots.visible = false
+	set_process_input(false)
 	get_tree().change_scene_to_file("res://Scenes/office.tscn")
 
 func _on_cerrar_slots_pressed() -> void:

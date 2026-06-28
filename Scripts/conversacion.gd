@@ -7,10 +7,29 @@ extends CanvasLayer
 @onready var texto_jugador = $inspectorChat/Margin/RichTextLabel
 @onready var contenedor_opciones = $ChoiceContainer
 @onready var nombre_label = $Label
+@onready var anim_ojos = $AnimOjos
+@onready var sprite_personaje: TextureRect = $Ratio/Client
+
+var sprites = {
+	"jefa": preload("res://Assets/Imagenes/Sprites/c1.png"),
+	"cliente1": preload("res://Assets/Imagenes/Sprites/c1.png"),
+	"cliente2": preload("res://Assets/Imagenes/Sprites/c1.png"),
+	"cliente3": preload("res://Assets/Imagenes/Sprites/c1.png"),
+	"cliente4": preload("res://Assets/Imagenes/Sprites/c1.png"),
+}
 
 func _ready() -> void:
+	print("mouse mode: ", Input.get_mouse_mode())
+	print("fase: ", GameManager.fase_actual)
+	anim_ojos.visible = false
 	DialogManager.dialogo_actualizado.connect(_on_dialogo_actualizado)
 	DialogManager.dialogo_terminado.connect(_on_dialogo_terminado)
+	if GameManager.fase_actual == GameManager.Fase.DIAGNOSTICO:
+		anim_ojos.visible = true
+		anim_ojos.play("open")
+		await anim_ojos.animation_finished
+		anim_ojos.visible = false
+	
 	match GameManager.fase_actual:
 		GameManager.Fase.INTRO:
 			DialogManager.iniciar_dialogo("intro")
@@ -24,10 +43,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		if texto_cliente.tween_actual and texto_cliente.tween_actual.is_running():
+		if texto_cliente.escribiendo:
 			texto_cliente.completar_texto()
 			return
-		if texto_jugador.tween_actual and texto_jugador.tween_actual.is_running():
+		if texto_jugador.escribiendo:
 			texto_jugador.completar_texto()
 			return
 		# si no hay opciones, avanza
@@ -35,6 +54,7 @@ func _input(event: InputEvent) -> void:
 			DialogManager.avanzar()
 
 func _on_dialogo_actualizado(quien: String, texto: String, opciones: Array) -> void:
+	await cambiar_personaje(quien)
 	burbuja_cliente.visible = false
 	burbuja_jugador.visible = false
 	match quien:
@@ -67,8 +87,11 @@ func _on_dialogo_terminado() -> void:
 			DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
 		
 		GameManager.Fase.ENTREVISTA:
-			GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
+			GameManager.fase_actual = GameManager.Fase.SUENO
 			GameManager.guardar()
+			anim_ojos.visible = true
+			anim_ojos.play("close")
+			await anim_ojos.animation_finished
 			get_tree().change_scene_to_file("res://Scenes/dream" + str(GameManager.dream_actual) + ".tscn")
 		
 		GameManager.Fase.DIAGNOSTICO:
@@ -96,3 +119,38 @@ func diagnostico_elegido(tipo: String) -> void:
 	GameManager.dreams[GameManager.dream_actual].diagnostico_correcto = es_correcto
 	var sufijo = "correcto" if es_correcto else "incorrecto"
 	DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual) + "_reaccion_" + sufijo)
+
+#---- CAMBIAR SPRITE ----#
+func cambiar_personaje(quien: String) -> void:
+	var key = ""
+	match quien:
+		"jefa": key = "jefa"
+		"cliente": key = "cliente" + str(GameManager.dream_actual)
+		"inspector": 
+			await desvanecer()
+			return
+	
+	if key in sprites:
+		await desvanecer()
+		sprite_personaje.texture = sprites[key]
+		await aparecer()
+func aparecer() -> void:
+	sprite_personaje.visible = true
+	var tween = create_tween()
+	tween.tween_method(
+		func(v): sprite_personaje.material.set_shader_parameter("progress", v),
+		0.0, 1.0, 0.5
+	)
+	await tween.finished
+
+func desvanecer() -> void:
+	if not sprite_personaje.visible:
+		return
+	var tween = create_tween()
+	tween.tween_method(
+		func(v): sprite_personaje.material.set_shader_parameter("progress", v),
+		1.0, 0.0, 0.5
+	)
+	await tween.finished
+	sprite_personaje.visible = false
+#---- FIN CAMBIAR SPRITE ----#

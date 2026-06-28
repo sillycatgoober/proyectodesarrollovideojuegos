@@ -9,7 +9,11 @@ extends CanvasLayer
 @onready var icono_scroll = $Iconos/VBoxContainer/Scroll
 
 func _ready() -> void:
-	pass
+	icono_e.visible = false
+	icono_f.visible = false
+	icono_esc.visible = false
+	icono_scroll.visible = false
+	icon_panel.visible = false
 
 func mostrar_acciones(obj) -> void:
 	icono_e.visible = obj.is_in_group("interactuable") and not obj.en_interaccion
@@ -38,10 +42,12 @@ func esconder_acciones() -> void:
 
 func toggle_pausa():
 	pause_menu.visible = !pause_menu.visible
+	print(pause_menu.visible)
 	actualizar_estado_ui()
 
 func toggle_folder():
 	folder.visible = !folder.visible
+	print(folder.visible)
 	actualizar_estado_ui()
 
 func esta_bloqueando_juego() -> bool:
@@ -60,14 +66,22 @@ func actualizar_estado_ui():
 		player.puede_moverse = !bloqueando
 
 func _input(event):
-	#if icono_esc.visible:
-		#print("visible")
-	#if event.is_action_pressed("pausa"):
-		#print(event.is_action_pressed("pausa"))
 	if event.is_action_pressed("pausa") and not icono_esc.visible:
 		toggle_pausa()
+		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("folder"):
 		toggle_folder()
+		get_viewport().set_input_as_handled()
 
 func _on_close_button_pressed() -> void:
 	toggle_pausa()
+	GameManager.guardar_config()
+
+func _on_slider_master_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+
+func _on_slider_fx_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+
+func _on_slider_musica_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))

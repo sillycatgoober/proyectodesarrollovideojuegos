@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cipfd1gl1kphv"
-path="res://.godot/imported/talk1.wav-986722d278a48084142b05775257e3ad.sample"
+uid="uid://clh4d1auiuim5"
+path="res://.godot/imported/bus_open.wav-640ab2136fa65973a749de176a20b6bb.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/SFX/talk1.wav"
-dest_files=["res://.godot/imported/talk1.wav-986722d278a48084142b05775257e3ad.sample"]
+source_file="res://Assets/Audio/SFX/bus_open.wav"
+dest_files=["res://.godot/imported/bus_open.wav-640ab2136fa65973a749de176a20b6bb.sample"]
 
 [params]
 

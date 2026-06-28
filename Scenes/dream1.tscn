@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://3fm44h2jw3y5" path="res://Assets/Modelos/Dream1/carta.glb" id="12_e7w7n"]
 [ext_resource type="PackedScene" uid="uid://3utjigkgtqe4" path="res://Assets/Modelos/Dream1/periodico.glb" id="12_hbm3g"]
 [ext_resource type="AudioStream" uid="uid://cwof0w0js2mn7" path="res://Assets/Audio/Musica/Poems-In-The-Fog.mp3" id="15_e7w7n"]
+[ext_resource type="PackedScene" uid="uid://b5jjd81klgq21" path="res://Scenes/UI/animacion_transicion.tscn" id="15_i4l7g"]
 
 [sub_resource type="Environment" id="Environment_5xd1q"]
 background_mode = 1
@@ -203,6 +204,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.681807, -0.5639847, 6.2095
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2054891356]
 shape = SubResource("BoxShape3D_cwbhr")
 debug_color = Color(1.8289685e-06, 0.64411926, 0.29310408, 0.41960785)
+
+[node name="OjosAnim" parent="." unique_id=1261486275 instance=ExtResource("15_i4l7g")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1079688955]
 stream = ExtResource("15_e7w7n")

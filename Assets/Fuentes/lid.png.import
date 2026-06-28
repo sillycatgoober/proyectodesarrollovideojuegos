@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4ha12lmm12s2"
-path="res://.godot/imported/Timeline 1_00108160.png-1ca939d954c57a23adfade85495c4016.ctex"
+uid="uid://dleu5pdgddugv"
+path="res://.godot/imported/lid.png-840956b47de533025a3989cff90bdbac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/temp/Timeline 1_00108160.png"
-dest_files=["res://.godot/imported/Timeline 1_00108160.png-1ca939d954c57a23adfade85495c4016.ctex"]
+source_file="res://Assets/Fuentes/lid.png"
+dest_files=["res://.godot/imported/lid.png-840956b47de533025a3989cff90bdbac.ctex"]
 
 [params]
 
