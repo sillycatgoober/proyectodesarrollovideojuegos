@@ -8,31 +8,49 @@ extends Node3D
 
 var valvulas_activas: int = 0
 const TOTAL_VALVULAS: int = 3
+var nivel_agua_valor: int = 5
+const ALTURA_POR_NIVEL := 0.2
+var ultima_valvula: int = -1
+var posicion_inicial: Vector3
 
+var valvulas = {
+	1: -3,
+	2: -1,
+	3: 2
+}
 func _ready() -> void:
-	# FLUJO: Entrar al sueño -> Abrir los ojos
+	posicion_inicial = nivel_agua.position
 	anim_ojos.visible = true
 	anim_ojos.play("open")
 	await anim_ojos.animation_finished
 	anim_ojos.visible = false
 
-func registrar_valvula():
-	valvulas_activas += 1
-	if valvulas_activas >= TOTAL_VALVULAS:
-		bajar_nivel_agua()
+func registrar_valvula(id:int):
+	if id == ultima_valvula:
+		return
+	ultima_valvula = id
+	nivel_agua_valor += valvulas[id]
+	print("Nivel agua:", nivel_agua_valor)
+	actualizar_agua()
+	comprobar_agua()
 
-func bajar_nivel_agua():
-	if nivel_agua:
-		nivel_agua.queue_free()
-	puerta_sotano.desbloquear()
-	
+func comprobar_agua():
+	if nivel_agua_valor <= 0:
+		puerta_sotano.desbloquear()
+		UI.set_hints("Parece que desapareció el agua, ¿cambió algo?")
+
+func actualizar_agua():
+	var destino = posicion_inicial.y - (5 - nivel_agua_valor) * ALTURA_POR_NIVEL
+	var tween = create_tween()
+	tween.tween_property(nivel_agua, "position:y", destino, 0.5)
+
 func calendario_resuelto() -> void:
 	puerta_salida.desbloquear()
 
 # FLUJO: Terminar sueño -> Cerrar ojos -> Diagnóstico
 func _on_salida_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		GameManager.dreams[2]["done"] = true
+		GameManager.dreams["2"]["done"] = true
 		GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
 		GameManager.guardar()
 		

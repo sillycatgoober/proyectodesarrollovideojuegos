@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://vuh362pronfy"]
 
 [ext_resource type="Script" uid="uid://47hslos6ltyt" path="res://Scripts/seleccion.gd" id="1_2ogxi"]
-[ext_resource type="Texture2D" uid="uid://besajd3pvfeg8" path="res://Assets/Imagenes/tab.png" id="2_7mok0"]
+[ext_resource type="Texture2D" uid="uid://cd655ekmucpla" path="res://Assets/Imagenes/hojas.png" id="2_0fvsk"]
+[ext_resource type="Shader" uid="uid://iim38xedr38f" path="res://Shaders/borroso.gdshader" id="2_rmk38"]
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="3_rmk38"]
-[ext_resource type="Texture2D" uid="uid://khy27je4pt3k" path="res://Assets/Imagenes/folder.png" id="4_t1if0"]
 [ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="5_4cafx"]
+[ext_resource type="Texture2D" uid="uid://owk8dxvcuf1h" path="res://Assets/Imagenes/Stamp.png" id="5_7mok0"]
+[ext_resource type="Texture2D" uid="uid://c2dp40sgm5aih" path="res://Assets/Imagenes/Stamp-Hover.png" id="6_rmk38"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmk38"]
+shader = ExtResource("2_rmk38")
+shader_parameter/blur_amount = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e0x1"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdp70"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2370w"]
 
@@ -16,184 +20,74 @@
 default_font = ExtResource("3_rmk38")
 default_font_size = 16
 
-[node name="Seleccion" type="Control" unique_id=1763035242]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Seleccion" type="CanvasLayer" unique_id=1517914788]
 script = ExtResource("1_2ogxi")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=425371238]
-layout_mode = 0
-offset_left = 981.961
-offset_top = 65.0
-offset_right = 1248.9609
-offset_bottom = 105.0
-rotation = 1.5707964
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=2056231153]
+position = Vector2(576, 324)
+scale = Vector2(5.7599998, 3.24)
+copy_mode = 2
 
-[node name="Bot1" type="TextureButton" parent="HBoxContainer" unique_id=1238294708]
-texture_filter = 1
-custom_minimum_size = Vector2(120, 36)
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("2_7mok0")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="HBoxContainer/Bot1" unique_id=704311878]
-texture_filter = 1
-layout_mode = 0
-offset_left = 4.957901
-offset_top = 8.936852
-offset_right = 128.40002
-offset_bottom = 47.612022
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("3_rmk38")
-text = "Caso"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Bot2" type="TextureButton" parent="HBoxContainer" unique_id=1948700232]
-texture_filter = 1
-custom_minimum_size = Vector2(120, 36)
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("2_7mok0")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="HBoxContainer/Bot2" unique_id=966336448]
-texture_filter = 1
-layout_mode = 0
-offset_left = 4.957901
-offset_top = 8.936852
-offset_right = 128.40002
-offset_bottom = 47.612022
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("3_rmk38")
-text = "Evidencias"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Bot3" type="TextureButton" parent="HBoxContainer" unique_id=1652348623]
-texture_filter = 1
-custom_minimum_size = Vector2(120, 36)
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("2_7mok0")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="HBoxContainer/Bot3" unique_id=104716358]
-texture_filter = 1
-layout_mode = 0
-offset_left = 4.957901
-offset_top = 8.936852
-offset_right = 128.40002
-offset_bottom = 47.612022
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("3_rmk38")
-text = "Diagnóstico"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Bot4" type="TextureButton" parent="HBoxContainer" unique_id=1726355032]
-texture_filter = 1
-custom_minimum_size = Vector2(120, 36)
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("2_7mok0")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="HBoxContainer/Bot4" unique_id=1644152236]
-texture_filter = 1
-layout_mode = 0
-offset_left = 4.957901
-offset_top = 8.936852
-offset_right = 128.40002
-offset_bottom = 47.612022
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("3_rmk38")
-text = "Sueños"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="ColorRect" type="ColorRect" parent="." unique_id=524683837]
+material = SubResource("ShaderMaterial_rmk38")
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=23291246]
 texture_filter = 1
 custom_minimum_size = Vector2(400, 600)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 151.0
-offset_top = 37.000004
-offset_right = 3048.9995
-offset_bottom = 2208.9995
+offset_left = 345.00003
+offset_top = 57.000008
+offset_right = 1317.9998
+offset_bottom = 2228.9995
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.05235988
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_t1if0")
+texture = ExtResource("2_0fvsk")
+
+[node name="Label" type="Label" parent="." unique_id=1012480512]
+offset_left = 417.99997
+offset_top = 111.999985
+offset_right = 693.0
+offset_bottom = 137.0
+rotation = -0.017453292
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
+theme_override_font_sizes/font_size = 20
+text = "SELECCIONE SU DIAGNÓSTICO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1355168080]
+offset_left = 408.98392
+offset_top = 141.15741
+offset_right = 698.1316
+offset_bottom = 204.15741
+rotation = -0.017453292
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
+theme_override_font_sizes/font_size = 15
+text = "Puede revisar las evidencias encontradas en su folder y consultar el manual de sueños."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1378048543]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 603.3
-offset_top = 104.0
-offset_right = -256.7
-offset_bottom = -104.0
+offset_left = 409.00003
+offset_top = 210.0
+offset_right = -451.0
+offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.02094395
+rotation = -0.017453292
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8e0x1")
-
-[node name="Panel" type="Panel" parent="PanelContainer" unique_id=1622883977]
-visible = false
-clip_contents = true
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_cdp70")
-
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/Panel" unique_id=1173873117]
-layout_mode = 0
-offset_right = 288.0
-offset_bottom = 92.0
-
-[node name="Caso" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1341886218]
-layout_mode = 2
-theme = ExtResource("5_4cafx")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "3333333333333"
-autowrap_mode = 3
-
-[node name="Nombre" type="Label" parent="PanelContainer/Panel/VBox" unique_id=192878862]
-layout_mode = 2
-theme = ExtResource("5_4cafx")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3333333333333333333333333333"
-autowrap_mode = 3
-
-[node name="Edad" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1755168903]
-layout_mode = 2
-theme = ExtResource("5_4cafx")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3333333333333333333333333333"
-autowrap_mode = 3
-
-[node name="Ocupacion" type="Label" parent="PanelContainer/Panel/VBox" unique_id=921050715]
-layout_mode = 2
-theme = ExtResource("5_4cafx")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3333333333333333333333333333"
-autowrap_mode = 3
-
-[node name="Motivo" type="Label" parent="PanelContainer/Panel/VBox" unique_id=1048058253]
-layout_mode = 2
-theme = ExtResource("5_4cafx")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3333333333333333333333333333"
-autowrap_mode = 3
 
 [node name="Panel2" type="Panel" parent="PanelContainer" unique_id=910118345]
 layout_mode = 2
@@ -255,19 +149,30 @@ layout_mode = 2
 theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
-[node name="confirmar" type="Button" parent="." unique_id=507069622]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 828.0
-offset_top = 538.0
-offset_right = -249.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="LabelConfirm" type="Label" parent="." unique_id=331885435]
+offset_left = 435.0
+offset_top = 520.37103
+offset_right = 684.0
+offset_bottom = 540.37103
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
+text = "CONFIRMAR"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="HBoxContainer/Bot1" to="." method="_on_bot_1_pressed"]
-[connection signal="pressed" from="HBoxContainer/Bot2" to="." method="_on_bot_2_pressed"]
-[connection signal="pressed" from="HBoxContainer/Bot3" to="." method="_on_bot_3_pressed"]
-[connection signal="pressed" from="HBoxContainer/Bot4" to="." method="_on_bot_4_pressed"]
+[node name="Confirmar" type="TextureButton" parent="." unique_id=2043363878 groups=["stamp_bot"]]
+auto_translate_mode = 1
+texture_filter = 1
+offset_left = 453.602
+offset_top = 499.80463
+offset_right = 671.602
+offset_bottom = 560.8046
+rotation = -0.017453292
+size_flags_vertical = 3
+theme = ExtResource("5_4cafx")
+texture_normal = ExtResource("5_7mok0")
+texture_pressed = ExtResource("6_rmk38")
+texture_hover = ExtResource("6_rmk38")
+stretch_mode = 0
+
+[connection signal="pressed" from="Confirmar" to="." method="_on_confirmar_pressed"]

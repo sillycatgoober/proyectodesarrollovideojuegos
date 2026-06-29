@@ -34,4 +34,4 @@ func _on_ruta_correcta() -> void:
 	puerta_sal1.desbloquear_salida()
 	puerta_sal2.desbloquear_salida()
 	puerta_sal3.desbloquear_salida()
-	GameManager.dreams[3].done = true
+	GameManager.dreams["3"]["done"] = true

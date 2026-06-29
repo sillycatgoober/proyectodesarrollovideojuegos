@@ -7,7 +7,7 @@ func _ready() -> void:
 	label_dia.text = "Día " + str(GameManager.dream_actual)
 	
 	if GameManager.dream_actual == 1:
-		label_resumen.text = ""  # primer día, sin resumen
+		label_resumen.text = ""
 	else:
 		var dia_anterior = GameManager.dream_actual - 1
 		var correcto = GameManager.dreams[dia_anterior].diagnostico_correcto

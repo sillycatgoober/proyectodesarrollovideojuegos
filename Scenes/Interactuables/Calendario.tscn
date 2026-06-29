@@ -7,6 +7,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1yym"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dp2b"]
+bg_color = Color(0.57254905, 0.68235296, 0.6784314, 0.5921569)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi62g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7svv6"]
+bg_color = Color(0.57254905, 0.68235296, 0.6784314, 0.5921569)
+
 [node name="Calendario" type="Node3D" unique_id=1465258269 groups=["interactuable"]]
 script = ExtResource("1_6cxu6")
 usa_focus = true
@@ -34,6 +42,247 @@ offset_top = 471.0
 offset_right = 521.0
 offset_bottom = 539.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j1yym")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0dp2b")
+
+[node name="Boton1" type="Button" parent="." unique_id=922229357]
+offset_left = 146.65
+offset_top = 195.67
+offset_right = 238.64989
+offset_bottom = 263.66986
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton2" type="Button" parent="." unique_id=483923561]
+offset_left = 429.0
+offset_top = 195.67
+offset_right = 520.9999
+offset_bottom = 263.66974
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton3" type="Button" parent="." unique_id=149877671]
+offset_left = 429.0
+offset_top = 195.67
+offset_right = 520.9999
+offset_bottom = 263.66974
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton4" type="Button" parent="." unique_id=808932053]
+offset_left = 429.0
+offset_top = 195.67
+offset_right = 520.9999
+offset_bottom = 263.66974
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton5" type="Button" parent="." unique_id=1353132941]
+offset_left = 429.0
+offset_top = 195.67
+offset_right = 520.9999
+offset_bottom = 263.66974
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton6" type="Button" parent="." unique_id=1314125699]
+offset_left = 429.0
+offset_top = 195.67
+offset_right = 520.9999
+offset_bottom = 263.66974
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton7" type="Button" parent="." unique_id=1630089630]
+offset_left = 429.0
+offset_top = 195.67
+offset_right = 520.9999
+offset_bottom = 263.66974
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton8" type="Button" parent="." unique_id=1625969780]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton9" type="Button" parent="." unique_id=919346487]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton10" type="Button" parent="." unique_id=1108773125]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton11" type="Button" parent="." unique_id=1719956585]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton12" type="Button" parent="." unique_id=1604111655]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton13" type="Button" parent="." unique_id=394489817]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton14" type="Button" parent="." unique_id=654876807]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton15" type="Button" parent="." unique_id=410455339]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton16" type="Button" parent="." unique_id=1857197694]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton17" type="Button" parent="." unique_id=1954334059]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton18" type="Button" parent="." unique_id=1444388200]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton19" type="Button" parent="." unique_id=1376172725]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton20" type="Button" parent="." unique_id=1918249575]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton21" type="Button" parent="." unique_id=1507418581]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton22" type="Button" parent="." unique_id=169886590]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton23" type="Button" parent="." unique_id=1294196816]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton24" type="Button" parent="." unique_id=1686556388]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton25" type="Button" parent="." unique_id=1700302196]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton26" type="Button" parent="." unique_id=1476327156]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton27" type="Button" parent="." unique_id=2112882372]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton28" type="Button" parent="." unique_id=91450472]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton29" type="Button" parent="." unique_id=1696175771]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
+
+[node name="Boton30" type="Button" parent="." unique_id=585256018]
+offset_left = 429.0
+offset_top = 471.0
+offset_right = 521.0
+offset_bottom = 539.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi62g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7svv6")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

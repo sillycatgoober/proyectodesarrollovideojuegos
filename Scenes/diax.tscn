@@ -1,37 +1,128 @@
 [gd_scene format=3 uid="uid://8uvlw0g3os5p"]
 
+[ext_resource type="Script" uid="uid://cp10xrnao8gvk" path="res://Scripts/diax.gd" id="1_p4j8x"]
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="1_uu2kq"]
+[ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="2_nnqwf"]
+[ext_resource type="Script" uid="uid://cdgp6puub7i5p" path="res://Scripts/texto2.gd" id="3_wqcl3"]
 
-[node name="Diax" type="Node2D" unique_id=385778211]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu2kq"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4j8x"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.7709931, 0.69374615, 0.76195914, 0.3764706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Diax" type="CanvasLayer" unique_id=1251877689]
+script = ExtResource("1_p4j8x")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=150859061]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=210524074]
+[node name="Resumen" type="PanelContainer" parent="." unique_id=269406541]
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1247356138]
+[node name="Margin" type="MarginContainer" parent="Resumen" unique_id=1002585640]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 40
+
+[node name="VBox" type="VBoxContainer" parent="Resumen/Margin" unique_id=1093142593]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer" unique_id=1843918717]
+[node name="titulo" type="RichTextLabel" parent="Resumen/Margin/VBox" unique_id=1820659960]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.7
+theme = ExtResource("2_nnqwf")
+theme_override_font_sizes/normal_font_size = 40
+text = "HOLA"
+fit_content = true
+script = ExtResource("3_wqcl3")
+
+[node name="resumen" type="RichTextLabel" parent="Resumen/Margin/VBox" unique_id=1038796086]
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+theme = ExtResource("2_nnqwf")
+theme_override_font_sizes/normal_font_size = 25
+text = "HOLA"
+fit_content = true
+script = ExtResource("3_wqcl3")
+
+[node name="resultado" type="RichTextLabel" parent="Resumen/Margin/VBox" unique_id=1943182566]
+layout_mode = 2
+theme = ExtResource("2_nnqwf")
+theme_override_font_sizes/normal_font_size = 25
+text = "HOLA"
+fit_content = true
+script = ExtResource("3_wqcl3")
+
+[node name="evaluacion" type="RichTextLabel" parent="Resumen/Margin/VBox" unique_id=1616641393]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+theme = ExtResource("2_nnqwf")
+theme_override_font_sizes/normal_font_size = 25
+text = "HOLA"
+fit_content = true
+script = ExtResource("3_wqcl3")
+
+[node name="superiores" type="RichTextLabel" parent="Resumen/Margin/VBox" unique_id=1453122070]
+layout_mode = 2
+theme = ExtResource("2_nnqwf")
+theme_override_font_sizes/normal_font_size = 25
+text = "HOLA"
+fit_content = true
+script = ExtResource("3_wqcl3")
+
+[node name="ContButton" type="Button" parent="Resumen/Margin/VBox" unique_id=1427513700]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_uu2kq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uu2kq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p4j8x")
+text = "CONTINUAR"
+
+[node name="Dia" type="CenterContainer" parent="." unique_id=618130264]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dia" unique_id=1745359909]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Dia/HBoxContainer" unique_id=1303491650]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uu2kq")
 theme_override_font_sizes/font_size = 64
 text = "DIA "
 
-[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer" unique_id=2129475381]
+[node name="Label2" type="Label" parent="Dia/HBoxContainer" unique_id=1027677609]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uu2kq")
 theme_override_font_sizes/font_size = 64
 text = "x"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1093142593]
+[node name="VBoxContainer" type="VBoxContainer" parent="Dia" unique_id=1368575661]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1826595104]
+[node name="Label" type="Label" parent="Dia/VBoxContainer" unique_id=891135904]
 layout_mode = 2
 text = "
 
@@ -48,9 +139,14 @@ text = "
 
 "
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1427513700]
+[node name="Button" type="Button" parent="Dia/VBoxContainer" unique_id=966413197]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_uu2kq")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uu2kq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p4j8x")
 text = "CONTINUAR"
+
+[connection signal="pressed" from="Resumen/Margin/VBox/ContButton" to="." method="_on_cont_button_pressed"]
+[connection signal="pressed" from="Dia/VBoxContainer/Button" to="." method="_on_button_pressed"]

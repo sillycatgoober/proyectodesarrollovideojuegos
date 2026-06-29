@@ -85,7 +85,7 @@ func on_archivo_quemado(tipo: String) -> void:
 # FLUJO: Terminar sueño -> Cerrar ojos -> Diagnóstico
 func _on_salida_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		GameManager.dreams[4]["done"] = true
+		GameManager.dreams["4"]["done"] = true
 		GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
 		GameManager.guardar()
 		

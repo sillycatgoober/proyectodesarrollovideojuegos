@@ -31,19 +31,21 @@ extends Control
 @onready var btn_anterior: TextureButton = $Button2
 
 const EVIDENCIAS = [
-	"Figura reconocible",
-	"Emoción dominante",
-	"Memoria incompleta",
+	"Presencia identificable",
+	"Alteración emocional",
+	"Manipulación temporal",
+	"Objeto desplazable",
+	"Registro del pasado",
+	"Manipulación temporal",
 	"Elemento recurrente",
-	"Distorsión espacial",
-	"Alteración temporal",
-	"Amenaza activa",
-	"Objeto fuera de lugar",
-	"Presencia no identificada",
-	"Voz sin origen",
+	"Espacio alterable",
 	"Reflejo incorrecto",
-	"Mensaje implícito",
-    "Inconsistencia física"
+	"Inconsistencia física",
+	"Voz constante",
+	"Amenaza activa",
+	"Registro del futuro",
+	"Registro anómalo",
+	"Registro compartido"
 ]
 
 const SUEÑOS = {

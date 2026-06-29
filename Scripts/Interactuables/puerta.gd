@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func interact():
 	if bloqueada:
-		print("La puerta está bloqueada")
+		UI.set_hints("Mmm... tengo que ver como desbloquearla.")
 		audio.stream = sonido_bloqueada
 		audio.play()
 		return

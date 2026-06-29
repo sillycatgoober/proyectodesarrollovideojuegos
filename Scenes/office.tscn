@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ctc5hna557ylu" path="res://Assets/Imagenes/Sprites/Jefe.png" id="5_q644x"]
 [ext_resource type="AudioStream" uid="uid://k2srdx35k47g" path="res://Assets/Audio/Musica/A-Home-For-Flowers-Tulip.mp3" id="8_o84nh"]
 [ext_resource type="PackedScene" uid="uid://b5jjd81klgq21" path="res://Scenes/UI/animacion_transicion.tscn" id="9_2vylc"]
+[ext_resource type="PackedScene" uid="uid://vuh362pronfy" path="res://Scenes/UI/seleccion.tscn" id="12_rs1ao"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q644x"]
 shader = ExtResource("4_4luf0")
@@ -174,4 +175,7 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="AnimOjos" parent="." unique_id=1261486275 instance=ExtResource("9_2vylc")]
+visible = false
+
+[node name="Seleccion" parent="." unique_id=1517914788 instance=ExtResource("12_rs1ao")]
 visible = false

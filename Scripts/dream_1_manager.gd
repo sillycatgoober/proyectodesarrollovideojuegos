@@ -20,6 +20,7 @@ func _ready() -> void:
 	anim_ojos.play("open")
 	await anim_ojos.animation_finished
 	anim_ojos.visible = false
+	UI.set_hints("Dijo algo de relojes... Empecemos por ahí.")
 
 func _on_reloj_confirmado(id: int) -> void:
 	relojes_correctos[id] = true
@@ -40,7 +41,7 @@ func _on_carta_colocada():
 	puerta_sal1.desbloquear_salida()
 	puerta_sal2.desbloquear_salida()
 
-	GameManager.dreams["1"].done = true
+	GameManager.dreams["1"]["done"] = true
 
 func _on_carta_agregada(item_id):
 	if item_id == "carta":

@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var nombre_label = $Label
 @onready var anim_ojos = $AnimOjos
 @onready var sprite_personaje: TextureRect = $Ratio/Control/Client
+@onready var seleccion = $Seleccion
 var personaje_actual:=""
 
 var sprites = {
@@ -23,6 +24,7 @@ var sprites = {
 func _ready() -> void:
 	anim_ojos.visible = false
 	sprite_personaje.visible = false
+	seleccion.visible = false
 	UI.leave_menu.visible = false
 	UI.pause_menu.visible = false
 	UI.blur_pausa.visible = false
@@ -110,7 +112,7 @@ func _on_dialogo_terminado() -> void:
 				if GameManager.dream_actual > 4:
 					get_tree().change_scene_to_file("res://Scenes/fin.tscn")
 				else:
-					DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
+					get_tree().change_scene_to_file("res://Scenes/diax.tscn")
 
 func _on_personaje_sale() -> void:
 	personaje_actual = ""
@@ -119,14 +121,14 @@ func _on_personaje_entra() -> void:
 	personaje_actual = ""
 
 func mostrar_pantalla_diagnostico() -> void:
-	pass  # aquí abres la UI de selección de diagnóstico
+	seleccion.visible = true
 
 func diagnostico_elegido(tipo: String) -> void:
 	GameManager.diagnostico_final = tipo
 	GameManager.sub_fase = "reaccion"
 	var correcto = GameManager.diagnostico_correcto_actual()
 	var es_correcto = tipo == correcto
-	GameManager.dreams[GameManager.dream_actual].diagnostico_correcto = es_correcto
+	GameManager.dreams[GameManager.dream_actual]["diagnostico_correcto"] = es_correcto
 	var sufijo = "correcto" if es_correcto else "incorrecto"
 	DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual) + "_reaccion_" + sufijo)
 

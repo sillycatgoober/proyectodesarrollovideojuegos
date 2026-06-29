@@ -1,25 +1,8 @@
-extends Control
+extends CanvasLayer
 
 signal diagnostico_confirmado(tipo_sueno: String)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @onready var vbox: VBoxContainer = $PanelContainer/Panel2/VBoxContainer
-@onready var btn_confirmar: Button = $confirmar
+@onready var btn_confirmar: TextureButton = $Confirmar
 
 const TIPOS_DE_SUENOS = [
 	"Sueño Ordinario",
@@ -62,13 +45,11 @@ func _on_checkbox_toggled(marcado: bool, checkbox_actual: CheckBox, tipo: String
 func _on_confirmar_pressed() -> void:
 	if diagnostico_seleccionado != "":
 		print("Diagnóstico elegido: ", diagnostico_seleccionado)
-
 		diagnostico_confirmado.emit(diagnostico_seleccionado)
-		
 		hide()
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		get_parent().diagnostico_elegido(diagnostico_seleccionado)
 	else:
-		print("Debes seleccionar un sue;o")
+		print("Debes seleccionar un sueño")
 
 func reset() -> void:
 	diagnostico_seleccionado = ""

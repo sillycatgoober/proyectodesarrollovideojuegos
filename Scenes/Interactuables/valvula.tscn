@@ -10,6 +10,7 @@ size = Vector3(1, 1, 1.284668)
 
 [node name="Valvula" unique_id=1499427550 instance=ExtResource("1_7f1vn")]
 script = ExtResource("2_f8b35")
+id = 0
 
 [node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
 transform = Transform3D(1, 0, 0, 0, 1.2633896, 0, 0, 0, 1, 0, 0.3047508, -0.30965602)

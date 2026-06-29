@@ -3,10 +3,10 @@ const CHARS_POR_SEGUNDO := 30.0
 var escribiendo := false
 var sonido := AudioStreamPlayer.new()
 var sonidos := [
-	preload("res://Assets/Audio/SFX/talk1.wav"),
-	preload("res://Assets/Audio/SFX/talk2.wav"),
-	preload("res://Assets/Audio/SFX/talk3.wav"),
-	preload("res://Assets/Audio/SFX/talk4.wav")
+	preload("res://Assets/Audio/SFX/text-reveal0.wav"),
+	preload("res://Assets/Audio/SFX/text-reveal1.wav"),
+	preload("res://Assets/Audio/SFX/text-reveal2.wav"),
+	preload("res://Assets/Audio/SFX/text-reveal3.wav")
 ]
 
 func _ready():
@@ -21,7 +21,7 @@ func mostrar_texto(nuevo_texto: String) -> void:
 	visible_characters = 0
 	escribiendo = true
 
-	for i in nuevo_texto.length():
+	for i in range(nuevo_texto.length()):
 		if !escribiendo:
 			return
 
@@ -34,8 +34,7 @@ func mostrar_texto(nuevo_texto: String) -> void:
 			sonido.play()
 
 		await get_tree().create_timer(1.0 / CHARS_POR_SEGUNDO).timeout
-	if escribiendo:
-		completar_texto()
+	completar_texto()
 
 func detener_texto():
 	escribiendo = false

@@ -102,7 +102,7 @@ puede_interactuar = false
 [node name="pupitresA1" parent="." unique_id=1918391162 instance=ExtResource("4_jqf25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.263891, -0.557, -2.5217965)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA1/A1Pupitres" parent_id_path=PackedInt32Array(1918391162, 1484429110) index="0" unique_id=693216998]
+[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA1/A1Pupitres" parent_id_path=PackedInt32Array(1918391162, 1025816602) index="0" unique_id=693216998]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pupitresA1/A1Pupitres/StaticBody3D" unique_id=1642620255]
 shape = SubResource("ConcavePolygonShape3D_vjkm7")
@@ -110,7 +110,7 @@ shape = SubResource("ConcavePolygonShape3D_vjkm7")
 [node name="pupitresA2" parent="." unique_id=1100338903 instance=ExtResource("5_1v6x3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3495092, -0.557, -2.522)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA2/A2Pupitres" parent_id_path=PackedInt32Array(1100338903, 1012976547) index="0" unique_id=1177690530]
+[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA2/A2Pupitres" parent_id_path=PackedInt32Array(1100338903, 75030404) index="0" unique_id=1177690530]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pupitresA2/A2Pupitres/StaticBody3D" unique_id=662580687]
 shape = SubResource("ConcavePolygonShape3D_6464o")
@@ -118,7 +118,7 @@ shape = SubResource("ConcavePolygonShape3D_6464o")
 [node name="pupitresA3" parent="." unique_id=1661542959 instance=ExtResource("5_1v6x3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.492192, -0.557, -2.522)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA3/A2Pupitres" parent_id_path=PackedInt32Array(1661542959, 1012976547) index="0" unique_id=2008191074]
+[node name="StaticBody3D" type="StaticBody3D" parent="pupitresA3/A2Pupitres" parent_id_path=PackedInt32Array(1661542959, 75030404) index="0" unique_id=2008191074]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pupitresA3/A2Pupitres/StaticBody3D" unique_id=662187870]
 shape = SubResource("ConcavePolygonShape3D_jxk0o")
