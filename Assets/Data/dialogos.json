@@ -37,8 +37,8 @@
 		},
 		"hub_preguntas": {
 			"opciones": [
-				{"texto": "Inspector: ¿Me lo repite?", "siguiente": "repetir"},
-				{"texto": "Inspector: Entendido.", "siguiente": "cierre"}
+				{"texto": "¿Me lo repite?", "siguiente": "repetir"},
+				{"texto": "Entendido.", "siguiente": "cierre"}
 			]
 		},
 		"repetir": {
@@ -270,34 +270,34 @@
 				"Inspector: Está bien, dígame ¿qué problemas tiene con sus sueños?",
 				"Cliente: Recientemente he estado teniendo varios sueños donde estoy en mi oficina, trabajando. Pero cuando quiero irme... no encuentro la salida.",
 				"Cliente: Pero no es que la oficina sea infinita. Simplemente que cuando quiero llegar a la salida me regresa para atrás.",
-				"Inspector: ¿Está solo en ese sueño?",
-				"Cliente: De hecho, sí, siempre estoy solo. Eso es lo raro, porque en el trabajo nunca estás solo."
+				"Inspector: Ok, entonces en el sueño, ¿empieza con usted trabajando siempre?",
+				"Cliente: Si, siempre comienzo trabajando en mi cubículo, cuando termino y quiero irme, no puedo."
 			],
 			"siguiente": "hub_preguntas"
 		},
 		"hub_preguntas": {
 			"opciones": [
-				{"texto": "¿La oficina es igual a la que trabaja actualmente?", "siguiente": "pregunta_oficina"},
-				{"texto": "¿Recuerda algo fuera de lo normal en el sueño?", "siguiente": "pregunta_anormal"},
-				{"texto": "¿Qué estaba haciendo en el sueño exactamente?", "siguiente": "pregunta_hacia"},			
+				{"texto": "¿Cómo se siente en el sueño?", "siguiente": "pregunta_oficina"},
+				{"texto": "¿Había algo fuera de lo normal?", "siguiente": "pregunta_anormal"},
+				{"texto": "¿Está solo en ese sueño?", "siguiente": "pregunta_solo"},			
 				{"texto": "[Terminar entrevista]", "siguiente": "cierre"}
 			]
 		},
 		"pregunta_oficina": {
 			"lineas": [
-				"Cliente: Pues, no exactamente igual, imagino que porque es un sueño está acomodado de diferente manera."
+				"Cliente: Mmm, más enojado de lo normal."
 			],
 			"siguiente": "hub_preguntas"
 		},
 		"pregunta_anormal": {
 			"lineas": [
-				"Cliente: Había una foto de mi hija en mi escritorio. En la oficina real no tengo fotos. Nunca me pareció buena idea mezclar esas cosas."
+				"Cliente: Recuerdo fotos de mi familia. En la oficina real no tengo fotos. Nunca me pareció buena idea mezclar esas cosas."
 			],
 			"siguiente": "hub_preguntas"
 		},
-		"pregunta_hacia": {
+		"pregunta_solo": {
 			"lineas": [
-				"Cliente: Revisando expedientes. Siempre los mismos expedientes."
+				"Cliente: De hecho, sí, siempre estoy solo. Eso es lo raro, porque en el trabajo nunca estás solo."
 			],
 			"siguiente": "hub_preguntas"
 		},

@@ -14,8 +14,8 @@ func _ready() -> void:
 	dia.visible = false
 	label_dia.text = str(GameManager.dream_actual)
 	await get_tree().create_timer(0.2).timeout
-	var es_correcto = GameManager.dreams[str(GameManager.dream_actual)].get("diagnostico_correcto", false)
-	mostrar_final(es_correcto, GameManager.nombre_cliente_actual, GameManager.dream_actual)
+	var es_correcto = GameManager.dreams[str(GameManager.ultimo_sueno)].get("diagnostico_correcto", false)
+	mostrar_final(es_correcto, GameManager.nombre_cliente_actual, GameManager.ultimo_sueno)
 
 func _on_button_pressed() -> void:
 	GameManager.fase_actual = GameManager.Fase.ENTREVISTA
@@ -63,5 +63,5 @@ func mostrar_reporte(reporte: Dictionary):
 	await superiores.mostrar_texto(reporte["superiores"])
 func mostrar_final(es_correcto: bool, nombre: String, dia: int):
 	var reporte = generar_reporte(es_correcto, nombre, dia)
-	mostrar_reporte(reporte)
+	await mostrar_reporte(reporte)
 #---- FIN RESULTADOS ----#

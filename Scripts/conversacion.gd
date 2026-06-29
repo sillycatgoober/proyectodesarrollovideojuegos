@@ -122,16 +122,17 @@ func _on_dialogo_terminado() -> void:
 				if GameManager.dream_actual >= 3:
 					anim_ojos.visible = true
 					anim_ojos.play("close")
+					GameManager.ultimo_sueno = GameManager.dream_actual
+					get_tree().change_scene_to_file("res://Scenes/Final.tscn")
 					await anim_ojos.animation_finished
-					get_tree().change_scene_to_file("res://Scenes/fin.tscn")
 				else:
+					GameManager.ultimo_sueno = GameManager.dream_actual
 					GameManager.dream_actual += 1
 					GameManager.guardar()
 					anim_ojos.visible = true
 					anim_ojos.play("close")
-					await anim_ojos.animation_finished
 					get_tree().change_scene_to_file("res://Scenes/diax.tscn")
-
+					await anim_ojos.animation_finished
 func _on_personaje_sale() -> void:
 	personaje_actual = ""
 	await desvanecer()
@@ -147,6 +148,7 @@ func diagnostico_elegido(tipo: String) -> void:
 	var correcto = GameManager.diagnostico_correcto_actual()
 	var es_correcto = tipo == correcto
 	GameManager.dreams[str(GameManager.dream_actual)]["diagnostico_correcto"] = es_correcto
+	GameManager.guardar()
 	var sufijo = "correcto" if es_correcto else "incorrecto"
 	DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual) + "_reaccion_" + sufijo)
 

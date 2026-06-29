@@ -1,6 +1,30 @@
 {
-  "Excelente": "Excelente. Tu desempeño ha sido impecable; gracias por tu dedicación.",
-  "Aceptable": "Aceptable. Has cumplido con los objetivos, aunque hay margen de mejora.",
-  "Deficiente": "Deficiente. Tu rendimiento no alcanzó los estándares requeridos.",
-  "Reprobado": "Reprobado. Lamentablemente, no puedes continuar con el proyecto."
+	"Excelente": {
+		"titulo": "EVALUACIÓN FINAL — PERÍODO DE PRUEBA",
+		"resumen": "El inspector completó satisfactoriamente los tres casos asignados durante el período de prueba, emitiendo diagnósticos correctos en todos ellos.",
+		"resultado": "CALIFICACIÓN: EXCELENTE — 3/3",
+		"evaluacion": "Su desempeño ha superado las expectativas del departamento. Queda usted confirmado como Inspector de Sueños de planta. Bienvenido al equipo.",
+		"superiores": "— Amaya Ruiz, Supervisora\n— Departamento de Supervisión Onírica"
+	},
+	"Aceptable": {
+		"titulo": "EVALUACIÓN FINAL — PERÍODO DE PRUEBA",
+		"resumen": "El inspector completó los tres casos asignados durante el período de prueba con resultados mixtos.",
+		"resultado": "CALIFICACIÓN: ACEPTABLE — 2/3",
+		"evaluacion": "Ha cumplido con el mínimo requerido. Se le otorga el puesto de forma provisional. Se recomienda mayor atención a las evidencias antes de emitir diagnósticos.",
+		"superiores": "— Amaya Ruiz, Supervisora\n— Departamento de Supervisión Onírica"
+	},
+	"Deficiente": {
+		"titulo": "EVALUACIÓN FINAL — PERÍODO DE PRUEBA",
+		"resumen": "El inspector completó los tres casos asignados, sin embargo los resultados obtenidos no alcanzaron los estándares mínimos del departamento.",
+		"resultado": "CALIFICACIÓN: DEFICIENTE — 1/3",
+		"evaluacion": "Su rendimiento durante el período de prueba fue insuficiente. Se le asigna un período de recapacitación obligatorio antes de poder atender nuevos casos.",
+		"superiores": "— Amaya Ruiz, Supervisora\n— Departamento de Supervisión Onírica"
+	},
+	"Reprobado": {
+		"titulo": "EVALUACIÓN FINAL — PERÍODO DE PRUEBA",
+		"resumen": "El inspector no logró emitir ningún diagnóstico correcto durante el período de prueba.",
+		"resultado": "CALIFICACIÓN: REPROBADO — 0/3",
+		"evaluacion": "Lamentablemente su desempeño no cumple con los requisitos mínimos del departamento. Su contrato queda rescindido. Le deseamos éxito en sus proyectos futuros.",
+		"superiores": "— Amaya Ruiz, Supervisora\n— Departamento de Supervisión Onírica"
+	}
 }

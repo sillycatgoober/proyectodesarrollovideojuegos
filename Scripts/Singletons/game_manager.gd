@@ -8,7 +8,7 @@ var dream_actual := 1
 var slot_actual:int
 var sub_fase: String = ""
 var diagnostico_final: String = ""
-
+var ultimo_sueno:int = 1
 var dreams = {
 	"1": {"done": false, "diagnostico_correcto": false},
 	"2": {"done": false, "diagnostico_correcto": false},
@@ -54,10 +54,10 @@ func calcular_puntaje() -> Dictionary:
 	var porcentaje = int((float(correctos) / total) * 100)
 	var evaluacion = ""
 	match correctos:
-		3: evaluacion = "Excelente."
-		2: evaluacion = "Aceptable."
-		1: evaluacion = "Deficiente."
-		0: evaluacion = "Reprobado."
+		3: evaluacion = "Excelente"
+		2: evaluacion = "Aceptable"
+		1: evaluacion = "Deficiente"
+		0: evaluacion = "Reprobado"
 	
 	return {
 		"correctos": correctos,

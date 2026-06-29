@@ -134,6 +134,14 @@ func actualizar_mensaje_pausa() -> void:
 		label_cont.text = "Tu progreso se guardará desde el último guardado automático."
 		label_tit.text = "Volver al menú"
 
+func reset_estado() -> void:
+	pause_menu.visible = false
+	folder.visible = false
+	blur_pausa.visible = false
+	var bus_idx = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_effect_enabled(bus_idx, 0, false)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _input(event):
 	if event.is_action_pressed("pausa") and not icono_esc.visible:
 		toggle_pausa()
@@ -164,6 +172,7 @@ func _on_menu_button_pressed() -> void:
 	actualizar_mensaje_pausa()
 
 func _on_abandon_button_pressed() -> void:
+	UI.reset_estado()
 	get_tree().change_scene_to_file("res://Scenes/UI/menu.tscn")
 
 func _on_stay_button_pressed() -> void:

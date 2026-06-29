@@ -2,15 +2,20 @@
 
 [ext_resource type="Script" uid="uid://cbjxhdp4shqxv" path="res://Scripts/final.gd" id="1_7xrfh"]
 [ext_resource type="Texture2D" uid="uid://dqds1illabc26" path="res://Assets/Imagenes/Menu-Fondo.png" id="3_6k4ua"]
+[ext_resource type="Script" uid="uid://cdgp6puub7i5p" path="res://Scripts/texto2.gd" id="3_aohln"]
+[ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="4_22plq"]
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="4_aohln"]
+[ext_resource type="Texture2D" uid="uid://owk8dxvcuf1h" path="res://Assets/Imagenes/Stamp.png" id="5_aohln"]
+[ext_resource type="Texture2D" uid="uid://c2dp40sgm5aih" path="res://Assets/Imagenes/Stamp-Hover.png" id="6_ue4bq"]
+[ext_resource type="AudioStream" uid="uid://b82cai0sappkn" path="res://Assets/Audio/Musica/Come-and-See.mp3" id="8_ue4bq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu2kq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ue4bq"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4j8x"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrldl"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
@@ -25,87 +30,132 @@ corner_radius_bottom_left = 10
 script = ExtResource("1_7xrfh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=150859061]
-visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1051716618]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel resultados" type="Panel" parent="PanelContainer" unique_id=917938454]
-visible = false
-layout_mode = 2
-
-[node name="Resumen" type="PanelContainer" parent="PanelContainer/Panel resultados" unique_id=269406541]
-layout_mode = 0
+[node name="Resultados" type="PanelContainer" parent="." unique_id=269406541]
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Margin" type="MarginContainer" parent="PanelContainer/Panel resultados/Resumen" unique_id=1002585640]
+[node name="Margin" type="MarginContainer" parent="Resultados" unique_id=1002585640]
 layout_mode = 2
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 40
 
-[node name="ContButton" type="Button" parent="PanelContainer/Panel resultados/Resumen/Margin" unique_id=1427513700]
+[node name="VBox" type="VBoxContainer" parent="Resultados/Margin" unique_id=1918860438]
+layout_mode = 2
+
+[node name="titulo" type="RichTextLabel" parent="Resultados/Margin/VBox" unique_id=8053689]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.7
+theme = ExtResource("4_22plq")
+theme_override_font_sizes/normal_font_size = 40
+fit_content = true
+script = ExtResource("3_aohln")
+
+[node name="resumen" type="RichTextLabel" parent="Resultados/Margin/VBox" unique_id=354883798]
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+theme = ExtResource("4_22plq")
+theme_override_font_sizes/normal_font_size = 25
+fit_content = true
+script = ExtResource("3_aohln")
+
+[node name="resultado" type="RichTextLabel" parent="Resultados/Margin/VBox" unique_id=1681306807]
+layout_mode = 2
+theme = ExtResource("4_22plq")
+theme_override_font_sizes/normal_font_size = 25
+fit_content = true
+script = ExtResource("3_aohln")
+
+[node name="evaluacion" type="RichTextLabel" parent="Resultados/Margin/VBox" unique_id=223972701]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+theme = ExtResource("4_22plq")
+theme_override_font_sizes/normal_font_size = 25
+fit_content = true
+script = ExtResource("3_aohln")
+
+[node name="superiores" type="RichTextLabel" parent="Resultados/Margin/VBox" unique_id=175300822]
+layout_mode = 2
+theme = ExtResource("4_22plq")
+theme_override_font_sizes/normal_font_size = 25
+fit_content = true
+script = ExtResource("3_aohln")
+
+[node name="ContButton" type="Button" parent="Resultados/Margin/VBox" unique_id=564600456]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 10
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("4_aohln")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_uu2kq")
-theme_override_styles/hover = SubResource("StyleBoxFlat_p4j8x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ue4bq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nrldl")
 text = "CONTINUAR"
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/Panel resultados/Resumen/Margin" unique_id=938431151]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
+[node name="PanelGracias" type="Panel" parent="." unique_id=1081605034]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer" unique_id=1385243115]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer/VBoxContainer" unique_id=703712787]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("4_aohln")
-theme_override_font_sizes/font_size = 29
-text = "Informe del jefe
-"
-
-[node name="Label2" type="Label" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer/VBoxContainer" unique_id=790606714]
-layout_mode = 2
-text = "Se ha analizado tu desempeño y tus resultados han sido:"
-
-[node name="labeljson" type="Label" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer/VBoxContainer" unique_id=2108753347]
-layout_mode = 2
-
-[node name="PanelGracias" type="Panel" parent="PanelContainer" unique_id=1081605034]
-layout_mode = 2
-
-[node name="ColorRect" type="TextureRect" parent="PanelContainer/PanelGracias" unique_id=1450223908]
+[node name="ColorRect" type="TextureRect" parent="PanelGracias" unique_id=1450223908]
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 646.0
 texture = ExtResource("3_6k4ua")
 
-[node name="Label" type="Label" parent="PanelContainer/PanelGracias/ColorRect" unique_id=969424368]
+[node name="Label" type="Label" parent="PanelGracias/ColorRect" unique_id=969424368]
 layout_mode = 0
-offset_left = 520.0
-offset_top = 376.0
-offset_right = 1072.0
-offset_bottom = 492.0
+offset_left = 659.99994
+offset_top = 345.0
+offset_right = 882.38995
+offset_bottom = 422.0
+rotation = 0.034906585
+theme_override_colors/font_color = Color(0.19607843, 0.06666667, 0.1882353, 1)
 theme_override_fonts/font = ExtResource("4_aohln")
-theme_override_font_sizes/font_size = 59
-text = "Gracias por jugar"
+theme_override_font_sizes/font_size = 30
+text = "¡Gracias por jugar!"
+horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="botonMenu" type="Button" parent="PanelContainer/PanelGracias" unique_id=1633439790]
+[node name="LabelLeave" type="Label" parent="PanelGracias" unique_id=178796110]
 layout_mode = 0
-offset_left = 941.0
-offset_top = 559.0
-offset_right = 1096.0
-offset_bottom = 607.0
+offset_left = 635.52356
+offset_top = 553.5664
+offset_right = 884.52356
+offset_bottom = 573.5664
+rotation = 0.02617994
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("4_aohln")
+text = "SALIR AL MENÚ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbandonButton" type="TextureButton" parent="PanelGracias" unique_id=469082548 groups=["stamp_bot"]]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 654.12555
+offset_top = 533.0
+offset_right = 872.12555
+offset_bottom = 594.0
+rotation = 0.02617994
+size_flags_vertical = 3
+theme = ExtResource("4_22plq")
+texture_normal = ExtResource("5_aohln")
+texture_pressed = ExtResource("6_ue4bq")
+texture_hover = ExtResource("6_ue4bq")
+stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=358160510]
+stream = ExtResource("8_ue4bq")
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
+
+[connection signal="pressed" from="Resultados/Margin/VBox/ContButton" to="." method="_on_cont_button_pressed"]
+[connection signal="pressed" from="PanelGracias/AbandonButton" to="." method="_on_abandon_button_pressed"]
