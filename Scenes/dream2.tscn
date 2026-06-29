@@ -29,19 +29,19 @@ background_color = Color(0.41246614, 0.68473375, 0.74300426, 1)
 ambient_light_color = Color(0.7212519, 0.9199708, 0.87812203, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48wkc"]
-size = Vector3(2.1439667, 2.0761719, 1.644043)
+size = Vector3(1.5327988, 2.0761719, 1.644043)
 
 [node name="Dream2" type="Node3D" unique_id=1717678514]
 
 [node name="dream2" parent="." unique_id=1606100486 instance=ExtResource("1_h0lvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8067169, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Muebles" parent_id_path=PackedInt32Array(1606100486, 869562600) index="0" unique_id=887098925]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Muebles" parent_id_path=PackedInt32Array(1606100486, 951883563) index="0" unique_id=887098925]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream2/Muebles/StaticBody3D" unique_id=600886094]
 shape = SubResource("ConcavePolygonShape3D_wrn5o")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Estructura" parent_id_path=PackedInt32Array(1606100486, 607102087) index="0" unique_id=728465232]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Estructura" parent_id_path=PackedInt32Array(1606100486, 1657939038) index="0" unique_id=728465232]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream2/Estructura/StaticBody3D" unique_id=193609493]
 shape = SubResource("ConcavePolygonShape3D_7q01l")
@@ -151,7 +151,7 @@ modelo_puerta = ExtResource("13_bhk6m")
 [node name="Salida" type="Area3D" parent="." unique_id=1842463747]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salida" unique_id=1289950323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.353455, 0.08935547, -4.1423554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.540657, 0.08935547, -4.1423554)
 shape = SubResource("BoxShape3D_48wkc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1012137237]

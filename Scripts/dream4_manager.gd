@@ -29,7 +29,6 @@ func _ready() -> void:
 	if puerta_elevador:
 		puerta_elevador.bloqueada = true
 
-	# FLUJO: Entrar al sueño -> Abrir los ojos
 	if anim_ojos:
 		anim_ojos.visible = true
 		anim_ojos.play("open")
@@ -82,14 +81,12 @@ func on_archivo_quemado(tipo: String) -> void:
 		puerta_elevador2.abrir_puerta()
 	emit_signal("sueño_completado")
 
-# FLUJO: Terminar sueño -> Cerrar ojos -> Diagnóstico
 func _on_salida_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		GameManager.dreams["4"]["done"] = true
 		GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
 		GameManager.guardar()
-		
-		# Eliminamos el TransitionManager e integramos AnimOjos
+
 		if anim_ojos:
 			anim_ojos.visible = true
 			anim_ojos.play("close")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bpcj5hqrju64j"]
+
+[ext_resource type="PackedScene" uid="uid://bkul0lubn0jjh" path="res://Assets/Modelos/Dream4/archivo.glb" id="1_yqh23"]
+[ext_resource type="Texture2D" uid="uid://0l8s7d6q4dfk" path="res://Assets/Modelos/Dream4/archivo_familia.png" id="2_f4gh8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enig1"]
+albedo_texture = ExtResource("2_f4gh8")
+albedo_texture_force_srgb = true
+
+[node name="archivo" unique_id=2122364851 instance=ExtResource("1_yqh23")]
+
+[node name="Folder" parent="Folders" parent_id_path=PackedInt32Array(1816883791) index="0" unique_id=98873430]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_enig1")

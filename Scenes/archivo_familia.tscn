@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://2sod473j17p1"]
+
+[ext_resource type="PackedScene" uid="uid://bkul0lubn0jjh" path="res://Assets/Modelos/Dream4/archivo.glb" id="1_08oq0"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wpstp"]
+
+[node name="ArchivoFamilia" type="Node3D" unique_id=1968665553]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1410759306]
+mesh = SubResource("ArrayMesh_wpstp")
+
+[node name="archivo" parent="MeshInstance3D" unique_id=2122364851 instance=ExtResource("1_08oq0")]

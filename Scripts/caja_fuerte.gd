@@ -19,8 +19,7 @@ func _ready() -> void:
 	if usa_focus:
 		camara = $Camera3D
 	caja_botones.hide()
-	
-	# Bloqueamos la interacción del encendedor al inicio para que no se altere antes de abrirse
+
 	if encendedor_recogible != null:
 		encendedor_recogible.puede_interactuar = false
 
@@ -83,15 +82,12 @@ func abrir() -> void:
 	if player:
 		player.puede_moverse = true
 		player.set_camara_activa(true)
-		# Se remueve 'player.tiene_encendedor = true' para que el jugador
-		# use la lógica de tu nodo 'InteractuableRecogible' al interactuar con él directamente.
 		
 	en_interaccion = false
 	combinacion_label.text = "OK"
 	caja_botones.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	# Desencadena el desplazamiento del objeto
+
 	animar_salida_encendedor()
 	
 	if manager:
@@ -100,17 +96,13 @@ func abrir() -> void:
 func animar_salida_encendedor() -> void:
 	if encendedor_recogible != null:
 		var tween = get_tree().create_tween()
-		
-		# Calculamos el desplazamiento local en X
 		var posicion_final = encendedor_recogible.position
 		posicion_final.x += distancia_salida_x
-		
-		# Suavizado de inicio a fin con TRANS_SINE y EASE_OUT
+
 		tween.tween_property(encendedor_recogible, "position", posicion_final, tiempo_salida)\
 			.set_trans(Tween.TRANS_SINE)\
 			.set_ease(Tween.EASE_OUT)
 			
-		# Una vez el encendedor termina de salir por completo, se vuelve interactuable para recogerse
 		tween.tween_callback(func(): encendedor_recogible.puede_interactuar = true)
 
 func grab():
