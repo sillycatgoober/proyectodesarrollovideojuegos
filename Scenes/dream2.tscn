@@ -36,12 +36,12 @@ size = Vector3(1.5327988, 2.0761719, 1.644043)
 [node name="dream2" parent="." unique_id=1606100486 instance=ExtResource("1_h0lvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8067169, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Muebles" parent_id_path=PackedInt32Array(1606100486, 951883563) index="0" unique_id=887098925]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Muebles" parent_id_path=PackedInt32Array(1606100486, 869562600) index="0" unique_id=887098925]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream2/Muebles/StaticBody3D" unique_id=600886094]
 shape = SubResource("ConcavePolygonShape3D_wrn5o")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Estructura" parent_id_path=PackedInt32Array(1606100486, 1657939038) index="0" unique_id=728465232]
+[node name="StaticBody3D" type="StaticBody3D" parent="dream2/Estructura" parent_id_path=PackedInt32Array(1606100486, 607102087) index="0" unique_id=728465232]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dream2/Estructura/StaticBody3D" unique_id=193609493]
 shape = SubResource("ConcavePolygonShape3D_7q01l")

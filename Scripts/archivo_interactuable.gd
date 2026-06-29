@@ -17,7 +17,7 @@ func interact():
 	if player == null: return
 	
 	if not player.tiene_encendedor:
-		mostrar_mensaje("Necesitas un encendedor")
+		UI.set_hints("No creo poder hacer algo con esto ahora")
 		return
 
 	en_interaccion = !en_interaccion
@@ -25,7 +25,6 @@ func interact():
 	if en_interaccion:
 		player.puede_moverse = false
 		camara.current = true
-		mostrar_mensaje("Click para quemar")
 	else:
 		player.puede_moverse = true
 		player.set_camara_activa(true)
@@ -57,13 +56,6 @@ func quemar_archivo():
 		manager.on_archivo_quemado(tipo_archivo)
 	
 	queue_free()
-
-func mostrar_mensaje(texto: String):
-	if label_info:
-		label_info.text = texto
-		if not en_interaccion:
-			await get_tree().create_timer(2.0).timeout
-			if label_info.text == texto: label_info.text = ""
 
 func _on_area_interaccion_body_entered(body: Node3D) -> void:
 	if body.name == "Player":

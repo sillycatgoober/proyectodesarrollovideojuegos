@@ -17,11 +17,11 @@ var sprites = {
 	"jefa": preload("res://Assets/Imagenes/Sprites/Jefe.png"),
 	"cliente1": preload("res://Assets/Imagenes/Sprites/c1.png"),
 	"cliente2": preload("res://Assets/Imagenes/Sprites/c2.png"),
-	"cliente3": preload("res://Assets/Imagenes/Sprites/c3.png"),
-	"cliente4": preload("res://Assets/Imagenes/Sprites/c4.png"),
+	"cliente3": preload("res://Assets/Imagenes/Sprites/c3.png")
 }
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	anim_ojos.visible = false
 	sprite_personaje.visible = false
 	seleccion.visible = false
@@ -109,7 +109,7 @@ func _on_dialogo_terminado() -> void:
 				GameManager.fase_actual = GameManager.Fase.ENTREVISTA
 				GameManager.actualizar_cliente()
 				GameManager.guardar()
-				if GameManager.dream_actual > 4:
+				if GameManager.dream_actual > 3:
 					get_tree().change_scene_to_file("res://Scenes/fin.tscn")
 				else:
 					get_tree().change_scene_to_file("res://Scenes/diax.tscn")
@@ -128,7 +128,7 @@ func diagnostico_elegido(tipo: String) -> void:
 	GameManager.sub_fase = "reaccion"
 	var correcto = GameManager.diagnostico_correcto_actual()
 	var es_correcto = tipo == correcto
-	GameManager.dreams[GameManager.dream_actual]["diagnostico_correcto"] = es_correcto
+	GameManager.dreams[str(GameManager.dream_actual)]["diagnostico_correcto"] = es_correcto
 	var sufijo = "correcto" if es_correcto else "incorrecto"
 	DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual) + "_reaccion_" + sufijo)
 

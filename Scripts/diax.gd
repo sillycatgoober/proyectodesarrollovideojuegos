@@ -12,8 +12,11 @@ var reportes = {}
 func _ready() -> void:
 	cargar_reportes()
 	dia.visible = false
-	label_dia.text = "Día " + str(GameManager.dream_actual)
-	await get_tree().create_timer(5.0).timeout
+	label_dia.text = str(GameManager.dream_actual)
+
+	await get_tree().create_timer(0.2).timeout
+
+	mostrar_final(true, "Test", GameManager.dream_actual)
 
 func _on_button_pressed() -> void:
 	GameManager.fase_actual = GameManager.Fase.ENTREVISTA
@@ -27,8 +30,14 @@ func _on_cont_button_pressed() -> void:
 func cargar_reportes():
 	var file = FileAccess.open("res://Assets/Data/resultados.json", FileAccess.READ)
 	if file:
-		reportes = JSON.parse_string(file.get_as_text())
+		var content = file.get_as_text()
 		file.close()
+
+		var result = JSON.parse_string(content)
+		if typeof(result) == TYPE_DICTIONARY:
+			reportes = result
+		else:
+			push_error("JSON inválido en resultados.json")
 func aplicar_template(texto: String, data: Dictionary) -> String:
 	for key in data.keys():
 		texto = texto.replace("{" + key + "}", str(data[key]))

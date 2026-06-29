@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="3_duuxe"]
 [ext_resource type="Texture2D" uid="uid://cskpo5k4tep3y" path="res://Assets/Imagenes/Icon-ESC.png" id="4_duuxe"]
 [ext_resource type="Texture2D" uid="uid://wv3kxe24d6s8" path="res://Assets/Imagenes/Icon-F.png" id="5_jfwrg"]
+[ext_resource type="Texture2D" uid="uid://cnbs4hh67rrdo" path="res://Assets/Imagenes/Icon-Click.png" id="6_hfaco"]
 [ext_resource type="Texture2D" uid="uid://2ilk7lrx2g1" path="res://Assets/Imagenes/Icon-E.png" id="6_mbl0m"]
 [ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/UI/journal.tscn" id="7_duuxe"]
 [ext_resource type="StyleBox" uid="uid://dgwnpn3ofx6op" path="res://slider.tres" id="8_pmm6b"]
@@ -104,6 +105,19 @@ text = "Scroll"
 [node name="IconScroll" type="TextureRect" parent="Iconos/VBoxContainer/Scroll" unique_id=1812447292]
 layout_mode = 2
 texture = ExtResource("3_1c2ca")
+
+[node name="Click" type="HBoxContainer" parent="Iconos/VBoxContainer" unique_id=2079977632]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Iconos/VBoxContainer/Click" unique_id=1067522884]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_duuxe")
+text = "Click"
+
+[node name="IconClick" type="TextureRect" parent="Iconos/VBoxContainer/Click" unique_id=2024792182]
+layout_mode = 2
+texture = ExtResource("6_hfaco")
 
 [node name="ESC" type="HBoxContainer" parent="Iconos/VBoxContainer" unique_id=261761943]
 layout_mode = 2

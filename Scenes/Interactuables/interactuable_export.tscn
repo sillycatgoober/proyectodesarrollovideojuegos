@@ -16,4 +16,4 @@ modelo_export = null
 shape = SubResource("BoxShape3D_4guvb")
 
 [node name="Camera3D" parent="." index="2" unique_id=351992915]
-transform = Transform3D(1, 0, 0, 0, 0.026613148, 0.9996458, 0, -0.9996458, 0.026613148, 0, 0.66310537, 0.043787837)
+transform = Transform3D(1, 0, 0, 0, 0.026613148, 0.9996458, 0, -0.9996458, 0.026613148, 0, 0.42136687, 0.08217999)

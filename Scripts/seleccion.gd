@@ -49,7 +49,7 @@ func _on_confirmar_pressed() -> void:
 		hide()
 		get_parent().diagnostico_elegido(diagnostico_seleccionado)
 	else:
-		print("Debes seleccionar un sueño")
+		UI.set_hints("Debo seleccionar un sueño")
 
 func reset() -> void:
 	diagnostico_seleccionado = ""

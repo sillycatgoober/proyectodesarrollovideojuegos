@@ -15,16 +15,8 @@
 		"motivo": "Casa inundada recurrente.",
 		"dream": "Sueño Precognitivo"
 	},
-	"cliente5": {
-		"caso":"205",
-		"nombre": "Daniel Castro",
-		"edad": "45",
-		"ocupacion": "Conductor de autobús",
-		"motivo": "Figura desconocida en su ruta.",
-		"dream": "Sueño de Intrusión"
-	},
 	"cliente3": {
-		"caso":"206",
+		"caso":"205",
 		"nombre": "Marcos Vargas",
 		"edad": "40",
 		"ocupacion": "Empleado gubernamental",

@@ -13,6 +13,7 @@ extends CanvasLayer
 @onready var icono_f = $Iconos/VBoxContainer/F
 @onready var icono_esc = $Iconos/VBoxContainer/ESC
 @onready var icono_scroll = $Iconos/VBoxContainer/Scroll
+@onready var icono_click = $Iconos/VBoxContainer/Click
 @onready var blur_pausa: ColorRect = $ColorRect
 @onready var label_tit = $Warning/VBoxContainer/RichTextLabel
 @onready var label_cont = $Warning/VBoxContainer/RichTextLabel2
@@ -25,6 +26,7 @@ func _ready() -> void:
 	icono_f.visible = false
 	icono_esc.visible = false
 	icono_scroll.visible = false
+	icono_click.visible = false
 	icon_panel.visible = false
 
 func mostrar_acciones(obj) -> void:
@@ -32,6 +34,7 @@ func mostrar_acciones(obj) -> void:
 	icono_f.visible = obj.is_in_group("recogible")
 	icono_esc.visible = obj.en_interaccion
 	icono_scroll.visible = obj.en_interaccion and obj.tiene_scroll
+	icono_click.visible = obj.en_interaccion and obj.tiene_click
 	icon_panel.visible = true
 	#labels
 	if obj.usa_focus and not obj.en_interaccion:
@@ -50,6 +53,8 @@ func mostrar_acciones(obj) -> void:
 		$Iconos/VBoxContainer/F/Label.text = obj.texto_f
 	if icono_scroll.visible:
 		$Iconos/VBoxContainer/Scroll/Label.text = obj.texto_scroll
+	if icono_click.visible:
+		$Iconos/VBoxContainer/Click/Label.text = obj.texto_click
 	if icono_esc.visible and not obj.texto_esc=="":
 		$Iconos/VBoxContainer/ESC/Label.text = obj.texto_esc
 

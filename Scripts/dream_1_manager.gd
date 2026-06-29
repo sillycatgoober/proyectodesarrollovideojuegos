@@ -6,6 +6,7 @@ extends Node3D
 @export var pupitre: Node
 @onready var anim_ojos = $AnimOjos
 @onready var audio = $SFX
+@onready var entidad = $entidad
 var relojes_correctos := {0: false, 1: false, 2: false}
 
 func _ready() -> void:
@@ -40,7 +41,8 @@ func abrir_biblioteca() -> void:
 func _on_carta_colocada():
 	puerta_sal1.desbloquear_salida()
 	puerta_sal2.desbloquear_salida()
-
+	if entidad:
+		entidad.visible = false
 	GameManager.dreams["1"]["done"] = true
 
 func _on_carta_agregada(item_id):

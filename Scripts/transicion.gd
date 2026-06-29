@@ -1,4 +1,5 @@
-extends Node
+extends CanvasLayer
+class_name Transicion
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 signal animation_finished
 

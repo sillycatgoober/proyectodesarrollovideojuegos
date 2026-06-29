@@ -7,6 +7,8 @@ class_name Interactuable
 @export var tiene_scroll := false
 @export var texto_scroll := ""
 @export var texto_esc := "Regresar"
+@export var tiene_click := false
+@export var texto_click := ""
 @export var tiene_e:=true
 @export var encendedor: Node3D
 @export var desplazamiento_x: float = 1.5

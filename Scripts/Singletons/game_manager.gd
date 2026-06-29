@@ -12,9 +12,7 @@ var diagnostico_final: String = ""
 var dreams = {
 	"1": {"done": false, "diagnostico_correcto": false},
 	"2": {"done": false, "diagnostico_correcto": false},
-	"3": {"done": false, "diagnostico_correcto": false},
-	"4": {"done": false, "diagnostico_correcto": false},
-	"5": {"done": false, "diagnostico_correcto": false}
+	"3": {"done": false, "diagnostico_correcto": false}
 }
 
 func _ready() -> void:
@@ -26,9 +24,7 @@ func reset_dreams():
 	dreams = {
 		1: {"done": false, "diagnostico_correcto": false},
 		2: {"done": false, "diagnostico_correcto": false},
-		3: {"done": false, "diagnostico_correcto": false},
-		4: {"done": false, "diagnostico_correcto": false},
-		5: {"done": false, "diagnostico_correcto": false}
+		3: {"done": false, "diagnostico_correcto": false}
 	}
 
 func _cargar_clientes() -> void:

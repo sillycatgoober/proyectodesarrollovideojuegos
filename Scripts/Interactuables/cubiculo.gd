@@ -1,0 +1,21 @@
+extends Interactuable
+@export var puerta_cuarto_a:Node3D
+@export var puerta_cuarto_b:Node3D
+var ya_interactuo :=false
+
+func _ready() -> void:
+	texto_e = "Trabajar"
+	en_interaccion = false
+	
+func interact():
+	ya_interactuo = true
+	puede_interactuar = false
+	if ya_interactuo:
+		return
+	en_interaccion = !en_interaccion
+	var player = get_player()
+	if player == null:
+		return
+	puerta_cuarto_a.desbloquear()
+	puerta_cuarto_b.desbloquear()
+	UI.set_hints("¿Trabajar en un sueño? No gracias. Pero tal vez cambió algo")

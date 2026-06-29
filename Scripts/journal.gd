@@ -49,15 +49,15 @@ const EVIDENCIAS = [
 ]
 
 const SUEÑOS = {
-	"Sueño Ordinario": ["Figura reconocible", "Emoción dominante"],
-	"Trauma": ["Figura reconocible", "Emoción dominante", "Memoria incompleta", "Objeto fuera de lugar", "Mensaje implícito"],
-	"Bucle": ["Memoria incompleta", "Elemento recurrente", "Distorsión espacial", "Alteración temporal", "Objeto fuera de lugar", "Reflejo incorrecto", "Inconsistencia física"],
-	"Sueño Sintomático": ["Emoción dominante", "Memoria incompleta", "Elemento recurrente", "Distorsión espacial", "Amenaza activa", "Voz sin origen", "Reflejo incorrecto", "Inconsistencia física"],
-	"Sueño de Persecución": ["Emoción dominante", "Elemento recurrente", "Distorsión espacial", "Amenaza activa", "Presencia no identificada"],
-	"Sueño Precognitivo": ["Elemento recurrente", "Distorsión espacial", "Alteración temporal", "Mensaje implícito", "Inconsistencia física"],
-	"Sueño de Visitación": ["Figura reconocible", "Emoción dominante", "Objeto fuera de lugar", "Voz sin origen", "Mensaje implícito"],
-	"Sueño de Intrusión": ["Amenaza activa", "Objeto fuera de lugar", "Presencia no identificada", "Voz sin origen", "Reflejo incorrecto", "Inconsistencia física"],
-	"Sueño Compartido": ["Figura reconocible", "Memoria incompleta", "Elemento recurrente", "Distorsión espacial", "Alteración temporal", "Presencia no identificada", "Mensaje implícito", "Inconsistencia física"]
+	"Sueño Ordinario": ["Presencia identificable","Alteración emocional"],
+	"Trauma": ["Presencia identificable","Alteración emocional","Manipulación temporal","Objeto desplazable","Registro del pasado"],
+	"Bucle": ["Manipulación temporal","Elemento recurrente","Espacio alterable","Objeto desplazable","Reflejo incorrecto","Inconsistencia física","Voz constante"],
+	"Sueño Sintomático": ["Alteración emocional","Elemento recurrente","Espacio alterable","Voz constante","Reflejo incorrecto","Inconsistencia física"],
+	"Sueño de Persecución": ["Alteración emocional","Elemento recurrente","Espacio alterable","Amenaza activa","Presencia identificable"],
+	"Sueño Precognitivo": ["Elemento recurrente","Espacio alterable","Manipulación temporal","Registro del futuro","Inconsistencia física"],
+	"Sueño de Visitación": ["Presencia identificable","Alteración emocional","Objeto desplazable","Voz sin origen","Registro anómalo"],
+	"Sueño de Intrusión": ["Objeto desplazable","Presencia identificable","Voz sin origen","Reflejo incorrecto","Inconsistencia física"],
+	"Sueño Compartido": ["Presencia identificable","Elemento recurrente","Espacio alterable","Manipulación temporal","Registro compartido","Inconsistencia física"]
 }
 
 const TITULOS = ["Caso", "Evidencias", "Diagnóstico","Sueños"]
