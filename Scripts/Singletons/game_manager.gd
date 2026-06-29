@@ -1,4 +1,5 @@
 extends Node
+
 enum Fase {INTRO, ENTREVISTA, SUENO, DIAGNOSTICO}
 var fase_actual: Fase = Fase.INTRO
 var clientes: Dictionary = {}
@@ -30,7 +31,6 @@ func reset_dreams():
 		5: {"done": false, "diagnostico_correcto": false}
 	}
 
-#---- CLIENTES ----#
 func _cargar_clientes() -> void:
 	var archivo = FileAccess.open("res://Assets/Data/clientes.json", FileAccess.READ)
 	if archivo:
@@ -41,17 +41,13 @@ func actualizar_cliente() -> void:
 	var id = "cliente" + str(dream_actual)
 	if id in clientes:
 		nombre_cliente_actual = clientes[id].nombre
-#---- FIN CLIENTES ----#
 
-#---- DIAGNOSTICO ----#
 func diagnostico_correcto_actual() -> String:
 	var id = "cliente" + str(dream_actual)
 	if id in clientes:
 		return clientes[id].dream
 	return ""
-#---- FIN DIAGNOSTICO ----#
 
-#---- GUARDADO ----#
 func guardar(slot: int = -1) -> void:
 	print("=== GUARDANDO ===")
 	print("Fase:", fase_actual)
@@ -92,10 +88,17 @@ func eliminar_partida(slot: int) -> void:
 	var path = "user://savegame_" + str(slot) + ".dat"
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(path)
+		
+func completar_sueno_actual() -> void:
+	if dream_actual in dreams:
+		dreams[dream_actual]["done"] = true
+	
+	fase_actual = Fase.DIAGNOSTICO
+	
+	guardar()
+	
+	get_tree().change_scene_to_file("res://Scenes/office.tscn")
 
-#---- FIN GUARDADO ----#
-
-#---- CONFIGURACION AUDIO ----#
 func guardar_config() -> void:
 	var config = ConfigFile.new()
 	config.set_value("audio", "master", AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))

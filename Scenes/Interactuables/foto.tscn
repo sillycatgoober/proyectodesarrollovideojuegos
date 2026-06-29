@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_54iy7"]
 [ext_resource type="Script" uid="uid://bc3orfsfjcjjv" path="res://Scripts/foto.gd" id="2_54iy7"]
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="4_6yimg"]
 [ext_resource type="PackedScene" uid="uid://cvo4yjsuc60k6" path="res://Assets/Modelos/Dream2/foto.glb" id="4_54iy7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iocv6"]
@@ -20,7 +21,10 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 transform = Transform3D(-4.371139e-08, 1.0000001, -4.3711392e-08, 3.5527137e-15, -4.3711392e-08, -1.0000001, -1, -4.3711392e-08, 0, 0, 0, 0)
 
 [node name="Label3D" type="Label3D" parent="Pivot" index="1" unique_id=694780627]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.01)
+transform = Transform3D(0.0040142867, -0.99999195, 4.4061974e-08, -0.99999195, -0.0040142867, -4.3535216e-08, 4.371174e-08, -4.3886853e-08, -1, 0, 2.7755576e-17, -0.01)
+font = ExtResource("4_6yimg")
+font_size = 14
+outline_size = 9
 
 [node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
 transform = Transform3D(1, 0, 0, 0, 0.9999929, -1.1368684e-13, 0, 1.1368684e-13, 0.9999929, -0.061499, -0.0072241747, 0.2546674)

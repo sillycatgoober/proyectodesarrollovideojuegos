@@ -2,11 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_ig1tu"]
 [ext_resource type="PackedScene" uid="uid://b1f8m821oauxc" path="res://Assets/Modelos/Dream4/caja_fuerte.glb" id="2_42klg"]
+[ext_resource type="PackedScene" uid="uid://2bw8dv1ibd8k" path="res://Scenes/Interactuables/interactuable_recogible.tscn" id="3_r7i2p"]
+[ext_resource type="PackedScene" uid="uid://btlnlv14ijgfo" path="res://Assets/Modelos/Dream4/encendedor.glb" id="4_3nf5r"]
 
 [node name="CajaFuerte" unique_id=1499427550 instance=ExtResource("1_ig1tu")]
 usa_focus = true
 
 [node name="caja_fuerte" parent="." index="2" unique_id=321605286 instance=ExtResource("2_42klg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03529215, -2.3841858e-07, 0.026082244)
+
+[node name="InteractuableRecogible" parent="." index="4" unique_id=915577563 instance=ExtResource("3_r7i2p")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractuableRecogible" index="4" unique_id=170602078]
+
+[node name="encendedor" parent="InteractuableRecogible" index="5" unique_id=816757511 instance=ExtResource("4_3nf5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.093521655)
 
 [editable path="caja_fuerte"]

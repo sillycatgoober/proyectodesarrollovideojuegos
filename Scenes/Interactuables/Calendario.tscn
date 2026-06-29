@@ -28,6 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050872326, 0, 0.5793381)
 bus = &"SFX"
 
 [node name="Boton31" type="Button" parent="." unique_id=1112810591]
+modulate = Color(1, 1, 1, 0)
 offset_left = 429.0
 offset_top = 471.0
 offset_right = 521.0

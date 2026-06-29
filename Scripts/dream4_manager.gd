@@ -6,6 +6,9 @@ extends Node3D
 @export var puerta_door2: Node
 @export var puerta_door3: Node
 @export var puerta_elevador2: Node
+# Exportamos anim_ojos para que lo asignes desde el Inspector y evitar errores de ruta
+@export var anim_ojos: Node 
+
 @onready var cubiculo: Area3D = $"../Cubiculo"
 
 var cubiculo_encontrado := false
@@ -25,6 +28,13 @@ func _ready() -> void:
 		puerta_cuarto_b.bloqueada = true
 	if puerta_elevador:
 		puerta_elevador.bloqueada = true
+
+	# FLUJO: Entrar al sueño -> Abrir los ojos
+	if anim_ojos:
+		anim_ojos.visible = true
+		anim_ojos.play("open")
+		await anim_ojos.animation_finished
+		anim_ojos.visible = false
 
 func _on_cubiculo_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
@@ -71,8 +81,18 @@ func on_archivo_quemado(tipo: String) -> void:
 		puerta_elevador.abrir_puerta()
 		puerta_elevador2.abrir_puerta()
 	emit_signal("sueño_completado")
-	GameManager.dreams[4] = {"done": true}
 
+# FLUJO: Terminar sueño -> Cerrar ojos -> Diagnóstico
 func _on_salida_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		TransitionManager.play_transition("res://Scenes/office.tscn")
+		GameManager.dreams[4]["done"] = true
+		GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
+		GameManager.guardar()
+		
+		# Eliminamos el TransitionManager e integramos AnimOjos
+		if anim_ojos:
+			anim_ojos.visible = true
+			anim_ojos.play("close")
+			await anim_ojos.animation_finished
+		
+		get_tree().change_scene_to_file("res://Scenes/office.tscn")

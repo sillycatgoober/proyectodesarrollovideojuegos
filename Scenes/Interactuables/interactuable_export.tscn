@@ -14,3 +14,6 @@ modelo_export = null
 
 [node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
 shape = SubResource("BoxShape3D_4guvb")
+
+[node name="Camera3D" parent="." index="2" unique_id=351992915]
+transform = Transform3D(1, 0, 0, 0, 0.026613148, 0.9996458, 0, -0.9996458, 0.026613148, 0, 0.66310537, 0.043787837)
