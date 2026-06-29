@@ -41,6 +41,7 @@ func abrir_biblioteca() -> void:
 func _on_carta_colocada():
 	puerta_sal1.desbloquear_salida()
 	puerta_sal2.desbloquear_salida()
+	UI.set_hints("Parece que esto va aquí... ¿Habrá cambiado algo?")
 	if entidad:
 		entidad.visible = false
 	GameManager.dreams["1"]["done"] = true

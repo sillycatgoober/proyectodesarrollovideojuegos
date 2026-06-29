@@ -16,10 +16,6 @@ shader_parameter/blur_amount = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2370w"]
 
-[sub_resource type="Theme" id="Theme_y6fbt"]
-default_font = ExtResource("3_rmk38")
-default_font_size = 16
-
 [node name="Seleccion" type="CanvasLayer" unique_id=1517914788]
 script = ExtResource("1_2ogxi")
 
@@ -80,10 +76,10 @@ autowrap_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 446.0
-offset_top = 210.0
+offset_left = 446.00003
+offset_top = 201.00002
 offset_right = -414.0
-offset_bottom = -93.0
+offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.017453292
@@ -107,53 +103,71 @@ grow_vertical = 2
 [node name="CheckBox" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=2075052481]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
 theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox2" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1565616906]
+[node name="CheckBox2" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1911624737]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox3" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=663923318]
+[node name="CheckBox3" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=310051577]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox4" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=397578160]
+[node name="CheckBox4" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=2039777430]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox5" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=378635147]
+[node name="CheckBox5" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1923480431]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox6" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1808432025]
+[node name="CheckBox6" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=299879381]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox7" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=359161988]
+[node name="CheckBox7" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1699513578]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox8" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=868052317]
+[node name="CheckBox8" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=1580357666]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
-[node name="CheckBox9" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=437031788]
+[node name="CheckBox9" type="CheckBox" parent="PanelContainer/Panel2/VBoxContainer" unique_id=625234229]
 layout_mode = 2
-theme = SubResource("Theme_y6fbt")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.17744952, 0.06769517, 0.17598727, 1)
+theme_override_fonts/font = ExtResource("3_rmk38")
 
 [node name="LabelConfirm" type="Label" parent="." unique_id=331885435]
 offset_left = 435.0
-offset_top = 520.37103
+offset_top = 526.3711
 offset_right = 684.0
-offset_bottom = 540.37103
+offset_bottom = 546.3711
 theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("3_rmk38")
 text = "CONFIRMAR"
@@ -164,9 +178,9 @@ vertical_alignment = 1
 auto_translate_mode = 1
 texture_filter = 1
 offset_left = 453.602
-offset_top = 499.80463
+offset_top = 505.80463
 offset_right = 671.602
-offset_bottom = 560.8046
+offset_bottom = 566.8046
 rotation = -0.017453292
 size_flags_vertical = 3
 theme = ExtResource("5_4cafx")

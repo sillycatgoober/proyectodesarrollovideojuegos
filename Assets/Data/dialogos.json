@@ -132,6 +132,29 @@
 			"siguiente": "fin"
 		}
 	},
+	"transicion_post_1": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Pobre señor Rodríguez, espero que mejore.",
+				"Inspector: Bueno, se siente raro que eso sea todo por hoy, sentí que no paso nada de tiempo.",
+				"Inspector: Supongo que así son las inmersiones...",
+				"Inspector: Aunque no me quejo, la paga es buena para lo que siento que trabajo.",
+				"Inspector: Veremos que nos trae mañana."
+			],
+			"guardar": true,
+			"siguiente": "fin"
+		}
+	},
+	"transicion_pre_2": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Segundo caso del día. A ver que nos espera",
+				"Inspector: Veamos... Una casa inundada... suena a algo simbólico.",
+				"Inspector: Mejor no asumir nada antes de escucharla."
+			],
+			"siguiente": "fin"
+		}
+	},
 	"cliente2": {
 		"inicio":{
 			"entra": "Cliente",
@@ -207,6 +230,33 @@
 			],
 			"sale": true,
 			"guardar": true,
+			"siguiente": "fin"
+		}
+	},
+	"transicion_post_2": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Espero que haya hecho un buen trabajo hoy.",
+				"Inspector: Ayer pensé que este trabajo sería más fácil, pero, no se por qué me siento tan cansado.",
+				"Inspector: Aquí fueron como 5 horas pero allá adentro fue poco.",
+				"Inspector: ¿Tal vez por eso paga tan bien?.",
+				"Inspector: Uf... que trabajo tan extraño tengo."
+			],
+			"siguiente": "fin"
+		}
+	},
+	"transicion_pre_3": {
+		"inicio": {
+			"lineas": [
+				"Jefe: Hola de nuevo. Antes de que entre tu siguiente cliente, quería avisarte.",
+				"Jefe: Este será tu último caso antes de tu evaluación.",
+				"Inspector: ¿Evaluación?",
+				"Jefe: Para ver si te quedas con el puesto, hay demanda. Sin presión.",
+				"Inspector: ...",
+				"Jefe: Buena suerte."
+			],
+			"entra": "Jefe",
+			"sale": true,
 			"siguiente": "fin"
 		}
 	},
@@ -288,6 +338,17 @@
 			],
 			"sale": true,
 			"guardar": true,
+			"siguiente": "fin"
+		}
+	},
+	"transicion_post_3": {
+		"inicio": {
+			"lineas": [
+				"Inspector: Dios pero que cansado me siento.",
+				"Inspector: Pero bueno eso no importa, esta noche me hacen la evaluación.",
+				"Inspector: Creo que hice bien...",
+				"Inspector: Me iré a casa por ahora."
+			],
 			"siguiente": "fin"
 		}
 	},

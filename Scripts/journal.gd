@@ -79,13 +79,11 @@ func _ready() -> void:
 	ir_a_tab(0)
 
 func _cargar_datos() -> void:
-	# clientes
 	var archivo_clientes = FileAccess.open("res://Assets/Data/clientes.json", FileAccess.READ)
 	if archivo_clientes:
 		datos_clientes = JSON.parse_string(archivo_clientes.get_as_text())
 		archivo_clientes.close()
 	
-	# sueños
 	var archivo_suenos = FileAccess.open("res://Assets/Data/manual.json", FileAccess.READ)
 	if archivo_suenos:
 		var data = JSON.parse_string(archivo_suenos.get_as_text())

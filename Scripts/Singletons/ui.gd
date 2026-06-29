@@ -88,6 +88,7 @@ func toggle_pausa():
 	actualizar_estado_ui()
 
 func toggle_folder():
+	folder._cargar_datos()
 	folder.visible = !folder.visible
 	audio.stream = folder_audio
 	audio.play()

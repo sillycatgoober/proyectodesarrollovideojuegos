@@ -59,7 +59,6 @@ func _process(delta):
 		if collider == null:
 			return
 		var obj = collider.get_parent()
-		
 		if obj.is_in_group("interactuable") and obj.puede_interactuar:
 			ui.mostrar_acciones(obj)
 			if Input.is_action_just_pressed("interact") and not obj.en_interaccion and obj.tiene_e:

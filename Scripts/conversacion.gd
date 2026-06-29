@@ -44,7 +44,12 @@ func _ready() -> void:
 			DialogManager.iniciar_dialogo("intro")
 		GameManager.Fase.ENTREVISTA:
 			GameManager.actualizar_cliente()
-			DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
+			var pre = "transicion_pre_" + str(GameManager.dream_actual)
+			if pre in DialogManager.dialogos:
+				GameManager.sub_fase = "pre"
+				DialogManager.iniciar_dialogo(pre)
+			else:
+				DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
 		GameManager.Fase.DIAGNOSTICO:
 			GameManager.actualizar_cliente()
 			GameManager.sub_fase = "intro"
@@ -95,23 +100,36 @@ func _on_dialogo_terminado() -> void:
 			GameManager.actualizar_cliente()
 			DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
 		GameManager.Fase.ENTREVISTA:
-			GameManager.fase_actual = GameManager.Fase.SUENO
-			anim_ojos.visible = true
-			anim_ojos.play("close")
-			await anim_ojos.animation_finished
-			get_tree().change_scene_to_file("res://Scenes/dream" + str(GameManager.dream_actual) + ".tscn")
+			if GameManager.sub_fase == "pre":
+				GameManager.sub_fase = ""
+				GameManager.actualizar_cliente()
+				DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
+			else:
+				GameManager.fase_actual = GameManager.Fase.SUENO
+				GameManager.guardar()
+				anim_ojos.visible = true
+				anim_ojos.play("close")
+				await anim_ojos.animation_finished
+				get_tree().change_scene_to_file("res://Scenes/dream" + str(GameManager.dream_actual) + ".tscn")
 		GameManager.Fase.DIAGNOSTICO:
 			if GameManager.sub_fase == "intro":
 				GameManager.sub_fase = "seleccion"
 				mostrar_pantalla_diagnostico()
 			elif GameManager.sub_fase == "reaccion":
-				GameManager.dream_actual += 1
-				GameManager.fase_actual = GameManager.Fase.ENTREVISTA
-				GameManager.actualizar_cliente()
-				GameManager.guardar()
-				if GameManager.dream_actual > 3:
+				GameManager.sub_fase = "post"
+				DialogManager.iniciar_dialogo("transicion_post_" + str(GameManager.dream_actual))
+			elif GameManager.sub_fase == "post":
+				if GameManager.dream_actual >= 3:
+					anim_ojos.visible = true
+					anim_ojos.play("close")
+					await anim_ojos.animation_finished
 					get_tree().change_scene_to_file("res://Scenes/fin.tscn")
 				else:
+					GameManager.dream_actual += 1
+					GameManager.guardar()
+					anim_ojos.visible = true
+					anim_ojos.play("close")
+					await anim_ojos.animation_finished
 					get_tree().change_scene_to_file("res://Scenes/diax.tscn")
 
 func _on_personaje_sale() -> void:

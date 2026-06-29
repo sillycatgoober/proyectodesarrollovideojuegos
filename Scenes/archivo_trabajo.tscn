@@ -1,38 +1,21 @@
-[gd_scene format=4 uid="uid://bpcj5hqrju64j"]
+[gd_scene format=4 uid="uid://ccxkdeihgfswg"]
 
-[ext_resource type="PackedScene" uid="uid://bkul0lubn0jjh" path="res://Assets/Modelos/Dream4/archivo.glb" id="1_yqh23"]
-[ext_resource type="Texture2D" uid="uid://0l8s7d6q4dfk" path="res://Assets/Modelos/Dream4/archivo_familia.png" id="2_f4gh8"]
-[ext_resource type="Texture2D" uid="uid://su3t72rsut6i" path="res://Assets/Modelos/Dream4/archivo_archivo_familia.png" id="3_f4gh8"]
+[ext_resource type="PackedScene" uid="uid://bkul0lubn0jjh" path="res://Assets/Modelos/Dream4/archivo.glb" id="1_66v2f"]
+[ext_resource type="Texture2D" uid="uid://su3t72rsut6i" path="res://Assets/Modelos/Dream4/archivo_archivo_familia.png" id="2_qvhrj"]
+[ext_resource type="Texture2D" uid="uid://dj6udpk7ieqmj" path="res://Assets/Modelos/Dream4/archivo_trabajo.png" id="3_dbcg6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enig1"]
-albedo_texture = ExtResource("2_f4gh8")
-albedo_texture_force_srgb = true
+[sub_resource type="ArrayMesh" id="ArrayMesh_wpstp"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_enig1"]
-load_path = "res://.godot/imported/archivo_archivo_familia.png-9dd852a06f0be69236b0aee5d0a4038c.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xn3fx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_548k0"]
 resource_name = "Material.002"
 cull_mode = 2
-albedo_texture = SubResource("CompressedTexture2D_enig1")
+albedo_texture = ExtResource("2_qvhrj")
 roughness = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xclan"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c1yc"]
 resource_name = "Material.002"
 cull_mode = 2
-albedo_texture = ExtResource("3_f4gh8")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4w6r"]
-resource_name = "Material.002"
-cull_mode = 2
-albedo_texture = ExtResource("3_f4gh8")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hv1v"]
-resource_name = "Material.002"
-cull_mode = 2
-albedo_texture = ExtResource("2_f4gh8")
+albedo_texture = ExtResource("3_dbcg6")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hrsmh"]
@@ -80,7 +63,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_7r38q"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_nt7a3"]
 resource_name = "archivo_A4_Page1Shape_6_0"
 _surfaces = [{
 "aabb": AABB(-1.05, -0.02, -1.485, 2.1, 0.09, 2.97),
@@ -88,7 +71,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 72,
 "index_data": PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQABAAAABQAGAAEABwABAAYABwAIAAEACQABAAgACQAKAAEACwAMAA0ADgAPABAAEQASABMAFAAVABYAFQAUABcAFQAXABgAGQAXABQAGQAaABcAGwAXABoAGwAcABcAGwAaAB0AHgAcABsAHgAbAB8AIAAbAB0AIAAhABsA"),
-"material": SubResource("StandardMaterial3D_xn3fx"),
+"material": SubResource("StandardMaterial3D_548k0"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -100,7 +83,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 54,
 "index_data": PackedByteArray("AAABAAIAAwAAAAIAAwAEAAAABAADAAUAAAAEAAYAAAAGAAcABgAIAAcACQAKAAgACwAJAAgACwAIAAwABgAMAAgADQAMAAYADQAOAAwADwAMAA4ADwAQAAwAEQASABMAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_xclan"),
+"material": SubResource("StandardMaterial3D_548k0"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -112,7 +95,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 75,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAABAAMABAADAAUABgAFAAMABgADAAcACAAHAAMACAADAAkAAwAAAAoACwAKAAAACwAMAAoAAwAKAAwADQAMAAsAAwAMAA4ADwADAA4AEAADAA8AEQAJAAMAEQADABAACQARABIAEwARABAAEwAQABQADQALABUAFQALABYAFwANABUAFwAYAA0A"),
-"material": SubResource("StandardMaterial3D_l4w6r"),
+"material": SubResource("StandardMaterial3D_548k0"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -125,7 +108,7 @@ _surfaces = [{
 "index_count": 126,
 "index_data": PackedByteArray("HgAfACAAHgAZAB8AIAAfACEAHgAgACIAHgAiABsAGwAiACMAGwAjABoAIgAkACMAIgAlACQAIAAlACIAJQAcACQAJQAmABwAIAAnACUAJwAmACUAIAAhACcAJwAoACYAJwAhAB0AJwAdACgAKQABAAIAKQAAAAEAKQACAAMAKQADACoAKgADAAUAKgAFAAQAKwAHAAgAKwAGAAcAKwAIAAkAKwAJACwALAAJAAsALAALAAoALQANAA4ALQAMAA0ALQAOAA8ALQAPAC4ALgARABAALgAvABEAEgATABQAEgAVABMAEgAUABYAEgAWADAAMAAWABgAMAAYABcA"),
 "lods": [0.3930693, PackedByteArray("AAABAAIAAAACAAMAAAADAAQABAADAAUABgAHAAgABgAIAAkABgAJAAoACgAJAAsADAANAA4ADAAOAA8ADAAPABAAEAAPABEAEgATABQAEgAVABMAEgAUABYAEgAWABcAFwAWABgAGQAaABsAGQAcABoAGQAdABwA")],
-"material": SubResource("StandardMaterial3D_2hv1v"),
+"material": SubResource("StandardMaterial3D_1c1yc"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -135,11 +118,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hrsmh")
 
-[node name="archivo" unique_id=2122364851 instance=ExtResource("1_yqh23")]
+[node name="ArchivoFamilia" type="Node3D" unique_id=1968665553]
 
-[node name="Folder" parent="Folders" parent_id_path=PackedInt32Array(926001227) index="0" unique_id=1022981579]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1410759306]
+mesh = SubResource("ArrayMesh_wpstp")
+
+[node name="archivo" parent="MeshInstance3D" unique_id=2122364851 instance=ExtResource("1_66v2f")]
+
+[node name="Folder" parent="MeshInstance3D/archivo/Folders" parent_id_path=PackedInt32Array(2122364851, 926001227) index="0" unique_id=1022981579]
 visible = false
-surface_material_override/0 = SubResource("StandardMaterial3D_enig1")
 
-[node name="Hojas" parent="Folders" parent_id_path=PackedInt32Array(926001227) index="1" unique_id=623719608]
-mesh = SubResource("ArrayMesh_7r38q")
+[node name="Hojas" parent="MeshInstance3D/archivo/Folders" parent_id_path=PackedInt32Array(2122364851, 926001227) index="1" unique_id=623719608]
+mesh = SubResource("ArrayMesh_nt7a3")
+
+[editable path="MeshInstance3D/archivo"]

@@ -22,9 +22,9 @@ func _ready() -> void:
 func reset_dreams():
 	dream_actual = 1
 	dreams = {
-		1: {"done": false, "diagnostico_correcto": false},
-		2: {"done": false, "diagnostico_correcto": false},
-		3: {"done": false, "diagnostico_correcto": false}
+		"1": {"done": false, "diagnostico_correcto": false},
+		"2": {"done": false, "diagnostico_correcto": false},
+		"3": {"done": false, "diagnostico_correcto": false}
 	}
 
 func _cargar_clientes() -> void:
@@ -43,6 +43,28 @@ func diagnostico_correcto_actual() -> String:
 	if id in clientes:
 		return clientes[id].dream
 	return ""
+
+func calcular_puntaje() -> Dictionary:
+	var correctos = 0
+	var total = 3
+	for i in range(1, 4):
+		if dreams[str(i)].get("diagnostico_correcto", false):
+			correctos += 1
+	
+	var porcentaje = int((float(correctos) / total) * 100)
+	var evaluacion = ""
+	match correctos:
+		3: evaluacion = "Excelente."
+		2: evaluacion = "Aceptable."
+		1: evaluacion = "Deficiente."
+		0: evaluacion = "Reprobado."
+	
+	return {
+		"correctos": correctos,
+		"total": total,
+		"porcentaje": porcentaje,
+		"evaluacion": evaluacion
+	}
 
 func guardar(slot: int = -1) -> void:
 	print("=== GUARDANDO ===")
@@ -110,7 +132,7 @@ func cargar_config() -> void:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), config.get_value("audio", "musica", 0.0))
 #---- FIN CONFIGURACION AUDIO ----#
 
-
+#----MOUSE----#
 func set_gameplay_mode():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

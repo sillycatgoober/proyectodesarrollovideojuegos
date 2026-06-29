@@ -15,13 +15,7 @@ func _ready() -> void:
 func interact():
 	var player = get_player()
 	if player == null: return
-	
-	if not player.tiene_encendedor:
-		UI.set_hints("No creo poder hacer algo con esto ahora")
-		return
-
 	en_interaccion = !en_interaccion
-	
 	if en_interaccion:
 		player.puede_moverse = false
 		camara.current = true
@@ -33,13 +27,10 @@ func interact():
 func _input(event: InputEvent) -> void:
 	if not en_interaccion:
 		return
-
-	if event.is_action_pressed("interact") or event.is_action_pressed("ui_cancel"):
-		interact()
-		get_viewport().set_input_as_handled()
-		return
-
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if not InventoryManager.has_item("encendedor"):
+			UI.set_hints("No creo poder hacer algo con esto ahora")
+			return
 		quemar_archivo()
 		get_viewport().set_input_as_handled()
 
@@ -56,11 +47,3 @@ func quemar_archivo():
 		manager.on_archivo_quemado(tipo_archivo)
 	
 	queue_free()
-
-func _on_area_interaccion_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		jugador_cerca = true
-
-func _on_area_interaccion_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
-		jugador_cerca = false

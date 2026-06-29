@@ -8,14 +8,10 @@ func _ready() -> void:
 	en_interaccion = false
 	
 func interact():
-	ya_interactuo = true
-	puede_interactuar = false
 	if ya_interactuo:
 		return
-	en_interaccion = !en_interaccion
-	var player = get_player()
-	if player == null:
-		return
+	ya_interactuo = true
+	puede_interactuar = false
 	puerta_cuarto_a.desbloquear()
 	puerta_cuarto_b.desbloquear()
 	UI.set_hints("¿Trabajar en un sueño? No gracias. Pero tal vez cambió algo")

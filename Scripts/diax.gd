@@ -13,10 +13,9 @@ func _ready() -> void:
 	cargar_reportes()
 	dia.visible = false
 	label_dia.text = str(GameManager.dream_actual)
-
 	await get_tree().create_timer(0.2).timeout
-
-	mostrar_final(true, "Test", GameManager.dream_actual)
+	var es_correcto = GameManager.dreams[str(GameManager.dream_actual)].get("diagnostico_correcto", false)
+	mostrar_final(es_correcto, GameManager.nombre_cliente_actual, GameManager.dream_actual)
 
 func _on_button_pressed() -> void:
 	GameManager.fase_actual = GameManager.Fase.ENTREVISTA
@@ -57,11 +56,11 @@ func generar_reporte(es_correcto: bool, nombre: String, dia: int) -> Dictionary:
 		"superiores": aplicar_template(base["superiores"], data)
 	}
 func mostrar_reporte(reporte: Dictionary):
-	titulo.text = reporte["titulo"]
-	resumen.text = reporte["resumen"]
-	resultado.text = reporte["resultado"]
-	evaluacion.text = reporte["evaluacion"]
-	superiores.text = reporte["superiores"]
+	await titulo.mostrar_texto(reporte["titulo"])
+	await resumen.mostrar_texto(reporte["resumen"])
+	await resultado.mostrar_texto(reporte["resultado"])
+	await evaluacion.mostrar_texto(reporte["evaluacion"])
+	await superiores.mostrar_texto(reporte["superiores"])
 func mostrar_final(es_correcto: bool, nombre: String, dia: int):
 	var reporte = generar_reporte(es_correcto, nombre, dia)
 	mostrar_reporte(reporte)

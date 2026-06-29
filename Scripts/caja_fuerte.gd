@@ -2,16 +2,12 @@ extends Interactuable
 
 @export var manager: Node
 @export var combinacion_correcta: Array[int] = [1, 4, 7, 3]
-
-# Parámetros para controlar el movimiento del encendedor
-@export var distancia_salida_x: float = 1.0
-@export var tiempo_salida: float = 0.8
-
 @onready var caja_botones: CanvasLayer = $CajaBotones
 @onready var combinacion_label: Label = $CajaBotones/CombinacionLabel
-# Referencia automática al nodo según la estructura de tu árbol
-@export var encendedor_recogible: Node3D
-
+@export var angulo_apertura := 90.0
+@export var sonido_abrir : AudioStream
+@export var sonido_error : AudioStream
+var rotacion_inicial: float
 var combinacion_ingresada: String = ""
 var abierta := false
 
@@ -19,9 +15,8 @@ func _ready() -> void:
 	if usa_focus:
 		camara = $Camera3D
 	caja_botones.hide()
-
-	if encendedor_recogible != null:
-		encendedor_recogible.puede_interactuar = false
+	audio = $AudioStreamPlayer
+	rotacion_inicial = rotation_degrees.y
 
 	$CajaBotones/Button0.pressed.connect(presionar_boton.bind(0))
 	$CajaBotones/Button1.pressed.connect(presionar_boton.bind(1))
@@ -78,32 +73,21 @@ func verificar_combinacion() -> void:
 
 func abrir() -> void:
 	abierta = true
+	var tween = create_tween()
+	tween.tween_property($Puerta, "rotation_degrees:y", rotacion_inicial + angulo_apertura, 0.8)
+	
 	var player = get_player()
 	if player:
 		player.puede_moverse = true
 		player.set_camara_activa(true)
-		
+		caja_botones.hide()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	en_interaccion = false
 	combinacion_label.text = "OK"
 	caja_botones.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-	animar_salida_encendedor()
-	
 	if manager:
 		manager.on_caja_abierta()
-
-func animar_salida_encendedor() -> void:
-	if encendedor_recogible != null:
-		var tween = get_tree().create_tween()
-		var posicion_final = encendedor_recogible.position
-		posicion_final.x += distancia_salida_x
-
-		tween.tween_property(encendedor_recogible, "position", posicion_final, tiempo_salida)\
-			.set_trans(Tween.TRANS_SINE)\
-			.set_ease(Tween.EASE_OUT)
-			
-		tween.tween_callback(func(): encendedor_recogible.puede_interactuar = true)
 
 func grab():
 	pass

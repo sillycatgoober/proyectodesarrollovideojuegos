@@ -1,5 +1,5 @@
 extends RichTextLabel
-const CHARS_POR_SEGUNDO := 30.0
+const CHARS_POR_SEGUNDO := 20.0
 var escribiendo := false
 var sonido := AudioStreamPlayer.new()
 var sonidos := [
@@ -16,23 +16,18 @@ func _ready():
 func mostrar_texto(nuevo_texto: String) -> void:
 	escribiendo = false
 	await get_tree().process_frame
-
 	text = nuevo_texto
 	visible_characters = 0
 	escribiendo = true
-
 	for i in range(nuevo_texto.length()):
 		if !escribiendo:
 			return
-
 		visible_characters += 1
 		var letra = nuevo_texto[i]
-
 		if letra != " " and letra != "\n":
 			sonido.stream = sonidos.pick_random()
 			sonido.pitch_scale = randf_range(0.95, 1.05)
 			sonido.play()
-
 		await get_tree().create_timer(1.0 / CHARS_POR_SEGUNDO).timeout
 	completar_texto()
 

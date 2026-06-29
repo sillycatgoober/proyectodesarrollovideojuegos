@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://baspr3i4my63u"]
+
+[ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_w67ni"]
+[ext_resource type="Script" uid="uid://c2x1ao5idt01v" path="res://Scripts/Interactuables/cubiculo.gd" id="2_sr0yt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c8c4u"]
+
+[node name="Cubiculo" unique_id=1499427550 instance=ExtResource("1_w67ni")]
+script = ExtResource("2_sr0yt")
+
+[node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(686839475) index="0" unique_id=330709589]
+shape = SubResource("BoxShape3D_c8c4u")

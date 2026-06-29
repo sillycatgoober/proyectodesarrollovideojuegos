@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="1_uu2kq"]
 [ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="2_nnqwf"]
 [ext_resource type="Script" uid="uid://cdgp6puub7i5p" path="res://Scripts/texto2.gd" id="3_wqcl3"]
+[ext_resource type="AudioStream" uid="uid://b82cai0sappkn" path="res://Assets/Audio/Musica/Come-and-See.mp3" id="5_fk8ds"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu2kq"]
 content_margin_left = 10.0
@@ -147,6 +148,13 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_uu2kq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p4j8x")
 text = "CONTINUAR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1896835998]
+stream = ExtResource("5_fk8ds")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="pressed" from="Resumen/Margin/VBox/ContButton" to="." method="_on_cont_button_pressed"]
 [connection signal="pressed" from="Dia/VBoxContainer/Button" to="." method="_on_button_pressed"]
