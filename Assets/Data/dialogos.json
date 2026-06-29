@@ -210,7 +210,7 @@
 			"siguiente": "fin"
 		}
 	},
-	"cliente3": {
+	"cliente5": {
 		"inicio":{
 			"entra": "Cliente",
 			"guardar": true,
@@ -264,7 +264,7 @@
 			"siguiente": "fin"
 		}
 	},
-	"cliente3_reaccion_correcto": {
+	"cliente5_reaccion_correcto": {
 		"inicio": {
 			"lineas": [
 				"Inspector: Su sueño corresponde a un [diagnostico].",
@@ -277,7 +277,7 @@
 			"siguiente": "fin"
 		}
 	},
-	"cliente3_reaccion_incorrecto": {
+	"cliente5_reaccion_incorrecto": {
 		"inicio": {
 			"lineas": [
 				"Inspector: Su sueño corresponde a un [diagnostico].",
@@ -290,7 +290,7 @@
 			"siguiente": "fin"
 		}
 	},
-	"cliente4": {
+	"cliente3": {
 		"inicio":{
 			"entra": "Cliente",
 			"guardar": true,
@@ -345,7 +345,7 @@
 			"siguiente": "fin"
 		}
 	},
-	"cliente4_reaccion_correcto": {
+	"cliente3_reaccion_correcto": {
 		"inicio": {
 			"lineas": [
 				"Inspector: Su sueño corresponde a un [diagnostico].",
@@ -358,7 +358,7 @@
 			"siguiente": "fin"
 		}
 	},
-	"cliente4_reaccion_incorrecto": {
+	"cliente3_reaccion_incorrecto": {
 		"inicio": {
 			"lineas": [
 				"Inspector: Su sueño corresponde a un [diagnostico].",

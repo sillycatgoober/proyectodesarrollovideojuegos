@@ -51,5 +51,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
 		GameManager.guardar()
+		anim_ojos.visible = true
+		anim_ojos.play("close")
+		await anim_ojos.animation_finished
 		get_tree().change_scene_to_file("res://Scenes/office.tscn")
-		#TransitionManager.play_transition("res://Scenes/Interview/interview.tscn")

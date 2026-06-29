@@ -19,6 +19,9 @@ var valvulas = {
 	3: 2
 }
 func _ready() -> void:
+	GameManager.Fase.SUENO
+	GameManager.guardar()
+	UI.leave_menu.visible = false
 	posicion_inicial = nivel_agua.position
 	anim_ojos.visible = true
 	anim_ojos.play("open")
@@ -27,10 +30,10 @@ func _ready() -> void:
 
 func registrar_valvula(id:int):
 	if id == ultima_valvula:
+		UI.set_hints("Ahora no bajó el agua...")
 		return
 	ultima_valvula = id
 	nivel_agua_valor += valvulas[id]
-	print("Nivel agua:", nivel_agua_valor)
 	actualizar_agua()
 	comprobar_agua()
 
@@ -38,6 +41,7 @@ func comprobar_agua():
 	if nivel_agua_valor <= 0:
 		puerta_sotano.desbloquear()
 		UI.set_hints("Parece que desapareció el agua, ¿cambió algo?")
+		nivel_agua.hide()
 
 func actualizar_agua():
 	var destino = posicion_inicial.y - (5 - nivel_agua_valor) * ALTURA_POR_NIVEL
@@ -47,15 +51,17 @@ func actualizar_agua():
 func calendario_resuelto() -> void:
 	puerta_salida.desbloquear()
 
-# FLUJO: Terminar sueño -> Cerrar ojos -> Diagnóstico
 func _on_salida_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		GameManager.dreams["2"]["done"] = true
-		GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
-		GameManager.guardar()
-		
-		anim_ojos.visible = true
-		anim_ojos.play("close")
-		await anim_ojos.animation_finished
-		
-		get_tree().change_scene_to_file("res://Scenes/office.tscn")
+	if not body.name == "Player":
+		return
+	if puerta_salida.bloqueada:
+		return
+	GameManager.dreams["2"]["done"] = true
+	GameManager.fase_actual = GameManager.Fase.DIAGNOSTICO
+	GameManager.guardar()
+	
+	anim_ojos.visible = true
+	anim_ojos.play("close")
+	await anim_ojos.animation_finished
+	
+	get_tree().change_scene_to_file("res://Scenes/office.tscn")

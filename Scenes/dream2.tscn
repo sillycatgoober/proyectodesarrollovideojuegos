@@ -50,7 +50,7 @@ shape = SubResource("ConcavePolygonShape3D_7q01l")
 environment = SubResource("Environment_e1a6e")
 
 [node name="Player" parent="." unique_id=890671124 instance=ExtResource("2_gfyv8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.187834, 1.770932, -10.014351)
+transform = Transform3D(0.59875804, 0, -0.80092996, 0, 1, 0, 0.80092996, 0, 0.59875804, -13.580239, 0.8489375, -3.9315858)
 
 [node name="bote1" parent="." unique_id=1528634419 instance=ExtResource("3_cu087")]
 transform = Transform3D(3.6019433, 0, 1.7395414, 0, 4, 0, -1.7395414, 0, 3.6019433, -9.940914, 0.8497479, -7.8456755)
@@ -85,34 +85,30 @@ puerta_salida = NodePath("../PuertaSalida")
 [node name="Foto" parent="." unique_id=1499427550 instance=ExtResource("7_sileh")]
 transform = Transform3D(-0.0013537689, 0.9999506, -0.009838011, 0.05046422, 0.009893798, 0.99867684, 0.9987249, 0.0008555099, -0.050475128, -2.7274003, 0.82471204, 4.0554614)
 foto = ExtResource("8_48wkc")
-texto_pista = "10
+texto_pista = "Primer día en la nueva casa :D
 "
 usa_focus = true
 
 [node name="Foto2" parent="." unique_id=219572943 instance=ExtResource("7_sileh")]
 transform = Transform3D(-0.0013537689, 0.9999506, -0.009838011, 0.05046422, 0.009893798, 0.99867684, 0.9987249, 0.0008555099, -0.050475128, -12.10112, 1.2393262, -13.404764)
 foto = ExtResource("9_bnvos")
-texto_pista = "12"
+texto_pista = "Hoy por fin jugué en mi PC"
 usa_focus = true
 
 [node name="Foto3" parent="." unique_id=702704168 instance=ExtResource("7_sileh")]
-transform = Transform3D(-0.0013537689, 0.9999506, -0.009838011, 0.05046422, 0.009893798, 0.99867684, 0.9987249, 0.0008555099, -0.050475128, -15.663617, 1.4853114, -18.090136)
+transform = Transform3D(-0.8040446, 0.59358543, 0.03418009, 0.04964648, 0.00974025, 0.9987193, 0.5924924, 0.8047118, -0.03730103, -15.663617, 1.4853114, -18.090136)
 foto = ExtResource("10_ujbgp")
-texto_pista = "13"
+texto_pista = "Mi primer mandado, 4 días después de llegar jiji"
 usa_focus = true
 
 [node name="Foto4" parent="." unique_id=1744659001 instance=ExtResource("7_sileh")]
-transform = Transform3D(-0.0013537689, 0.9999506, -0.009838011, 0.05046422, 0.009893798, 0.99867684, 0.9987249, 0.0008555099, -0.050475128, 4.9411554, 1.5466512, -20.594162)
+transform = Transform3D(0.6952283, -0.71826047, -0.027554892, 0.04964648, 0.00974025, 0.9987193, -0.71707225, -0.69570595, 0.042430807, 4.9411554, 1.5466512, -20.594162)
 foto = ExtResource("11_bhk6m")
-texto_pista = "31"
+texto_pista = "..."
 usa_focus = true
 
 [node name="Calendario" parent="." unique_id=1465258269 node_paths=PackedStringArray("manager") instance=ExtResource("9_ixdpt")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 4.2365284, -2.4820187, -10.336281)
-manager = NodePath("../Dream2Manager")
-
-[node name="Calendario2" parent="." unique_id=228229650 node_paths=PackedStringArray("manager") instance=ExtResource("9_ixdpt")]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -5.132141, 2.6031952, -6.6323867)
 manager = NodePath("../Dream2Manager")
 
 [node name="ValvulaSala" parent="." unique_id=1784535532 node_paths=PackedStringArray("dream_manager") instance=ExtResource("12_48wkc")]

@@ -1,18 +1,17 @@
 {
   "correcto": {
-    "titulo": "Informe de cierre – Día {dia}",
-    "resumen": "El sujeto {nombre} ha sido analizado tras la intervención en el sueño.",
-    "resultado": "El diagnóstico fue correcto. El caso fue resuelto sin anomalías residuales.",
-    "evaluacion": "Resultado profesional: APROBADO",
-    "superiores": "Tu evaluación ha sido registrada positivamente. Se considerará para futuras asignaciones."
+	"titulo": "Informe de cierre – Día {dia}",
+	"resumen": "El sujeto {nombre} ha sido analizado tras la intervención en el sueño.",
+	"resultado": "El diagnóstico fue correcto. El caso fue resuelto sin anomalías residuales.",
+	"evaluacion": "Resultado profesional: APROBADO",
+	"superiores": "Tu evaluación ha sido registrada positivamente. Se considerará para futuras asignaciones."
   },
 
   "incorrecto": {
-    "titulo": "Informe de cierre – Día {dia}",
-    "resumen": "El sujeto {nombre} ha sido intervenido con un diagnóstico incorrecto.",
-    "resultado": "La intervención no resolvió el núcleo del conflicto. Se detecta persistencia del patrón onírico.",
-    "evaluacion": "Resultado profesional: EN OBSERVACIÓN",
-    "superiores": "El caso ha sido escalado a supervisión. Tu desempeño será revisado."
+	"titulo": "Informe de cierre – Día {dia}",
+	"resumen": "El sujeto {nombre} ha sido intervenido con un diagnóstico incorrecto.",
+	"resultado": "La intervención no resolvió el núcleo del conflicto. Se detecta persistencia del patrón onírico.",
+	"evaluacion": "Resultado profesional: EN OBSERVACIÓN",
+	"superiores": "El caso ha sido escalado a supervisión. Tu desempeño será revisado."
   }
 }
-

@@ -1,34 +1,34 @@
 {
-    "cliente1": {
+	"cliente1": {
 		"caso":"203",
-        "nombre": "Ernesto Rodríguez",
-        "edad": "66",
-        "ocupacion": "Profesor jubilado",
-        "motivo": "Sueños recurrentes en su antigua escuela.",
+		"nombre": "Ernesto Rodríguez",
+		"edad": "66",
+		"ocupacion": "Profesor jubilado",
+		"motivo": "Sueños recurrentes en su antigua escuela.",
 		"dream": "Trauma"
-    },
-    "cliente2": {
-        "caso":"204",
+	},
+	"cliente2": {
+		"caso":"204",
 		"nombre": "Talia Hernández",
-        "edad": "24",
-        "ocupacion": "Escritora Junior",
-        "motivo": "Casa inundada recurrente.",
+		"edad": "24",
+		"ocupacion": "Escritora Junior",
+		"motivo": "Casa inundada recurrente.",
 		"dream": "Sueño Precognitivo"
-    },
-    "cliente3": {
-        "caso":"205",
+	},
+	"cliente5": {
+		"caso":"205",
 		"nombre": "Daniel Castro",
-        "edad": "45",
-        "ocupacion": "Conductor de autobús",
-        "motivo": "Figura desconocida en su ruta.",
+		"edad": "45",
+		"ocupacion": "Conductor de autobús",
+		"motivo": "Figura desconocida en su ruta.",
 		"dream": "Sueño de Intrusión"
-    },
-    "cliente4": {
-        "caso":"206",
+	},
+	"cliente3": {
+		"caso":"206",
 		"nombre": "Marcos Vargas",
-        "edad": "40",
-        "ocupacion": "Empleado gubernamental",
-        "motivo": "No encuentra la salida de su oficina.",
+		"edad": "40",
+		"ocupacion": "Empleado gubernamental",
+		"motivo": "No encuentra la salida de su oficina.",
 		"dream": "Sueño Sintomático"
-    }
+	}
 }

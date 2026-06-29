@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x2hwmsygt2qc"
-path="res://.godot/imported/c4.png-dec181e9399bf4f071663462533339b0.ctex"
+uid="uid://8bcfc1juaxuu"
+path="res://.godot/imported/cbus.png-f9ef23114200d1b707dd306300b809f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/Sprites/c4.png"
-dest_files=["res://.godot/imported/c4.png-dec181e9399bf4f071663462533339b0.ctex"]
+source_file="res://Assets/Imagenes/Sprites/cbus.png"
+dest_files=["res://.godot/imported/cbus.png-f9ef23114200d1b707dd306300b809f3.ctex"]
 
 [params]
 
