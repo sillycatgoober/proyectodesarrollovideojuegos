@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://ch6xxu13gm6fa"]
+
+[ext_resource type="Script" uid="uid://cbjxhdp4shqxv" path="res://Scripts/final.gd" id="1_7xrfh"]
+[ext_resource type="Texture2D" uid="uid://dqds1illabc26" path="res://Assets/Imagenes/Menu-Fondo.png" id="3_6k4ua"]
+[ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="4_aohln"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu2kq"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4j8x"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.7709931, 0.69374615, 0.76195914, 0.3764706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Final" type="CanvasLayer" unique_id=1251877689]
+script = ExtResource("1_7xrfh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=150859061]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1051716618]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel resultados" type="Panel" parent="PanelContainer" unique_id=917938454]
+visible = false
+layout_mode = 2
+
+[node name="Resumen" type="PanelContainer" parent="PanelContainer/Panel resultados" unique_id=269406541]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Margin" type="MarginContainer" parent="PanelContainer/Panel resultados/Resumen" unique_id=1002585640]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 40
+
+[node name="ContButton" type="Button" parent="PanelContainer/Panel resultados/Resumen/Margin" unique_id=1427513700]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("4_aohln")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uu2kq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p4j8x")
+text = "CONTINUAR"
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/Panel resultados/Resumen/Margin" unique_id=938431151]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer" unique_id=1385243115]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer/VBoxContainer" unique_id=703712787]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_aohln")
+theme_override_font_sizes/font_size = 29
+text = "Informe del jefe
+"
+
+[node name="Label2" type="Label" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer/VBoxContainer" unique_id=790606714]
+layout_mode = 2
+text = "Se ha analizado tu desempeño y tus resultados han sido:"
+
+[node name="labeljson" type="Label" parent="PanelContainer/Panel resultados/Resumen/Margin/CenterContainer/VBoxContainer" unique_id=2108753347]
+layout_mode = 2
+
+[node name="PanelGracias" type="Panel" parent="PanelContainer" unique_id=1081605034]
+layout_mode = 2
+
+[node name="ColorRect" type="TextureRect" parent="PanelContainer/PanelGracias" unique_id=1450223908]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 646.0
+texture = ExtResource("3_6k4ua")
+
+[node name="Label" type="Label" parent="PanelContainer/PanelGracias/ColorRect" unique_id=969424368]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 376.0
+offset_right = 1072.0
+offset_bottom = 492.0
+theme_override_fonts/font = ExtResource("4_aohln")
+theme_override_font_sizes/font_size = 59
+text = "Gracias por jugar"
+
+[node name="botonMenu" type="Button" parent="PanelContainer/PanelGracias" unique_id=1633439790]
+layout_mode = 0
+offset_left = 941.0
+offset_top = 559.0
+offset_right = 1096.0
+offset_bottom = 607.0
