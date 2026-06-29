@@ -11,6 +11,9 @@ extends Node3D
 var volumen_original:=0
 
 func _ready() -> void:
+	GameManager.Fase.SUENO
+	GameManager.guardar()
+	UI.leave_menu.visible = false
 	asientos_manager.todos_correctos.connect(_on_tickets_correctos)
 	asientos_manager.entidad = entidad
 	entidad.entidad_colocada.connect(_on_entidad_colocada)

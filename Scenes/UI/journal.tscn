@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dwxbl2g3m7snj" path="res://Scripts/journal.gd" id="1_d4r5f"]
 [ext_resource type="Texture2D" uid="uid://khy27je4pt3k" path="res://Assets/Imagenes/folder.png" id="2_aak55"]
+[ext_resource type="AudioStream" uid="uid://d4fq5yd1jqkg1" path="res://Assets/Audio/SFX/turnpage0.wav" id="2_nl31k"]
 [ext_resource type="Texture2D" uid="uid://besajd3pvfeg8" path="res://Assets/Imagenes/tab.png" id="2_y6fbt"]
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="3_6akw1"]
+[ext_resource type="AudioStream" uid="uid://d4ifanauc78uf" path="res://Assets/Audio/SFX/turnpage2.wav" id="3_7yxtn"]
+[ext_resource type="AudioStream" uid="uid://b7d0pl0k5nl3" path="res://Assets/Audio/SFX/turnpage1.wav" id="4_evjd8"]
 [ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="5_8e0x1"]
+[ext_resource type="Texture2D" uid="uid://dq22pqc2warcp" path="res://Assets/Imagenes/flecha.png" id="9_7yxtn"]
+[ext_resource type="Script" uid="uid://cnfnkh0jdjra5" path="res://Scripts/button_move.gd" id="10_evjd8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e0x1"]
 
@@ -27,6 +32,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d4r5f")
+sonidos_hojas = Array[AudioStream]([ExtResource("2_nl31k"), ExtResource("3_7yxtn")])
+sonido_tab = ExtResource("4_evjd8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=425371238]
 layout_mode = 0
@@ -370,33 +377,53 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "3333333333333333333333333333"
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="." unique_id=507069622]
+[node name="Button" type="TextureButton" parent="." unique_id=1819759559]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 828.0
-offset_top = 538.0
-offset_right = -249.0
-offset_bottom = -72.0
+offset_left = 877.0
+offset_top = 540.0
+offset_right = -256.0
+offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("9_7yxtn")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_evjd8")
+desplazamiento = 6.0
 
-[node name="Button2" type="Button" parent="." unique_id=1499206944]
+[node name="Button2" type="TextureButton" parent="." unique_id=1388179240]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 574.0
+offset_left = 599.0
 offset_top = 530.0
-offset_right = -506.0
+offset_right = -534.0
 offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(-1, 1)
+texture_normal = ExtResource("9_7yxtn")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_evjd8")
+desplazamiento = -6.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=9803495]
+bus = &"SFX"
 
 [connection signal="pressed" from="HBoxContainer/Bot1" to="." method="_on_bot_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/Bot2" to="." method="_on_bot_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/Bot3" to="." method="_on_bot_3_pressed"]
 [connection signal="pressed" from="HBoxContainer/Bot4" to="." method="_on_bot_4_pressed"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Button2" to="Button2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button2" to="Button2" method="_on_mouse_exited"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

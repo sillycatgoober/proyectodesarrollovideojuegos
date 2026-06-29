@@ -2,6 +2,8 @@ extends Node
 
 signal dialogo_actualizado(quien: String, texto: String, opciones: Array)
 signal dialogo_terminado
+signal personaje_sale
+signal personaje_entra
 
 var dialogos: Dictionary = {}
 var npc_actual: String = ""
@@ -28,14 +30,15 @@ func iniciar_dialogo(npc: String) -> void:
 	_mostrar_nodo_actual()
 
 func avanzar() -> void:
-	# avanza líneas si hay pendientes
 	if lineas_actuales.size() > 0 and linea_index < lineas_actuales.size() - 1:
 		linea_index += 1
 		_emitir_linea(lineas_actuales[linea_index])
 		return
 	
-	# terminaron las líneas, ve al siguiente nodo
 	var nodo = dialogos[npc_actual][nodo_actual]
+
+	if nodo.get("sale", false):
+		personaje_sale.emit()
 	if "siguiente" in nodo:
 		var siguiente = nodo["siguiente"]
 		if siguiente == "fin":
@@ -58,6 +61,11 @@ func elegir_opcion(indice: int) -> void:
 func _mostrar_nodo_actual() -> void:
 	var nodo = dialogos[npc_actual][nodo_actual]
 	
+	if "guardar" in nodo and nodo.guardar:
+		GameManager.guardar()
+	
+	if nodo.get("entra", false):
+		personaje_entra.emit()
 	if "lineas" in nodo:
 		lineas_actuales = nodo["lineas"]
 		linea_index = 0
@@ -80,3 +88,6 @@ func _separar_quien(texto: String) -> Array:
 		var partes = texto.split(": ", true, 1)
 		return [partes[0], partes[1]]
 	return ["", texto]
+
+func dialogo_con_cliente() -> bool:
+	return npc_actual.begins_with("cliente")

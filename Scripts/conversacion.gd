@@ -10,19 +10,27 @@ extends CanvasLayer
 @onready var nombre_label = $Label
 @onready var anim_ojos = $AnimOjos
 @onready var sprite_personaje: TextureRect = $Ratio/Control/Client
+var personaje_actual:=""
 
 var sprites = {
 	"jefa": preload("res://Assets/Imagenes/Sprites/Jefe.png"),
-	"cliente1": preload("res://Assets/Imagenes/Sprites/C1.png"),
-	"cliente2": preload("res://Assets/Imagenes/Sprites/C2.png"),
-	"cliente3": preload("res://Assets/Imagenes/Sprites/C3.png"),
-	"cliente4": preload("res://Assets/Imagenes/Sprites/C4.png"),
+	"cliente1": preload("res://Assets/Imagenes/Sprites/c1.png"),
+	"cliente2": preload("res://Assets/Imagenes/Sprites/c2.png"),
+	"cliente3": preload("res://Assets/Imagenes/Sprites/c3.png"),
+	"cliente4": preload("res://Assets/Imagenes/Sprites/c4.png"),
 }
 
 func _ready() -> void:
 	anim_ojos.visible = false
+	sprite_personaje.visible = false
+	UI.leave_menu.visible = false
+	UI.pause_menu.visible = false
+	UI.blur_pausa.visible = false
+	sprite_personaje.material.set_shader_parameter("progress", 0.0)
 	DialogManager.dialogo_actualizado.connect(_on_dialogo_actualizado)
 	DialogManager.dialogo_terminado.connect(_on_dialogo_terminado)
+	DialogManager.personaje_sale.connect(_on_personaje_sale)
+	DialogManager.personaje_entra.connect(_on_personaje_entra)
 	if GameManager.fase_actual == GameManager.Fase.DIAGNOSTICO:
 		anim_ojos.visible = true
 		anim_ojos.play("open")
@@ -84,16 +92,12 @@ func _on_dialogo_terminado() -> void:
 			GameManager.fase_actual = GameManager.Fase.ENTREVISTA
 			GameManager.actualizar_cliente()
 			DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
-		
 		GameManager.Fase.ENTREVISTA:
 			GameManager.fase_actual = GameManager.Fase.SUENO
-			GameManager.guardar()
-			await GameManager.fade_out_musica()
 			anim_ojos.visible = true
 			anim_ojos.play("close")
 			await anim_ojos.animation_finished
 			get_tree().change_scene_to_file("res://Scenes/dream" + str(GameManager.dream_actual) + ".tscn")
-		
 		GameManager.Fase.DIAGNOSTICO:
 			if GameManager.sub_fase == "intro":
 				GameManager.sub_fase = "seleccion"
@@ -107,6 +111,12 @@ func _on_dialogo_terminado() -> void:
 					get_tree().change_scene_to_file("res://Scenes/fin.tscn")
 				else:
 					DialogManager.iniciar_dialogo("cliente" + str(GameManager.dream_actual))
+
+func _on_personaje_sale() -> void:
+	personaje_actual = ""
+	await desvanecer()
+func _on_personaje_entra() -> void:
+	personaje_actual = ""
 
 func mostrar_pantalla_diagnostico() -> void:
 	pass  # aquí abres la UI de selección de diagnóstico
@@ -122,18 +132,21 @@ func diagnostico_elegido(tipo: String) -> void:
 
 #---- CAMBIAR SPRITE ----#
 func cambiar_personaje(quien: String) -> void:
+	if quien == personaje_actual or quien=="Inspector" or quien=="":
+		return
+	personaje_actual = quien
 	var key = ""
 	match quien:
-		"jefa": key = "jefa"
-		"cliente": key = "cliente" + str(GameManager.dream_actual)
-		"inspector": 
+		"Jefe": key = "jefa"
+		"Cliente": key = "cliente" + str(GameManager.dream_actual)
+		"Inspector":
 			await desvanecer()
 			return
-	
 	if key in sprites:
 		await desvanecer()
 		sprite_personaje.texture = sprites[key]
 		await aparecer()
+
 func aparecer() -> void:
 	sprite_personaje.visible = true
 	var tween = create_tween()

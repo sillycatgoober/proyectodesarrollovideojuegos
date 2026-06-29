@@ -154,6 +154,7 @@ texture_hover = ExtResource("6_dxfgg")
 stretch_mode = 0
 
 [node name="Slots" type="Control" parent="." unique_id=1692757803]
+visible = false
 anchors_preset = 0
 offset_left = 632.31335
 offset_top = 177.94931

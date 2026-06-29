@@ -2,47 +2,47 @@
     "dreams": {
         "Sueño Ordinario": {
             "descripcion": "Sueño sin anomalías. El soñador experimenta situaciones cotidianas con personas conocidas. No representa riesgo ni requiere tratamiento.",
-            "evidencias": ["Figura reconocible", "Emoción dominante"],
+            "evidencias": ["Presencia identificable","Alteración emocional"],
             "solucion": "No requiere tratamiento."
         },
         "Trauma": {
-            "descripcion": "El subconsciente manifiesta un evento pasado reprimido. El sueño reconstruye fragmentos de una memoria dolorosa que el soñador no ha procesado.",
-            "evidencias": ["Figura reconocible", "Emoción dominante", "Memoria incompleta", "Objeto fuera de lugar", "Mensaje implícito"],
+            "descripcion": "El subconsciente manifiesta un evento pasado reprimido. El sueño gira alrededor de ese recuerdo y de los elementos relacionados con él.",
+            "evidencias": ["Presencia identificable","Alteración emocional","Manipulación temporal","Objeto desplazable","Registro del pasado"],
             "solucion": "Encontrar y confrontar el recuerdo reprimido."
         },
         "Bucle": {
             "descripcion": "El sueño se repite compulsivamente con pequeñas variaciones. El soñador queda atrapado en un ciclo del que no puede escapar.",
-            "evidencias": ["Memoria incompleta", "Elemento recurrente", "Distorsión espacial", "Alteración temporal", "Objeto fuera de lugar", "Reflejo incorrecto", "Inconsistencia física"],
+            "evidencias": ["Manipulación temporal","Elemento recurrente","Espacio alterable","Objeto desplazable","Reflejo incorrecto","Inconsistencia física","Voz constante"],
             "solucion": "Romper el patrón de repetición."
         },
         "Sueño Sintomático": {
-            "descripcion": "El sueño es un reflejo directo del estado mental del soñador. Generalmente asociado a estrés extremo, burnout o ansiedad crónica.",
-            "evidencias": ["Emoción dominante", "Memoria incompleta", "Elemento recurrente", "Distorsión espacial", "Amenaza activa", "Voz sin origen", "Reflejo incorrecto", "Inconsistencia física"],
+            "descripcion": "El sueño refleja directamente el deterioro emocional del soñador. Generalmente está asociado a estrés extremo, ansiedad o agotamiento prolongado.",
+            "evidencias": ["Alteración emocional","Elemento recurrente","Espacio alterable","Voz constante","Reflejo incorrecto","Inconsistencia física"],
             "solucion": "Identificar y liberar la fuente de estrés."
         },
         "Sueño de Persecución": {
             "descripcion": "Una amenaza activa persigue al soñador. Puede representar una situación real de la que el soñador huye o un conflicto interno no resuelto.",
-            "evidencias": ["Emoción dominante", "Elemento recurrente", "Distorsión espacial", "Amenaza activa", "Presencia no identificada"],
+            "evidencias": ["Alteración emocional","Elemento recurrente","Espacio alterable","Amenaza activa","Presencia identificable"],
             "solucion": "Confrontar la amenaza."
         },
         "Sueño Precognitivo": {
-            "descripcion": "El sueño anticipa eventos futuros mediante símbolos y alteraciones temporales. Su interpretación requiere análisis cuidadoso.",
-            "evidencias": ["Elemento recurrente", "Distorsión espacial", "Alteración temporal", "Mensaje implícito", "Inconsistencia física"],
+            "descripcion": "El sueño presenta acontecimientos que aún no han ocurrido. El futuro se manifiesta mediante anomalías temporales y registros imposibles.",
+            "evidencias": ["Elemento recurrente","Espacio alterable","Manipulación temporal","Registro del futuro","Inconsistencia física"],
             "solucion": "Descifrar el mensaje antes de que ocurra el evento."
         },
         "Sueño de Visitación": {
             "descripcion": "Un ser querido fallecido se presenta en el sueño con un mensaje o propósito específico. A diferencia de una intrusión, la presencia es benigna.",
-            "evidencias": ["Figura reconocible", "Emoción dominante", "Objeto fuera de lugar", "Voz sin origen", "Mensaje implícito"],
+            "evidencias": ["Presencia identificable","Alteración emocional","Objeto desplazable","Voz sin origen","Registro anómalo"],
             "solucion": "Recibir y comprender el mensaje."
         },
         "Sueño de Intrusión": {
-            "descripcion": "Una entidad externa no identificada ha penetrado el sueño del soñador. Su origen y propósito son desconocidos. Aunque generalmente es benigno, reportes han demostrado gran cansancio por parte de los soñadores.",
-            "evidencias": ["Amenaza activa", "Objeto fuera de lugar", "Presencia no identificada", "Voz sin origen", "Reflejo incorrecto", "Inconsistencia física"],
-            "solucion": "Expulsar la entidad."
+            "descripcion": "Una presencia ajena invade el sueño del soñador. Aunque no siempre es hostil, altera el entorno y dificulta el descanso.",
+            "evidencias": ["Objeto desplazable","Presencia identificable","Voz sin origen","Reflejo incorrecto","Inconsistencia física"],
+            "solucion": "Expulsar la presencia."
         },
         "Sueño Compartido": {
             "descripcion": "Dos o más personas comparten el mismo espacio onírico simultáneamente. Fenómeno extremadamente raro que requiere investigación cruzada.",
-            "evidencias": ["Figura reconocible", "Memoria incompleta", "Elemento recurrente", "Distorsión espacial", "Alteración temporal", "Presencia no identificada", "Mensaje implícito", "Inconsistencia física"],
+            "evidencias": ["Presencia identificable","Elemento recurrente","Espacio alterable","Manipulación temporal","Registro compartido","Inconsistencia física"],
             "solucion": "Identificar el vínculo entre los soñadores."
         }
     }

@@ -65,7 +65,6 @@ func _on_new_game_button_pressed() -> void:
 	mostrar_slots()
 
 func _on_continue_button_pressed() -> void:
-	GameManager.cargar()
 	botones.visible = false
 	modo_slots = "cargar"
 	mostrar_slots()
@@ -101,11 +100,13 @@ func _actualizar_slot(boton: TextureButton, label: Label, slot: int) -> void:
 
 func _on_slot_pressed(slot: int) -> void:
 	UI.visible = true
+	print(UI.visible)
 	if modo_slots == "nuevo":
 		GameManager.reset_dreams()
 		GameManager.fase_actual = GameManager.Fase.INTRO 
 		GameManager.slot_actual = slot
 		GameManager.guardar(slot)
+		get_tree().change_scene_to_file("res://Scenes/office.tscn")
 	else:
 		if not GameManager.hay_partida_guardada(slot):
 			return
@@ -113,7 +114,6 @@ func _on_slot_pressed(slot: int) -> void:
 		GameManager.slot_actual = slot
 	slots.visible = false
 	set_process_input(false)
-	get_tree().change_scene_to_file("res://Scenes/office.tscn")
 
 func _on_cerrar_slots_pressed() -> void:
 	slots.visible = false

@@ -23,8 +23,12 @@ extends Control
 @onready var label_dream_sol: Label = $PanelContainer/Panel4/VBox/Solucion
 @onready var label_dream_ev: Label = $PanelContainer/Panel4/VBox/Evidencias
 
-@onready var btn_siguiente: Button = $Button
-@onready var btn_anterior: Button = $Button2
+@onready var audio = $AudioStreamPlayer
+@export var sonidos_hojas : Array[AudioStream]
+@export var sonido_tab : AudioStream
+
+@onready var btn_siguiente: TextureButton = $Button
+@onready var btn_anterior: TextureButton = $Button2
 
 const EVIDENCIAS = [
 	"Figura reconocible",
@@ -93,6 +97,8 @@ func ir_a_tab(tab: int) -> void:
 	panel_phasmo.visible = (tab == 1)
 	panel_resultado.visible = (tab == 2)
 	panel_dreams.visible = (tab == 3)
+	audio.stream = sonido_tab
+	audio.play()
 	
 	var titulos = [label_titulo1, label_titulo2, label_titulo3, label_titulo4]
 	for i in titulos.size():
@@ -137,6 +143,8 @@ func ir_a_pagina(pag: int) -> void:
 func mostrar_sueno(index: int) -> void:
 	if lista_suenos.is_empty():
 		return
+	audio.stream = sonidos_hojas.pick_random()
+	audio.play()
 	var nombre = lista_suenos[index]
 	var datos = datos_suenos[nombre]
 	

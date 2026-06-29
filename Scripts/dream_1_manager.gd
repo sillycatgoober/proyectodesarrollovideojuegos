@@ -5,9 +5,13 @@ extends Node3D
 @export var puerta_sal2: Node
 @export var pupitre: Node
 @onready var anim_ojos = $AnimOjos
+@onready var audio = $SFX
 var relojes_correctos := {0: false, 1: false, 2: false}
 
 func _ready() -> void:
+	GameManager.Fase.SUENO
+	GameManager.guardar()
+	UI.leave_menu.visible = false
 	for reloj in get_tree().get_nodes_in_group("reloj"):
 		reloj.reloj_confirmado.connect(_on_reloj_confirmado.bind(reloj.id_reloj))
 	InventoryManager.item_added.connect(_on_carta_agregada)
@@ -24,6 +28,8 @@ func _on_reloj_confirmado(id: int) -> void:
 
 func verificar_todos() -> void:
 	if relojes_correctos.values().all(func(v): return v):
+		audio.play()
+		UI.set_hints("La campana... Tal vez cambió algo.")
 		abrir_biblioteca()
 
 func abrir_biblioteca() -> void:
@@ -31,12 +37,10 @@ func abrir_biblioteca() -> void:
 	puerta_bib2.desbloquear()
 
 func _on_carta_colocada():
-	print("Sueño completado")
-
 	puerta_sal1.desbloquear_salida()
 	puerta_sal2.desbloquear_salida()
 
-	GameManager.dreams[1].done = true
+	GameManager.dreams["1"].done = true
 
 func _on_carta_agregada(item_id):
 	if item_id == "carta":

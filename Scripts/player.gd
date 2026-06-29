@@ -22,7 +22,7 @@ var _last_frame_was_on_floor = -INF
 @onready var stairs_up:RayCast3D = $StairsUp
 @onready var stairs_down:RayCast3D = $StairsDown
 
-@onready var ticket = $CameraPivot/Camera3D/TicketHolder
+@onready var holder = $CameraPivot/Camera3D/TicketHolder
 
 #pasos sonido
 @export var sonidos_pasos : Array[AudioStream]
@@ -62,7 +62,7 @@ func _process(delta):
 		
 		if obj.is_in_group("interactuable") and obj.puede_interactuar:
 			ui.mostrar_acciones(obj)
-			if Input.is_action_just_pressed("interact") and not obj.en_interaccion:
+			if Input.is_action_just_pressed("interact") and not obj.en_interaccion and obj.tiene_e:
 				obj.interact()
 			if obj.is_in_group("recogible"):
 				if Input.is_action_just_pressed("grab"):
@@ -176,7 +176,7 @@ func mostrar_ticket_en_mano(ticket_nodo: Node3D) -> void:
 	ticket_en_mano_nodo = ticket_nodo
 	rotacion_original_ticket[ticket_nodo] = ticket_nodo.global_rotation
 	ticket_nodo.get_parent().remove_child(ticket_nodo)
-	ticket.add_child(ticket_nodo)
+	holder.add_child(ticket_nodo)
 	ticket_nodo.position = Vector3.ZERO
 	ticket_nodo.rotation = Vector3.ZERO
 	ticket_nodo.visible = true
@@ -184,8 +184,18 @@ func mostrar_ticket_en_mano(ticket_nodo: Node3D) -> void:
 func soltar_ticket_en_mano() -> void:
 	if ticket_en_mano_nodo == null:
 		return
-	ticket.remove_child(ticket_en_mano_nodo)
+	holder.remove_child(ticket_en_mano_nodo)
 	get_tree().current_scene.add_child(ticket_en_mano_nodo)
 	ticket_en_mano_nodo.global_rotation = Vector3(-1.570796, 0.0, 0.0)
 	ticket_en_mano_nodo = null
 	
+
+#HOLDER#
+func agregar_item(obj:Node3D):
+	holder.add_child(obj)
+func soltar_item():
+	if holder.get_child_count() == 0:
+		return
+	var obj = holder.get_child(0)
+	holder.remove_child(obj)
+#FIN HOLDER#

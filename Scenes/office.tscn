@@ -61,9 +61,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -247.0
-offset_right = 223.0
-offset_bottom = -6.0
+offset_left = -0.5
+offset_top = -234.0
+offset_right = 222.5
+offset_bottom = 7.0
 grow_vertical = 0
 texture = ExtResource("5_q644x")
 stretch_mode = 4
@@ -126,8 +127,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -203.0
-offset_top = -69.0
+offset_top = -85.0
 offset_right = 203.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o84nh")
@@ -148,10 +150,18 @@ fit_content = true
 script = ExtResource("5_2jlrf")
 
 [node name="ChoiceContainer" type="HBoxContainer" parent="." unique_id=1213209641]
-offset_left = 307.0
-offset_top = 593.0
-offset_right = 817.0
-offset_bottom = 645.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -66.0
+offset_right = 255.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=195373779]
 offset_right = 40.0

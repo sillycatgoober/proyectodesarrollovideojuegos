@@ -54,10 +54,10 @@ func cambiar_hora(valor:int):
 func actualizar_manecillas():
 	var hora_angle = float(hora) * 30.0
 	manecilla.rotation.z = deg_to_rad(hora_angle)
+	$AudioStreamPlayer.play()
 
 func verificar():
 	if hora == hora_correcta:
-		print("RELOJ CORRECTO")
 		reloj_confirmado.emit()
 	else:
 		print("RELOJ INCORRECTO")

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://46o21am2slp" path="res://Scenes/Interactuables/interactuable.tscn" id="1_hix13"]
 [ext_resource type="Script" uid="uid://c07d7utxiqmyk" path="res://Scripts/Interactuables/reloj.gd" id="2_p3113"]
 [ext_resource type="PackedScene" uid="uid://dl06lajjrbfib" path="res://Assets/Modelos/Dream1/clock.glb" id="3_5e1qn"]
+[ext_resource type="AudioStream" uid="uid://dp21rueetujkl" path="res://Assets/Audio/SFX/manecilla.wav" id="4_64rtu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hix13"]
 size = Vector3(1.2218457, 0.8987924, 0.41149414)
@@ -13,6 +14,7 @@ hora_correcta = 11
 id_reloj = 0
 tiene_scroll = true
 texto_scroll = "Hora"
+texto_esc = "Confirmar"
 
 [node name="Area3D" parent="." index="0" unique_id=686839475]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
@@ -26,5 +28,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7774949)
 
 [node name="clock" parent="." index="2" unique_id=1294330643 instance=ExtResource("3_5e1qn")]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AudioStreamPlayer" parent="." index="3" unique_id=281631782]
+stream = ExtResource("4_64rtu")
 
 [editable path="clock"]

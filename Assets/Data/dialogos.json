@@ -6,9 +6,11 @@
 				"Inspector: Pensé que tendría un espacio más privado, bueno supongo que servirá.",
 				"Inspector: Mejor me instalo antes de que llegue alguien."
 			],
+			"guardar": true,
 			"siguiente": "llega_jefa"
 		},
 		"llega_jefa": {
+			"entra": "Jefe",
 			"lineas": [
 				"Jefe: Hola, veo que ya te instalaste.",
 				"Jefe: Bienvenido al departamento.",
@@ -17,11 +19,11 @@
 			],
 			"siguiente": "instrucciones"
 		},
-        "instrucciones": {
-            "lineas": [
-                "Jefe: Primero que nada, cuando el cliente llegue tendrás ya un folder con su información personal.",
-                "Jefe: Deberá hacer una interrogación sobre el sueño, limitando el número de preguntas.",
-                "Inspector: ¿Por qué debería limitarla?",
+		"instrucciones": {
+			"lineas": [
+				"Jefe: Primero que nada, cuando el cliente llegue tendrás ya un folder con su información personal.",
+				"Jefe: Deberá hacer una interrogación sobre el sueño, limitando el número de preguntas.",
+				"Inspector: ¿Por qué debería limitarla?",
 				"Jefe: La inmersión toma horas, y los clientes quieren terminar rápido.",
 				"Inspector: Ah, ya veo.",
 				"Jefe: Bueno, después de eso colocarás los dispositivos y entrarás al sueño.",
@@ -31,7 +33,7 @@
 				"Jefe: Cuando salgas, reporta tus resultados al cliente y será todo. Se te evaluará de acuerdo al progreso del cliente.",
 				"Jefe: ¿Preguntas?."
 			],
-        	"siguiente": "hub_preguntas"
+			"siguiente": "hub_preguntas"
 		},
 		"hub_preguntas": {
 			"opciones": [
@@ -50,11 +52,15 @@
 				"Jefe: Perfecto, ya viene tu primer cliente.",
 				"Jefe: Ah cierto, ten el folder, usa TAB para abrirlo en cualquier momento."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
-    },
+	},
 	"cliente1": {
 		"inicio":{
+			"entra": "Cliente",
+			"guardar": true,
 			"lineas":[
 				"Inspector: Buenas noches, tome asiento. ¿Es usted el señor Rodríguez?",
 				"Cliente: Buenas noches, así es, Ernesto Rodríguez.",
@@ -96,6 +102,7 @@
 				"Cliente: De acuerdo. Gracias.",
 				"Inspector: No hay problema, usted tranquilo."
 			],
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -107,6 +114,8 @@
 				"Inspector: Muchas veces los traumas son reprimidos. Di un pequeño tratamiento para su sueño, pero le recomiendo ir con un especialista.",
 				"Cliente: Gracias, inspector."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -118,11 +127,15 @@
 				"Inspector: Es mi diagnóstico con base en lo observado.",
 				"Cliente: Bueno, usted es el experto."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
 	"cliente2": {
 		"inicio":{
+			"entra": "Cliente",
+			"guardar": true,
 			"lineas":[
 				"Cliente: Buenas noches.",
 				"Inspector: Buenas noches. ¿Es usted Talia?",
@@ -167,6 +180,7 @@
 				"Cliente: De acuerdo. Gracias.",
 				"Inspector: No hay problema."
 			],
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -178,6 +192,8 @@
 				"Inspector: Le recomiendo estar atenta a los detalles en los próximos días, y tomar sus precauciones.",
 				"Cliente: Lo haré. Muchas gracias."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -189,11 +205,15 @@
 				"Inspector: Es lo que los datos indican.",
 				"Cliente: De acuerdo."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
 	"cliente3": {
 		"inicio":{
+			"entra": "Cliente",
+			"guardar": true,
 			"lineas":[
 				"Inspector: Buenas noches. ¿Es usted el señor Castro?",
 				"Cliente: Así es.",
@@ -240,6 +260,7 @@
 				"Cliente: Ah, bien.",
 				"Inspector: Usted tranquilo, en unos segundos comenzará a dormir."
 			],
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -251,6 +272,8 @@
 				"Inspector: No se preocupe señor, he expulsado la entidad, no debería tener más problemas.",
 				"Cliente: Muchas gracias, inspector."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -262,11 +285,15 @@
 				"Inspector: Es la conclusión más probable con la evidencia disponible.",
 				"Cliente: Entiendo."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
 	"cliente4": {
 		"inicio":{
+			"entra": "Cliente",
+			"guardar": true,
 			"lineas":[
 				"Inspector: Buenas noches. ¿Es usted Marcos Vargas?",
 				"Cliente: Buenas noches, sí, soy yo.",
@@ -314,6 +341,7 @@
 				"Cliente: Sí.",
 				"Inspector: En unos segundos comenzará a dormirse, se despertará cuando acabe la inmersión."
 			],
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -325,6 +353,8 @@
 				"Inspector: Le recomiendo tomarse un descanso y convivir con su familia. El trabajo puede esperar.",
 				"Cliente: Lo... lo tomaré en cuenta, gracias inspector."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},
@@ -336,6 +366,8 @@
 				"Inspector: Es mi evaluación con base en lo observado.",
 				"Cliente: Bueno, gracias inspector."
 			],
+			"sale": true,
+			"guardar": true,
 			"siguiente": "fin"
 		}
 	},

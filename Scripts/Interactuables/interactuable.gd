@@ -6,6 +6,8 @@ class_name Interactuable
 @export var focus_offset := Vector3(0, 1.5, -0.5)
 @export var tiene_scroll := false
 @export var texto_scroll := ""
+@export var texto_esc := "Regresar"
+@export var tiene_e:=true
 @onready var camara: Camera3D
 @onready var audio: AudioStreamPlayer
 var jugador_cerca := false
