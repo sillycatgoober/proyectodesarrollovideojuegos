@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddo7ouut5roov"]
+
+[ext_resource type="PackedScene" uid="uid://bkul0lubn0jjh" path="res://Assets/Modelos/Dream4/archivo.glb" id="1_vxelr"]
+[ext_resource type="Texture2D" uid="uid://clvifuq5f4p7l" path="res://Assets/Modelos/Dream4/papel2.png" id="2_5xuab"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_il1xr"]
+albedo_texture = ExtResource("2_5xuab")
+albedo_texture_force_srgb = true
+
+[node name="archivo" unique_id=1225252024 instance=ExtResource("1_vxelr")]
+
+[node name="Folder" parent="Folders" parent_id_path=PackedInt32Array(672751743) index="0" unique_id=1663869584]
+visible = false
+
+[node name="Hojas" parent="Folders" parent_id_path=PackedInt32Array(672751743) index="1" unique_id=435210509]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.049973533, 0.04200029, -0.3000094)
+surface_material_override/3 = SubResource("StandardMaterial3D_il1xr")
