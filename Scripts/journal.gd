@@ -4,13 +4,20 @@ extends Control
 @onready var panel_phasmo: Panel = $PanelContainer/Panel2
 @onready var panel_resultado: Panel = $PanelContainer/Panel3
 @onready var panel_dreams: Panel = $PanelContainer/Panel4
+@onready var panel_opciones: Panel = $PanelContainer/Panel5
+@onready var panel_general: Panel = $PanelContainer/Panel5/General
+@onready var panel_audio: Panel = $PanelContainer/Panel5/Audio
+@onready var panel_controles: Panel = $PanelContainer/Panel5/Controles
+@onready var panel_salir: Panel = $PanelContainer/Panel5/Abandonar
 
 @onready var vbox: VBoxContainer = $PanelContainer/Panel2/VBoxContainer
+@onready var controles_botones = $PanelContainer/Panel5/Controles/GridContainer
 
 @onready var label_titulo1: Label = $HBoxContainer/Bot1/Label
 @onready var label_titulo2: Label = $HBoxContainer/Bot2/Label
 @onready var label_titulo3: Label = $HBoxContainer/Bot3/Label
 @onready var label_titulo4: Label = $HBoxContainer/Bot4/Label
+@onready var label_titulo5: Label = $HBoxContainer/Bot5/Label
 
 @onready var label_resultado: Label = $PanelContainer/Panel3/Label
 @onready var label_caso: Label = $PanelContainer/Panel/VBox/Caso
@@ -29,6 +36,30 @@ extends Control
 
 @onready var btn_siguiente: TextureButton = $Button
 @onready var btn_anterior: TextureButton = $Button2
+
+#VARIABLES OPCIONES
+var opciones_actual: int = 0
+const PAGINAS_OPCIONES = ["general", "audio", "controles"]
+const RESOLUCIONES = [
+	Vector2i(1280, 720),
+	Vector2i(1600, 900),
+	Vector2i(1920, 1080),
+	Vector2i(2560, 1440),
+	Vector2i(3840, 2160)
+]
+const ACCIONES = {
+	"interact": "Interactuar",
+	"grab": "Recoger",
+	"back": "Regresar/Folder",
+	"advance": "Avanzar diálogo",
+	"move_forward": "Mover adelante",
+	"move_backward": "Mover atrás",
+	"move_left": "Mover izquierda",
+	"move_right": "Mover derecha",
+	"run": "Correr"
+}
+var accion_esperando: String = ""
+#FIN VARIABLES OPCIONES
 
 const EVIDENCIAS = [
 	"Presencia identificable",
@@ -60,7 +91,7 @@ const SUEÑOS = {
 	"Sueño Compartido": ["Presencia identificable","Elemento recurrente","Espacio alterable","Manipulación temporal","Registro compartido","Inconsistencia física"]
 }
 
-const TITULOS = ["Caso", "Evidencias", "Diagnóstico","Sueños"]
+const TITULOS = ["Caso", "Evidencias", "Diagnóstico","Sueños","Opciones"]
 var evidencias_marcadas: Array = []
 var pagActual: int = 0
 var tab_actual: int = 0
@@ -70,12 +101,16 @@ var datos_suenos: Dictionary = {}
 var datos_clientes: Dictionary = {}
 
 func _ready() -> void:
-	hide()
+	visible = false
 	_cargar_datos()
 	var checkboxes = vbox.get_children()
 	for i in checkboxes.size():
 		checkboxes[i].text = EVIDENCIAS[i]
 		checkboxes[i].toggled.connect(_on_checkbox_toggled.bind(EVIDENCIAS[i]))
+	for accion in ACCIONES:
+		var boton = controles_botones.get_node(accion)
+		boton.pressed.connect(_on_boton_pressed.bind(accion))
+	actualizar_botones()
 	ir_a_tab(0)
 
 func _cargar_datos() -> void:
@@ -97,19 +132,20 @@ func ir_a_tab(tab: int) -> void:
 	panel_phasmo.visible = (tab == 1)
 	panel_resultado.visible = (tab == 2)
 	panel_dreams.visible = (tab == 3)
+	panel_opciones.visible = (tab == 4)
 	audio.stream = sonido_tab
 	audio.play()
 	
 	var titulos = [label_titulo1, label_titulo2, label_titulo3, label_titulo4]
 	for i in titulos.size():
-		titulos[i].text = TITULOS[i]  # ← faltaba esto
+		titulos[i].text = TITULOS[i]
 		if i == tab:
 			titulos[i].add_theme_color_override("font_color", Color.WHITE)
 		else:
 			titulos[i].add_theme_color_override("font_color", Color(1, 1, 1, 0.4))
 	
-	btn_anterior.visible = (tab == 3 and sueno_actual > 0)
-	btn_siguiente.visible = (tab == 3 and sueno_actual < lista_suenos.size() - 1)
+	btn_anterior.visible = (tab == 3 and sueno_actual > 0) or (tab == 4 and opciones_actual > 0)
+	btn_siguiente.visible = (tab == 3 and sueno_actual < lista_suenos.size() - 1) or (tab == 4 and opciones_actual < PAGINAS_OPCIONES.size() - 1)
 	
 	if tab == 0:
 		mostrar_caso()
@@ -117,34 +153,13 @@ func ir_a_tab(tab: int) -> void:
 		mostrar_resultado()
 	if tab == 3:
 		mostrar_sueno(sueno_actual)
-
-func ir_a_pagina(pag: int) -> void:
-	pagActual = pag
-	
-	panel_caso.visible = (pag == 0)
-	panel_phasmo.visible = (pag == 1)
-	panel_resultado.visible = (pag == 2)
-	panel_dreams.visible = (pag == 3)
-	
-	var titulos = [label_titulo1,label_titulo2,label_titulo3,label_titulo4]
-	for i in titulos.size():
-		titulos[i].text = TITULOS[i]
-		if i == pag:
-			titulos[i].add_theme_color_override("font_color", Color.WHITE)
-		else:
-			titulos[i].add_theme_color_override("font_color", Color(1, 1, 1, 0.4))
-	
-	btn_anterior.visible = pag > 0
-	btn_siguiente.visible = pag < 2
-	
-	if pag == 2:
-		mostrar_resultado()
+	if tab == 4:
+		opciones_actual = 0
+		mostrar_opciones(0)
 
 func mostrar_sueno(index: int) -> void:
 	if lista_suenos.is_empty():
 		return
-	audio.stream = sonidos_hojas.pick_random()
-	audio.play()
 	var nombre = lista_suenos[index]
 	var datos = datos_suenos[nombre]
 	
@@ -160,6 +175,14 @@ func mostrar_sueno(index: int) -> void:
 	btn_anterior.visible = index > 0
 	btn_siguiente.visible = index < lista_suenos.size() - 1
 
+func mostrar_opciones(index: int):
+	opciones_actual = index
+	panel_general.visible = (index == 0)
+	panel_audio.visible = (index == 1)
+	panel_controles.visible = (index == 2)
+	btn_anterior.visible = index > 0
+	btn_siguiente.visible = index < PAGINAS_OPCIONES.size() - 1
+
 func mostrar_caso() -> void:
 	var id = "cliente" + str(GameManager.dream_actual)
 	if id not in datos_clientes:
@@ -173,18 +196,30 @@ func mostrar_caso() -> void:
 	label_motivo.text = "Notas: " + cliente.motivo
 
 func _on_button_pressed() -> void:
+	if tab_actual == 3 or tab_actual == 4:
+		audio.stream = sonidos_hojas.pick_random()
+		audio.play()
 	if tab_actual == 3:
 		sueno_actual += 1
 		mostrar_sueno(sueno_actual)
 		btn_anterior.visible = true
 		btn_siguiente.visible = sueno_actual < lista_suenos.size() - 1
+	if tab_actual == 4:
+		opciones_actual += 1
+		mostrar_opciones(opciones_actual)
 
 func _on_button_2_pressed() -> void:
+	if tab_actual == 3 or tab_actual == 4:
+		audio.stream = sonidos_hojas.pick_random()
+		audio.play()
 	if tab_actual == 3:
 		sueno_actual -= 1
 		mostrar_sueno(sueno_actual)
 		btn_siguiente.visible = true
 		btn_anterior.visible = sueno_actual > 0
+	if tab_actual == 4:
+		opciones_actual -= 1
+		mostrar_opciones(opciones_actual)
 
 func _on_checkbox_toggled(marcado: bool, evidencia: String) -> void:
 	if marcado and not evidencia in evidencias_marcadas:
@@ -232,7 +267,7 @@ func reset() -> void:
 	evidencias_marcadas.clear()
 	for cb in vbox.get_children():
 		cb.button_pressed = false
-	ir_a_pagina(0)
+	ir_a_tab(0)
 
 func _on_bot_1_pressed() -> void:
 	ir_a_tab(0)
@@ -242,3 +277,89 @@ func _on_bot_3_pressed() -> void:
 	ir_a_tab(2)
 func _on_bot_4_pressed() -> void:
 	ir_a_tab(3)
+func _on_bot_5_pressed() -> void:
+	ir_a_tab(4)
+
+#region OPCIONES
+#GENERAL
+func _on_res_bot_item_selected(index: int) -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		DisplayServer.window_set_size(RESOLUCIONES[index])
+func _on_fullscreen_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+func _on_idioma_bot_item_selected(index: int) -> void:
+	pass
+func _on_reticula_toggled(toggled_on: bool) -> void:
+	pass
+func _on_close_button_pressed() -> void:
+	pass # Replace with function body.
+func _on_menu_button_pressed() -> void:
+	panel_salir.visible = true
+	panel_general.visible = false
+	actualizar_mensaje_pausa()
+func actualizar_mensaje_pausa() -> void:
+	if GameManager.fase_actual == GameManager.Fase.SUENO:
+		$PanelContainer/Panel5/Abandonar/VBoxContainer/Cont.text = "Si sales ahora, perderás el progreso del sueño actual."
+		$PanelContainer/Panel5/Abandonar/VBoxContainer/Tit.text = "Abandonar sueño"
+	else:
+		$PanelContainer/Panel5/Abandonar/VBoxContainer/Cont.text = "Tu progreso se guardará desde el último guardado automático."
+		$PanelContainer/Panel5/Abandonar/VBoxContainer/Tit.text = "Volver al menú"
+func _on_abandon_button_pressed() -> void:
+	UI.reset_estado()
+	get_tree().change_scene_to_file("res://Scenes/UI/menu.tscn")
+	panel_salir.visible = false
+	panel_general.visible = true
+func _on_stay_button_pressed() -> void:
+	panel_salir.visible = false
+	panel_general.visible = true
+#AUDIO
+func _on_slider_master_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+func _on_slider_fx_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+func _on_slider_musica_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+
+#CONTROLES
+func actualizar_botones() -> void:
+	for accion in ACCIONES:
+		var boton = controles_botones.get_node(accion)
+		var label = boton.get_node("Label")
+		var eventos = InputMap.action_get_events(accion)
+		if eventos.size() > 0:
+			if eventos[0] is InputEventKey:
+				label.text = OS.get_keycode_string(eventos[0].physical_keycode)
+			else:
+				label.text = eventos[0].as_text()
+func _on_boton_pressed(accion: String) -> void:
+	if accion_esperando != "":
+		actualizar_botones()
+	accion_esperando = accion
+	controles_botones.get_node(accion).get_node("Label").text = "..."
+func _input(event: InputEvent) -> void:
+	if accion_esperando == "":
+		return
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ESCAPE:
+			accion_esperando = ""
+			actualizar_botones()
+			get_viewport().set_input_as_handled()
+			return
+		InputMap.action_erase_events(accion_esperando)
+		InputMap.action_add_event(accion_esperando, event)
+		actualizar_botones()
+		accion_esperando = ""
+		guardar_controles()
+		get_viewport().set_input_as_handled()
+func guardar_controles() -> void:
+	var config = ConfigFile.new()
+	config.load("user://settings.cfg")  # carga lo que ya hay para no borrar audio
+	for accion in ACCIONES:
+		var eventos = InputMap.action_get_events(accion)
+		if eventos.size() > 0:
+			config.set_value("controles", accion, eventos[0].as_text())
+	config.save("user://settings.cfg")
+#endregion

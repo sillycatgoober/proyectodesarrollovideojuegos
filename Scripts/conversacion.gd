@@ -56,7 +56,7 @@ func _ready() -> void:
 			DialogManager.iniciar_dialogo("salida_inmersion")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("advance"):
 		if texto_cliente.escribiendo:
 			texto_cliente.completar_texto()
 			return

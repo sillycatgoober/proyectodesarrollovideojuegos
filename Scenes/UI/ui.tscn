@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cn2jrikhypijr"]
 
 [ext_resource type="Script" uid="uid://bd1kylsbsgkvm" path="res://Scripts/Singletons/ui.gd" id="1_jxero"]
-[ext_resource type="AudioStream" uid="uid://b7d0pl0k5nl3" path="res://Assets/Audio/SFX/turnpage1.wav" id="2_t7te2"]
 [ext_resource type="Texture2D" uid="uid://b1dgl6awc3to" path="res://Assets/Imagenes/Icon-Scroll.png" id="3_1c2ca"]
 [ext_resource type="AudioStream" uid="uid://6o2agmlqkvef" path="res://Assets/Audio/SFX/open_folder.wav" id="3_56q1t"]
 [ext_resource type="FontFile" uid="uid://ctt8k1yeyuvvy" path="res://Assets/Fuentes/SyneMono-Regular.ttf" id="3_duuxe"]
@@ -10,12 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cnbs4hh67rrdo" path="res://Assets/Imagenes/Icon-Click.png" id="6_hfaco"]
 [ext_resource type="Texture2D" uid="uid://2ilk7lrx2g1" path="res://Assets/Imagenes/Icon-E.png" id="6_mbl0m"]
 [ext_resource type="PackedScene" uid="uid://blmtwquuvna4n" path="res://Scenes/UI/journal.tscn" id="7_duuxe"]
-[ext_resource type="StyleBox" uid="uid://dgwnpn3ofx6op" path="res://slider.tres" id="8_pmm6b"]
 [ext_resource type="Shader" uid="uid://iim38xedr38f" path="res://Shaders/borroso.gdshader" id="8_vy225"]
-[ext_resource type="Texture2D" uid="uid://cd655ekmucpla" path="res://Assets/Imagenes/hojas.png" id="9_fy0us"]
 [ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="9_vy225"]
-[ext_resource type="Texture2D" uid="uid://owk8dxvcuf1h" path="res://Assets/Imagenes/Stamp.png" id="10_fy0us"]
-[ext_resource type="Texture2D" uid="uid://c2dp40sgm5aih" path="res://Assets/Imagenes/Stamp-Hover.png" id="11_h6tq4"]
 [ext_resource type="Texture2D" uid="uid://w442tlmjt54l" path="res://Assets/Imagenes/Carga1.png" id="16_cqvjp"]
 [ext_resource type="Texture2D" uid="uid://dwej81ks475c" path="res://Assets/Imagenes/Carga2.png" id="17_hfaco"]
 [ext_resource type="Texture2D" uid="uid://21vxt23xocm6" path="res://Assets/Imagenes/Carga3.png" id="18_1eb8u"]
@@ -34,10 +29,6 @@ corner_radius_bottom_left = 10
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fy0us"]
 shader = ExtResource("8_vy225")
 shader_parameter/blur_amount = 3.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h6tq4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7te2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rdq6y"]
 animations = [{
@@ -77,10 +68,10 @@ animations = [{
 [node name="ui" type="CanvasLayer" unique_id=1468610970]
 layer = 10
 script = ExtResource("1_jxero")
-menu_audio = ExtResource("2_t7te2")
 folder_audio = ExtResource("3_56q1t")
 
 [node name="Iconos" type="PanelContainer" parent="." unique_id=637673832]
+visible = false
 layout_direction = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -158,9 +149,6 @@ text = "Interactuar"
 layout_mode = 2
 texture = ExtResource("6_mbl0m")
 
-[node name="Journal" parent="." unique_id=1763035242 instance=ExtResource("7_duuxe")]
-visible = false
-
 [node name="Hints" type="PanelContainer" parent="." unique_id=2017296424]
 visible = false
 anchors_preset = 7
@@ -202,243 +190,8 @@ material = SubResource("ShaderMaterial_fy0us")
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Pause" type="Panel" parent="." unique_id=497114061]
+[node name="Journal" parent="." unique_id=1763035242 instance=ExtResource("7_duuxe")]
 visible = false
-offset_left = 427.0
-offset_top = 106.0
-offset_right = 717.58887
-offset_bottom = 539.8956
-theme_override_styles/panel = SubResource("StyleBoxEmpty_h6tq4")
-
-[node name="TextureRect" type="TextureRect" parent="Pause" unique_id=963762896]
-layout_mode = 0
-offset_left = -26.0
-offset_top = -37.0
-offset_right = 356.0
-offset_bottom = 473.0
-texture = ExtResource("9_fy0us")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause" unique_id=935561302]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 26.143463
-offset_right = 275.0
-offset_bottom = 441.14346
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Pause/VBoxContainer" unique_id=1236354168]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
-theme_override_fonts/normal_font = ExtResource("3_duuxe")
-theme_override_font_sizes/normal_font_size = 26
-text = "Opciones
-"
-fit_content = true
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="Pause/VBoxContainer" unique_id=304769458]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
-theme_override_fonts/font = ExtResource("3_duuxe")
-text = "Volumen principal"
-horizontal_alignment = 1
-
-[node name="SliderMaster" type="HSlider" parent="Pause/VBoxContainer" unique_id=40541842]
-layout_mode = 2
-theme_override_styles/slider = ExtResource("8_pmm6b")
-max_value = 1.0
-step = 0.1
-value = 1.0
-
-[node name="Label2" type="Label" parent="Pause/VBoxContainer" unique_id=1053621975]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.22352941, 0.08627451, 0.20784314, 1)
-theme_override_fonts/font = ExtResource("3_duuxe")
-text = "
-Efectos de sonido"
-horizontal_alignment = 1
-
-[node name="SliderFX" type="HSlider" parent="Pause/VBoxContainer" unique_id=729635243]
-layout_mode = 2
-theme_override_styles/slider = ExtResource("8_pmm6b")
-max_value = 1.0
-step = 0.1
-value = 1.0
-
-[node name="Label3" type="Label" parent="Pause/VBoxContainer" unique_id=1871551713]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.2901961, 0.1254902, 0.24705882, 1)
-theme_override_fonts/font = ExtResource("3_duuxe")
-text = "
-Música"
-horizontal_alignment = 1
-
-[node name="SliderMusica" type="HSlider" parent="Pause/VBoxContainer" unique_id=1677348018]
-layout_mode = 2
-theme_override_styles/slider = ExtResource("8_pmm6b")
-max_value = 1.0
-step = 0.1
-value = 1.0
-
-[node name="Label4" type="Label" parent="Pause/VBoxContainer" unique_id=570487030]
-layout_mode = 2
-text = "
-
-
-"
-
-[node name="LabelClose" type="Label" parent="Pause" unique_id=1634719838]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 381.1434
-offset_right = 275.0
-offset_bottom = 401.1434
-theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
-theme_override_fonts/font = ExtResource("3_duuxe")
-text = "CERRAR OPCIONES"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CloseButton" type="TextureButton" parent="Pause" unique_id=1247457391 groups=["stamp_bot"]]
-auto_translate_mode = 1
-texture_filter = 1
-layout_mode = 0
-offset_left = 44.602005
-offset_top = 360.577
-offset_right = 262.602
-offset_bottom = 421.577
-rotation = -0.017453292
-size_flags_vertical = 3
-theme = ExtResource("9_vy225")
-texture_normal = ExtResource("10_fy0us")
-texture_pressed = ExtResource("11_h6tq4")
-texture_hover = ExtResource("11_h6tq4")
-stretch_mode = 0
-
-[node name="LabelMenu" type="Label" parent="Pause" unique_id=1305355698]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 308.14343
-offset_right = 275.0
-offset_bottom = 328.14343
-theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
-theme_override_fonts/font = ExtResource("3_duuxe")
-text = "SALIR AL MENÚ"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MenuButton" type="TextureButton" parent="Pause" unique_id=238278901 groups=["stamp_bot"]]
-auto_translate_mode = 1
-texture_filter = 1
-layout_mode = 0
-offset_left = 39.222
-offset_top = 281.802
-offset_right = 257.222
-offset_bottom = 342.802
-rotation = 0.034906585
-size_flags_vertical = 3
-theme = ExtResource("9_vy225")
-texture_normal = ExtResource("10_fy0us")
-texture_pressed = ExtResource("11_h6tq4")
-texture_hover = ExtResource("11_h6tq4")
-stretch_mode = 0
-
-[node name="Warning" type="Panel" parent="." unique_id=189376814]
-visible = false
-offset_left = 427.0
-offset_top = 106.0
-offset_right = 717.58887
-offset_bottom = 539.8956
-theme_override_styles/panel = SubResource("StyleBoxEmpty_t7te2")
-
-[node name="TextureRect" type="TextureRect" parent="Warning" unique_id=1594041412]
-layout_mode = 0
-offset_left = -26.0
-offset_top = -37.0
-offset_right = 356.0
-offset_bottom = 473.0
-texture = ExtResource("9_fy0us")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Warning" unique_id=1300755964]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 86.14346
-offset_right = 277.0
-offset_bottom = 200.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Warning/VBoxContainer" unique_id=1725699983]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
-theme_override_fonts/normal_font = ExtResource("3_duuxe")
-theme_override_font_sizes/normal_font_size = 26
-text = "Abandonar sueño
-"
-fit_content = true
-horizontal_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Warning/VBoxContainer" unique_id=353737852]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
-theme_override_fonts/normal_font = ExtResource("3_duuxe")
-theme_override_font_sizes/normal_font_size = 13
-text = "Si sales ahora, perderás todo el progreso realizado en este sueño y regresarás al menú principal."
-fit_content = true
-horizontal_alignment = 1
-
-[node name="LabelLeave" type="Label" parent="Warning" unique_id=582837832]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 313.14343
-offset_right = 277.0
-offset_bottom = 333.14343
-theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
-theme_override_fonts/font = ExtResource("3_duuxe")
-text = "ABANDONAR"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AbandonButton" type="TextureButton" parent="Warning" unique_id=1240695722 groups=["stamp_bot"]]
-auto_translate_mode = 1
-texture_filter = 1
-layout_mode = 0
-offset_left = 46.602005
-offset_top = 292.57703
-offset_right = 264.602
-offset_bottom = 353.57703
-rotation = -0.017453292
-size_flags_vertical = 3
-theme = ExtResource("9_vy225")
-texture_normal = ExtResource("10_fy0us")
-texture_pressed = ExtResource("11_h6tq4")
-texture_hover = ExtResource("11_h6tq4")
-stretch_mode = 0
-
-[node name="LabelStay" type="Label" parent="Warning" unique_id=303215618]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 240.14343
-offset_right = 277.0
-offset_bottom = 260.14343
-theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
-theme_override_fonts/font = ExtResource("3_duuxe")
-text = "PERMANECER"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StayButton" type="TextureButton" parent="Warning" unique_id=1877648942 groups=["stamp_bot"]]
-auto_translate_mode = 1
-texture_filter = 1
-layout_mode = 0
-offset_left = 41.222
-offset_top = 213.80197
-offset_right = 259.222
-offset_bottom = 274.802
-rotation = 0.034906585
-size_flags_vertical = 3
-theme = ExtResource("9_vy225")
-texture_normal = ExtResource("10_fy0us")
-texture_pressed = ExtResource("11_h6tq4")
-texture_hover = ExtResource("11_h6tq4")
-stretch_mode = 0
 
 [node name="Guardado" type="Control" parent="." unique_id=1090410434]
 visible = false
@@ -467,11 +220,3 @@ text = "Guardando..."
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1282098193]
 bus = &"SFX"
-
-[connection signal="value_changed" from="Pause/VBoxContainer/SliderMaster" to="." method="_on_slider_master_value_changed"]
-[connection signal="value_changed" from="Pause/VBoxContainer/SliderFX" to="." method="_on_slider_fx_value_changed"]
-[connection signal="value_changed" from="Pause/VBoxContainer/SliderMusica" to="." method="_on_slider_musica_value_changed"]
-[connection signal="pressed" from="Pause/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="Pause/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="Warning/AbandonButton" to="." method="_on_abandon_button_pressed"]
-[connection signal="pressed" from="Warning/StayButton" to="." method="_on_stay_button_pressed"]

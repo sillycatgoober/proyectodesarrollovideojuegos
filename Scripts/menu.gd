@@ -33,7 +33,6 @@ func _ready() -> void:
 	botones.visible = true
 	panel_opciones.visible = false
 	slots.visible = false
-	UI.visible = false
 
 func _on_options_pressed() -> void:
 	panel_opciones.visible = true
@@ -99,8 +98,6 @@ func _actualizar_slot(boton: TextureButton, label: Label, slot: int) -> void:
 		del_boton.visible = false
 
 func _on_slot_pressed(slot: int) -> void:
-	UI.visible = true
-	print(UI.visible)
 	if modo_slots == "nuevo":
 		GameManager.reset_dreams()
 		GameManager.fase_actual = GameManager.Fase.INTRO 

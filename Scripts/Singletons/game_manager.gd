@@ -14,6 +14,13 @@ var dreams = {
 	"2": {"done": false, "diagnostico_correcto": false},
 	"3": {"done": false, "diagnostico_correcto": false}
 }
+const RESOLUCIONES = [
+	Vector2i(1280, 720),
+	Vector2i(1600, 900),
+	Vector2i(1920, 1080),
+	Vector2i(2560, 1440),
+	Vector2i(3840, 2160)
+]
 
 func _ready() -> void:
 	cargar_config()
@@ -67,9 +74,6 @@ func calcular_puntaje() -> Dictionary:
 	}
 
 func guardar(slot: int = -1) -> void:
-	print("=== GUARDANDO ===")
-	print("Fase:", fase_actual)
-	print("Escena:", get_tree().current_scene.scene_file_path)
 	if slot != -1:
 		slot_actual = slot
 	var data = {
@@ -110,11 +114,8 @@ func eliminar_partida(slot: int) -> void:
 func completar_sueno_actual() -> void:
 	if dream_actual in dreams:
 		dreams[dream_actual]["done"] = true
-	
 	fase_actual = Fase.DIAGNOSTICO
-	
 	guardar()
-	
 	get_tree().change_scene_to_file("res://Scenes/office.tscn")
 
 func guardar_config() -> void:
@@ -122,6 +123,8 @@ func guardar_config() -> void:
 	config.set_value("audio", "master", AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 	config.set_value("audio", "sfx", AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 	config.set_value("audio", "musica", AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	config.set_value("video", "fullscreen", DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
+	config.set_value("video", "resolucion", DisplayServer.window_get_size())
 	config.save("user://settings.cfg")
 
 func cargar_config() -> void:
@@ -130,7 +133,24 @@ func cargar_config() -> void:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), config.get_value("audio", "master", 0.0))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), config.get_value("audio", "sfx", 0.0))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), config.get_value("audio", "musica", 0.0))
-#---- FIN CONFIGURACION AUDIO ----#
+		var fullscreen = config.get_value("video", "fullscreen", false)
+		set_fullscreen(fullscreen)
+		if not fullscreen:
+			var res = config.get_value("video", "resolucion", Vector2i(1920, 1080))
+			DisplayServer.window_set_size(res)
+
+#---- VIDEO ----#
+func set_fullscreen(activo: bool) -> void:
+	if activo:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func set_resolucion(index: int) -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		DisplayServer.window_set_size(RESOLUCIONES[index])
+		guardar_config()
+#---- FIN VIDEO ----#
 
 #----MOUSE----#
 func set_gameplay_mode():
