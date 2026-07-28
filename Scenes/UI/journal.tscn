@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://b7d0pl0k5nl3" path="res://Assets/Audio/SFX/turnpage1.wav" id="4_evjd8"]
 [ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="5_8e0x1"]
 [ext_resource type="Texture2D" uid="uid://dq22pqc2warcp" path="res://Assets/Imagenes/flecha.png" id="9_7yxtn"]
+[ext_resource type="StyleBox" uid="uid://dgwnpn3ofx6op" path="res://slider.tres" id="9_jpu4f"]
 [ext_resource type="Script" uid="uid://cnfnkh0jdjra5" path="res://Scripts/button_move.gd" id="10_evjd8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e0x1"]
@@ -35,15 +36,33 @@ script = ExtResource("1_d4r5f")
 sonidos_hojas = Array[AudioStream]([ExtResource("2_nl31k"), ExtResource("3_7yxtn")])
 sonido_tab = ExtResource("4_evjd8")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=23291246]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = 37.000004
+offset_right = 3048.9995
+offset_bottom = 2208.9995
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_aak55")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=425371238]
 layout_mode = 0
-offset_left = 981.961
+offset_left = 966.961
 offset_top = 65.0
-offset_right = 1248.9609
+offset_right = 1466.9609
 offset_bottom = 105.0
 rotation = 1.5707964
+theme_override_constants/separation = -25
 
 [node name="Bot1" type="TextureButton" parent="HBoxContainer" unique_id=1238294708]
+z_index = 4
 texture_filter = 1
 custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
@@ -65,6 +84,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Bot2" type="TextureButton" parent="HBoxContainer" unique_id=1948700232]
+z_index = 3
 texture_filter = 1
 custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
@@ -86,6 +106,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Bot3" type="TextureButton" parent="HBoxContainer" unique_id=1652348623]
+z_index = 2
 texture_filter = 1
 custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
@@ -107,6 +128,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Bot4" type="TextureButton" parent="HBoxContainer" unique_id=1726355032]
+z_index = 1
 texture_filter = 1
 custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
@@ -127,23 +149,29 @@ text = "Sueños"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=23291246]
+[node name="Bot5" type="TextureButton" parent="HBoxContainer" unique_id=1083656384]
 texture_filter = 1
-custom_minimum_size = Vector2(400, 600)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 151.0
-offset_top = 37.000004
-offset_right = 3048.9995
-offset_bottom = 2208.9995
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_aak55")
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_y6fbt")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/Bot5" unique_id=262791428]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.957901
+offset_top = 8.936852
+offset_right = 128.40002
+offset_bottom = 47.612022
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Opciones"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1378048543]
+z_index = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -158,6 +186,7 @@ rotation = 0.02094395
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8e0x1")
 
 [node name="Panel" type="Panel" parent="PanelContainer" unique_id=1622883977]
+visible = false
 clip_contents = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cdp70")
@@ -377,7 +406,122 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "3333333333333333333333333333"
 autowrap_mode = 3
 
+[node name="Panel5" type="Panel" parent="PanelContainer" unique_id=194150296]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
+
+[node name="Audio" type="Panel" parent="PanelContainer/Panel5" unique_id=1621025643]
+layout_mode = 0
+offset_right = 292.0
+offset_bottom = 440.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel5/Audio" unique_id=634314210]
+layout_mode = 0
+offset_left = 1.6633911
+offset_top = 0.13482666
+offset_right = 288.6098
+offset_bottom = 441.14346
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel5/Audio/VBoxContainer" unique_id=751020023]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_6akw1")
+theme_override_font_sizes/normal_font_size = 26
+text = "Audio
+"
+fit_content = true
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Audio/VBoxContainer" unique_id=1255817528]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Volumen principal"
+
+[node name="SliderMaster" type="HSlider" parent="PanelContainer/Panel5/Audio/VBoxContainer" unique_id=1207485103]
+layout_mode = 2
+theme_override_styles/slider = ExtResource("9_jpu4f")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Label2" type="Label" parent="PanelContainer/Panel5/Audio/VBoxContainer" unique_id=352470295]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22352941, 0.08627451, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "
+Efectos de sonido"
+
+[node name="SliderFX" type="HSlider" parent="PanelContainer/Panel5/Audio/VBoxContainer" unique_id=92561978]
+layout_mode = 2
+theme_override_styles/slider = ExtResource("9_jpu4f")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Label3" type="Label" parent="PanelContainer/Panel5/Audio/VBoxContainer" unique_id=829159462]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2901961, 0.1254902, 0.24705882, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "
+Música"
+
+[node name="SliderMusica" type="HSlider" parent="PanelContainer/Panel5/Audio/VBoxContainer" unique_id=2110823088]
+layout_mode = 2
+theme_override_styles/slider = ExtResource("9_jpu4f")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Controles" type="Panel" parent="PanelContainer/Panel5" unique_id=1902939147]
+layout_mode = 0
+offset_right = 292.0
+offset_bottom = 440.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
+
+[node name="General" type="Panel" parent="PanelContainer/Panel5" unique_id=1266732974]
+layout_mode = 0
+offset_right = 292.0
+offset_bottom = 440.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/Panel5" unique_id=439352523]
+visible = false
+layout_mode = 0
+offset_right = 292.7434
+offset_bottom = 92.0
+
+[node name="Nombre" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=1570216198]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "33333333"
+autowrap_mode = 3
+
+[node name="Desc" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=1823797855]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Evidencias" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=164443372]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
+[node name="Solucion" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=532093490]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3333333333333333333333333333"
+autowrap_mode = 3
+
 [node name="Button" type="TextureButton" parent="." unique_id=1819759559]
+z_index = 5
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -396,6 +540,7 @@ script = ExtResource("10_evjd8")
 desplazamiento = 6.0
 
 [node name="Button2" type="TextureButton" parent="." unique_id=1388179240]
+z_index = 5
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -421,6 +566,7 @@ bus = &"SFX"
 [connection signal="pressed" from="HBoxContainer/Bot2" to="." method="_on_bot_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/Bot3" to="." method="_on_bot_3_pressed"]
 [connection signal="pressed" from="HBoxContainer/Bot4" to="." method="_on_bot_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bot5" to="." method="_on_bot_5_pressed"]
 [connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

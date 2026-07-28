@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Juego"
+config/name="Dream Inspector"
 run/main_scene="uid://c2omn8jke7kik"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://w442tlmjt54l"
 
 [audio]
 
@@ -27,6 +27,11 @@ DialogManager="*uid://bghsqkcqdg1i1"
 InventoryManager="*uid://c6q0sdnlywg2u"
 SFX="*uid://ywkst0w4w5lp"
 TransitionManager="*uid://0morxt8h0xfm"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global]
 

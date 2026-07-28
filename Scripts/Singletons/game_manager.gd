@@ -67,9 +67,6 @@ func calcular_puntaje() -> Dictionary:
 	}
 
 func guardar(slot: int = -1) -> void:
-	print("=== GUARDANDO ===")
-	print("Fase:", fase_actual)
-	print("Escena:", get_tree().current_scene.scene_file_path)
 	if slot != -1:
 		slot_actual = slot
 	var data = {
@@ -110,11 +107,8 @@ func eliminar_partida(slot: int) -> void:
 func completar_sueno_actual() -> void:
 	if dream_actual in dreams:
 		dreams[dream_actual]["done"] = true
-	
 	fase_actual = Fase.DIAGNOSTICO
-	
 	guardar()
-	
 	get_tree().change_scene_to_file("res://Scenes/office.tscn")
 
 func guardar_config() -> void:

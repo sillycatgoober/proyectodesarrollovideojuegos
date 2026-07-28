@@ -242,3 +242,7 @@ func _on_bot_3_pressed() -> void:
 	ir_a_tab(2)
 func _on_bot_4_pressed() -> void:
 	ir_a_tab(3)
+
+
+func _on_bot_5_pressed() -> void:
+	pass # Replace with function body.
