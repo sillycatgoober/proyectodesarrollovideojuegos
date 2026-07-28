@@ -9,8 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://b7d0pl0k5nl3" path="res://Assets/Audio/SFX/turnpage1.wav" id="4_evjd8"]
 [ext_resource type="Theme" uid="uid://dydowwc15qd24" path="res://tema_default.tres" id="5_8e0x1"]
 [ext_resource type="Texture2D" uid="uid://dq22pqc2warcp" path="res://Assets/Imagenes/flecha.png" id="9_7yxtn"]
+[ext_resource type="Texture2D" uid="uid://owk8dxvcuf1h" path="res://Assets/Imagenes/Stamp.png" id="9_231t3"]
 [ext_resource type="StyleBox" uid="uid://dgwnpn3ofx6op" path="res://slider.tres" id="9_jpu4f"]
 [ext_resource type="Script" uid="uid://cnfnkh0jdjra5" path="res://Scripts/button_move.gd" id="10_evjd8"]
+[ext_resource type="Texture2D" uid="uid://cj18yjogl0ok0" path="res://Assets/Imagenes/tecla.png" id="10_nrdef"]
+[ext_resource type="Texture2D" uid="uid://c2dp40sgm5aih" path="res://Assets/Imagenes/Stamp-Hover.png" id="10_x10yq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e0x1"]
 
@@ -407,10 +410,240 @@ text = "3333333333333333333333333333"
 autowrap_mode = 3
 
 [node name="Panel5" type="Panel" parent="PanelContainer" unique_id=194150296]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
 
+[node name="General" type="Panel" parent="PanelContainer/Panel5" unique_id=1266732974]
+visible = false
+layout_mode = 0
+offset_right = 292.0
+offset_bottom = 440.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel5/General" unique_id=78582150]
+layout_mode = 0
+offset_left = 1.6633911
+offset_top = 0.13481903
+offset_right = 287.6634
+offset_bottom = 33.13482
+theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_6akw1")
+theme_override_font_sizes/normal_font_size = 26
+text = "General
+"
+fit_content = true
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/Panel5/General" unique_id=243576559]
+layout_mode = 0
+offset_left = 0.62823486
+offset_top = 29.993423
+offset_right = 294.28943
+offset_bottom = 185.99342
+theme_override_constants/h_separation = 60
+columns = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/General/GridContainer" unique_id=975113996]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Fullscreen"
+
+[node name="Fullscreen" type="CheckBox" parent="PanelContainer/Panel5/General/GridContainer" unique_id=1082926551]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/Panel5/General/GridContainer" unique_id=1589437519]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2901961, 0.1254902, 0.24705882, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Resolución"
+
+[node name="ResBot" type="OptionButton" parent="PanelContainer/Panel5/General/GridContainer" unique_id=1595615717]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+selected = 0
+item_count = 5
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 3
+popup/item_4/text = "3840x2160"
+popup/item_4/id = 4
+
+[node name="Label3" type="Label" parent="PanelContainer/Panel5/General/GridContainer" unique_id=1901421884]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2901961, 0.1254902, 0.24705882, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Idioma"
+
+[node name="IdiomaBot" type="OptionButton" parent="PanelContainer/Panel5/General/GridContainer" unique_id=1198240031]
+layout_mode = 2
+theme = ExtResource("5_8e0x1")
+selected = 0
+item_count = 2
+popup/item_0/text = "Español"
+popup/item_0/id = 0
+popup/item_1/text = "Inglés"
+popup/item_1/id = 1
+
+[node name="Label4" type="Label" parent="PanelContainer/Panel5/General/GridContainer" unique_id=77490873]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2901961, 0.1254902, 0.24705882, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Retícula"
+
+[node name="Reticula" type="CheckBox" parent="PanelContainer/Panel5/General/GridContainer" unique_id=1597363162]
+layout_mode = 2
+
+[node name="LabelClose" type="Label" parent="PanelContainer/Panel5/General" unique_id=936721915]
+layout_mode = 0
+offset_left = 18.833984
+offset_top = 373.2919
+offset_right = 267.83398
+offset_bottom = 393.2919
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "CERRAR OPCIONES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="PanelContainer/Panel5/General" unique_id=332022849 groups=["stamp_bot"]]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 37.43599
+offset_top = 352.7254
+offset_right = 255.43597
+offset_bottom = 413.7254
+rotation = -0.017453292
+size_flags_vertical = 3
+theme = ExtResource("5_8e0x1")
+texture_normal = ExtResource("9_231t3")
+texture_pressed = ExtResource("10_x10yq")
+texture_hover = ExtResource("10_x10yq")
+stretch_mode = 0
+
+[node name="LabelMenu" type="Label" parent="PanelContainer/Panel5/General" unique_id=518289121]
+layout_mode = 0
+offset_left = 18.833984
+offset_top = 300.29196
+offset_right = 267.83398
+offset_bottom = 320.29196
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "SALIR AL MENÚ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="PanelContainer/Panel5/General" unique_id=2097567424 groups=["stamp_bot"]]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 32.055984
+offset_top = 273.95038
+offset_right = 250.05597
+offset_bottom = 334.95038
+rotation = 0.034906585
+size_flags_vertical = 3
+theme = ExtResource("5_8e0x1")
+texture_normal = ExtResource("9_231t3")
+texture_pressed = ExtResource("10_x10yq")
+texture_hover = ExtResource("10_x10yq")
+stretch_mode = 0
+
+[node name="Abandonar" type="Panel" parent="PanelContainer/Panel5" unique_id=281556859]
+visible = false
+layout_mode = 0
+offset_right = 292.0
+offset_bottom = 440.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel5/Abandonar" unique_id=2036650196]
+layout_mode = 0
+offset_left = 1.0427246
+offset_top = 0.4596405
+offset_right = 290.82123
+offset_bottom = 200.00002
+
+[node name="Tit" type="RichTextLabel" parent="PanelContainer/Panel5/Abandonar/VBoxContainer" unique_id=1498426937]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_6akw1")
+theme_override_font_sizes/normal_font_size = 26
+text = "Abandonar sueño
+"
+fit_content = true
+
+[node name="Cont" type="RichTextLabel" parent="PanelContainer/Panel5/Abandonar/VBoxContainer" unique_id=991720]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_6akw1")
+theme_override_font_sizes/normal_font_size = 13
+text = "Si sales ahora, perderás todo el progreso realizado en este sueño y regresarás al menú principal."
+fit_content = true
+
+[node name="LabelLeave" type="Label" parent="PanelContainer/Panel5/Abandonar" unique_id=454768467]
+layout_mode = 0
+offset_left = 19.237732
+offset_top = 372.33987
+offset_right = 268.23773
+offset_bottom = 392.33987
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "ABANDONAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbandonButton" type="TextureButton" parent="PanelContainer/Panel5/Abandonar" unique_id=10236510 groups=["stamp_bot"]]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 37.839798
+offset_top = 351.7736
+offset_right = 255.83978
+offset_bottom = 412.7736
+rotation = -0.017453292
+size_flags_vertical = 3
+theme = ExtResource("5_8e0x1")
+texture_normal = ExtResource("9_231t3")
+texture_pressed = ExtResource("10_x10yq")
+texture_hover = ExtResource("10_x10yq")
+stretch_mode = 0
+
+[node name="LabelStay" type="Label" parent="PanelContainer/Panel5/Abandonar" unique_id=716483603]
+layout_mode = 0
+offset_left = 19.237732
+offset_top = 299.3399
+offset_right = 268.23773
+offset_bottom = 319.33994
+theme_override_colors/font_color = Color(0.24313726, 0.09803922, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "PERMANECER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StayButton" type="TextureButton" parent="PanelContainer/Panel5/Abandonar" unique_id=1535801125 groups=["stamp_bot"]]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 32.459732
+offset_top = 272.9985
+offset_right = 250.45972
+offset_bottom = 333.99854
+rotation = 0.034906585
+size_flags_vertical = 3
+theme = ExtResource("5_8e0x1")
+texture_normal = ExtResource("9_231t3")
+texture_pressed = ExtResource("10_x10yq")
+texture_hover = ExtResource("10_x10yq")
+stretch_mode = 0
+
 [node name="Audio" type="Panel" parent="PanelContainer/Panel5" unique_id=1621025643]
+visible = false
 layout_mode = 0
 offset_right = 292.0
 offset_bottom = 440.0
@@ -474,51 +707,267 @@ step = 0.1
 value = 1.0
 
 [node name="Controles" type="Panel" parent="PanelContainer/Panel5" unique_id=1902939147]
-layout_mode = 0
-offset_right = 292.0
-offset_bottom = 440.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
-
-[node name="General" type="Panel" parent="PanelContainer/Panel5" unique_id=1266732974]
-layout_mode = 0
-offset_right = 292.0
-offset_bottom = 440.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
-
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/Panel5" unique_id=439352523]
 visible = false
 layout_mode = 0
-offset_right = 292.7434
-offset_bottom = 92.0
+offset_right = 292.0
+offset_bottom = 440.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl31k")
 
-[node name="Nombre" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=1570216198]
-layout_mode = 2
-theme = ExtResource("5_8e0x1")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "33333333"
-autowrap_mode = 3
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel5/Controles" unique_id=1660773805]
+layout_mode = 0
+offset_left = 1.6633911
+offset_top = 0.13481903
+offset_right = 287.6634
+offset_bottom = 33.13482
+theme_override_colors/default_color = Color(0.22352941, 0.09019608, 0.20784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_6akw1")
+theme_override_font_sizes/normal_font_size = 26
+text = "Controles
+"
+fit_content = true
 
-[node name="Desc" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=1823797855]
-layout_mode = 2
-theme = ExtResource("5_8e0x1")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3333333333333333333333333333"
-autowrap_mode = 3
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/Panel5/Controles" unique_id=853109693]
+layout_mode = 0
+offset_left = 0.62823486
+offset_top = 29.993423
+offset_right = 268.62823
+offset_bottom = 185.99342
+theme_override_constants/h_separation = 40
+columns = 2
 
-[node name="Evidencias" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=164443372]
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=1377253243]
 layout_mode = 2
-theme = ExtResource("5_8e0x1")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3333333333333333333333333333"
-autowrap_mode = 3
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Interactuar"
 
-[node name="Solucion" type="Label" parent="PanelContainer/Panel5/VBox" unique_id=532093490]
+[node name="interact" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=649699483]
+texture_filter = 1
 layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/interact" unique_id=399205632]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
 theme = ExtResource("5_8e0x1")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "3333333333333333333333333333"
-autowrap_mode = 3
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=810113191]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Recoger"
+
+[node name="grab" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=1322624126]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/grab" unique_id=933006339]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=1844163175]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Regresar/Folder"
+
+[node name="back" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=936103532]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/back" unique_id=2012734590]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=1111730224]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Avanzar Diálogo"
+
+[node name="advance" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=668768638]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/advance" unique_id=1130644924]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=557541631]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Mover adelante"
+
+[node name="move_forward" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=1902684150]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/move_forward" unique_id=517753908]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=2041716586]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Mover atrás"
+
+[node name="move_backward" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=537241353]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/move_backward" unique_id=476924997]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=319493042]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Mover izquierda"
+
+[node name="move_left" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=1641349228]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/move_left" unique_id=315429525]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=258675534]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Mover derecha"
+
+[node name="move_right" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=805686793]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/move_right" unique_id=69255063]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=340908405]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23529412, 0.09411765, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_6akw1")
+text = "Correr"
+
+[node name="run" type="TextureButton" parent="PanelContainer/Panel5/Controles/GridContainer" unique_id=1105117452]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_nrdef")
+texture_pressed = ExtResource("10_nrdef")
+texture_hover = ExtResource("10_nrdef")
+texture_disabled = ExtResource("10_nrdef")
+texture_focused = ExtResource("10_nrdef")
+
+[node name="Label" type="Label" parent="PanelContainer/Panel5/Controles/GridContainer/run" unique_id=626483276]
+layout_mode = 0
+offset_left = 2.317871
+offset_top = 2.0636368
+offset_right = 32.44568
+offset_bottom = 32.032303
+theme = ExtResource("5_8e0x1")
+theme_override_colors/font_color = Color(0.12156863, 0, 0.1764706, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="TextureButton" parent="." unique_id=1819759559]
 z_index = 5
@@ -567,6 +1016,26 @@ bus = &"SFX"
 [connection signal="pressed" from="HBoxContainer/Bot3" to="." method="_on_bot_3_pressed"]
 [connection signal="pressed" from="HBoxContainer/Bot4" to="." method="_on_bot_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/Bot5" to="." method="_on_bot_5_pressed"]
+[connection signal="toggled" from="PanelContainer/Panel5/General/GridContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="item_selected" from="PanelContainer/Panel5/General/GridContainer/ResBot" to="." method="_on_res_bot_item_selected"]
+[connection signal="item_selected" from="PanelContainer/Panel5/General/GridContainer/IdiomaBot" to="." method="_on_idioma_bot_item_selected"]
+[connection signal="toggled" from="PanelContainer/Panel5/General/GridContainer/Reticula" to="." method="_on_reticula_toggled"]
+[connection signal="pressed" from="PanelContainer/Panel5/General/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/General/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Abandonar/AbandonButton" to="." method="_on_abandon_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Abandonar/StayButton" to="." method="_on_stay_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/Panel5/Audio/VBoxContainer/SliderMaster" to="." method="_on_slider_master_value_changed"]
+[connection signal="value_changed" from="PanelContainer/Panel5/Audio/VBoxContainer/SliderFX" to="." method="_on_slider_fx_value_changed"]
+[connection signal="value_changed" from="PanelContainer/Panel5/Audio/VBoxContainer/SliderMusica" to="." method="_on_slider_musica_value_changed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/interact" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/grab" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/back" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/advance" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/move_forward" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/move_backward" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/move_left" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/move_right" to="." method="_on_bot_key_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel5/Controles/GridContainer/run" to="." method="_on_bot_key_pressed"]
 [connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
